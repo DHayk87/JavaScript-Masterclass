@@ -17,9 +17,15 @@ JS-Docs/
 
 ## 🚀 Ինչպես օգտագործել
 
-1. Բացեք `index.html` ֆայլը root թղթապանակում:
-2. Այն ձեզ ավտոմատ կտանի դեպի `docs/index.html` (Masterclass Dashboard):
-3. Ընտրեք ցանկացած մոդուլ՝ սովորելու համար:
+### Development
+1. Տեղադրեք կախվածությունները: `npm install`
+2. Միացրեք dev server-ը: `npm run dev`
+3. Բացեք տրված հղումը բրաուզերում:
+
+### Production Build
+1. Ստեղծեք build-ը: `npm run build`
+2. Վերջնական ֆայլերը կհայտնվեն `dist/` թղթապանակում:
+3. Կարող եք ստուգել build-ը տեղային: `npm run preview`
 
 ## 🛠️ Տեխնոլոգիաներ
 
