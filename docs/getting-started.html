@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="hy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS.CORE | Հիմունքներ</title>
+        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+
+        <script type="module">
+            import mermaid from "../node_modules/mermaid/dist/mermaid.esm.min.mjs";
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: "dark",
+                securityLevel: "loose",
+                fontFamily: "Noto Sans Armenian",
+            });
+        </script>
+        <link rel="stylesheet" href="../public/styles/style.css" />
+    </head>
+    <body>
+        <nav class="nav-fixed">
+            <div class="nav-container">
+                <a href="index.html" class="nav-brand">JS.CORE</a>
+                <div class="nav-links">
+                    <a href="#variables" class="nav-link">Փոփոխականներ</a>
+                    <a href="#types" class="nav-link">Տիպեր</a>
+                    <a href="#interaction" class="nav-link">Ինտերակցիա</a>
+                    <a href="#operators" class="nav-link">Օպերատորներ</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header>
+                <h1 class="title-large gradient-text">JavaScript Հիմունքներ</h1>
+                <p class="subtitle">
+                    "Ծրագիրը սկսվում է տվյալներից և դրանց կառավարման հրահանգներից:"
+                </p>
+            </header>
+
+            <!-- Section 01: Variables -->
+            <section id="variables" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">Փոփոխականներ (Variables)</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Փոփոխականը «արկղ» է տվյալների պահպանման համար: JS-ում օգտագործվում
+                        են <code>let</code>, <code>const</code> և
+                        <code>var</code> հիմնաբառերը:
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">let & const</h4>
+                            <ul
+                                class="list-container"
+                                style="list-style: none; padding: 0"
+                            >
+                                <li class="list-item">
+                                    <span class="dot"></span> <b>let</b>: արժեքը կարող է
+                                    փոխվել:
+                                </li>
+                                <li class="list-item">
+                                    <span class="dot"></span> <b>const</b>: հաստատուն է,
+                                    չի փոխվում:
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Անվանում</h4>
+                            <p class="text-dimmed">
+                                Պետք է պարունակի միայն տառեր, թվեր, <code>$</code> կամ
+                                <code>_</code>: Չի կարող սկսվել թվով:
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="feature-item"
+                        style="border-left: 4px solid var(--js-yellow)"
+                    >
+                        <code style="color: #98c379">let message = "Hello!";</code><br />
+                        <code style="color: #e06c75">const BIRTHDAY = "18.04.1982";</code>
+                    </div>
+                </div>
+            </section>
+
+             <!-- 02: Variables & Types -->
+            <section id="types" class="section-container">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="section-title">Տվյալների տիպեր</h2>
+                </div>
+
+                <div class="glass-card" style="padding: 2rem">
+                    <div class="grid-2">
+                        <div class="flex-col-1">
+                            <h4 class="card-header-small">
+                                Primitives
+                            </h4>
+                            <div
+                                style="
+                                    display: grid;
+                                    grid-template-columns: 1fr 1fr;
+                                    gap: 0.5rem;
+                                "
+                            >
+                                <div class="feature-item" style="padding: 0.75rem; text-align: center; font-size: 0.875rem;">
+                                    String
+                                </div>
+                                <div class="feature-item" style="padding: 0.75rem; text-align: center; font-size: 0.875rem;">
+                                    Number
+                                </div>
+                                <div class="feature-item" style="padding: 0.75rem; text-align: center; font-size: 0.875rem;">
+                                    Boolean
+                                </div>
+                                <div class="feature-item" style="padding: 0.75rem; text-align: center; font-size: 0.875rem;">
+                                    BigInt
+                                </div>
+                                <div class="feature-item" style="padding: 0.75rem; text-align: center; font-size: 0.875rem;">
+                                    Null
+                                </div>
+                                <div class="feature-item" style="padding: 0.75rem; text-align: center; font-size: 0.875rem;">
+                                    Undefined
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-col-1">
+                            <h4 class="card-header-small">
+                                Complex
+                            </h4>
+                            <div class="feature-item" style="height: 106px; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                                Object (Arrays, Functions)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Section 03: Interaction -->
+            <section id="interaction" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">Ինտերակցիա (alert, prompt, confirm)</h2>
+                </div>
+
+                <div class="glass-card">
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">alert()</h4>
+                            <p class="text-dimmed">
+                                Ցուցադրում է հաղորդագրություն և սպասում «OK» սեղմելուն:
+                            </p>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">prompt()</h4>
+                            <p class="text-dimmed">
+                                Ցուցադրում է հաղորդագրություն և մուտքագրման դաշտ:
+                                Վերադարձնում է տեքստը կամ <code>null</code>:
+                            </p>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">confirm()</h4>
+                            <p class="text-dimmed">
+                                Հարցնում է հաստատում: Վերադարձնում է <code>true</code> կամ
+                                <code>false</code>:
+                            </p>
+                        </div>
+                        <div
+                            class="feature-item"
+                            style="
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                background: var(--js-yellow);
+                                color: black;
+                                font-weight: 900;
+                                border-radius: 12px;
+                                cursor: pointer;
+                            "
+                            onclick="testInteraction()"
+                        >
+                            ՓՈՐՁԱՐԿԵԼ ՀԻՄԱ
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 04: Operators -->
+            <section id="operators" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">04</span>
+                    <h2 class="section-title">Օպերատորներ (Operators)</h2>
+                </div>
+
+                <div class="glass-card">
+                    <div class="grid-2">
+                        <div class="flex-col-1">
+                            <h4 class="card-header-small">Մաթեմատիկական</h4>
+                            <div class="feature-item">
+                                <code>+, -, *, /, %, **</code>
+                            </div>
+                            <p class="text-dimmed">
+                                Գումարում, հանում, բազմապատկում, բաժանում, մնացորդ,
+                                աստիճան:
+                            </p>
+                        </div>
+                        <div class="flex-col-1">
+                            <h4 class="card-header-small">Համեմատման</h4>
+                            <div class="feature-item">
+                                <code>==, ===, !=, !==, &gt;, &lt;</code>
+                            </div>
+                            <p class="text-dimmed">
+                                <code>===</code>-ը ստուգում է նաև տիպը (Strict equality):
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Mermaid Diagram -->
+                    <!-- prettier-ignore -->
+                    <div class="mermaid">
+                        graph TD
+                            Start[Operators] --> Math[Arithmetic]
+                            Start --> Comp[Comparison]
+                            Start --> Log[Logical]
+                            Log --> AND["&&"]
+                            Log --> OR["||"]
+                            Math --> Add("+")
+                            Math --> Sub("-")
+                            Comp --> Equal("==")
+                            Comp --> Strict("===")
+                            Math --> Muls("*")
+                            Math --> Div("/")
+                            Math --> Mod("%")
+                            Math --> Pow("**")
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer-simple">
+            <div class="footer-brand">JS.CORE</div>
+            <p class="footer-copy">Created By DHayk | 2026</p>
+        </footer>
+
+        <script>
+            function testInteraction() {
+                const name = prompt("Ի՞նչ է ձեր անունը:", "Հյուր");
+                if (name) {
+                    const isReady = confirm("Պատրա՞ստ եք սովորել JavaScript:");
+                    if (isReady) {
+                        alert("Ողջույն, " + name + "! Սկսենք:");
+                    } else {
+                        alert("Ոչինչ, սպասում ենք ձեզ:");
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="hy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS.CORE | Switch և Loops</title>
+        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+
+        <script type="module">
+            import mermaid from "../node_modules/mermaid/dist/mermaid.esm.min.mjs";
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: "dark",
+                securityLevel: "loose",
+                fontFamily: "Noto Sans Armenian",
+            });
+        </script>
+        <link rel="stylesheet" href="../public/styles/style.css" />
+    </head>
+    <body>
+        <nav class="nav-fixed">
+            <div class="nav-container">
+                <a href="index.html" class="nav-brand">JS.CORE</a>
+                <div class="nav-links">
+                    <a href="#switch" class="nav-link">Switch</a>
+                    <a href="#loops" class="nav-link">Ցիկլեր</a>
+                    <a href="#lexical" class="nav-link">Lexical Environment</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header>
+                <h1 class="title-large gradient-text">Switch և Ցիկլեր</h1>
+                <p class="subtitle">
+                    "Կրկնությունը գիտության մայրն է, իսկ ընտրությունը՝ արդյունավետության
+                    գրավականը:"
+                </p>
+            </header>
+
+            <!-- Section 01: Switch -->
+            <section id="switch" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">Switch Կոնստրուկցիա</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        <code>switch</code>-ը փոխարինում է մի քանի <code>if</code>-երին և
+                        կատարում է խիստ համեմատություն (<code>===</code>):
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Կառուցվածք</h4>
+                            <div class="feature-item">
+                                <code style="color: #c678dd">switch</code>(x) {<br />
+                                &nbsp;&nbsp;<code style="color: #c678dd">case</code>
+                                'val1':
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... Կատարվող
+                                գործողությունները
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <code style="color: #c678dd">break</code>;<br />
+                                &nbsp;&nbsp;<code style="color: #c678dd">case</code>
+                                'val2':
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... Կատարվող
+                                գործողությունները
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <code style="color: #c678dd">break</code>;<br />
+                                &nbsp;&nbsp;<code style="color: #c678dd">default</code>:
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... Կատարվող
+                                գործողությունները
+                                <br />
+                                }
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Break-ի Կարևորությունը</h4>
+                            <p class="text-dimmed">
+                                Առանց <code>break</code>-ի, կոդը կշարունակի կատարվել
+                                հաջորդ <code>case</code>-երի մեջ՝ անկախ պայմանից:
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 02: Loops -->
+            <section id="loops" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title">Ցիկլեր (while, do...while, for)</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Ցիկլերը թույլ են տալիս կատարել նույն կոդը բազմաթիվ անգամներ:
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="flex-col-1">
+                            <h4 class="card-header-small">for Ցիկլ</h4>
+                            <div class="feature-item">
+                                <code style="color: #c678dd">for</code> (let i = 0; i < 3;
+                                i++) {<br />
+                                &nbsp;&nbsp;alert(i);<br />
+                                }
+                            </div>
+                            <p class="text-dimmed" style="font-size: 0.8rem">
+                                <i>սկիզբ, պայման, քայլ:</i>
+                            </p>
+                        </div>
+                        <div class="flex-col-1">
+                            <h4 class="card-header-small">while Ցիկլ</h4>
+                            <div class="feature-item">
+                                <code style="color: #c678dd">while</code> (i < 3) {<br />
+                                &nbsp;&nbsp;alert(i);<br />
+                                &nbsp;&nbsp;i++;<br />
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">break & continue</h4>
+                            <p class="text-dimmed">
+                                <code>break</code>-ը դուրս է գալիս ցիկլից, իսկ
+                                <code>continue</code>-ն թռչում է դեպի հաջորդ քայլը:
+                            </p>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">do...while</h4>
+                            <p class="text-dimmed">
+                                Կոդը կատարվում է գոնե մեկ անգամ, նույնիսկ եթե պայմանը սխալ
+                                է:
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Mermaid Loop Visualizer -->
+                    <!-- prettier-ignore -->
+                    <div class="mermaid">
+                        graph TD
+                            Start["Start Loop"] --> Cond{"Condition?"}
+                            Cond -->|True| Body["Execute Body"]
+                            Body --> Step["Step / i++"]
+                            Step --> Cond
+                            Cond -->|False| End["End Loop"]
+                            
+                            style Cond fill:none,stroke:#f7df1e,stroke-width:2px
+                            style Body fill:#61afef,stroke:#61afef,color:#fff
+                            style Start fill:none,stroke:#fff
+                            style End fill:none,stroke:#fff
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 03: Lexical Environment -->
+            <section id="lexical" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">
+                        Լեքսիկական Միջավայր (Lexical Environment)
+                    </h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        JavaScript-ում յուրաքանչյուր կատարվող ֆունկցիա, կոդի բլոկ կամ
+                        սկրիպտ ունի իրեն կցված ներքին օբյեկտ, որը կոչվում է
+                        <b>Lexical Environment</b>:
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Կառուցվածք</h4>
+                            <ul
+                                class="list-container"
+                                style="list-style: none; padding: 0"
+                            >
+                                <li class="list-item">
+                                    <span class="dot"></span> <b>Environment Record</b>:
+                                    Պահպանում է բոլոր տեղային փոփոխականները:
+                                </li>
+                                <li class="list-item">
+                                    <span class="dot"></span> <b>Outer Reference</b>:
+                                    Հղում դեպի արտաքին (outer) միջավայր:
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Ինչպե՞ս է աշխատում</h4>
+                            <p class="text-dimmed">
+                                Երբ փնտրում ենք փոփոխական, JS-ը նախ նայում է ներքին
+                                միջավայրում, ապա՝ արտաքինում, մինչև հասնի Global
+                                միջավայրին:
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item" style="margin-top: 2rem;">
+                        <h3 class="js-yellow-text" style="font-size: 1.5rem; margin-bottom: 1rem;">Ինչպե՞ս է աշխատում Scope Chain-ը</h3>
+                        <p class="text-dimmed">Այս դիագրամը պատկերում է JavaScript-ի լեքսիկական հիերարխիան կոդի կատարման պահին: Այն ցույց է տալիս, թե ինչպես են փոփոխականները հասանելի դառնում տարբեր կոնտեքստներում՝ շնորհիվ շղթայական կապի:</p>
+                        
+                        <div class="grid-2" style="margin-top: 2rem; gap: 2rem;">
+                            <div class="flex-col-1">
+                                <h4 class="card-header-small">1. Environment Record</h4>
+                                <p class="text-dimmed" style="font-size: 0.9rem;">Յուրաքանչյուր միջավայր (Global, Outer, Inner) ունի իր Environment Record-ը: Սա այն վայրն է, որտեղ JS շարժիչը կատարման նախնական փուլում (Instantiation phase) գրանցում է տվյալ տիրույթում հայտարարված բոլոր փոփոխականները և ֆունկցիաները:</p>
+                                <ul class="list-container" style="font-size: 0.85rem; color: var(--text-main);">
+                                    <li><b>Inner:</b> Ունի իր սեփական <code>innerVar</code>-ը:</li>
+                                    <li><b>Outer:</b> Պահում է <code>outerVar</code>-ը:</li>
+                                    <li><b>Global:</b> Հանդիսանում է ամենավերին մակարդակը:</li>
+                                </ul>
+                            </div>
+
+                            <div class="flex-col-1">
+                                <h4 class="card-header-small">2. Outer Reference</h4>
+                                <p class="text-dimmed" style="font-size: 0.9rem;">Յուրաքանչյուր Lexical Environment ունի հղում (<code>[[OuterEnv]]</code> սլաքը), որը մատնանշում է այն միջավայրը, որտեղ տվյալ կոդը ֆիզիկապես գրված է:</p>
+                                <ul class="list-container" style="font-size: 0.85rem; color: var(--text-main);">
+                                    <li>Inner-ի հղումը տանում է դեպի Outer:</li>
+                                    <li>Outer-ի հղումը տանում է դեպի Global:</li>
+                                    <li>Global-ի հղումը <code>null</code> է:</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="feature-box" style="margin-top: 2rem; border-left: 4px solid var(--js-yellow);">
+                            <h4 class="card-header-small">3. Որոնման մեխանիզմը (Resolve Binding)</h4>
+                            <p class="text-dimmed" style="font-size: 0.9rem;">Երբ փորձում եք օգտագործել որևէ փոփոխական Inner տիրույթում, JavaScript-ը կատարում է հետևյալ քայլերը.</p>
+                            <ol style="font-size: 0.85rem; color: var(--text-main); line-height: 1.6;">
+                                <li>Փնտրում է այն լոկալ Environment Record-ում:</li>
+                                <li>Եթե չի գտնում, օգտվում է Outer Reference-ից և բարձրանում մեկ մակարդակ վերև:</li>
+                                <li>Այս գործընթացը կրկնվում է մինչև Global միջավայր:</li>
+                            </ol>
+                            <p class="text-dimmed" style="font-size: 0.85rem; margin-top: 1rem; font-style: italic;">
+                                <b>Կարևոր է:</b> Այս շղթան կայուն է և որոշվում է կոդը գրելու պահին (Lexical Scoping): Սա հենց այն հիմքն է, որի վրա կառուցվում են Closures-ը:
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Mermaid Lexical Flow -->
+                    <!-- prettier-ignore -->
+                    <div class="mermaid">
+                       graph BT
+                            subgraph Global ["🌐 Global Lexical Environment"]
+                                G_Rec["<b>Environment Record</b><br/>globalVar: 10"]
+                                G_Null["Outer: null"]
+                            end
+
+                            subgraph OuterEnv ["📦 Outer (Function)"]
+                                O_Rec["<b>Environment Record</b><br/>outerVar: 20"]
+                                O_Ref["Outer Reference"] -- "points to" --> G_Rec
+                            end
+
+                            subgraph InnerEnv ["🔍 Inner (Closure)"]
+                                I_Rec["<b>Environment Record</b><br/>innerVar: 30"]
+                                I_Ref["Outer Reference"] -- "points to" --> O_Rec
+                            end
+
+                            %% Styles
+                            style InnerEnv fill:none,stroke:#f7df1e,stroke-width:2px
+                            style OuterEnv fill:none,stroke:#61afef,stroke-width:2px
+                            style Global fill:none,stroke:#ffffff,stroke-dasharray: 5 5
+                            style I_Rec fill:#1e2227,color:#abb2bf,stroke:#3e4451
+                            style O_Rec fill:#1e2227,color:#abb2bf,stroke:#3e4451
+                            style G_Rec fill:#1e2227,color:#abb2bf,stroke:#3e4451
+                            style I_Ref color:#f7df1e,stroke:none,fill:none
+                            style O_Ref color:#61afef,stroke:none,fill:none
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer-simple">
+            <div class="footer-brand">JS.CORE</div>
+            <p class="footer-copy">Created By DHayk | 2026</p>
+        </footer>
+    </body>
+</html>

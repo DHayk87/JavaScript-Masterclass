@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="hy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS.CORE | Պայմաններ և Լոգիկա</title>
+        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+
+        <script type="module">
+            import mermaid from "../node_modules/mermaid/dist/mermaid.esm.min.mjs";
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: "dark",
+                securityLevel: "loose",
+                fontFamily: "Noto Sans Armenian",
+            });
+        </script>
+        <link rel="stylesheet" href="../public/styles/style.css" />
+    </head>
+    <body>
+        <nav class="nav-fixed">
+            <div class="nav-container">
+                <a href="index.html" class="nav-brand">JS.CORE</a>
+                <div class="nav-links">
+                    <a href="#comparison" class="nav-link">Համեմատություն</a>
+                    <a href="#conditional" class="nav-link">Պայմաններ</a>
+                    <a href="#logical" class="nav-link">Լոգիկա</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header>
+                <h1 class="title-large gradient-text">Պայմաններ և Լոգիկա</h1>
+                <p class="subtitle">
+                    "Ծրագրի ընթացքը կախված է ճիշտ ընտրությունից և լոգիկական կապերից:"
+                </p>
+            </header>
+
+            <!-- Section 01: Comparison -->
+            <section id="comparison" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">Համեմատության Օպերատորներ</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Համեմատության օպերատորները վերադարձնում են բուլյան արժեք՝
+                        <code>true</code> կամ <code>false</code>:
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Հիմնական Օպերատորներ</h4>
+                            <ul
+                                class="list-container"
+                                style="list-style: none; padding: 0"
+                            >
+                                <li class="list-item">
+                                    <span class="dot"></span> <code>a &gt; b</code>,
+                                    <code>a &lt; b</code> (Մեծ, փոքր)
+                                </li>
+                                <li class="list-item">
+                                    <span class="dot"></span> <code>a &gt;= b</code>,
+                                    <code>a &lt;= b</code> (Մեծ կամ հավասար)
+                                </li>
+                                <li class="list-item">
+                                    <span class="dot"></span> <code>a == b</code>,
+                                    <code>a != b</code> (Հավասարություն)
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Խիստ Հավասարություն</h4>
+                            <p class="text-dimmed">
+                                <code>===</code> օպերատորը ստուգում է թե՛ արժեքը, թե՛
+                                տիպը: Խորհուրդ է տրվում միշտ օգտագործել այն:
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="feature-item"
+                        style="border-left: 4px solid var(--js-yellow)"
+                    >
+                        <code style="color: #98c379">alert( 2 > 1 ); // true</code><br />
+                        <code style="color: #e06c75"
+                            >alert( '2' == 2 ); // true (ոչ խիստ)</code
+                        ><br />
+                        <code style="color: #61afef"
+                            >alert( '2' === 2 ); // false (խիստ)</code
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 02: Conditional Branching -->
+            <section id="conditional" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title">
+                        Պայմանական Ճյուղավորում (if, else if, else)
+                    </h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        <code>if</code> հրահանգը ստուգում է պայմանը և կատարում կոդը, եթե
+                        արդյունքը <code>true</code> է: Բարդ դեպքերում օգտագործվում են
+                        <code>else if</code> և <code>else</code>:
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="flex-col-1">
+                            <h4 class="card-header-small">if-else if-else Կառուցվածք</h4>
+                            <div class="feature-item">
+                                <code style="color: #c678dd">if</code> (time < 12) {<br />
+                                &nbsp;&nbsp;alert('Բարի լույս');<br />
+                                } <code style="color: #c678dd">else if</code> (time < 18)
+                                {<br />
+                                &nbsp;&nbsp;alert('Բարի օր');<br />
+                                } <code style="color: #c678dd">else</code> {<br />
+                                &nbsp;&nbsp;alert('Բարի երեկո');<br />
+                                }
+                            </div>
+                        </div>
+                        <div class="flex-col-1">
+                            <h4 class="card-header-small">
+                                Տերնար օպերատոր (Ternary Operator)
+                            </h4>
+                            <p class="text-dimmed">
+                                Կարճ տարբերակ պայմանի համար (Conditional Operator):
+                            </p>
+                            <div class="feature-item">
+                                <code
+                                    >let result = (age >= 18) ? "Թույլատրված" :
+                                    "Մերժված";</code
+                                >
+                            </div>
+                            <p class="text-dimmed" style="font-size: 0.8rem">
+                                <i
+                                    >Կառուցվածք՝
+                                    &nbsp;
+                                    <code>պայման ? արժեք_եթե_true : արժեք_եթե_false</code></i
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 03: Logical Operators -->
+            <section id="logical" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">Լոգիկական Օպերատորներ (OR, AND, NOT)</h2>
+                </div>
+
+                <div class="glass-card">
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">|| (OR / ԿԱՄ)</h4>
+                            <p class="text-dimmed">
+                                Ճիշտ է, եթե գոնե մեկ պայմանը ճիշտ է:
+                            </p>
+                            <code>true || false; // true</code>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">&& (AND / ԵՎ)</h4>
+                            <p class="text-dimmed">
+                                Ճիշտ է միայն այն դեպքում, եթե բոլորը ճիշտ են:
+                            </p>
+                            <code>true && false; // false</code>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">! (NOT / ՈՉ)</h4>
+                            <p class="text-dimmed">Շրջում է արժեքը:</p>
+                            <code>!true; // false</code>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">?? (Nullish Coalescing)</h4>
+                            <p class="text-dimmed">
+                                Վերադարձնում է առաջին «գոյություն ունեցող» արժեքը:
+                            </p>
+                            <code>result = a ?? b;</code>
+                        </div>
+                    </div>
+
+                    <!-- Mermaid Logic Flow -->
+                    <!-- prettier-ignore -->
+                    <div class="mermaid">
+                        graph LR
+                            Cond{"Պայման"} ---->|True| Then["Կատարել կոդը"]
+                            Cond ---->|False| Else["Else / Այլընտրանք"]
+                            
+                            style Cond fill:none,stroke:#f7df1e,stroke-width:2px
+                            style Then fill:#10b981,stroke:#059669,color:#fff
+                            style Else fill:#ef4444,stroke:#dc2626,color:#fff
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer-simple">
+            <div class="footer-brand">JS.CORE</div>
+            <p class="footer-copy">Created By DHayk | 2026</p>
+        </footer>
+    </body>
+</html>

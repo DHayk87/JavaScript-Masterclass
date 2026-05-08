@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="hy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS Masterclass | Template</title>
+        <link rel="shortcut icon" href="./programmer.png" type="image/x-icon" />
+
+        <script type="module">
+            import mermaid from "./node_modules/mermaid/dist/mermaid.esm.min.mjs";
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: "dark",
+                securityLevel: "loose",
+                fontFamily: "Noto Sans Armenian",
+            });
+        </script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <nav class="nav-fixed">
+            <div class="nav-container">
+                <a href="#" class="nav-brand">JS.CORE</a>
+                <div class="nav-links">
+                    <a href="#section1" class="nav-link">Section 1</a>
+                    <a href="#section2" class="nav-link">Section 2</a>
+                    <a href="#section3" class="nav-link">Section 3</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header>
+                <h1 class="title-large gradient-text">Page Title</h1>
+                <p class="subtitle">
+                    "A short and inspiring quote or description goes here."
+                </p>
+            </header>
+
+            <!-- Section 01 -->
+            <section id="section1" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">Section Heading</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p>
+                        Your main content paragraph goes here. Use standard HTML tags.
+                        The design system will handle the rest.
+                    </p>
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 style="color: var(--js-yellow); margin-top: 0; font-size: 0.8rem; text-transform: uppercase;">Feature A</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 0;">Details about feature A.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h4 style="color: var(--js-yellow); margin-top: 0; font-size: 0.8rem; text-transform: uppercase;">Feature B</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 0;">Details about feature B.</p>
+                        </div>
+                    </div>
+
+                    <!-- prettier-ignore -->
+                    <div class="mermaid">
+                        graph LR
+                            A[Start] --> B(Process)
+                            B --> C((End))
+                            style A fill:transparent,stroke:#f7df1e
+                            style C fill:#f7df1e,color:#000
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer-simple">
+            <div class="footer-brand">JS.CORE</div>
+            <p class="footer-copy">Created By DHayk | 2026</p>
+        </footer>
+    </body>
+</html>

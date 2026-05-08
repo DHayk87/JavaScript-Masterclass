@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="hy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS.CORE | Ֆունկցիաներ</title>
+        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+
+        <script type="module">
+            import mermaid from "../node_modules/mermaid/dist/mermaid.esm.min.mjs";
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: "dark",
+                securityLevel: "loose",
+                fontFamily: "Noto Sans Armenian",
+            });
+        </script>
+        <link rel="stylesheet" href="../public/styles/style.css" />
+    </head>
+    <body>
+        <nav class="nav-fixed">
+            <div class="nav-container">
+                <a href="index.html" class="nav-brand">JS.CORE</a>
+                <div class="nav-links">
+                    <a href="#declaration" class="nav-link">Declaration</a>
+                    <a href="#expression" class="nav-link">Expression</a>
+                    <a href="#arrow" class="nav-link">Arrow</a>
+                    <a href="#iife" class="nav-link">IIFE</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header>
+                <h1 class="title-large gradient-text">Ֆունկցիաներ (Functions)</h1>
+                <p class="subtitle">
+                    "Ֆունկցիաները ծրագրի հիմնական կառուցողական բլոկներն են:"
+                </p>
+            </header>
+
+            <!-- Section 01: Function Declaration -->
+            <section id="declaration" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">
+                        Function Declaration (Ֆունկցիայի հայտարարում)
+                    </h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Սա հանդիսանում է <b>HoistableDeclaration</b>: JS շարժիչը
+                        Environment Record-ը ստեղծելիս այս ֆունկցիաները միանգամից
+                        սկզբնավորում է (initialize):
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Սինտաքս</h4>
+                            <div class="feature-item">
+                                <code style="color: #c678dd">function</code>
+                                <code style="color: #61afef">sayHi</code>() {<br />
+                                &nbsp;&nbsp;console.log("Ողջույն");<br />
+                                }
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Առավելությունը</h4>
+                            <p class="text-dimmed">
+                                Կարելի է կանչել կոդի ցանկացած հատվածից (նույնիսկ
+                                հայտարարումից առաջ), ինչը թույլ է տալիս կառուցել կոդը
+                                «կարևորից դեպի մանրուքներ» սկզբունքով:
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 02: Function Expression -->
+            <section id="expression" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title">
+                        Function Expression (Ֆունկցիոնալ արտահայտություն)
+                    </h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Այստեղ ֆունկցիան հանդես է գալիս որպես արժեք: Այն գրանցվում է որպես
+                        լեքսիկական փոփոխական և ենթարկվում է
+                        <code>let/const</code> կանոններին:
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Սինտաքս</h4>
+                            <div class="feature-item">
+                                <code style="color: #c678dd">let</code> sayHi =
+                                <code style="color: #c678dd">function</code>() {<br />
+                                &nbsp;&nbsp;console.log("Ողջույն");<br />
+                                };
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Տարբերությունը</h4>
+                            <p class="text-dimmed">
+                                Քանի դեռ ծրագրի կատարումը (Execution Flow) չի հասել այս
+                                տողին, ֆունկցիան գտնվում է <b>Temporal Dead Zone</b>-ում և
+                                հասանելի չէ:
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Mermaid Hoisting Comparison -->
+                    <!-- prettier-ignore -->
+                    <div class="mermaid">
+                        graph LR
+                            Code["Code Start"] --> FD["Function Declaration"]
+                            FD -->|"Hoisted"| Call1["Can be called here"]
+                            Code --> FE["Function Expression"]
+                            FE -->|"Not Hoisted"| Call2["Can only be called after declaration"]
+                            
+                            style FD fill:#10b981,stroke:#10b981,color:#fff
+                            style FE fill:#ef4444,stroke:#ef4444,color:#fff
+                            style Code fill:none,stroke:#fff
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 03: Arrow Functions -->
+            <section id="arrow" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">Arrow Functions (Սլաքային ֆունկցիաներ)</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        ES6-ի ամենակարևոր լրացումներից մեկը: Սրանք պարզապես «կարճ գրելաձև»
+                        չեն, այլ ունեն էական ֆունկցիոնալ տարբերություններ:
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Սինտաքս</h4>
+                            <div class="feature-item">
+                                <code style="color: #c678dd">const</code> sum = (a, b) =>
+                                a + b;
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Ինչու՞ են հատուկ</h4>
+                            <ul
+                                class="list-container"
+                                style="list-style: none; padding: 0"
+                            >
+                                <li class="list-item">
+                                    <span class="dot"></span> <b>Lexical this:</b> Չունեն
+                                    սեփական <code>this</code>: Վերցնում են այն ստեղծման
+                                    միջավայրից:
+                                </li>
+                                <li class="list-item">
+                                    <span class="dot"></span> <b>Constructor:</b> Չեն
+                                    կարող օգտագործվել <code>new</code> օպերատորի հետ:
+                                </li>
+                                <li class="list-item">
+                                    <span class="dot"></span> <b>Arguments:</b> Չունեն
+                                    սեփական <code>arguments</code> օբյեկտը:
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 04: IIFE -->
+            <section id="iife" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">04</span>
+                    <h2 class="section-title">IIFE (Անմիջապես կանչվող ֆունկցիաներ)</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Չնայած ժամանակակից JS-ում ունենք Block Scope, IIFE-ն դեռևս
+                        օգտագործվում է որոշակի դեպքերում:
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Սինտաքս</h4>
+                            <div class="feature-item">
+                                (<code>function</code>() {<br />
+                                &nbsp;&nbsp;<code>let</code> privateVar = "Գաղտնի
+                                տվյալ";<br />
+                                })();
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Նպատակը</h4>
+                            <p class="text-dimmed">
+                                Կանխել գլոբալ տիրույթի (Global Scope) աղտոտումը և ստեղծել
+                                մեկուսացված միջավայր:
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Masterclass Tip -->
+            <section class="section-container">
+                <div
+                    class="glass-card"
+                    style="
+                        border-top: 4px solid var(--js-yellow);
+                        background: rgba(247, 223, 30, 0.05);
+                    "
+                >
+                    <h3
+                        class="js-yellow-text"
+                        style="font-size: 1.5rem; margin-bottom: 1.5rem"
+                    >
+                        Use Cases (Ե՞րբ և ո՞րն օգտագործել)
+                    </h3>
+                    <div class="feature-box">
+                        <h4 class="card-header-small">Ե՞րբ որն օգտագործել</h4>
+                        <ol
+                            class="list-container"
+                            style="color: var(--text-main); font-size: 0.95rem"
+                        >
+                            <li>
+                                <b>Function Declaration:</b> Հիմնական գործողությունների
+                                համար, որոնք պետք է հասանելի լինեն ամբողջ ֆայլում:
+                            </li>
+                            <li>
+                                <b>Arrow Functions:</b> Callback-ների (<code>map</code>,
+                                <code>filter</code>) և այնտեղ, որտեղ պետք է պահպանել
+                                <code>this</code>-ը:
+                            </li>
+                            <li>
+                                <b>Function Expression:</b> Երբ ֆունկցիան պետք է սահմանվի
+                                պայմանականորեն (օրինակ՝ <code>if</code>-ի ներսում):
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer-simple">
+            <div class="footer-brand">JS.CORE</div>
+            <p class="footer-copy">Created By DHayk | 2026</p>
+        </footer>
+    </body>
+</html>
