@@ -1,0 +1,28 @@
+# Dependency directories
+node_modules/
+bower_components/
+
+# Build artifacts
+dist/
+build/
+.next/
+out/
+
+# Static assets
+public/images/
+public/fonts/
+
+# Environment files
+.env
+.env.*
+
+# Configuration files
+package-lock.json
+yarn.lock
+
+# Specific formats
+*.min.js
+*.min.css
+
+# Mermaid diagrams (handled via comments in HTML, but listed here for clarity)
+# Use <!-- prettier-ignore --> before mermaid blocks in HTML

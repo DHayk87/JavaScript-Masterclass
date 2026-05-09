@@ -377,6 +377,41 @@ code {
     border-radius: 0.75rem;
 }
 
+/* --- Tables --- */
+.glossary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+}
+
+.glossary-table th {
+    text-align: left;
+    padding: 1rem;
+    color: var(--js-yellow);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    border-bottom: 2px solid var(--glass-border);
+}
+
+.glossary-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--glass-border);
+    color: var(--text-dim);
+}
+
+.glossary-table tr:last-child td {
+    border-bottom: none;
+}
+
+.glossary-table code {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    color: var(--text-main);
+}
+
 .ordered-list-small li {
     margin-bottom: 0.5rem;
 }

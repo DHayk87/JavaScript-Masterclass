@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="hy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS.CORE | Օբյեկտներ</title>
+        <link
+            rel="shortcut icon"
+            href="../public/images/programmer.png"
+            type="image/x-icon"
+        />
+
+        <script type="module">
+            import mermaid from "mermaid";
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: "dark",
+                securityLevel: "loose",
+                fontFamily: "Noto Sans Armenian",
+            });
+        </script>
+        <link rel="stylesheet" href="../public/styles/style.css" />
+    </head>
+    <body>
+        <nav class="nav-fixed">
+            <div class="nav-container">
+                <a href="index.html" class="nav-brand">JS.CORE</a>
+                <div class="nav-links">
+                    <a href="#basics" class="nav-link">Հիմունքներ</a>
+                    <a href="#access" class="nav-link">Հասանելիություն</a>
+                    <a href="#loops" class="nav-link">Ցիկլեր</a>
+                    <a href="#references" class="nav-link">Հղումներ</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header>
+                <h1 class="title-large gradient-text">Օբյեկտներ (Objects)</h1>
+                <p class="subtitle">
+                    "Օբյեկտները JavaScript-ի հիմնական կառուցվածքային միավորներն են:"
+                </p>
+            </header>
+
+            <!-- Section 01: Basics -->
+            <section id="basics" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">Հիմունքներ և Սինտաքս</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Ի տարբերություն պրիմիտիվների, օբյեկտները պահում են
+                        <b>հավաքածուներ</b>: Դրանք կարող ենք պատկերացնել որպես պահարաններ,
+                        որտեղ ամեն դարակ ունի իր անունը (key) և պարունակությունը (value):
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Ստեղծում</h4>
+                            <div class="feature-item">
+                                <code class="hl-kw">let</code> user = {<br />
+                                &nbsp;&nbsp;name:
+                                <span class="hl-str">"John"</span>,<br />
+                                &nbsp;&nbsp;age: <span class="hl-num">30</span><br />
+                                };
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Գործողություններ</h4>
+                            <ul class="no-list-style">
+                                <li class="list-item">
+                                    <span class="dot"></span> <b>Ավելացում:</b>
+                                    <code>user.isAdmin = true;</code>
+                                </li>
+                                <li class="list-item">
+                                    <span class="dot"></span> <b>Հեռացում:</b>
+                                    <code>delete user.age;</code>
+                                </li>
+                                <li class="list-item">
+                                    <span class="dot"></span>
+                                    <b>Trailing comma:</b> Վերջին ստորակետը թույլատրելի է:
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pro-tip margin-top-1">
+                        <h4 class="card-header-small">🔒 Const-ի պարադոքսը</h4>
+                        <p class="text-dimmed">
+                            Շատերը կարծում են, որ եթե օբյեկտը հայտարարված է
+                            <code>const</code>-ով, այն չի կարող փոփոխվել։ Իրականում
+                            <code>const</code>-ը պաշտպանում է <b>հղումը</b> (հասցեն), այլ
+                            ոչ թե բովանդակությունը։ <br /><br />
+                            ❌ <b>Արգելված է:</b> Փոփոխականին նոր հասցե վերագրելը (<code
+                                >user = { ... }</code
+                            >)
+                            <br />
+                            ✅ <b>Թույլատրված է:</b> Գոյություն ունեցող հասցեի ներսում
+                            դարակների պարունակությունը փոխելը (<code
+                                >user.name = "New Name"</code
+                            >)
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 02: Access -->
+            <section id="access" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title">Հասանելիության մեթոդներ</h2>
+                </div>
+
+                <div class="glass-card">
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Dot Notation (.)</h4>
+                            <p class="text-dimmed">
+                                Ամենատարածված ձևն է: Օգտագործվում է, երբ բանալին պարզ
+                                տեքստ է:
+                            </p>
+                            <code class="hl-fn">console.log</code>(user.name);
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Square Brackets ([])</h4>
+                            <p class="text-dimmed">
+                                Օգտագործվում է բարդ բանալիների կամ դինամիկ փոփոխականների
+                                դեպքում:
+                            </p>
+                            <code class="hl-fn">console.log</code>(user[<span
+                                class="hl-str"
+                                >"likes birds"</span
+                            >]);
+                        </div>
+                    </div>
+
+                    <div class="pro-tip pro-tip-blue margin-top-1">
+                        <b>"in" օպերատոր:</b> Ստուգում է արդյոք բանալին գոյություն ունի
+                        օբյեկտում:<br />
+                        <code
+                            ><span class="hl-str">"name"</span>
+                            <span class="hl-kw">in</span> user;
+                            <span class="hl-cm">// true</span></code
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 03: Loops -->
+            <section id="loops" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">Ցիկլեր (for...in)</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        <code>for..in</code> ցիկլը հատուկ նախատեսված է օբյեկտի բոլոր
+                        ստեղծված բանալիների վրայով անցնելու համար։
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Հատկությունների շրջանցում</h4>
+                            <div class="feature-item">
+                                <code class="hl-kw">for</code> (<code class="hl-kw"
+                                    >let</code
+                                >
+                                key <code class="hl-kw">in</code> user) {<br />
+                                &nbsp;&nbsp;<code class="hl-fn">console.log</code>(key,
+                                user[key]);<br />
+                                }
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">
+                                🔢 Հերթականության կանոնը (The "Integer" Rule)
+                            </h4>
+                            <p class="text-dimmed">
+                                Եթե բանալիները կարող են փոխակերպվել ամբողջ թվի, ապա դրանք
+                                կդասավորվեն աճման կարգով։ Մնացած բոլոր դեպքերում
+                                պահպանվում է ստեղծման հաջորդականությունը։
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- for..in loop sorting flowchart -->
+                    <!-- prettier-ignore -->
+                    <div class="mermaid">
+                        flowchart LR
+                            Start([Loop Starts]) e1@--> Key{Next Key?}
+                            Key e2@-->|Integer Key| Sort[Sorted Ascending]
+                            Key e3@-->|String Key| Order[Creation Order]
+                            Sort e4@--> Execute[Execute Code]
+                            Order e5@--> Execute
+                            Execute e6@--> Key
+                            Key -->|No more keys| End([End Loop])
+
+                            e1@{ animate: true }
+                            e2@{ animate: true }
+                            e3@{ animate: true }
+                            e4@{ animate: true }
+                            e5@{ animate: true }
+                            e6@{ animate: true }
+
+                            style Sort fill:#ffc500,stroke:#ffc500,color:#000
+                            style Order fill:#61afef,stroke:#61afef,color:#000
+                    </div>
+
+                    <div class="grid-2 margin-top-1">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Օրինակ</h4>
+                            <div class="feature-item">
+                                <code class="hl-kw">let</code> codes = {<br />
+                                &nbsp;&nbsp;<span class="hl-str">"49"</span>:
+                                <span class="hl-str">"Germany"</span>,<br />
+                                &nbsp;&nbsp;<span class="hl-str">"41"</span>:
+                                <span class="hl-str">"Switzerland"</span>,<br />
+                                &nbsp;&nbsp;<span class="hl-str">"1"</span>:
+                                <span class="hl-str">"USA"</span><br />
+                                };<br /><br />
+                                <code class="hl-kw">for</code> (<code class="hl-kw"
+                                    >let</code
+                                >
+                                key <code class="hl-kw">in</code> codes) {<br />
+                                &nbsp;&nbsp;<code class="hl-fn">console.log</code>(key);
+                                <span class="hl-cm">// 1, 41, 49</span><br />
+                                }
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Ինչո՞ւ է սա կարևոր</h4>
+                            <p class="text-dimmed">
+                                1, 41 և 49-ը ամբողջ թվեր են և տեսակավորվում են, իսկ
+                                սովորական տեքստային բանալիները հայտնվում են վերջում՝ ըստ
+                                ստեղծման հաջորդականության։
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pro-tip pro-tip-blue margin-top-1">
+                        <h4 class="card-header-small">💡 Մասնագիտական հուշում</h4>
+                        <ul class="no-list-style">
+                            <li class="list-item">
+                                <span class="dot"></span> <b>Մասիվներ:</b> Խուսափեք
+                                <code>for..in</code>-ից մասիվների դեպքում: Այն ավելի
+                                դանդաղ է: Օգտագործեք <code>for..of</code>:
+                            </li>
+                            <li class="list-item">
+                                <span class="dot"></span>
+                                <b>Հերթականության պահպանում:</b> Եթե ուզում եք, որ թվերը
+                                չտեսակավորվեն, ավելացրեք <code>+</code> նշանը բանալուց
+                                առաջ:
+                            </li>
+                            <li class="list-item">
+                                <span class="dot"></span> <b>Prototype Chain:</b>
+                                <code>for..in</code>-ը տեսնում է նաև ժառանգված
+                                հատկությունները: Միայն «սեփական» բանալիների համար
+                                օգտագործեք <code>Object.keys()</code>:
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 04: References -->
+            <section id="references" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">04</span>
+                    <h2 class="section-title">References (Հղումներ)</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Օբյեկտի ամենակարևոր տարբերությունը պրիմիտիվներից այն է, որ դրանք
+                        պահվում և պատճենվում են <b>ըստ հղման</b>:
+                    </p>
+
+                    <!-- prettier-ignore -->
+                    <div class="mermaid">
+                        graph LR
+                            subgraph Stack
+                                varA["let a = {name: 'JS'}"]
+                                varB["let b = a"]
+                            end
+                            subgraph Heap
+                                obj["Object {name: 'JS'}"]
+                            end
+                            varA e1@--> obj
+                            varB e2@--> obj
+                            e1@{ animate: true }
+                            e2@{ animate: true }
+                            
+                            style obj fill:#f7df1e,stroke:#f7df1e,color:#000
+                            style Stack fill:none,stroke:#fff,stroke-dasharray: 5 5
+                            style Heap fill:none,stroke:#fff,stroke-dasharray: 5 5
+                    </div>
+
+                    <div class="pro-tip">
+                        <h4 class="card-header-small">Հիշեք</h4>
+                        <p class="text-dimmed">
+                            Երբ պատճենում եք օբյեկտը, դուք պատճենում եք միայն նրա
+                            <b>հասցեն</b> հիշողության մեջ, ոչ թե հենց օբյեկտը:
+                        </p>
+                    </div>
+
+                    <div class="grid-2 margin-top-1">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">
+                                ⚖️ Համեմատում (Comparison Logic)
+                            </h4>
+                            <p class="text-dimmed">
+                                <code>{} == {}</code> միշտ <b>false</b> է: JS-ը համեմատում
+                                է հասցեները, ոչ թե պարունակությունը: Երկու նոր օբյեկտ
+                                ստանում են տարբեր հասցեներ հիշողության մեջ, հետևաբար երբեք
+                                հավասար չեն:
+                            </p>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">
+                                ♻️ Garbage Collection (Աղբահանություն)
+                            </h4>
+                            <p class="text-dimmed">
+                                Եթե օբյեկտին տանող բոլոր հղումները ջնջվում են (օր.՝
+                                <code>a = null; b = null;</code>), այն դառնում է
+                                <b>"Unreachable"</b>: Garbage Collector-ը ավտոմատ կջնջի այն՝
+                                ազատելով հիշողությունը (Heap):
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="margin-top-4">
+                        <h4 class="card-header-small">👯 Ինչպես իրականում պատճենել (Cloning)</h4>
+                        <table class="glossary-table">
+                            <thead>
+                                <tr>
+                                    <th>Մեթոդ</th>
+                                    <th>Տեսակ</th>
+                                    <th>Երբ օգտագործել</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>{...obj}</code></td>
+                                    <td>Shallow Copy</td>
+                                    <td>Երբ օբյեկտը պարզ է (չունի ներդրված օբյեկտներ)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>structuredClone(obj)</code></td>
+                                    <td>Deep Copy</td>
+                                    <td>Ժամանակակից ստանդարտ՝ ամբողջական պատճենի համար</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pro-tip pro-tip-blue margin-top-1">
+                        <h4 class="card-header-small">
+                            ⚠️ Գործնական զգուշացում (Side Effects)
+                        </h4>
+                        <p class="text-dimmed">
+                            «Երբ դուք օբյեկտը փոխանցում եք ֆունկցիային որպես արգումենտ,
+                            դուք փոխանցում եք <b>հղումը</b>։ Եթե ֆունկցիայի ներսում փոխեք
+                            այդ օբյեկտը, այն կփոխվի նաև ֆունկցիայից դուրս։ Սա կոչվում է
+                            <b>Side Effect</b> և կարող է բերել դժվար հայտնաբերվող
+                            սխալների»։
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer-simple">
+            <div class="footer-brand">JS.CORE</div>
+            <p class="footer-copy">Created By DHayk | 2026</p>
+        </footer>
+    </body>
+</html>
