@@ -4,10 +4,14 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JS.CORE | Switch և Loops</title>
-        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+        <link
+            rel="shortcut icon"
+            href="../public/images/programmer.png"
+            type="image/x-icon"
+        />
 
         <script type="module">
-            import mermaid from "mermaid";
+            import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
             mermaid.initialize({
                 startOnLoad: true,
                 theme: "dark",
@@ -55,27 +59,24 @@
                         <div class="feature-box">
                             <h4 class="card-header-small">Կառուցվածք</h4>
                             <div class="feature-item">
-                                <code style="color: #c678dd">switch</code>(x) {<br />
-                                &nbsp;&nbsp;<code style="color: #c678dd">case</code>
+                                <code class="hl-kw">switch</code>(x) {<br />
+                                &nbsp;&nbsp;<code class="hl-kw">case</code>
                                 'val1':
                                 <br />
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... Կատարվող
-                                գործողությունները
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-cm">... Կատարվող գործողությունները</span>
                                 <br />
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <code style="color: #c678dd">break</code>;<br />
-                                &nbsp;&nbsp;<code style="color: #c678dd">case</code>
+                                <code class="hl-kw">break</code>;<br />
+                                &nbsp;&nbsp;<code class="hl-kw">case</code>
                                 'val2':
                                 <br />
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... Կատարվող
-                                գործողությունները
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-cm">... Կատարվող գործողությունները</span>
                                 <br />
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <code style="color: #c678dd">break</code>;<br />
-                                &nbsp;&nbsp;<code style="color: #c678dd">default</code>:
+                                <code class="hl-kw">break</code>;<br />
+                                &nbsp;&nbsp;<code class="hl-kw">default</code>:
                                 <br />
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... Կատարվող
-                                գործողությունները
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-cm">... Կատարվող գործողությունները</span>
                                 <br />
                                 }
                             </div>
@@ -107,9 +108,9 @@
                         <div class="flex-col-1">
                             <h4 class="card-header-small">for Ցիկլ</h4>
                             <div class="feature-item">
-                                <code style="color: #c678dd">for</code> (let i = 0; i < 3;
+                                <code class="hl-kw">for</code> (let i = 0; i < 3;
                                 i++) {<br />
-                                &nbsp;&nbsp;alert(i);<br />
+                                &nbsp;&nbsp;<code class="hl-fn">alert</code>(i);<br />
                                 }
                             </div>
                             <p class="text-dimmed" style="font-size: 0.8rem">
@@ -119,8 +120,8 @@
                         <div class="flex-col-1">
                             <h4 class="card-header-small">while Ցիկլ</h4>
                             <div class="feature-item">
-                                <code style="color: #c678dd">while</code> (i < 3) {<br />
-                                &nbsp;&nbsp;alert(i);<br />
+                                <code class="hl-kw">while</code> (i < 3) {<br />
+                                &nbsp;&nbsp;<code class="hl-fn">alert</code>(i);<br />
                                 &nbsp;&nbsp;i++;<br />
                                 }
                             </div>
@@ -147,13 +148,19 @@
                     <!-- Mermaid Loop Visualizer -->
                     <!-- prettier-ignore -->
                     <div class="mermaid">
-                        graph TD
+                        flowchart TD
                             Start["Start Loop"] --> Cond{"Condition?"}
-                            Cond -->|True| Body["Execute Body"]
-                            Body --> Step["Step / i++"]
-                            Step --> Cond
+
+                            Cond e1@-->|True| Body["Execute Body"]
+                            Body e2@--> Step["Step / i++"]
+                            Step e3@--> Cond
+
                             Cond -->|False| End["End Loop"]
-                            
+
+                            e1@{ animate: true }
+                            e2@{ animate: true }
+                            e3@{ animate: true }
+
                             style Cond fill:none,stroke:#f7df1e,stroke-width:2px
                             style Body fill:#61afef,stroke:#61afef,color:#fff
                             style Start fill:none,stroke:#fff
@@ -181,10 +188,7 @@
                     <div class="grid-2">
                         <div class="feature-box">
                             <h4 class="card-header-small">Կառուցվածք</h4>
-                            <ul
-                                class="list-container"
-                                style="list-style: none; padding: 0"
-                            >
+                            <ul class="list-container no-list-style">
                                 <li class="list-item">
                                     <span class="dot"></span> <b>Environment Record</b>:
                                     Պահպանում է բոլոր տեղային փոփոխականները:
@@ -205,25 +209,60 @@
                         </div>
                     </div>
 
-                    <div class="feature-item" style="margin-top: 2rem;">
-                        <h3 class="js-yellow-text" style="font-size: 1.5rem; margin-bottom: 1rem;">Ինչպե՞ս է աշխատում Scope Chain-ը</h3>
-                        <p class="text-dimmed">Այս դիագրամը պատկերում է JavaScript-ի լեքսիկական հիերարխիան կոդի կատարման պահին: Այն ցույց է տալիս, թե ինչպես են փոփոխականները հասանելի դառնում տարբեր կոնտեքստներում՝ շնորհիվ շղթայական կապի:</p>
-                        
-                        <div class="grid-2" style="margin-top: 2rem; gap: 2rem;">
+                    <div class="feature-item" style="margin-top: 2rem">
+                        <h3
+                            class="js-yellow-text"
+                            style="font-size: 1.5rem; margin-bottom: 1rem"
+                        >
+                            Ինչպե՞ս է աշխատում Scope Chain-ը
+                        </h3>
+                        <p class="text-dimmed">
+                            Այս դիագրամը պատկերում է JavaScript-ի լեքսիկական հիերարխիան
+                            կոդի կատարման պահին: Այն ցույց է տալիս, թե ինչպես են
+                            փոփոխականները հասանելի դառնում տարբեր կոնտեքստներում՝ շնորհիվ
+                            շղթայական կապի:
+                        </p>
+
+                        <div class="grid-2" style="margin-top: 2rem; gap: 2rem">
                             <div class="flex-col-1">
                                 <h4 class="card-header-small">1. Environment Record</h4>
-                                <p class="text-dimmed" style="font-size: 0.9rem;">Յուրաքանչյուր միջավայր (Global, Outer, Inner) ունի իր Environment Record-ը: Սա այն վայրն է, որտեղ JS շարժիչը կատարման նախնական փուլում (Instantiation phase) գրանցում է տվյալ տիրույթում հայտարարված բոլոր փոփոխականները և ֆունկցիաները:</p>
-                                <ul class="list-container" style="font-size: 0.85rem; color: var(--text-main);">
-                                    <li><b>Inner:</b> Ունի իր սեփական <code>innerVar</code>-ը:</li>
-                                    <li><b>Outer:</b> Պահում է <code>outerVar</code>-ը:</li>
-                                    <li><b>Global:</b> Հանդիսանում է ամենավերին մակարդակը:</li>
+                                <p class="text-dimmed" style="font-size: 0.9rem">
+                                    Յուրաքանչյուր միջավայր (Global, Outer, Inner) ունի իր
+                                    Environment Record-ը: Սա այն վայրն է, որտեղ JS շարժիչը
+                                    կատարման նախնական փուլում (Instantiation phase)
+                                    գրանցում է տվյալ տիրույթում հայտարարված բոլոր
+                                    փոփոխականները և ֆունկցիաները:
+                                </p>
+                                <ul
+                                    class="list-container"
+                                    style="font-size: 0.85rem; color: var(--text-main)"
+                                >
+                                    <li>
+                                        <b>Inner:</b> Ունի իր սեփական
+                                        <code>innerVar</code>-ը:
+                                    </li>
+                                    <li>
+                                        <b>Outer:</b> Պահում է <code>outerVar</code>-ը:
+                                    </li>
+                                    <li>
+                                        <b>Global:</b> Հանդիսանում է ամենավերին մակարդակը:
+                                    </li>
                                 </ul>
                             </div>
 
                             <div class="flex-col-1">
                                 <h4 class="card-header-small">2. Outer Reference</h4>
-                                <p class="text-dimmed" style="font-size: 0.9rem;">Յուրաքանչյուր Lexical Environment ունի հղում (<code>[[OuterEnv]]</code> սլաքը), որը մատնանշում է այն միջավայրը, որտեղ տվյալ կոդը ֆիզիկապես գրված է:</p>
-                                <ul class="list-container" style="font-size: 0.85rem; color: var(--text-main);">
+                                <p class="text-dimmed" style="font-size: 0.9rem">
+                                    Յուրաքանչյուր Lexical Environment ունի հղում (<code
+                                        >[[OuterEnv]]</code
+                                    >
+                                    սլաքը), որը մատնանշում է այն միջավայրը, որտեղ տվյալ
+                                    կոդը ֆիզիկապես գրված է:
+                                </p>
+                                <ul
+                                    class="list-container"
+                                    style="font-size: 0.85rem; color: var(--text-main)"
+                                >
                                     <li>Inner-ի հղումը տանում է դեպի Outer:</li>
                                     <li>Outer-ի հղումը տանում է դեպի Global:</li>
                                     <li>Global-ի հղումը <code>null</code> է:</li>
@@ -231,16 +270,26 @@
                             </div>
                         </div>
 
-                        <div class="feature-box" style="margin-top: 2rem; border-left: 4px solid var(--js-yellow);">
-                            <h4 class="card-header-small">3. Որոնման մեխանիզմը (Resolve Binding)</h4>
-                            <p class="text-dimmed" style="font-size: 0.9rem;">Երբ փորձում եք օգտագործել որևէ փոփոխական Inner տիրույթում, JavaScript-ը կատարում է հետևյալ քայլերը.</p>
-                            <ol style="font-size: 0.85rem; color: var(--text-main); line-height: 1.6;">
+                        <div class="pro-tip">
+                            <h4 class="card-header-small">
+                                3. Որոնման մեխանիզմը (Resolve Binding)
+                            </h4>
+                            <p class="text-dimmed small-text">
+                                Երբ փորձում եք օգտագործել որևէ փոփոխական Inner տիրույթում,
+                                JavaScript-ը կատարում է հետևյալ քայլերը.
+                            </p>
+                            <ol class="ordered-list-small">
                                 <li>Փնտրում է այն լոկալ Environment Record-ում:</li>
-                                <li>Եթե չի գտնում, օգտվում է Outer Reference-ից և բարձրանում մեկ մակարդակ վերև:</li>
+                                <li>
+                                    Եթե չի գտնում, օգտվում է Outer Reference-ից և
+                                    բարձրանում մեկ մակարդակ վերև:
+                                </li>
                                 <li>Այս գործընթացը կրկնվում է մինչև Global միջավայր:</li>
                             </ol>
-                            <p class="text-dimmed" style="font-size: 0.85rem; margin-top: 1rem; font-style: italic;">
-                                <b>Կարևոր է:</b> Այս շղթան կայուն է և որոշվում է կոդը գրելու պահին (Lexical Scoping): Սա հենց այն հիմքն է, որի վրա կառուցվում են Closures-ը:
+                            <p class="text-dimmed small-text italic margin-top-1">
+                                <b>Կարևոր է:</b> Այս շղթան կայուն է և որոշվում է կոդը
+                                գրելու պահին (Lexical Scoping): Սա հենց այն հիմքն է, որի
+                                վրա կառուցվում են Closures-ը:
                             </p>
                         </div>
                     </div>
@@ -248,21 +297,24 @@
                     <!-- Mermaid Lexical Flow -->
                     <!-- prettier-ignore -->
                     <div class="mermaid">
-                       graph BT
-                            subgraph Global ["🌐 Global Lexical Environment"]
-                                G_Rec["<b>Environment Record</b><br/>globalVar: 10"]
+                       flowchart BT
+                            subgraph Global ["🌐 Global Environment"]
+                                G_Rec["Environment Record (globalVar: 10)"]
                                 G_Null["Outer: null"]
                             end
 
-                            subgraph OuterEnv ["📦 Outer (Function)"]
-                                O_Rec["<b>Environment Record</b><br/>outerVar: 20"]
-                                O_Ref["Outer Reference"] -- "points to" --> G_Rec
+                            subgraph OuterEnv ["📦 Outer Function"]
+                                O_Rec["Environment Record (outerVar: 20)"]
+                                O_Ref["Outer Reference"] e_out@-->|"points to"| G_Rec
                             end
 
-                            subgraph InnerEnv ["🔍 Inner (Closure)"]
-                                I_Rec["<b>Environment Record</b><br/>innerVar: 30"]
-                                I_Ref["Outer Reference"] -- "points to" --> O_Rec
+                            subgraph InnerEnv ["🔍 Inner Closure"]
+                                I_Rec["Environment Record (innerVar: 30)"]
+                                I_Ref["Outer Reference"] e_in@-->|"points to"| O_Rec
                             end
+
+                            e_in@{ animate: true }
+                            e_out@{ animate: true }
 
                             %% Styles
                             style InnerEnv fill:none,stroke:#f7df1e,stroke-width:2px

@@ -289,3 +289,278 @@ code {
     font-family: "Fira Code", monospace;
 }
 
+/* --- Syntax Highlighting --- */
+.code-block {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-family: "Fira Code", monospace;
+    line-height: 1.6;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow-x: auto;
+}
+
+.hl-kw { color: #c678dd; }      /* Keyword */
+.hl-str { color: #98c379; }     /* String */
+.hl-num { color: #d19a66; }     /* Number */
+.hl-fn { color: #61afef; }      /* Function */
+.hl-cm { color: #5c6370; }      /* Comment */
+.hl-type { color: #56b6c2; }    /* Type/Boolean */
+.hl-var { color: #e06c75; }     /* Variables/Alt color */
+
+/* --- Code & Feature Utilities --- */
+.code-inset {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.feature-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.pro-tip {
+    border-left: 3px solid var(--js-yellow);
+    background: rgba(247, 223, 30, 0.05);
+    padding: 1rem;
+    border-radius: 0 8px 8px 0;
+    margin-top: 1rem;
+}
+
+.pro-tip-blue {
+    border-left-color: #61afef;
+    background: rgba(97, 175, 239, 0.05);
+}
+
+.no-list-style {
+    list-style: none;
+    padding: 0;
+}
+
+.small-text {
+    font-size: 0.85rem;
+}
+
+.ordered-list-small {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    line-height: 1.6;
+    padding-left: 1.25rem;
+}
+
+.margin-top-1 {
+    margin-top: 1rem;
+}
+
+.glossary-card {
+    margin-bottom: 4rem;
+    border-left: 4px solid var(--js-yellow);
+}
+
+.color-browser { color: #60a5fa; }
+.color-node { color: #4ade80; }
+
+.box-async {
+    background: rgba(247, 223, 30, 0.05);
+    border: 1px solid rgba(247, 223, 30, 0.2);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+}
+
+.box-defer {
+    background: rgba(96, 165, 250, 0.05);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+}
+
+.ordered-list-small li {
+    margin-bottom: 0.5rem;
+}
+
+.no-list-style {
+    padding: 0;
+    list-style: none;
+}
+
+.grid-2-tight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.feature-item-small {
+    padding: 0.75rem;
+    text-align: center;
+    font-size: 0.875rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.btn-interaction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--js-yellow);
+    color: black;
+    font-weight: 900;
+    border-radius: 12px;
+    cursor: pointer;
+    padding: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+    width: 100%;
+}
+
+.btn-interaction:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(247, 223, 30, 0.2);
+}
+
+.btn-interaction:active {
+    transform: scale(0.98);
+}
+
+/* --- Workflow & Stage Cards (Parsing Page) --- */
+.workflow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stage-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.stage-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--js-yellow);
+}
+
+.stage-card.active {
+    background: rgba(247, 223, 30, 0.1);
+    border-color: var(--js-yellow);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.stage-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.stage-name {
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.arrow {
+    font-size: 1.5rem;
+    color: var(--glass-border);
+    font-weight: bold;
+}
+
+.details-panel {
+    min-height: 400px;
+    padding: 3rem;
+}
+
+.details-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.details-label {
+    color: var(--js-yellow);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.placeholder-text {
+    text-align: center;
+    color: var(--text-dim);
+    padding-top: 5rem;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .workflow { flex-direction: column; }
+    .arrow { transform: rotate(90deg); }
+    .stage-card { width: 100%; }
+    .details-header { flex-direction: column; text-align: center; }
+}
+
+/* --- Dashboard (Index Page) --- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.course-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+}
+
+.card-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--js-yellow);
+    color: black;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 900;
+}
+
+.card-content {
+    padding: 2rem;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.margin-bottom-4 {
+    margin-bottom: 4rem;
+}
+

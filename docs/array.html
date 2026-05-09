@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="hy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS.CORE | Մասիվներ (Arrays)</title>
+        <link
+            rel="shortcut icon"
+            href="../public/images/programmer.png"
+            type="image/x-icon"
+        />
+
+        <script type="module">
+            import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: "dark",
+                securityLevel: "loose",
+                fontFamily: "Noto Sans Armenian",
+            });
+        </script>
+        <link rel="stylesheet" href="../public/styles/style.css" />
+    </head>
+    <body>
+        <nav class="nav-fixed">
+            <div class="nav-container">
+                <a href="index.html" class="nav-brand">JS.CORE</a>
+                <div class="nav-links">
+                    <a href="#basics" class="nav-link">Հիմունքներ</a>
+                    <a href="#methods" class="nav-link">Մեթոդներ</a>
+                    <a href="#loops" class="nav-link">Շրջանցում</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header>
+                <h1 class="title-large gradient-text">Մասիվներ (Arrays)</h1>
+                <p class="subtitle">
+                    "Մասիվը հզոր գործիք է տվյալները կարգավորված պահելու և արդյունավետ
+                    մշակելու համար:"
+                </p>
+            </header>
+
+            <!-- Glossary -->
+            <div class="glass-card glossary-card">
+                <div class="grid-3">
+                    <div>
+                        <h4 class="js-yellow-text">Element</h4>
+                        <p class="text-dimmed small-text">Մասիվում պահվող արժեքը:</p>
+                    </div>
+                    <div>
+                        <h4 class="js-yellow-text">Index</h4>
+                        <p class="text-dimmed small-text">Տարրի դիրքը (սկսած 0-ից):</p>
+                    </div>
+                    <div>
+                        <h4 class="js-yellow-text">Length</h4>
+                        <p class="text-dimmed small-text">Տարրերի քանակը (Max Index + 1):</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 01: Basics -->
+            <section id="basics" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">Հայտարարում և Մուտք</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Մասիվները օբյեկտների հատուկ տեսակ են, որոնք նախատեսված են
+                        <b>կարգավորված</b> տվյալներ պահելու համար:
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Ստեղծում (Literal)</h4>
+                            <p
+                                class="text-dimmed"
+                                style="font-size: 0.85rem; margin-bottom: 0.8rem"
+                            >
+                                Ամենատարածված ձևը քառակուսի փակագծերի օգտագործումն է:
+                            </p>
+                            <div class="feature-item">
+                                <code class="hl-kw">let</code> fruits = [
+                                <span class="hl-str">"🍎"</span>,
+                                <span class="hl-str">"🍊"</span>,
+                                <span class="hl-str">"🍐"</span>
+                                ]; <span class="hl-cm">// Հագեցած մասիվ</span>
+                                <br />
+                                <code class="hl-kw">let</code> empty = [ ];
+                                <span class="hl-cm">// Դատարկ մասիվ</span>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Տարրերի հասանելիություն</h4>
+                            <p class="text-dimmed">
+                                Զանգվածի տարրերը համարակալվում են <b>0-ից</b>: Ցանկացած
+                                տարրի կարելի է <b>դիմել</b> իր համապատասխան ինդեքսի
+                                միջոցով:
+                            </p>
+
+                            <div class="code-inset">
+                                <code class="hl-var">fruits</code>[<span class="hl-num">0</span>];
+                                <span class="hl-cm">// "🍎" (Առաջին տարր)</span><br />
+                                <code class="hl-var">fruits</code>[<span class="hl-num">1</span>];
+                                <span class="hl-cm">// "🍊" (Երկրորդ տարր)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-2" style="margin-top: 2rem">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Տեսակների ազատություն</h4>
+                            <p class="text-dimmed">
+                                Մասիվը կարող է պահել <b>ցանկացած</b> տեսակի տվյալ՝ string,
+                                number, boolean, object և նույնիսկ այլ մասիվներ:
+                            </p>
+                            <div class="feature-item">
+                                <code class="hl-kw">let</code> mixed =
+                                [&nbsp;<span class="hl-num">1</span>,
+                                <span class="hl-str">"🍎"</span>,
+                                <span class="hl-type">true</span>, {id:
+                                <span class="hl-num">1</span>}&nbsp;];
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <h4
+                                class="card-header-small"
+                                style="font-size: 0.85rem; opacity: 0.8"
+                            >
+                                Տիպի ճշգրիտ ստուգում
+                            </h4>
+                            <div class="feature-divider">
+                                <code class="hl-fn">console.log</code>(<code class="hl-kw">typeof</code> [&nbsp;]);
+                                <span class="hl-cm">// "object" (Ոչ բավարար)</span><br />
+
+                                <code class="hl-kw">Array</code>.<span class="hl-fn">isArray</span>([&nbsp;]);
+                                <span class="hl-cm">// true (Հուսալի)</span>
+                            </div>
+
+                            <p
+                                class="text-dimmed"
+                                style="
+                                    font-size: 0.75rem;
+                                    margin-top: 0.5rem;
+                                    line-height: 1.4;
+                                "
+                            >
+                                * Քանի որ JS-ում մասիվը օբյեկտ է, <code>typeof</code>-ը
+                                միշտ կվերադարձնի "object": Ճիշտ ստուգման համար միշտ
+                                օգտագործեք <code>Array.isArray()</code>:
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="diagram-explanation">
+                        <p>
+                            Մասիվը հիշողության մեջ (Heap) պահվում է որպես օբյեկտ՝ հատուկ
+                            ներքին կառուցվածքով, որտեղ length-ը ավտոմատ թարմացվող
+                            հատկություն է:
+                        </p>
+                    </div>
+
+                    <!-- Mermaid Array Structure -->
+                    <!-- prettier-ignore -->
+                    <div class="mermaid">
+                        flowchart TD
+                            subgraph Container ["Array Object in Heap"]
+                                direction LR
+                                L["length: 3"]
+                                subgraph Arr ["Internal Slots (Indexed)"]
+                                    direction LR
+                                    N0["0: '🍎'"] 
+                                    N1["1: '🍊'"]
+                                    N2["2: '🍐'"]
+                                    N0 --- N1 --- N2
+                                end
+                            end
+                            
+                            style L fill:#e06c75,color:#000
+                            style Arr fill:none,stroke:#f7df1e
+                            style Container fill:#282c34,color:#abb2bf,stroke:#61afef
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 02: Methods -->
+            <section id="methods" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title">Հիմնական Մեթոդներ (LIFO/FIFO)</h2>
+                </div>
+
+                <div class="glass-card">
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Վերջից (Արագ)</h4>
+                            <ul class="list-container">
+                                <li class="list-item">
+                                    <b>push</b>: Ավելացնում է տարր վերջից:
+                                </li>
+                                <li class="list-item">
+                                    <b>pop</b>: Հեռացնում է վերջին տարրը:
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Սկզբից (Դանդաղ)</h4>
+                            <ul class="list-container">
+                                <li class="list-item">
+                                    <b>unshift</b>: Ավելացնում է տարր սկզբից:
+                                </li>
+                                <li class="list-item">
+                                    <b>shift</b>: Հեռացնում է առաջին տարրը:
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="feature-item" style="margin-top: 2rem">
+                        <h4 class="card-header-small" style="color: var(--js-yellow)">
+                            Կոդի Օրինակ (Queue & Stack)
+                        </h4>
+                        <div class="code-block">
+                            <span class="hl-kw">let</span> queue = [<span class="hl-str">"Apple"</span>, <span class="hl-str">"Orange"</span>];<br />
+                            <br />
+                            <span class="hl-cm">// FIFO (First In, First Out) - Հերթ</span><br />
+                            queue.<span class="hl-fn">push</span>(<span class="hl-str">"Pear"</span>);
+                            <span class="hl-cm">// ["Apple", "Orange", "Pear"]</span><br />
+                            queue.<span class="hl-fn">shift</span>();
+                            <span class="hl-cm">// հեռացնում է "Apple" -> ["Orange", "Pear"]</span><br />
+                            <br />
+                            <span class="hl-kw">let</span> stack = [];<br />
+                            stack.<span class="hl-fn">push</span>(<span class="hl-num">1</span>);
+                            <span class="hl-cm">// [1]</span><br />
+                            stack.<span class="hl-fn">push</span>(<span class="hl-num">2</span>);
+                            <span class="hl-cm">// [1, 2]</span><br />
+                            stack.<span class="hl-fn">pop</span>();
+                            <span class="hl-cm">// հեռացնում է 2 -> [1]</span>
+                        </div>
+                    </div>
+
+                    <!-- Mermaid Methods Animation -->
+                    <!-- prettier-ignore -->
+                    <div class="mermaid">
+                        flowchart LR 
+                            Input((New Item)) 
+                            subgraph Stack ["Array Structure"]
+                                direction LR 
+                                Head["[0]"] 
+                                Mid["[1]"] 
+                                Tail["[n]"] 
+                                Head <--> Mid <--> Tail 
+                            end 
+                            
+                            Output((Removed)) 
+                            
+                            Input e_push@-->|push| Tail 
+                            Tail e_pop@-->|pop| Output 
+                            Input e_unshift@-->|unshift| Head
+                            Head e_shift@-->|shift| Output 
+                            
+                            e_push@{ animate: true }
+                            e_pop@{ animate: true } 
+                            e_unshift@{ animate: true } 
+                            e_shift@{ animate: true } 
+
+                            style Head fill:#ffc500,color:#000 
+                            style Tail fill:#ffc500,color:#000 
+                            style Input fill:#98c379,color:#000 
+                            style Output fill:#e06c75,color:#000 
+                            style Stack fill:none,stroke:#3e4451
+                    </div>
+
+                    <div class="pro-tip pro-tip-blue">
+                        <h4 class="card-header-small hl-fn">
+                            Ինչո՞ւ է սա կարևոր (Performance Insight)
+                        </h4>
+                        <div class="grid-2">
+                            <div>
+                                <h5 class="hl-str">Արագ (O(1))</h5>
+                                <p class="text-dimmed small-text">
+                                    <b>push</b> և <b>pop</b> մեթոդները միայն
+                                    ավելացնում/հեռացնում են տարրը զանգվածի վերջից և
+                                    թարմացնում length-ը: Մնացած բոլոր տարրերը մնում են
+                                    իրենց տեղերում:
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="hl-var">Դանդաղ (O(n))</h5>
+                                <p class="text-dimmed small-text">
+                                    <b>shift</b> և <b>unshift</b> մեթոդների դեպքում JS-ը
+                                    ստիպված է վերահասցեավորել բոլոր տարրերի ինդեքսները:
+                                    Եթե զանգվածը ունի 1 միլիոն տարր, ապա սկզբից մեկ տարր
+                                    ավելացնելիս՝ մնացած 1 միլիոնը պետք է «տեղաշարժվեն» մեկ
+                                    քայլով:
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 03: Loops -->
+            <section id="loops" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">Մասիվների Շրջանցում</h2>
+                </div>
+
+                <div class="glass-card">
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">for...of ցիկլ</h4>
+                            <div class="feature-item">
+                                <code class="hl-kw">for</code> (let fruit
+                                <code class="hl-kw">of</code> fruits) {<br />
+                                &nbsp;&nbsp;<code class="hl-fn">console.log</code>(fruit);<br />
+                                }
+                            </div>
+                            <p class="text-dimmed">
+                                Ամենապարզ և ժամանակակից ձևը արժեքները ստանալու համար:
+                            </p>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">length հատկությունը</h4>
+                            <p class="text-dimmed">
+                                <code>arr.length</code>-ը միշտ վերադարձնում է վերջին
+                                ինդեքսը + 1: Այն կարելի է օգտագործել նաև մասիվը մաքրելու
+                                համար՝ <code>arr.length = 0</code>:
+                            </p>
+                            <div class="pro-tip pro-tip-blue">
+                                💡 <b>Pro Tip:</b> Եթե ձեռքով փոքրացնեք
+                                <code>length</code>-ը, մասիվը կկրճատվի (տվյալները կջնջվեն
+                                անվերադարձ):
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer-simple">
+            <div class="footer-brand">JS.CORE</div>
+            <p class="footer-copy">Created By DHayk | 2026</p>
+        </footer>
+    </body>
+</html>

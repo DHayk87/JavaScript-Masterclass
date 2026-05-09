@@ -7,102 +7,7 @@
         <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
 
         <link rel="stylesheet" href="../public/styles/style.css">
-        <style>
-            /* Page Specific Styles */
-            .workflow {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: space-between;
-                gap: 1rem;
-            }
-            .stage-card {
-                background: var(--glass-bg);
-                backdrop-filter: blur(12px);
-                border: 1px solid var(--glass-border);
-                border-radius: 20px;
-                padding: 2rem 1.5rem;
-                flex: 1;
-                min-width: 150px;
-                text-align: center;
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-            .stage-card:hover {
-                transform: translateY(-5px);
-                border-color: var(--js-yellow);
-            }
-            .stage-card.active {
-                background: rgba(247, 223, 30, 0.1);
-                border-color: var(--js-yellow);
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            }
-            .stage-icon {
-                font-size: 2.5rem;
-                display: block;
-                margin-bottom: 0.5rem;
-            }
-            .stage-name {
-                font-weight: 800;
-                font-size: 0.8rem;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-            }
-            .arrow {
-                font-size: 1.5rem;
-                color: var(--glass-border);
-                font-weight: bold;
-            }
-            .hidden {
-                display: none;
-            }
 
-            .code-keyword { color: #c678dd; }
-            .code-number { color: #d19a66; }
-            .code-comment { color: #5c6370; font-style: italic; }
-            .code-string { color: #98c379; }
-
-            .details-panel { min-height: 400px; padding: 3rem; }
-            .placeholder-text {
-                text-align: center;
-                color: var(--text-dim);
-                padding-top: 5rem;
-                font-size: 1.2rem;
-            }
-            .details-header {
-                display: flex;
-                align-items: center;
-                gap: 2rem;
-                margin-bottom: 3rem;
-            }
-            #det-icon { font-size: 4rem; }
-            #det-title {
-                margin: 0;
-                font-size: 2.5rem;
-                color: var(--js-yellow);
-            }
-            #det-subtitle { margin: 0; color: var(--text-dim); }
-            .details-label {
-                color: var(--js-yellow);
-                text-transform: uppercase;
-                letter-spacing: 0.1em;
-                font-size: 0.8rem;
-                margin-bottom: 1.5rem;
-            }
-            #det-desc { line-height: 1.8; color: rgba(255, 255, 255, 0.8); }
-            #det-visual {
-                font-family: "Fira Code", monospace;
-                line-height: 1.6;
-                border-left: 4px solid var(--js-yellow);
-            }
-
-            @media (max-width: 768px) {
-                .workflow { flex-direction: column; }
-                .arrow { transform: rotate(90deg); }
-                .stage-card { width: 100%; }
-                .details-header { flex-direction: column; text-align: center; }
-            }
-        </style>
 
     </head>
     <body>
@@ -125,22 +30,22 @@
             <div class="workflow" id="workflow">
                 <div class="stage-card" id="card-1" onclick="selectStage(1)">
                     <span class="stage-icon">🔍</span>
-                    <span class="stage-name" style="color: #38bdf8">Parser</span>
+                    <span class="stage-name color-browser">Parser</span>
                 </div>
                 <div class="arrow">→</div>
                 <div class="stage-card" id="card-2" onclick="selectStage(2)">
                     <span class="stage-icon">🌳</span>
-                    <span class="stage-name" style="color: #10b981">AST</span>
+                    <span class="stage-name hl-str">AST</span>
                 </div>
                 <div class="arrow">→</div>
                 <div class="stage-card" id="card-3" onclick="selectStage(3)">
                     <span class="stage-icon">🔥</span>
-                    <span class="stage-name" style="color: #f59e0b">Ignition</span>
+                    <span class="stage-name hl-kw">Ignition</span>
                 </div>
                 <div class="arrow">→</div>
                 <div class="stage-card" id="card-4" onclick="selectStage(4)">
                     <span class="stage-icon">🚀</span>
-                    <span class="stage-name" style="color: #a855f7">TurboFan</span>
+                    <span class="stage-name hl-kw">TurboFan</span>
                 </div>
             </div>
 
@@ -174,8 +79,7 @@
             <!-- Section: Engine Insights -->
             <!-- Section: Engine Insights (V8 Internals) -->
             <section
-                class="grid-2"
-                style="margin-top: 4rem"
+                class="grid-2 margin-top-1"
                 id="details"
             >
                 <!-- JIT Optimization Card -->
@@ -243,7 +147,7 @@
                     subtitle: "Կոդի ընթերցում և մասնատում",
                     icon: "🔍",
                     desc: "Այս փուլում շարժիչը կարդում է ձեր JS ֆայլը որպես սովորական տեքստ։ Այն սկզբում կատարում է 'Tokenization' (բաժանում է բառերի), այնուհետև ստուգում է քերականական սխալները։ Եթե սխալ կա, կոդը չի գործարկվի։",
-                    visual: `<span class="code-keyword">let</span> age = <span class="code-number">20</span>;<br><br><span class="code-comment">// Թոքեններ:</span><br>[LET, ID:age, EQUAL, NUM:20]`,
+                    visual: `<span class="hl-kw">let</span> age = <span class="hl-num">20</span>;<br><br><span class="hl-cm">// Թոքեններ:</span><br>[LET, ID:age, EQUAL, NUM:20]`,
                 },
                 2: {
                     title: "AST (Ծառի կառուցում)",
@@ -264,7 +168,7 @@
                     subtitle: "Մեքենայական կոդի գեներացիա",
                     icon: "🚀",
                     desc: "Եթե ծրագիրը տեսնում է, որ ինչ-որ ֆունկցիա շատ հաճախ է կանչվում, այն ուղարկում է TurboFan-ին։ Վերջինս ստեղծում է գերարագ մեքենայական կոդ (Binary), որն աշխատում է անմիջապես պրոցեսորի վրա։",
-                    visual: `10110010 00101011<br>11001100 11110001<br><span class="code-comment">// Սա ամենաարագ մակարդակն է</span>`,
+                    visual: `10110010 00101011<br>11001100 11110001<br><span class="hl-cm">// Սա ամենաարագ մակարդակն է</span>`,
                 },
             };
 

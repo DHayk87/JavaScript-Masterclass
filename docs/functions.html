@@ -58,9 +58,9 @@
                         <div class="feature-box">
                             <h4 class="card-header-small">Սինտաքս</h4>
                             <div class="feature-item">
-                                <code style="color: #c678dd">function</code>
-                                <code style="color: #61afef">sayHi</code>() {<br />
-                                &nbsp;&nbsp;console.log("Ողջույն");<br />
+                                <code class="hl-kw">function</code>
+                                <code class="hl-fn">sayHi</code>() {<br />
+                                &nbsp;&nbsp;<code class="hl-fn">console.log</code>(<span class="hl-str">"Ողջույն"</span>);<br />
                                 }
                             </div>
                         </div>
@@ -96,9 +96,9 @@
                         <div class="feature-box">
                             <h4 class="card-header-small">Սինտաքս</h4>
                             <div class="feature-item">
-                                <code style="color: #c678dd">let</code> sayHi =
-                                <code style="color: #c678dd">function</code>() {<br />
-                                &nbsp;&nbsp;console.log("Ողջույն");<br />
+                                <code class="hl-kw">let</code> sayHi =
+                                <code class="hl-kw">function</code>() {<br />
+                                &nbsp;&nbsp;<code class="hl-fn">console.log</code>(<span class="hl-str">"Ողջույն"</span>);<br />
                                 };
                             </div>
                         </div>
@@ -145,16 +145,13 @@
                         <div class="feature-box">
                             <h4 class="card-header-small">Սինտաքս</h4>
                             <div class="feature-item">
-                                <code style="color: #c678dd">const</code> sum = (a, b) =>
+                                <code class="hl-kw">const</code> sum = (a, b) =>
                                 a + b;
                             </div>
                         </div>
                         <div class="feature-box">
                             <h4 class="card-header-small">Ինչու՞ են հատուկ</h4>
-                            <ul
-                                class="list-container"
-                                style="list-style: none; padding: 0"
-                            >
+                            <ul class="no-list-style">
                                 <li class="list-item">
                                     <span class="dot"></span> <b>Lexical this:</b> Չունեն
                                     սեփական <code>this</code>: Վերցնում են այն ստեղծման
@@ -191,9 +188,8 @@
                         <div class="feature-box">
                             <h4 class="card-header-small">Սինտաքս</h4>
                             <div class="feature-item">
-                                (<code>function</code>() {<br />
-                                &nbsp;&nbsp;<code>let</code> privateVar = "Գաղտնի
-                                տվյալ";<br />
+                                (<code class="hl-kw">function</code>() {<br />
+                                &nbsp;&nbsp;<code class="hl-kw">let</code> privateVar = <span class="hl-str">"Գաղտնի տվյալ"</span>;<br />
                                 })();
                             </div>
                         </div>
@@ -209,26 +205,11 @@
             </section>
 
             <!-- Masterclass Tip -->
-            <section class="section-container">
-                <div
-                    class="glass-card"
-                    style="
-                        border-top: 4px solid var(--js-yellow);
-                        background: rgba(247, 223, 30, 0.05);
-                    "
-                >
-                    <h3
-                        class="js-yellow-text"
-                        style="font-size: 1.5rem; margin-bottom: 1.5rem"
-                    >
-                        Use Cases (Ե՞րբ և ո՞րն օգտագործել)
-                    </h3>
-                    <div class="feature-box">
-                        <h4 class="card-header-small">Ե՞րբ որն օգտագործել</h4>
-                        <ol
-                            class="list-container"
-                            style="color: var(--text-main); font-size: 0.95rem"
-                        >
+                    <div class="pro-tip pro-tip-blue">
+                        <h4 class="card-header-small hl-fn">
+                            Use Cases (Ե՞րբ և ո՞րն օգտագործել)
+                        </h4>
+                        <ol class="ordered-list-small">
                             <li>
                                 <b>Function Declaration:</b> Հիմնական գործողությունների
                                 համար, որոնք պետք է հասանելի լինեն ամբողջ ֆայլում:
@@ -244,8 +225,6 @@
                             </li>
                         </ol>
                     </div>
-                </div>
-            </section>
         </main>
 
         <footer class="footer-simple">

@@ -4,7 +4,11 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JS.CORE | Պայմաններ և Լոգիկա</title>
-        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+        <link
+            rel="shortcut icon"
+            href="../public/images/programmer.png"
+            type="image/x-icon"
+        />
 
         <script type="module">
             import mermaid from "mermaid";
@@ -53,10 +57,7 @@
                     <div class="grid-2">
                         <div class="feature-box">
                             <h4 class="card-header-small">Հիմնական Օպերատորներ</h4>
-                            <ul
-                                class="list-container"
-                                style="list-style: none; padding: 0"
-                            >
+                            <ul class="no-list-style">
                                 <li class="list-item">
                                     <span class="dot"></span> <code>a &gt; b</code>,
                                     <code>a &lt; b</code> (Մեծ, փոքր)
@@ -80,17 +81,10 @@
                         </div>
                     </div>
 
-                    <div
-                        class="feature-item"
-                        style="border-left: 4px solid var(--js-yellow)"
-                    >
-                        <code style="color: #98c379">alert( 2 > 1 ); // true</code><br />
-                        <code style="color: #e06c75"
-                            >alert( '2' == 2 ); // true (ոչ խիստ)</code
-                        ><br />
-                        <code style="color: #61afef"
-                            >alert( '2' === 2 ); // false (խիստ)</code
-                        >
+                    <div class="pro-tip">
+                        <code class="hl-str">alert( 2 > 1 ); // true</code><br />
+                        <code class="hl-var">alert( '2' == 2 ); // true (ոչ խիստ)</code><br />
+                        <code class="hl-fn">alert( '2' === 2 ); // false (խիստ)</code>
                     </div>
                 </div>
             </section>
@@ -115,13 +109,13 @@
                         <div class="flex-col-1">
                             <h4 class="card-header-small">if-else if-else Կառուցվածք</h4>
                             <div class="feature-item">
-                                <code style="color: #c678dd">if</code> (time < 12) {<br />
-                                &nbsp;&nbsp;alert('Բարի լույս');<br />
-                                } <code style="color: #c678dd">else if</code> (time < 18)
+                                <code class="hl-kw">if</code> (time < 12) {<br />
+                                &nbsp;&nbsp;<code class="hl-fn">alert</code>('Բարի լույս');<br />
+                                } <code class="hl-kw">else if</code> (time < 18)
                                 {<br />
-                                &nbsp;&nbsp;alert('Բարի օր');<br />
-                                } <code style="color: #c678dd">else</code> {<br />
-                                &nbsp;&nbsp;alert('Բարի երեկո');<br />
+                                &nbsp;&nbsp;<code class="hl-fn">alert</code>('Բարի օր');<br />
+                                } <code class="hl-kw">else</code> {<br />
+                                &nbsp;&nbsp;<code class="hl-fn">alert</code>('Բարի երեկո');<br />
                                 }
                             </div>
                         </div>
@@ -140,9 +134,10 @@
                             </div>
                             <p class="text-dimmed" style="font-size: 0.8rem">
                                 <i
-                                    >Կառուցվածք՝
-                                    &nbsp;
-                                    <code>պայման ? արժեք_եթե_true : արժեք_եթե_false</code></i
+                                    >Կառուցվածք՝ &nbsp;
+                                    <code
+                                        >պայման ? արժեք_եթե_true : արժեք_եթե_false</code
+                                    ></i
                                 >
                             </p>
                         </div>
@@ -191,13 +186,17 @@
                     <!-- prettier-ignore -->
                     <div class="mermaid">
                         graph LR
-                            Cond{"Պայման"} ---->|True| Then["Կատարել կոդը"]
-                            Cond ---->|False| Else["Else / Այլընտրանք"]
-                            
+                            Cond{"Պայման"} t_1@---->|True| Then["Կատարել կոդը"]
+                            Cond t_2@ ---->|False| Else["Else / Այլընտրանք"]
+
+                            t_1@{ animate: true }
+                            t_2@{ animate: true }
+
                             style Cond fill:none,stroke:#f7df1e,stroke-width:2px
                             style Then fill:#10b981,stroke:#059669,color:#fff
-                            style Else fill:#ef4444,stroke:#dc2626,color:#fff
+                            style Else fill:#ef4444,stroke:#dc2626,color:#fff                          
                     </div>
+
                 </div>
             </section>
         </main>
