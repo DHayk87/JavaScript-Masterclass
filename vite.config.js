@@ -15,6 +15,8 @@ export default defineConfig({
         switchWhile: resolve(__dirname, 'docs/switch-while.html'),
         functions: resolve(__dirname, 'docs/functions.html'),
         codeParsing: resolve(__dirname, 'docs/code-parsing.html'),
+        array: resolve(__dirname, 'docs/array.html'),
+        object: resolve(__dirname, 'docs/object.html'),
       }
     }
   }
