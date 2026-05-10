@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="hy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS.CORE | Closures</title>
+        <meta
+            name="description"
+            content="Խորացված ուղեցույց JavaScript Closures-ի և Lexical Environment-ի վերաբերյալ։"
+        />
+
+        <link
+            rel="shortcut icon"
+            href="../public/images/programmer.png"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="../src/styles/style.css" />
+        <script type="module" src="../src/scripts/main.js"></script>
+
+        <script type="layout-slot" id="nav-links">
+            <a href="#intro" class="nav-link">Տեսանելիություն</a>
+            <a href="#closure" class="nav-link">Closure</a>
+            <a href="#practical" class="nav-link">Կիրառություն</a>
+            <a href="#importance" class="nav-link">Կարևորություն</a>
+        </script>
+    </head>
+    <body>
+        <!-- LAYOUT_NAV -->
+
+        <main class="main-content">
+            <header>
+                <h1 class="title-large gradient-text">Closures</h1>
+                <p class="subtitle">
+                    "Փոփոխականների տեսանելիությունը (Scope) և Lexical Environment-ը"
+                </p>
+            </header>
+
+            <section id="intro" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">Code Blocks և Scope</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Եթե փոփոխականը հայտարարված է կոդի բլոկի ներսում <code>{...}</code>, այն տեսանելի է <b>միայն այդ բլոկի ներսում</b>: Սա թույլ է տալիս մեկուսացնել կոդի հատվածներ և խուսափել փոփոխականների բախումից:
+                    </p>
+
+                    <div class="code-inset margin-top-2">
+                        {<br />
+                        &nbsp;&nbsp;<span class="hl-kw">let</span> message = <span class="hl-str">"Hello"</span>;<br />
+                        &nbsp;&nbsp;<span class="hl-type">alert</span>(message); <span class="hl-cm">// Տեսնում է փոփոխականը</span><br />
+                        }<br /><br />
+                        <span class="hl-type">alert</span>(message); <span class="hl-cm">// Error: message is not defined</span>
+                    </div>
+
+                    <p class="text-dimmed margin-top-2">
+                        Նույն կանոնը գործում է <code>if</code>, <code>for</code> և <code>while</code> կառույցների համար:
+                    </p>
+                </div>
+            </section>
+
+            <section id="closure" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title">Ի՞նչ է Closure-ը</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        <b>Closure-ը</b> JavaScript-ի հիմնարար հայեցակարգերից է, որը թույլ է տալիս ֆունկցիային հիշել և հասանելիություն ունենալ իր արտաքին տիրույթի (lexical environment) փոփոխականներին նույնիսկ այն բանից հետո, երբ արտաքին ֆունկցիան ավարտել է իր աշխատանքը:
+                    </p>
+
+                    <h4 class="card-header-small margin-top-4">Ինչպե՞ս է այն աշխատում</h4>
+                    <p class="text-dimmed margin-top-1">
+                        JavaScript-ում ֆունկցիաները ստեղծվում են իրենց «լեքսիկական միջավայրի» հետ միասին: Closure-ը ստեղծվում է ամեն անգամ, երբ ֆունկցիան հայտարարվում է:
+                    </p>
+
+                    <div class="code-inset margin-top-2">
+                        <span class="hl-kw">function</span> <span class="hl-fn">outerFunction</span>(outerVariable) {<br />
+                        &nbsp;&nbsp;<span class="hl-kw">return function</span> <span class="hl-fn">innerFunction</span>(innerVariable) {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-type">console</span>.<span class="hl-fn">log</span>(<span class="hl-str">'Outer Variable: '</span> + outerVariable);<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-type">console</span>.<span class="hl-fn">log</span>(<span class="hl-str">'Inner Variable: '</span> + innerVariable);<br />
+                        &nbsp;&nbsp;}<br />
+                        }<br /><br />
+                        
+                        <span class="hl-kw">const</span> newFunction = <span class="hl-fn">outerFunction</span>(<span class="hl-str">'outside'</span>);<br />
+                        <span class="hl-fn">newFunction</span>(<span class="hl-str">'inside'</span>);<br />
+                        <span class="hl-cm">// Արդյունք՝</span><br />
+                        <span class="hl-cm">// Outer Variable: outside</span><br />
+                        <span class="hl-cm">// Inner Variable: inside</span>
+                    </div>
+
+                    <p class="text-dimmed margin-top-2">
+                        Այս օրինակում <code>innerFunction</code>-ը պահպանում է հասանելիությունը <code>outerVariable</code>-ին, թեև <code>outerFunction</code>-ն արդեն ավարտել է իր կատարումը:
+                    </p>
+                </div>
+            </section>
+
+            <section id="practical" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">Գործնական կիրառություն</h2>
+                </div>
+
+                <div class="glass-card">
+                    <h4 class="card-header-small">1. Տվյալների գաղտնիություն (Encapsulation)</h4>
+                    <p class="text-dimmed margin-top-1">
+                        Closure-ը թույլ է տալիս ստեղծել մասնավոր (private) փոփոխականներ, որոնք հասանելի չեն դրսից:
+                    </p>
+
+                    <div class="code-inset margin-top-2">
+                        <span class="hl-kw">function</span> <span class="hl-fn">createCounter</span>() {<br />
+                        &nbsp;&nbsp;<span class="hl-kw">let</span> count = <span class="hl-num">0</span>;<br />
+                        &nbsp;&nbsp;<span class="hl-kw">return</span> {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;increment: <span class="hl-kw">function</span>() {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count++;<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-kw">return</span> count;<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;},<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;decrement: <span class="hl-kw">function</span>() {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count--;<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-kw">return</span> count;<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;},<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;getCount: <span class="hl-kw">function</span>() {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-kw">return</span> count;<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+                        &nbsp;&nbsp;}<br />
+                        }<br /><br />
+                        <span class="hl-kw">const</span> counter = <span class="hl-fn">createCounter</span>();<br />
+                        <span class="hl-type">console</span>.<span class="hl-fn">log</span>(counter.<span class="hl-fn">increment</span>()); <span class="hl-cm">// 1</span><br />
+                        <span class="hl-type">console</span>.<span class="hl-fn">log</span>(counter.<span class="hl-fn">increment</span>()); <span class="hl-cm">// 2</span><br />
+                        <span class="hl-type">console</span>.<span class="hl-fn">log</span>(counter.count); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-cm">// undefined (փոփոխականը պաշտպանված է)</span>
+                    </div>
+
+                    <h4 class="card-header-small margin-top-4">2. Function Factories (Ֆունկցիաների գործարան)</h4>
+                    <p class="text-dimmed margin-top-1">
+                        Կարող ենք ստեղծել ֆունկցիաներ, որոնք հանդես են գալիս որպես կաղապարներ այլ մասնագիտացված ֆունկցիաների համար:
+                    </p>
+
+                    <div class="code-inset margin-top-2">
+                        <span class="hl-kw">function</span> <span class="hl-fn">makeAdder</span>(x) {<br />
+                        &nbsp;&nbsp;<span class="hl-kw">return function</span>(y) {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-kw">return</span> x + y;<br />
+                        &nbsp;&nbsp;};<br />
+                        }<br /><br />
+                        <span class="hl-kw">const</span> add5 = <span class="hl-fn">makeAdder</span>(<span class="hl-num">5</span>);<br />
+                        <span class="hl-kw">const</span> add10 = <span class="hl-fn">makeAdder</span>(<span class="hl-num">10</span>);<br /><br />
+                        <span class="hl-type">console</span>.<span class="hl-fn">log</span>(<span class="hl-fn">add5</span>(<span class="hl-num">2</span>)); &nbsp;<span class="hl-cm">// 7</span><br />
+                        <span class="hl-type">console</span>.<span class="hl-fn">log</span>(<span class="hl-fn">add10</span>(<span class="hl-num">2</span>)); <span class="hl-cm">// 12</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="importance" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">04</span>
+                    <h2 class="section-title">Կարևորություն և Զգուշացում</h2>
+                </div>
+
+                <div class="glass-card">
+                    <h4 class="card-header-small">Ինչու՞ է դա կարևոր</h4>
+                    <ul class="no-list-style margin-top-2 text-dimmed">
+                        <li class="list-item"><span class="dot"></span> <b>State Persistence:</b> Թույլ է տալիս պահպանել վիճակը ֆունկցիաների կանչերի միջև՝ առանց գլոբալ փոփոխականներ օգտագործելու:</li>
+                        <li class="list-item"><span class="dot"></span> <b>Memory Management:</b> Closure-ը պահում է փոփոխականը հիշողության մեջ այնքան ժամանակ, քանի դեռ ներքին ֆունկցիան գոյություն ունի:</li>
+                        <li class="list-item"><span class="dot"></span> <b>Asynchronous Code:</b> Շատ կարևոր է callback-ների և ասինխրոն գործողությունների ժամանակ տվյալների համատեքստը պահպանելու համար:</li>
+                    </ul>
+
+                    <div class="pro-tip margin-top-4">
+                        <h4 class="card-header-small">⚠️ Զգուշացում. Memory Leaks</h4>
+                        <p class="text-dimmed">
+                            Closure-ները կարող են հանգեցնել հիշողության ավելորդ օգտագործման (Memory Leaks), եթե ներքին ֆունկցիաները պահվում են այն ժամանակ, երբ դրանք այլևս պետք չեն, քանի որ դրանց հետ կապված փոփոխականները չեն ջնջվում Garbage Collector-ի կողմից:
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="module-nav">
+            <a href="class" class="prev nav-arrow">
+                <span class="arrow-icon">←</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Նախորդը</span>
+                    <span class="arrow-title">ES6 Classes</span>
+                </div>
+            </a>
+            <a href="promise" class="next nav-arrow">
+                <div class="arrow-text" style="text-align: right;">
+                    <span class="arrow-label">Հաջորդը</span>
+                    <span class="arrow-title">Promises</span>
+                </div>
+                <span class="arrow-icon">→</span>
+            </a>
+        </div>
+
+        <!-- LAYOUT_FOOTER -->
+    </body>
+</html>

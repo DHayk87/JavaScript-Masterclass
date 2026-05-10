@@ -4,34 +4,20 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JS.CORE | Switch և Loops</title>
-        <link
-            rel="shortcut icon"
-            href="../public/images/programmer.png"
-            type="image/x-icon"
-        />
+        <meta name="description" content="JavaScript-ի switch կոնստրուկցիան, ցիկլերը (while, do...while, for) և Lexical Environment-ի աշխատանքի սկզբունքները:" />
+        
+        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+        <link rel="stylesheet" href="../src/styles/style.css" />
+        <script type="module" src="../src/scripts/main.js"></script>
 
-        <script type="module">
-            import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-            mermaid.initialize({
-                startOnLoad: true,
-                theme: "dark",
-                securityLevel: "loose",
-                fontFamily: "Noto Sans Armenian",
-            });
+        <script type="layout-slot" id="nav-links">
+            <a href="#switch" class="nav-link">Switch</a>
+            <a href="#loops" class="nav-link">Ցիկլեր</a>
+            <a href="#lexical" class="nav-link">Lexical Environment</a>
         </script>
-        <link rel="stylesheet" href="../public/styles/style.css" />
     </head>
     <body>
-        <nav class="nav-fixed">
-            <div class="nav-container">
-                <a href="index.html" class="nav-brand">JS.CORE</a>
-                <div class="nav-links">
-                    <a href="#switch" class="nav-link">Switch</a>
-                    <a href="#loops" class="nav-link">Ցիկլեր</a>
-                    <a href="#lexical" class="nav-link">Lexical Environment</a>
-                </div>
-            </div>
-        </nav>
+        <!-- LAYOUT_NAV -->
 
         <main class="main-content">
             <header>
@@ -58,7 +44,7 @@
                     <div class="grid-2">
                         <div class="feature-box">
                             <h4 class="card-header-small">Կառուցվածք</h4>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 <code class="hl-kw">switch</code>(x) {<br />
                                 &nbsp;&nbsp;<code class="hl-kw">case</code>
                                 'val1':
@@ -107,7 +93,7 @@
                     <div class="grid-2">
                         <div class="flex-col-1">
                             <h4 class="card-header-small">for Ցիկլ</h4>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 <code class="hl-kw">for</code> (let i = 0; i < 3;
                                 i++) {<br />
                                 &nbsp;&nbsp;<code class="hl-fn">alert</code>(i);<br />
@@ -119,7 +105,7 @@
                         </div>
                         <div class="flex-col-1">
                             <h4 class="card-header-small">while Ցիկլ</h4>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 <code class="hl-kw">while</code> (i < 3) {<br />
                                 &nbsp;&nbsp;<code class="hl-fn">alert</code>(i);<br />
                                 &nbsp;&nbsp;i++;<br />
@@ -190,11 +176,11 @@
                             <h4 class="card-header-small">Կառուցվածք</h4>
                             <ul class="list-container no-list-style">
                                 <li class="list-item">
-                                    <span class="dot"></span> <b>Environment Record</b>:
+                                    <b>Environment Record</b>:
                                     Պահպանում է բոլոր տեղային փոփոխականները:
                                 </li>
                                 <li class="list-item">
-                                    <span class="dot"></span> <b>Outer Reference</b>:
+                                    <b>Outer Reference</b>:
                                     Հղում դեպի արտաքին (outer) միջավայր:
                                 </li>
                             </ul>
@@ -210,10 +196,7 @@
                     </div>
 
                     <div class="feature-item" style="margin-top: 2rem">
-                        <h3
-                            class="js-yellow-text"
-                            style="font-size: 1.5rem; margin-bottom: 1rem"
-                        >
+                        <h3 class="js-yellow-text" style="font-size: 1.5rem; margin-bottom: 1rem">
                             Ինչպե՞ս է աշխատում Scope Chain-ը
                         </h3>
                         <p class="text-dimmed">
@@ -233,36 +216,21 @@
                                     գրանցում է տվյալ տիրույթում հայտարարված բոլոր
                                     փոփոխականները և ֆունկցիաները:
                                 </p>
-                                <ul
-                                    class="list-container"
-                                    style="font-size: 0.85rem; color: var(--text-main)"
-                                >
-                                    <li>
-                                        <b>Inner:</b> Ունի իր սեփական
-                                        <code>innerVar</code>-ը:
-                                    </li>
-                                    <li>
-                                        <b>Outer:</b> Պահում է <code>outerVar</code>-ը:
-                                    </li>
-                                    <li>
-                                        <b>Global:</b> Հանդիսանում է ամենավերին մակարդակը:
-                                    </li>
+                                <ul class="list-container no-list-style" style="font-size: 0.85rem; color: var(--text-main)">
+                                    <li><b>Inner:</b> Ունի իր սեփական <code>innerVar</code>-ը:</li>
+                                    <li><b>Outer:</b> Պահում է <code>outerVar</code>-ը:</li>
+                                    <li><b>Global:</b> Հանդիսանում է ամենավերին մակարդակը:</li>
                                 </ul>
                             </div>
 
                             <div class="flex-col-1">
                                 <h4 class="card-header-small">2. Outer Reference</h4>
                                 <p class="text-dimmed" style="font-size: 0.9rem">
-                                    Յուրաքանչյուր Lexical Environment ունի հղում (<code
-                                        >[[OuterEnv]]</code
-                                    >
+                                    Յուրաքանչյուր Lexical Environment ունի հղում (<code>[[OuterEnv]]</code>
                                     սլաքը), որը մատնանշում է այն միջավայրը, որտեղ տվյալ
                                     կոդը ֆիզիկապես գրված է:
                                 </p>
-                                <ul
-                                    class="list-container"
-                                    style="font-size: 0.85rem; color: var(--text-main)"
-                                >
+                                <ul class="list-container no-list-style" style="font-size: 0.85rem; color: var(--text-main)">
                                     <li>Inner-ի հղումը տանում է դեպի Outer:</li>
                                     <li>Outer-ի հղումը տանում է դեպի Global:</li>
                                     <li>Global-ի հղումը <code>null</code> է:</li>
@@ -330,9 +298,23 @@
             </section>
         </main>
 
-        <footer class="footer-simple">
-            <div class="footer-brand">JS.CORE</div>
-            <p class="footer-copy">Created By DHayk | 2026</p>
-        </footer>
+        <div class="module-nav">
+            <a href="if-operators" class="nav-arrow prev">
+                <span class="arrow-icon">←</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Նախորդը</span>
+                    <span class="arrow-title">Պայմաններ և Լոգիկա</span>
+                </div>
+            </a>
+            <a href="functions" class="nav-arrow next">
+                <span class="arrow-icon">→</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Հաջորդը</span>
+                    <span class="arrow-title">Ֆունկցիաներ</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- LAYOUT_FOOTER -->
     </body>
 </html>

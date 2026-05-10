@@ -4,10 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JS Masterclass | Template</title>
-        <link rel="shortcut icon" href="./programmer.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
 
         <script type="module">
-            import mermaid from "./node_modules/mermaid/dist/mermaid.esm.min.mjs";
+            import mermaid from "mermaid";
             mermaid.initialize({
                 startOnLoad: true,
                 theme: "dark",
@@ -15,7 +15,7 @@
                 fontFamily: "Noto Sans Armenian",
             });
         </script>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="../public/styles/style.css" />
     </head>
     <body>
         <nav class="nav-fixed">
@@ -71,6 +71,23 @@
                 </div>
             </section>
         </main>
+
+        <div class="module-nav">
+            <a href="#" class="nav-arrow prev">
+                <span class="arrow-icon">←</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Նախորդը</span>
+                    <span class="arrow-title">Նախորդ Մոդուլ</span>
+                </div>
+            </a>
+            <a href="#" class="nav-arrow next">
+                <span class="arrow-icon">→</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Հաջորդը</span>
+                    <span class="arrow-title">Հաջորդ Մոդուլ</span>
+                </div>
+            </a>
+        </div>
 
         <footer class="footer-simple">
             <div class="footer-brand">JS.CORE</div>

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="hy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS.CORE | Async & Await</title>
+        <meta
+            name="description"
+            content="Խորացված ուղեցույց JavaScript Async/Await-ի վերաբերյալ։ Ասինխրոն կոդի էվոլյուցիան և գործնական կիրառումը։"
+        />
+
+        <link
+            rel="shortcut icon"
+            href="../public/images/programmer.png"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="../src/styles/style.css" />
+        <script type="module" src="../src/scripts/main.js"></script>
+
+        <script type="layout-slot" id="nav-links">
+            <a href="#intro" class="nav-link">Ներածություն</a>
+            <a href="#how-it-works" class="nav-link">Ինչպես է աշխատում</a>
+            <a href="#comparison" class="nav-link">Համեմատություն</a>
+        </script>
+    </head>
+    <body>
+        <!-- LAYOUT_NAV -->
+
+        <main class="main-content">
+            <header>
+                <h1 class="title-large gradient-text">Async / Await</h1>
+                <p class="subtitle">"Ասինխրոն կոդի էվոլյուցիան"</p>
+            </header>
+
+            <section id="intro" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">Ներածություն</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        <code>async</code> և <code>await</code> բանալի բառերը ներմուծվել
+                        են ES2017 (ES8) ստանդարտով և հեղաշրջում են կատարել JavaScript-ում
+                        ասինխրոն գործողությունների գրելաձևի մեջ: Դրանք թույլ են տալիս գրել
+                        ասինխրոն կոդ, որը տեսքով և ընթերցելիությամբ նման է սովորական
+                        սինխրոն կոդին:
+                    </p>
+
+                    <div class="grid-2 margin-top-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">1. Ի՞նչ է Async-ը</h4>
+                            <p class="text-dimmed">
+                                <code>async</code> բանալի բառը դրվում է ֆունկցիայից առաջ:
+                                Այն երաշխավորում է երկու բան.
+                            </p>
+                            <ul class="no-list-style margin-top-1">
+                                <li class="list-item">
+                                    <span class="dot"></span> Ֆունկցիան միշտ վերադարձնում
+                                    է Promise:
+                                </li>
+                                <li class="list-item">
+                                    <span class="dot"></span> Եթե ֆունկցիան վերադարձնում է
+                                    սովորական արժեք, JavaScript-ն այն ավտոմատ կերպով
+                                    «փաթաթում» է <code>Promise.resolve()</code>-ի մեջ:
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">2. Ի՞նչ է Await-ը</h4>
+                            <p class="text-dimmed">
+                                <code>await</code> բանալի բառն աշխատում է միայն
+                                <code>async</code> ֆունկցիաների ներսում: Այն ստիպում է
+                                JavaScript-ին սպասել այնքան ժամանակ, մինչև Promise-ը
+                                կատարվի (resolve) կամ մերժվի (reject):
+                            </p>
+                            <div class="pro-tip pro-tip-blue margin-top-1">
+                                <b>Կարևոր է.</b> <code>await</code>-ը չի արգելափակում
+                                (block) ամբողջ ծրագրի աշխատանքը: Մինչ ֆունկցիան սպասում է
+                                պատասխանի, JavaScript-ի Engine-ը շարունակում է կատարել այլ
+                                գործողություններ (օրինակ՝ UI-ի թարմացում):
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="how-it-works" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title">Ինչպե՞ս է դա աշխատում</h2>
+                </div>
+
+                <div class="glass-card">
+                    <h4 class="card-header-small">Վիզուալիզացիա և Օգտագործում</h4>
+
+                    <div class="code-inset margin-top-2">
+                        <span class="hl-cm"
+                            >// Պատկերացնենք տվյալների ստացում սերվերից</span
+                        ><br />
+                        <span class="hl-kw">async function</span>
+                        <span class="hl-fn">getUserData</span>() {<br />
+                        &nbsp;&nbsp;<span class="hl-kw">try</span> {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-type">console</span>.<span
+                            class="hl-fn"
+                            >log</span
+                        >(<span class="hl-str">"Հարցումն ուղարկված է..."</span
+                        >);<br /><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-cm"
+                            >// Ծրագիրը սպասում է այստեղ, մինչև fetch-ը կավարտվի</span
+                        ><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-kw">let</span> response =
+                        <span class="hl-kw">await</span>
+                        <span class="hl-fn">fetch</span>(<span class="hl-str"
+                            >'https://api.example.com/user'</span
+                        >);<br /><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-cm"
+                            >// Սպասում է, մինչև JSON-ը պատրաստ լինի</span
+                        ><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-kw">let</span> data =
+                        <span class="hl-kw">await</span> response.<span class="hl-fn"
+                            >json</span
+                        >();<br /><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-type">console</span>.<span
+                            class="hl-fn"
+                            >log</span
+                        >(<span class="hl-str">"Տվյալները ստացված են:"</span>, data);<br />
+                        &nbsp;&nbsp;} <span class="hl-kw">catch</span> (error) {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-type">console</span>.<span
+                            class="hl-fn"
+                            >error</span
+                        >(<span class="hl-str">"Սխալ տեղի ունեցավ:"</span>, error);<br />
+                        &nbsp;&nbsp;}<br />
+                        }
+                    </div>
+
+                    <div class="margin-top-4">
+                        <h4 class="card-header-small">
+                            4. Ինչո՞ւ օգտագործել Async / Await
+                        </h4>
+                        <table class="glossary-table margin-top-2">
+                            <thead>
+                                <tr>
+                                    <th>Առավելություն</th>
+                                    <th>Նկարագրություն</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ընթերցելիություն</td>
+                                    <td>
+                                        Կոդը դառնում է գծային (Linear): Այլևս չկան
+                                        բազմաթիվ <code>.then()</code> շղթաներ:
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Error Handling</td>
+                                    <td>
+                                        Կարելի է օգտագործել ստանդարտ
+                                        <code>try...catch</code> կառուցվածքը՝ սխալները
+                                        բռնելու համար:
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Debugging</td>
+                                    <td>
+                                        Debug անելիս <code>await</code>-ը թույլ է տալիս
+                                        կանգնել կոնկրետ տողի վրա, ինչպես սովորական կոդում:
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Conditional Code</td>
+                                    <td>
+                                        Ավելի հեշտ է գրել պայմաններ (if/else), որոնք
+                                        կախված են ասինխրոն պատասխանից:
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="comparison" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">Համեմատություն</h2>
+                </div>
+
+                <div class="glass-card">
+                    <h4 class="card-header-small">Promises vs Async/Await</h4>
+
+                    <div class="grid-2 margin-top-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Promises (.then)</h4>
+                            <div class="code-inset">
+                                <span class="hl-kw">function</span>
+                                <span class="hl-fn">load</span>() {<br />
+                                &nbsp;&nbsp;<span class="hl-fn">fetch</span>(<span
+                                    class="hl-str"
+                                    >'/api'</span
+                                >)<br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;.<span class="hl-fn">then</span
+                                >(res => res.<span class="hl-fn">json</span>())<br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;.<span class="hl-fn">then</span
+                                >(data => <span class="hl-type">console</span>.<span
+                                    class="hl-fn"
+                                    >log</span
+                                >(data));<br />
+                                }
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Async / Await</h4>
+                            <div class="code-inset">
+                                <span class="hl-kw">async function</span>
+                                <span class="hl-fn">load</span>() {<br />
+                                &nbsp;&nbsp;<span class="hl-kw">const</span> res =
+                                <span class="hl-kw">await</span>
+                                <span class="hl-fn">fetch</span>(<span class="hl-str"
+                                    >'/api'</span
+                                >);<br />
+                                &nbsp;&nbsp;<span class="hl-kw">const</span> data =
+                                <span class="hl-kw">await</span> res.<span class="hl-fn"
+                                    >json</span
+                                >();<br />
+                                &nbsp;&nbsp;<span class="hl-type">console</span>.<span
+                                    class="hl-fn"
+                                    >log</span
+                                >(data);<br />
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pro-tip margin-top-4">
+                        <h4 class="card-header-small">
+                            🚀 Pro-Tip Զուգահեռ Հարցումների համար
+                        </h4>
+                        <p class="text-dimmed">
+                            Եթե ունես մի քանի անկախ հարցումներ, մի՛ օգտագործիր <code>await</code> ամեն տողում, քանի որ դա կդանդաղեցնի աշխատանքը: Օգտագործիր <code>Promise.all()</code>, որպեսզի հարցումները կատարվեն զուգահեռ, իսկ հետո նոր <code>await</code> արա ամբողջ զանգվածի վրա:
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="module-nav">
+            <a href="promise" class="prev nav-arrow">
+                <span class="arrow-icon">←</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Նախորդը</span>
+                    <span class="arrow-title">Promises</span>
+                </div>
+            </a>
+            <a href="event-loop" class="next nav-arrow">
+                <div class="arrow-text" style="text-align: right;">
+                    <span class="arrow-label">Հաջորդը</span>
+                    <span class="arrow-title">Event Loop</span>
+                </div>
+                <span class="arrow-icon">→</span>
+            </a>
+        </div>
+
+        <!-- LAYOUT_FOOTER -->
+    </body>
+</html>

@@ -4,31 +4,21 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JS.CORE | Հիմունքներ</title>
+        <meta name="description" content="JavaScript-ի հիմունքներ. փոփոխականներ (let, const), տվյալների տիպեր, բրաուզերային ինտերակցիա և օպերատորներ:" />
+        
         <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+        <link rel="stylesheet" href="../src/styles/style.css" />
+        <script type="module" src="../src/scripts/main.js"></script>
 
-        <script type="module">
-            import mermaid from "mermaid";
-            mermaid.initialize({
-                startOnLoad: true,
-                theme: "dark",
-                securityLevel: "loose",
-                fontFamily: "Noto Sans Armenian",
-            });
+        <script type="layout-slot" id="nav-links">
+            <a href="#variables" class="nav-link">Փոփոխականներ</a>
+            <a href="#types" class="nav-link">Տիպեր</a>
+            <a href="#interaction" class="nav-link">Ինտերակցիա</a>
+            <a href="#operators" class="nav-link">Օպերատորներ</a>
         </script>
-        <link rel="stylesheet" href="../public/styles/style.css" />
     </head>
     <body>
-        <nav class="nav-fixed">
-            <div class="nav-container">
-                <a href="index.html" class="nav-brand">JS.CORE</a>
-                <div class="nav-links">
-                    <a href="#variables" class="nav-link">Փոփոխականներ</a>
-                    <a href="#types" class="nav-link">Տիպեր</a>
-                    <a href="#interaction" class="nav-link">Ինտերակցիա</a>
-                    <a href="#operators" class="nav-link">Օպերատորներ</a>
-                </div>
-            </div>
-        </nav>
+        <!-- LAYOUT_NAV -->
 
         <main class="main-content">
             <header>
@@ -55,17 +45,12 @@
                     <div class="grid-2">
                         <div class="feature-box">
                             <h4 class="card-header-small">let & const</h4>
-                            <ul
-                                class="list-container"
-                                style="list-style: none; padding: 0"
-                            >
+                            <ul class="list-container no-list-style">
                                 <li class="list-item">
-                                    <span class="dot"></span> <b>let</b>: արժեքը կարող է
-                                    փոխվել:
+                                    <b>let</b>: արժեքը կարող է փոխվել:
                                 </li>
                                 <li class="list-item">
-                                    <span class="dot"></span> <b>const</b>: հաստատուն է,
-                                    չի փոխվում:
+                                    <b>const</b>: հաստատուն է, չի փոխվում:
                                 </li>
                             </ul>
                         </div>
@@ -78,9 +63,9 @@
                         </div>
                     </div>
 
-                    <div class="pro-tip">
-                        <code class="hl-str">let message = "Hello!";</code><br />
-                        <code class="hl-var">const BIRTHDAY = "18.04.1982";</code>
+                    <div class="code-block">
+                        <code class="hl-kw">let</code> message = <span class="hl-str">"Hello!"</span>;<br />
+                        <code class="hl-kw">const</code> BIRTHDAY = <span class="hl-str">"18.04.1982"</span>;
                     </div>
                 </div>
             </section>
@@ -92,12 +77,10 @@
                     <h2 class="section-title">Տվյալների տիպեր</h2>
                 </div>
 
-                <div class="glass-card" style="padding: 2rem">
+                <div class="glass-card">
                     <div class="grid-2">
                         <div class="flex-col-1">
-                            <h4 class="card-header-small">
-                                Primitives
-                            </h4>
+                            <h4 class="card-header-small">Primitives</h4>
                             <div class="grid-2-tight">
                                 <div class="feature-item-small">String</div>
                                 <div class="feature-item-small">Number</div>
@@ -108,9 +91,7 @@
                             </div>
                         </div>
                         <div class="flex-col-1">
-                            <h4 class="card-header-small">
-                                Complex
-                            </h4>
+                            <h4 class="card-header-small">Complex</h4>
                             <div class="feature-box flex-center-gap-2 font-bold">
                                 Object (Arrays, Functions)
                             </div>
@@ -167,7 +148,7 @@
                     <div class="grid-2">
                         <div class="flex-col-1">
                             <h4 class="card-header-small">Մաթեմատիկական</h4>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 <code>+, -, *, /, %, **</code>
                             </div>
                             <p class="text-dimmed">
@@ -177,7 +158,7 @@
                         </div>
                         <div class="flex-col-1">
                             <h4 class="card-header-small">Համեմատման</h4>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 <code>==, ===, !=, !==, &gt;, &lt;</code>
                             </div>
                             <p class="text-dimmed">
@@ -208,10 +189,24 @@
             </section>
         </main>
 
-        <footer class="footer-simple">
-            <div class="footer-brand">JS.CORE</div>
-            <p class="footer-copy">Created By DHayk | 2026</p>
-        </footer>
+        <div class="module-nav">
+            <a href="./" class="nav-arrow prev">
+                <span class="arrow-icon">🏠</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Վերադառնալ</span>
+                    <span class="arrow-title">Գլխավոր</span>
+                </div>
+            </a>
+            <a href="core" class="nav-arrow next">
+                <span class="arrow-icon">→</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Հաջորդը</span>
+                    <span class="arrow-title">Core Concepts</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- LAYOUT_FOOTER -->
 
         <script>
             function testInteraction() {

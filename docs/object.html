@@ -4,35 +4,21 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JS.CORE | Օբյեկտներ</title>
-        <link
-            rel="shortcut icon"
-            href="../public/images/programmer.png"
-            type="image/x-icon"
-        />
+        <meta name="description" content="JavaScript օբյեկտների (Objects) խորացված ուղեցույց. հղումներ, պատճենում (cloning), Garbage Collection և const-ի պարադոքսը:" />
+        
+        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+        <link rel="stylesheet" href="../src/styles/style.css" />
+        <script type="module" src="../src/scripts/main.js"></script>
 
-        <script type="module">
-            import mermaid from "mermaid";
-            mermaid.initialize({
-                startOnLoad: true,
-                theme: "dark",
-                securityLevel: "loose",
-                fontFamily: "Noto Sans Armenian",
-            });
+        <script type="layout-slot" id="nav-links">
+            <a href="#basics" class="nav-link">Հիմունքներ</a>
+            <a href="#access" class="nav-link">Հասանելիություն</a>
+            <a href="#loops" class="nav-link">Ցիկլեր</a>
+            <a href="#references" class="nav-link">Հղումներ</a>
         </script>
-        <link rel="stylesheet" href="../public/styles/style.css" />
     </head>
     <body>
-        <nav class="nav-fixed">
-            <div class="nav-container">
-                <a href="index.html" class="nav-brand">JS.CORE</a>
-                <div class="nav-links">
-                    <a href="#basics" class="nav-link">Հիմունքներ</a>
-                    <a href="#access" class="nav-link">Հասանելիություն</a>
-                    <a href="#loops" class="nav-link">Ցիկլեր</a>
-                    <a href="#references" class="nav-link">Հղումներ</a>
-                </div>
-            </div>
-        </nav>
+        <!-- LAYOUT_NAV -->
 
         <main class="main-content">
             <header>
@@ -59,7 +45,7 @@
                     <div class="grid-2">
                         <div class="feature-box">
                             <h4 class="card-header-small">Ստեղծում</h4>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 <code class="hl-kw">let</code> user = {<br />
                                 &nbsp;&nbsp;name:
                                 <span class="hl-str">"John"</span>,<br />
@@ -164,7 +150,7 @@
                     <div class="grid-2">
                         <div class="feature-box">
                             <h4 class="card-header-small">Հատկությունների շրջանցում</h4>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 <code class="hl-kw">for</code> (<code class="hl-kw"
                                     >let</code
                                 >
@@ -180,8 +166,7 @@
                             </h4>
                             <p class="text-dimmed">
                                 Եթե բանալիները կարող են փոխակերպվել ամբողջ թվի, ապա դրանք
-                                կդասավորվեն աճման կարգով։ Մնացած բոլոր դեպքերում
-                                պահպանվում է ստեղծման հաջորդականությունը։
+                                կդասավորվեն աճման կարգով։
                             </p>
                         </div>
                     </div>
@@ -212,7 +197,7 @@
                     <div class="grid-2 margin-top-1">
                         <div class="feature-box">
                             <h4 class="card-header-small">Օրինակ</h4>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 <code class="hl-kw">let</code> codes = {<br />
                                 &nbsp;&nbsp;<span class="hl-str">"49"</span>:
                                 <span class="hl-str">"Germany"</span>,<br />
@@ -233,9 +218,7 @@
                         <div class="feature-box">
                             <h4 class="card-header-small">Ինչո՞ւ է սա կարևոր</h4>
                             <p class="text-dimmed">
-                                1, 41 և 49-ը ամբողջ թվեր են և տեսակավորվում են, իսկ
-                                սովորական տեքստային բանալիները հայտնվում են վերջում՝ ըստ
-                                ստեղծման հաջորդականության։
+                                1, 41 և 49-ը ամբողջ թվեր են և տեսակավորվում են։
                             </p>
                         </div>
                     </div>
@@ -245,20 +228,17 @@
                         <ul class="no-list-style">
                             <li class="list-item">
                                 <span class="dot"></span> <b>Մասիվներ:</b> Խուսափեք
-                                <code>for..in</code>-ից մասիվների դեպքում: Այն ավելի
-                                դանդաղ է: Օգտագործեք <code>for..of</code>:
+                                <code>for..in</code>-ից մասիվների դեպքում:
                             </li>
                             <li class="list-item">
                                 <span class="dot"></span>
                                 <b>Հերթականության պահպանում:</b> Եթե ուզում եք, որ թվերը
-                                չտեսակավորվեն, ավելացրեք <code>+</code> նշանը բանալուց
-                                առաջ:
+                                չտեսակավորվեն, ավելացրեք <code>+</code> նշանը:
                             </li>
                             <li class="list-item">
                                 <span class="dot"></span> <b>Prototype Chain:</b>
                                 <code>for..in</code>-ը տեսնում է նաև ժառանգված
-                                հատկությունները: Միայն «սեփական» բանալիների համար
-                                օգտագործեք <code>Object.keys()</code>:
+                                հատկությունները:
                             </li>
                         </ul>
                     </div>
@@ -302,7 +282,7 @@
                         <h4 class="card-header-small">Հիշեք</h4>
                         <p class="text-dimmed">
                             Երբ պատճենում եք օբյեկտը, դուք պատճենում եք միայն նրա
-                            <b>հասցեն</b> հիշողության մեջ, ոչ թե հենց օբյեկտը:
+                            <b>հասցեն</b> հիշողության մեջ:
                         </p>
                     </div>
 
@@ -313,9 +293,7 @@
                             </h4>
                             <p class="text-dimmed">
                                 <code>{} == {}</code> միշտ <b>false</b> է: JS-ը համեմատում
-                                է հասցեները, ոչ թե պարունակությունը: Երկու նոր օբյեկտ
-                                ստանում են տարբեր հասցեներ հիշողության մեջ, հետևաբար երբեք
-                                հավասար չեն:
+                                է հասցեները, ոչ թե պարունակությունը:
                             </p>
                         </div>
                         <div class="feature-box">
@@ -323,10 +301,8 @@
                                 ♻️ Garbage Collection (Աղբահանություն)
                             </h4>
                             <p class="text-dimmed">
-                                Եթե օբյեկտին տանող բոլոր հղումները ջնջվում են (օր.՝
-                                <code>a = null; b = null;</code>), այն դառնում է
-                                <b>"Unreachable"</b>: Garbage Collector-ը ավտոմատ կջնջի այն՝
-                                ազատելով հիշողությունը (Heap):
+                                Եթե օբյեկտին տանող բոլոր հղումները ջնջվում են, այն դառնում է
+                                <b>"Unreachable"</b>:
                             </p>
                         </div>
                     </div>
@@ -362,19 +338,30 @@
                         </h4>
                         <p class="text-dimmed">
                             «Երբ դուք օբյեկտը փոխանցում եք ֆունկցիային որպես արգումենտ,
-                            դուք փոխանցում եք <b>հղումը</b>։ Եթե ֆունկցիայի ներսում փոխեք
-                            այդ օբյեկտը, այն կփոխվի նաև ֆունկցիայից դուրս։ Սա կոչվում է
-                            <b>Side Effect</b> և կարող է բերել դժվար հայտնաբերվող
-                            սխալների»։
+                            դուք փոխանցում եք <b>հղումը</b>։ Սա կարող է բերել <b>Side Effects</b>»։
                         </p>
                     </div>
                 </div>
             </section>
         </main>
 
-        <footer class="footer-simple">
-            <div class="footer-brand">JS.CORE</div>
-            <p class="footer-copy">Created By DHayk | 2026</p>
-        </footer>
+        <div class="module-nav">
+            <a href="code-parsing" class="prev nav-arrow">
+                <span class="arrow-icon">←</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Նախորդը</span>
+                    <span class="arrow-title">Code Parsing</span>
+                </div>
+            </a>
+            <a href="array" class="next nav-arrow">
+                <span class="arrow-icon">→</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Հաջորդը</span>
+                    <span class="arrow-title">Arrays</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- LAYOUT_FOOTER -->
     </body>
 </html>

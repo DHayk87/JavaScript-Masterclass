@@ -1,21 +1,15 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="hy">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JS.CORE | Core Concepts</title>
+        <meta name="description" content="Ինչպես է աշխատում JavaScript-ը. JIT կոմպիլյացիա, V8 Engine, Browser vs Node.js միջավայրեր և execution flow (async/defer):" />
+        
         <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+        <link rel="stylesheet" href="../src/styles/style.css" />
+        <script type="module" src="../src/scripts/main.js"></script>
 
-        <script type="module">
-            import mermaid from "mermaid";
-            mermaid.initialize({
-                startOnLoad: true,
-                theme: "dark",
-                securityLevel: "loose",
-                fontFamily: "Noto Sans Armenian",
-            });
-        </script>
-        <link rel="stylesheet" href="../public/styles/style.css">
         <style>
             /* Page Specific Styles */
             .hero-header {
@@ -102,19 +96,14 @@
             }
         </style>
 
+        <script type="layout-slot" id="nav-links">
+            <a href="#intro" class="nav-link">Հիմք</a>
+            <a href="#env" class="nav-link">Միջավայր</a>
+            <a href="#execution" class="nav-link">Ընթացք</a>
+        </script>
     </head>
     <body>
-        <nav class="nav-fixed">
-            <div class="nav-container">
-                <a href="index.html" class="nav-brand">JS.CORE</a>
-                <div class="nav-links">
-                    <a href="#intro" class="nav-link">Հիմք</a>
-                    <a href="#env" class="nav-link">Միջավայր</a>
-                    <a href="#execution" class="nav-link">Ընթացք</a>
-                    <a href="#variables" class="nav-link">Տվյալներ</a>
-                </div>
-            </div>
-        </nav>
+        <!-- LAYOUT_NAV -->
 
         <header class="hero-header">
             <div class="glow-bg"></div>
@@ -137,7 +126,7 @@
                         Ժամանակակից JS-ը օգտագործում է
                         <span class="js-yellow-text font-bold">JIT (Just-In-Time)</span>
                         կոմպիլյացիա։ Սա նշանակում է, որ կոդը թարգմանվում է մեքենայական
-                        լեզվի հենց կատարման պահին՝ ապահովելով բարձր արագություն։
+                        լեզվի հենց կատարման պախին՝ ապահովելով բարձր արագություն։
                     </p>
 
                     <div class="grid-2">
@@ -166,7 +155,6 @@
                             D e4@--> E[Binary Code]
                             E e5@--> F((Output))
                             
-
                             e1@{ animate : true}
                             e2@{ animate : true}
                             e3@{ animate : true}
@@ -191,50 +179,28 @@
                             <h3 class="flex-center-gap-2 font-bold">
                                 <span class="color-browser">🌐</span> Browser
                             </h3>
-                            <ul class="list-container">
-                                <li class="list-item">
-                                    <span class="dot"></span>
-                                    Window & DOM manipulation
-                                </li>
-                                <li class="list-item">
-                                    <span class="dot"></span>
-                                    Fetch API / XHR
-                                </li>
-                                <li class="list-item">
-                                    <span class="dot"></span>
-                                    Cookies / SessionStorage
-                                </li>
+                            <ul class="list-container no-list-style">
+                                <li class="list-item">Window & DOM manipulation</li>
+                                <li class="list-item">Fetch API / XHR</li>
+                                <li class="list-item">Cookies / SessionStorage</li>
                             </ul>
                         </div>
                         <div class="flex-col-1">
                             <h3 class="flex-center-gap-2 font-bold">
                                 <span class="color-node">💻</span> Node.js
                             </h3>
-                            <ul class="list-container">
-                                <li class="list-item">
-                                    <span class="dot"></span>
-                                    File System (fs module)
-                                </li>
-                                <li class="list-item">
-                                    <span class="dot"></span>
-                                    Process & OS access
-                                </li>
-                                <li class="list-item">
-                                    <span class="dot"></span>
-                                    Server-side logic
-                                </li>
+                            <ul class="list-container no-list-style">
+                                <li class="list-item">File System (fs module)</li>
+                                <li class="list-item">Process & OS access</li>
+                                <li class="list-item">Server-side logic</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Բաժին 3: Execution Flow -->
-            <section
-                id="execution"
-                class="section-container"
-                style="scroll-margin-top: 6rem"
-            >
+            <!-- 03: Execution Flow -->
+            <section id="execution" class="section-container" style="scroll-margin-top: 6rem">
                 <div class="section-header">
                     <span class="section-number">03</span>
                     <h2 class="section-title">Սցենարի կատարման փուլերը</h2>
@@ -280,30 +246,14 @@
                 </div>
             </section>
 
-           
             <!-- Interactive Playground -->
             <section class="playground-wrapper">
                 <div class="playground-bg"></div>
                 <div class="playground-content">
-                    <h2
-                        style="
-                            font-size: 2.25rem;
-                            font-weight: 900;
-                            text-transform: uppercase;
-                            font-style: italic;
-                            margin: 0;
-                        "
-                    >
+                    <h2 style="font-size: 2.25rem; font-weight: 900; text-transform: uppercase; font-style: italic; margin: 0;">
                         Փորձարկիր DOM-ը ✨
                     </h2>
-                    <div
-                        style="
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            gap: 1.5rem;
-                        "
-                    >
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
                         <button id="magicBtn" class="btn-magic">ԳՈՐԾԱՐԿԵԼ ՍԿՐԻՊՏԸ</button>
                         <div id="output" class="output-box">
                             // Log: DOM mutated successfully!
@@ -313,28 +263,37 @@
             </section>
         </main>
 
-        <footer class="footer-main">
-            <div class="footer-brand">JS.CORE</div>
-            <p class="footer-copy">Created By DHayk | 2026</p>
-        </footer>
+        <div class="module-nav">
+            <a href="getting-started" class="nav-arrow prev">
+                <span class="arrow-icon">←</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Նախորդը</span>
+                    <span class="arrow-title">JS Հիմունքներ</span>
+                </div>
+            </a>
+            <a href="if-operators" class="nav-arrow next">
+                <span class="arrow-icon">→</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Հաջորդը</span>
+                    <span class="arrow-title">Պայմաններ և Լոգիկա</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- LAYOUT_FOOTER -->
 
         <script>
             const btn = document.getElementById("magicBtn");
             const output = document.getElementById("output");
 
             btn.addEventListener("click", () => {
-                // UI Feedback
                 output.classList.add("output-show");
                 btn.innerHTML = "ԿԱՏԱՐՎԱԾ Է ✅";
                 btn.classList.add("btn-success");
 
-                // Interaction
                 setTimeout(() => {
-                    alert(
-                        "JS-ը հենց նոր կատարեց Script-ը:\n1. Փոխվեց կոճակի տեքստը\n2. Հայտնվեց status log-ը\n3. Կանչվեց Alert API-ն",
-                    );
+                    alert("JS-ը հենց նոր կատարեց Script-ը:\n1. Փոխվեց կոճակի տեքստը\n2. Հայտնվեց status log-ը\n3. Կանչվեց Alert API-ն");
 
-                    // Reset after 3s
                     setTimeout(() => {
                         btn.innerHTML = "ԳՈՐԾԱՐԿԵԼ ՍԿՐԻՊՏԸ";
                         btn.classList.remove("btn-success");

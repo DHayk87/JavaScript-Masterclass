@@ -4,136 +4,169 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JS.CORE | Masterclass Dashboard</title>
-        <link
-            rel="shortcut icon"
-            href="../public/images/programmer.png"
-            type="image/x-icon"
-        />
-        <link rel="stylesheet" href="../public/styles/style.css" />
+        <meta name="description" content="Ժամանակակից JavaScript-ի ամբողջական դասընթաց սկսնակների և փորձառուների համար:" />
+        
+        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+        <link rel="stylesheet" href="../src/styles/style.css" />
+        <script type="module" src="../src/scripts/main.js"></script>
 
+        <script type="layout-slot" id="nav-links">
+            <span class="nav-link" style="opacity: 0.6">Modern JavaScript Masterclass 2026</span>
+        </script>
     </head>
     <body>
-        <nav class="nav-fixed">
-            <div class="nav-container">
-                <a href="index.html" class="nav-brand">JS.CORE</a>
-                <div class="nav-links">
-                    <span class="nav-link" style="opacity: 0.6"
-                        >Modern JavaScript Masterclass 2026</span
-                    >
-                </div>
-            </div>
-        </nav>
+        <!-- LAYOUT_NAV -->
 
         <main class="main-content">
             <header class="text-center margin-bottom-4">
                 <h1 class="title-large gradient-text">JavaScript Masterclass</h1>
-                <p class="subtitle">
-                    Սկսեք ձեր ճանապարհորդությունը դեպի պրոֆեսիոնալ ծրագրավորում
-                </p>
+                <p class="subtitle">Սկսեք ձեր ճանապարհորդությունը դեպի պրոֆեսիոնալ ծրագրավորում</p>
             </header>
 
             <div class="dashboard-grid">
                 <!-- Module 1 -->
-                <a href="getting-started.html" class="glass-card course-card">
+                <a href="getting-started" class="glass-card course-card">
                     <div class="card-badge">Module 01</div>
                     <div class="card-content">
                         <span class="card-icon">🚀</span>
                         <h3 class="card-header-small">JS Հիմունքներ</h3>
-                        <p class="text-dimmed">
-                            Փոփոխականներ, տվյալների տիպեր և բրաուզերային ինտերակցիա:
-                        </p>
+                        <p class="text-dimmed">Փոփոխականներ, տվյալների տիպեր և բրաուզերային ինտերակցիա:</p>
                     </div>
                 </a>
 
                 <!-- Module 2 -->
-                <a href="core.html" class="glass-card course-card">
+                <a href="core" class="glass-card course-card">
                     <div class="card-badge">Module 02</div>
                     <div class="card-content">
                         <span class="card-icon">💎</span>
                         <h3 class="card-header-small">Core Concepts</h3>
-                        <p class="text-dimmed">
-                            Տվյալների խորացված տիպեր և հիշողության կառավարման հիմքեր:
-                        </p>
+                        <p class="text-dimmed">Տվյալների խորացված տիպեր և հիշողության կառավարման հիմքեր:</p>
                     </div>
                 </a>
 
                 <!-- Module 3 -->
-                <a href="if-operators.html" class="glass-card course-card">
+                <a href="if-operators" class="glass-card course-card">
                     <div class="card-badge">Module 03</div>
                     <div class="card-content">
                         <span class="card-icon">⚖️</span>
                         <h3 class="card-header-small">Պայմաններ և Լոգիկա</h3>
-                        <p class="text-dimmed">
-                            Համեմատության օպերատորներ, if/else և լոգիկական կապեր:
-                        </p>
+                        <p class="text-dimmed">Համեմատության օպերատորներ, if/else և լոգիկական կապեր:</p>
                     </div>
                 </a>
 
                 <!-- Module 4 -->
-                <a href="switch-while.html" class="glass-card course-card">
+                <a href="switch-while" class="glass-card course-card">
                     <div class="card-badge">Module 04</div>
                     <div class="card-content">
                         <span class="card-icon">🔄</span>
                         <h3 class="card-header-small">Ցիկլեր և Switch</h3>
-                        <p class="text-dimmed">
-                            While, For ցիկլեր և Lexical Environment-ի հիմունքներ:
-                        </p>
+                        <p class="text-dimmed">While, For ցիկլեր և Lexical Environment-ի հիմունքներ:</p>
                     </div>
                 </a>
 
                 <!-- Module 5 -->
-                <a href="functions.html" class="glass-card course-card">
+                <a href="functions" class="glass-card course-card">
                     <div class="card-badge">Module 05</div>
                     <div class="card-content">
                         <span class="card-icon">🛠️</span>
                         <h3 class="card-header-small">Ֆունկցիաներ</h3>
-                        <p class="text-dimmed">
-                            Declarations, Expressions, Arrow functions և IIFE:
-                        </p>
+                        <p class="text-dimmed">Declarations, Expressions, Arrow functions և IIFE:</p>
                     </div>
                 </a>
 
                 <!-- Module 6 -->
-                <a href="code-parsing.html" class="glass-card course-card">
+                <a href="code-parsing" class="glass-card course-card">
                     <div class="card-badge">Module 06</div>
                     <div class="card-content">
                         <span class="card-icon">⚙️</span>
                         <h3 class="card-header-small">Code Parsing</h3>
-                        <p class="text-dimmed">
-                            Ինչպե՞ս է JavaScript-ը կարդում և կատարում ձեր կոդը:
-                        </p>
+                        <p class="text-dimmed">Ինչպե՞ս է JavaScript-ը կարդում և կատարում ձեր կոդը:</p>
                     </div>
                 </a>
                 
                 <!-- Module 7 -->
-                <a href="object.html" class="glass-card course-card">
+                <a href="object" class="glass-card course-card">
                     <div class="card-badge">Module 07</div>
                     <div class="card-content">
                         <span class="card-icon">📦</span>
                         <h3 class="card-header-small">Objects</h3>
-                        <p class="text-dimmed">
-                            Օբյեկտներ, հղումներ և հիշողության կառուցվածքը:
-                        </p>
+                        <p class="text-dimmed">Օբյեկտներ, հղումներ և հիշողության կառուցվածքը:</p>
                     </div>
                 </a>
+
                 <!-- Module 8 -->
-                <a href="array.html" class="glass-card course-card">
+                <a href="array" class="glass-card course-card">
                     <div class="card-badge">Module 08</div>
                     <div class="card-content">
                         <span class="card-icon">📚</span>
                         <h3 class="card-header-small">Arrays</h3>
-                        <p class="text-dimmed">
-                            Մասիվներ և դրանց մեթոդները:
-                        </p>
+                        <p class="text-dimmed">Մասիվներ և դրանց մեթոդները:</p>
                     </div>
                 </a>
 
+                <!-- Module 9 -->
+                <a href="prototype" class="glass-card course-card">
+                    <div class="card-badge">Module 09</div>
+                    <div class="card-content">
+                        <span class="card-icon">🧬</span>
+                        <h3 class="card-header-small">Prototypes</h3>
+                        <p class="text-dimmed">Պրոտոտիպային ժառանգում և ES5 OOP հիմունքներ:</p>
+                    </div>
+                </a>
+
+                <!-- Module 10 -->
+                <a href="class" class="glass-card course-card">
+                    <div class="card-badge">Module 10</div>
+                    <div class="card-content">
+                        <span class="card-icon">🏗️</span>
+                        <h3 class="card-header-small">ES6 Classes</h3>
+                        <p class="text-dimmed">Ժամանակակից OOP JavaScript-ում և class սինտաքս:</p>
+                    </div>
+                </a>
+
+                <!-- Module 11 -->
+                <a href="closure" class="glass-card course-card">
+                    <div class="card-badge">Module 11</div>
+                    <div class="card-content">
+                        <span class="card-icon">📦</span>
+                        <h3 class="card-header-small">Closures</h3>
+                        <p class="text-dimmed">Variable Scope, Lexical Environment և Փակագծեր:</p>
+                    </div>
+                </a>
+
+                <!-- Module 12 -->
+                <a href="promise" class="glass-card course-card">
+                    <div class="card-badge">Module 12</div>
+                    <div class="card-content">
+                        <span class="card-icon">⏳</span>
+                        <h3 class="card-header-small">Promises</h3>
+                        <p class="text-dimmed">Ասինխրոն գործողությունների կառավարում, Promise վիճակներ և շղթաներ:</p>
+                    </div>
+                </a>
+
+                <!-- Module 13 -->
+                <a href="async" class="glass-card course-card">
+                    <div class="card-badge">Module 13</div>
+                    <div class="card-content">
+                        <span class="card-icon">⚡</span>
+                        <h3 class="card-header-small">Async / Await</h3>
+                        <p class="text-dimmed">Ասինխրոն կոդի էվոլյուցիան և գործնական կիրառումը:</p>
+                    </div>
+                </a>
+
+                <!-- Module 14 -->
+                <a href="event-loop" class="glass-card course-card">
+                    <div class="card-badge">Module 14</div>
+                    <div class="card-content">
+                        <span class="card-icon">🔄</span>
+                        <h3 class="card-header-small">Event Loop</h3>
+                        <p class="text-dimmed">Macrotasks, Microtasks և ասինխրոն կոդի կատարման հերթականությունը:</p>
+                    </div>
+                </a>
             </div>
         </main>
 
-        <footer class="footer-simple">
-            <div class="footer-brand">JS.CORE</div>
-            <p class="footer-copy">Created By DHayk | 2026</p>
-        </footer>
+        <!-- LAYOUT_FOOTER -->
     </body>
 </html>
+

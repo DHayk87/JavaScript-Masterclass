@@ -4,34 +4,20 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JS.CORE | Մասիվներ (Arrays)</title>
-        <link
-            rel="shortcut icon"
-            href="../public/images/programmer.png"
-            type="image/x-icon"
-        />
+        <meta name="description" content="JavaScript մասիվների խորացված ուղեցույց. push/pop, shift/unshift մեթոդներ, արտադրողականություն և շրջանցման եղանակներ:" />
+        
+        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+        <link rel="stylesheet" href="../src/styles/style.css" />
+        <script type="module" src="../src/scripts/main.js"></script>
 
-        <script type="module">
-            import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-            mermaid.initialize({
-                startOnLoad: true,
-                theme: "dark",
-                securityLevel: "loose",
-                fontFamily: "Noto Sans Armenian",
-            });
+        <script type="layout-slot" id="nav-links">
+            <a href="#basics" class="nav-link">Հիմունքներ</a>
+            <a href="#methods" class="nav-link">Մեթոդներ</a>
+            <a href="#loops" class="nav-link">Շրջանցում</a>
         </script>
-        <link rel="stylesheet" href="../public/styles/style.css" />
     </head>
     <body>
-        <nav class="nav-fixed">
-            <div class="nav-container">
-                <a href="index.html" class="nav-brand">JS.CORE</a>
-                <div class="nav-links">
-                    <a href="#basics" class="nav-link">Հիմունքներ</a>
-                    <a href="#methods" class="nav-link">Մեթոդներ</a>
-                    <a href="#loops" class="nav-link">Շրջանցում</a>
-                </div>
-            </div>
-        </nav>
+        <!-- LAYOUT_NAV -->
 
         <main class="main-content">
             <header>
@@ -76,13 +62,10 @@
                     <div class="grid-2">
                         <div class="feature-box">
                             <h4 class="card-header-small">Ստեղծում (Literal)</h4>
-                            <p
-                                class="text-dimmed"
-                                style="font-size: 0.85rem; margin-bottom: 0.8rem"
-                            >
+                            <p class="text-dimmed" style="font-size: 0.85rem; margin-bottom: 0.8rem">
                                 Ամենատարածված ձևը քառակուսի փակագծերի օգտագործումն է:
                             </p>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 <code class="hl-kw">let</code> fruits = [
                                 <span class="hl-str">"🍎"</span>,
                                 <span class="hl-str">"🍊"</span>,
@@ -117,7 +100,7 @@
                                 Մասիվը կարող է պահել <b>ցանկացած</b> տեսակի տվյալ՝ string,
                                 number, boolean, object և նույնիսկ այլ մասիվներ:
                             </p>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 <code class="hl-kw">let</code> mixed =
                                 [&nbsp;<span class="hl-num">1</span>,
                                 <span class="hl-str">"🍎"</span>,
@@ -126,10 +109,7 @@
                             </div>
                         </div>
                         <div class="feature-box">
-                            <h4
-                                class="card-header-small"
-                                style="font-size: 0.85rem; opacity: 0.8"
-                            >
+                            <h4 class="card-header-small" style="font-size: 0.85rem; opacity: 0.8">
                                 Տիպի ճշգրիտ ստուգում
                             </h4>
                             <div class="feature-divider">
@@ -140,14 +120,7 @@
                                 <span class="hl-cm">// true (Հուսալի)</span>
                             </div>
 
-                            <p
-                                class="text-dimmed"
-                                style="
-                                    font-size: 0.75rem;
-                                    margin-top: 0.5rem;
-                                    line-height: 1.4;
-                                "
-                            >
+                            <p class="text-dimmed" style="font-size: 0.75rem; margin-top: 0.5rem; line-height: 1.4;">
                                 * Քանի որ JS-ում մասիվը օբյեկտ է, <code>typeof</code>-ը
                                 միշտ կվերադարձնի "object": Ճիշտ ստուգման համար միշտ
                                 օգտագործեք <code>Array.isArray()</code>:
@@ -197,29 +170,29 @@
                     <div class="grid-2">
                         <div class="feature-box">
                             <h4 class="card-header-small">Վերջից (Արագ)</h4>
-                            <ul class="list-container">
+                            <ul class="list-container no-list-style">
                                 <li class="list-item">
-                                    <b>push</b>: Ավելացնում է տարր վերջից:
+                                    <b>push</b>: Ավելացնում է տարր վերջից.
                                 </li>
                                 <li class="list-item">
-                                    <b>pop</b>: Հեռացնում է վերջին տարրը:
+                                    <b>pop</b>: Հեռացնում է վերջին տարրը.
                                 </li>
                             </ul>
                         </div>
                         <div class="feature-box">
                             <h4 class="card-header-small">Սկզբից (Դանդաղ)</h4>
-                            <ul class="list-container">
+                            <ul class="list-container no-list-style">
                                 <li class="list-item">
-                                    <b>unshift</b>: Ավելացնում է տարր սկզբից:
+                                    <b>unshift</b>: Ավելացնում է տարր սկզբից.
                                 </li>
                                 <li class="list-item">
-                                    <b>shift</b>: Հեռացնում է առաջին տարրը:
+                                    <b>shift</b>: Հեռացնում է առաջին տարրը.
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="feature-item" style="margin-top: 2rem">
+                    <div class="code-inset" style="margin-top: 2rem">
                         <h4 class="card-header-small" style="color: var(--js-yellow)">
                             Կոդի Օրինակ (Queue & Stack)
                         </h4>
@@ -284,8 +257,7 @@
                                 <p class="text-dimmed small-text">
                                     <b>push</b> և <b>pop</b> մեթոդները միայն
                                     ավելացնում/հեռացնում են տարրը զանգվածի վերջից և
-                                    թարմացնում length-ը: Մնացած բոլոր տարրերը մնում են
-                                    իրենց տեղերում:
+                                    թարմացնում length-ը:
                                 </p>
                             </div>
                             <div>
@@ -293,9 +265,6 @@
                                 <p class="text-dimmed small-text">
                                     <b>shift</b> և <b>unshift</b> մեթոդների դեպքում JS-ը
                                     ստիպված է վերահասցեավորել բոլոր տարրերի ինդեքսները:
-                                    Եթե զանգվածը ունի 1 միլիոն տարր, ապա սկզբից մեկ տարր
-                                    ավելացնելիս՝ մնացած 1 միլիոնը պետք է «տեղաշարժվեն» մեկ
-                                    քայլով:
                                 </p>
                             </div>
                         </div>
@@ -314,7 +283,7 @@
                     <div class="grid-2">
                         <div class="feature-box">
                             <h4 class="card-header-small">for...of ցիկլ</h4>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 <code class="hl-kw">for</code> (let fruit
                                 <code class="hl-kw">of</code> fruits) {<br />
                                 &nbsp;&nbsp;<code class="hl-fn">console.log</code>(fruit);<br />
@@ -342,9 +311,23 @@
             </section>
         </main>
 
-        <footer class="footer-simple">
-            <div class="footer-brand">JS.CORE</div>
-            <p class="footer-copy">Created By DHayk | 2026</p>
-        </footer>
+        <div class="module-nav">
+            <a href="object" class="nav-arrow prev">
+                <span class="arrow-icon">←</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Նախորդը</span>
+                    <span class="arrow-title">Objects</span>
+                </div>
+            </a>
+            <a href="prototype" class="nav-arrow next">
+                <span class="arrow-icon">→</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Հաջորդը</span>
+                    <span class="arrow-title">Prototypes & ES5</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- LAYOUT_FOOTER -->
     </body>
 </html>

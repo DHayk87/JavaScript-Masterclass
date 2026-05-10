@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="hy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS.CORE | Promise</title>
+        <meta
+            name="description"
+            content="Խորացված ուղեցույց JavaScript Promise-ների վերաբերյալ։ Վիճակներ, շղթայական կանչեր, և ստատիկ մեթոդներ։"
+        />
+
+        <link
+            rel="shortcut icon"
+            href="../public/images/programmer.png"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="../src/styles/style.css" />
+        <script type="module" src="../src/scripts/main.js"></script>
+
+        <script type="layout-slot" id="nav-links">
+            <a href="#states" class="nav-link">Վիճակներ</a>
+            <a href="#usage" class="nav-link">Ստեղծում</a>
+            <a href="#chaining" class="nav-link">Շղթա</a>
+            <a href="#methods" class="nav-link">Մեթոդներ</a>
+        </script>
+    </head>
+    <body>
+        <!-- LAYOUT_NAV -->
+
+        <main class="main-content">
+            <header>
+                <h1 class="title-large gradient-text">Promises (Խոստումներ)</h1>
+                <p class="subtitle">
+                    "Ասինխրոն գործողությունների կառավարման ժամանակակից գործիքը։"
+                </p>
+            </header>
+
+            <!-- Section 01: States -->
+            <section id="states" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">Promise-ի 3 վիճակները</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Promise-ը միշտ գտնվում է այս 3 վիճակներից մեկում.
+                    </p>
+                    <ul class="no-list-style margin-top-1">
+                        <li class="list-item">
+                            <span class="dot" style="background-color: var(--js-yellow);"></span>
+                            <b>Pending (Սպասում):</b> Սկզբնական վիճակը, երբ գործողությունը դեռ չի ավարտվել։
+                        </li>
+                        <li class="list-item">
+                            <span class="dot" style="background-color: #2ecc71;"></span>
+                            <b>Fulfilled / Resolved (Կատարված):</b> Գործողությունը հաջողությամբ ավարտվել է։
+                        </li>
+                        <li class="list-item">
+                            <span class="dot" style="background-color: #e74c3c;"></span>
+                            <b>Rejected (Մերժված):</b> Տեղի է ունեցել սխալ։
+                        </li>
+                    </ul>
+
+                    <div class="margin-top-4">
+                        <h4 class="card-header-small" style="color: var(--js-yellow)">5. Mermaid վիզուալիզացիա (Flow)</h4>
+                        <!-- prettier-ignore -->
+                        <div class="mermaid">
+                            graph TD
+                                A[New Promise] e1@--> B{Pending}
+                                B e2@-->|Async Task Success| C[Resolved / Fulfilled]
+                                B e3@-->|Async Task Fail| D[Rejected]
+                                
+                                C e4@--> E[.then]
+                                D e5@--> F[.catch]
+                                E e6@--> G[.finally]
+                                F e7@--> G
+                                
+                                e1@{ animate: true }
+                                e2@{ animate: true }
+                                e3@{ animate: true }
+                                e4@{ animate: true }
+                                e5@{ animate: true }
+                                e6@{ animate: true }
+                                e7@{ animate: true }
+                                
+                                style B fill:#f1c40f,color:#000
+                                style C fill:#2ecc71,color:#fff
+                                style D fill:#e74c3c,color:#fff
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 02: Usage -->
+            <section id="usage" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title">Ստեղծում և Օգտագործում</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Promise ստեղծելու համար օգտագործում ենք <code>new Promise</code> կոնստրուկտորը, որը ստանում է երկու ֆունկցիա՝ <code>resolve</code> և <code>reject</code>:
+                    </p>
+
+                    <div class="code-inset margin-top-2">
+                        <span class="hl-kw">const</span> myPromise = <span class="hl-kw">new</span> <span class="hl-type">Promise</span>((resolve, reject) => {<br />
+                        &nbsp;&nbsp;<span class="hl-kw">const</span> success = <span class="hl-type">true</span>;<br /><br />
+                        
+                        &nbsp;&nbsp;<span class="hl-fn">setTimeout</span>(() => {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-kw">if</span> (success) {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-fn">resolve</span>(<span class="hl-str">"Տվյալները հաջողությամբ բեռնվեցին:"</span>);<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;} <span class="hl-kw">else</span> {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-fn">reject</span>(<span class="hl-str">"Սխալ տեղի ունեցավ:"</span>);<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+                        &nbsp;&nbsp;}, <span class="hl-num">2000</span>);<br />
+                        });<br /><br />
+                        
+                        <span class="hl-cm">// Օգտագործումը</span><br />
+                        myPromise<br />
+                        &nbsp;&nbsp;.<span class="hl-fn">then</span>(data => <span class="hl-type">console</span>.<span class="hl-fn">log</span>(data)) &nbsp;&nbsp;<span class="hl-cm">// Եթե resolve եղավ</span><br />
+                        &nbsp;&nbsp;.<span class="hl-fn">catch</span>(err => <span class="hl-type">console</span>.<span class="hl-fn">error</span>(err)) <span class="hl-cm">// Եթե reject եղավ</span><br />
+                        &nbsp;&nbsp;.<span class="hl-fn">finally</span>(() => <span class="hl-type">console</span>.<span class="hl-fn">log</span>(<span class="hl-str">"Գործողությունն ավարտվեց:"</span>));
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 03: Chaining -->
+            <section id="chaining" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">Promise Chaining (Շղթայական կանչեր)</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Սա Promise-ի ամենահզոր կողմն է։ Մենք կարող ենք կապել մի քանի <code>.then()</code> իրար, և ամեն հաջորդը կստանա նախորդի վերադարձրած արժեքը։
+                    </p>
+
+                    <div class="code-inset margin-top-2">
+                        <span class="hl-fn">fetch</span>(<span class="hl-str">'https://api.example.com/user/1'</span>)<br />
+                        &nbsp;&nbsp;.<span class="hl-fn">then</span>(response => response.<span class="hl-fn">json</span>()) <span class="hl-cm">// Վերադարձնում է նոր Promise</span><br />
+                        &nbsp;&nbsp;.<span class="hl-fn">then</span>(user => user.name) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-cm">// Վերցնում ենք անունը</span><br />
+                        &nbsp;&nbsp;.<span class="hl-fn">then</span>(name => <span class="hl-type">console</span>.<span class="hl-fn">log</span>(name)) &nbsp;&nbsp;<span class="hl-cm">// Տպում ենք</span><br />
+                        &nbsp;&nbsp;.<span class="hl-fn">catch</span>(err => <span class="hl-type">console</span>.<span class="hl-fn">log</span>(err)); &nbsp;&nbsp;<span class="hl-cm">// Մեկ catch-ը բավարար է ամբողջ շղթայի սխալները բռնելու համար</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 04: Methods -->
+            <section id="methods" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">04</span>
+                    <h2 class="section-title">Static Methods (Promise-ի մեթոդները)</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Երբ աշխատում ես մի քանի Promise-ների հետ միաժամանակ.
+                    </p>
+
+                    <div class="grid-2 margin-top-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Promise.all()</h4>
+                            <p class="text-dimmed">
+                                Սպասում է բոլորի հաջող ավարտին։ Եթե թեկուզ մեկը ձախողվի, ամբողջը ձախողվում է։<br />
+                                <code>Promise.all([p1, p2, p3])</code>
+                            </p>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Promise.allSettled()</h4>
+                            <p class="text-dimmed">
+                                Սպասում է բոլորին, անկախ նրանից՝ հաջողվեցին, թե ոչ։<br />
+                                <code>Promise.allSettled([p1, p2])</code>
+                            </p>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Promise.race()</h4>
+                            <p class="text-dimmed">
+                                Վերադարձնում է այն Promise-ը, որն ավելի արագ է ավարտվում (ով առաջինը հասավ)։<br />
+                                <code>Promise.race([p1, p2])</code>
+                            </p>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Promise.any()</h4>
+                            <p class="text-dimmed">
+                                Վերադարձնում է այն առաջին Promise-ը, որը հաջողությամբ ավարտվեց (fulfilled): Եթե բոլորը ձախողվում են, վերադարձնում է AggregateError:<br />
+                                <code>Promise.any([p1, p2])</code>
+                            </p>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Promise.resolve()</h4>
+                            <p class="text-dimmed">
+                                Վերադարձնում է Promise, որն արդեն հաջողությամբ ավարտված է նշված արժեքով:<br />
+                                <code>Promise.resolve(value)</code>
+                            </p>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Promise.reject()</h4>
+                            <p class="text-dimmed">
+                                Վերադարձնում է Promise, որն արդեն մերժված է նշված պատճառով:<br />
+                                <code>Promise.reject(error)</code>
+                            </p>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Promise.withResolvers()</h4>
+                            <p class="text-dimmed">
+                                Ստեղծում է նոր Promise և վերադարձնում է այն իր <code>resolve</code> և <code>reject</code> ֆունկցիաների հետ միասին՝ թույլ տալով դրանք կանչել դրսից:<br />
+                                <code>const { promise, resolve, reject } = Promise.withResolvers()</code>
+                            </p>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Promise.try()</h4>
+                            <p class="text-dimmed">
+                                Վերցնում է ցանկացած ֆունկցիա (սինխրոն կամ ասինխրոն) և ապահով փաթեթավորում դրա արդյունքը կամ սխալը Promise-ի մեջ:<br />
+                                <code>Promise.try(() => func())</code>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pro-tip pro-tip-blue margin-top-4">
+                        <h4 class="card-header-small">💡 Pro-Tip Masterclass-ի համար</h4>
+                        <p class="text-dimmed">
+                            Promise-ը չի վերացնում ասինխրոնությունը, այլ այն դարձնում է «կառավարելի»։ Սա կամուրջ է դեպի <b>Async/Await</b>, որը Promise-ի վրա կառուցված ավելի գեղեցիկ սինտաքս է։
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="module-nav">
+            <a href="closure" class="prev nav-arrow">
+                <span class="arrow-icon">←</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Նախորդը</span>
+                    <span class="arrow-title">Closures</span>
+                </div>
+            </a>
+            <a href="async" class="next nav-arrow">
+                <div class="arrow-text" style="text-align: right;">
+                    <span class="arrow-label">Հաջորդը</span>
+                    <span class="arrow-title">Async/Await</span>
+                </div>
+                <span class="arrow-icon">→</span>
+            </a>
+        </div>
+
+        <!-- LAYOUT_FOOTER -->
+    </body>
+</html>

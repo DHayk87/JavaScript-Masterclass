@@ -4,34 +4,20 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JS.CORE | Պայմաններ և Լոգիկա</title>
-        <link
-            rel="shortcut icon"
-            href="../public/images/programmer.png"
-            type="image/x-icon"
-        />
+        <meta name="description" content="JavaScript-ի պայմանական օպերատորներ (if, else), տերնար օպերատոր և լոգիկական կապեր (OR, AND, NOT, Nullish Coalescing):" />
+        
+        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+        <link rel="stylesheet" href="../src/styles/style.css" />
+        <script type="module" src="../src/scripts/main.js"></script>
 
-        <script type="module">
-            import mermaid from "mermaid";
-            mermaid.initialize({
-                startOnLoad: true,
-                theme: "dark",
-                securityLevel: "loose",
-                fontFamily: "Noto Sans Armenian",
-            });
+        <script type="layout-slot" id="nav-links">
+            <a href="#comparison" class="nav-link">Համեմատություն</a>
+            <a href="#conditional" class="nav-link">Պայմաններ</a>
+            <a href="#logical" class="nav-link">Լոգիկա</a>
         </script>
-        <link rel="stylesheet" href="../public/styles/style.css" />
     </head>
     <body>
-        <nav class="nav-fixed">
-            <div class="nav-container">
-                <a href="index.html" class="nav-brand">JS.CORE</a>
-                <div class="nav-links">
-                    <a href="#comparison" class="nav-link">Համեմատություն</a>
-                    <a href="#conditional" class="nav-link">Պայմաններ</a>
-                    <a href="#logical" class="nav-link">Լոգիկա</a>
-                </div>
-            </div>
-        </nav>
+        <!-- LAYOUT_NAV -->
 
         <main class="main-content">
             <header>
@@ -108,7 +94,7 @@
                     <div class="grid-2">
                         <div class="flex-col-1">
                             <h4 class="card-header-small">if-else if-else Կառուցվածք</h4>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 <code class="hl-kw">if</code> (time < 12) {<br />
                                 &nbsp;&nbsp;<code class="hl-fn">alert</code>('Բարի լույս');<br />
                                 } <code class="hl-kw">else if</code> (time < 18)
@@ -126,7 +112,7 @@
                             <p class="text-dimmed">
                                 Կարճ տարբերակ պայմանի համար (Conditional Operator):
                             </p>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 <code
                                     >let result = (age >= 18) ? "Թույլատրված" :
                                     "Մերժված";</code
@@ -201,9 +187,23 @@
             </section>
         </main>
 
-        <footer class="footer-simple">
-            <div class="footer-brand">JS.CORE</div>
-            <p class="footer-copy">Created By DHayk | 2026</p>
-        </footer>
+        <div class="module-nav">
+            <a href="core" class="nav-arrow prev">
+                <span class="arrow-icon">←</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Նախորդը</span>
+                    <span class="arrow-title">Core Concepts</span>
+                </div>
+            </a>
+            <a href="switch-while" class="nav-arrow next">
+                <span class="arrow-icon">→</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Հաջորդը</span>
+                    <span class="arrow-title">Ցիկլեր և Switch</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- LAYOUT_FOOTER -->
     </body>
 </html>

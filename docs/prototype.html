@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="hy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS.CORE | Պրոտոտիպային ժառանգում</title>
+        <meta name="description" content="JavaScript-ի պրոտոտիպային ժառանգման (Prototypal Inheritance) խորացված ուղեցույց. F.prototype, constructor և prototype chain:" />
+        
+        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+        <link rel="stylesheet" href="../src/styles/style.css" />
+        <script type="module" src="../src/scripts/main.js"></script>
+
+        <script type="layout-slot" id="nav-links">
+            <a href="#prototype-def" class="nav-link">Նախատիպ</a>
+            <a href="#f-prototype" class="nav-link">F.prototype</a>
+            <a href="#why-prototype" class="nav-link">Ինչու՞</a>
+            <a href="#inheritance" class="nav-link">Ժառանգություն</a>
+            <a href="#lookup" class="nav-link">Lookup</a>
+        </script>
+    </head>
+    <body>
+        <!-- LAYOUT_NAV -->
+
+        <main class="main-content">
+            <header>
+                <h1 class="title-large gradient-text">OOP & Prototypes (ES5)</h1>
+                <p class="subtitle">
+                    "JavaScript-ը պրոտոտիպային լեզու է։ Հասկանալով պրոտոտիպերը՝ դուք
+                    տիրապետում եք լեզվի հիմքին։"
+                </p>
+            </header>
+
+            <!-- Section 01: What is Prototype -->
+            <section id="prototype-def" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">Ինչ է Prototype-ը:</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        JavaScript-ում ամեն օբյեկտ ունի հատուկ թաքնված հատկություն՝
+                        <code>[[Prototype]]</code>, որը կա՛մ <b>null</b> է, կա՛մ հղում է
+                        մեկ այլ օբյեկտի։ Այդ օբյեկտը կոչվում է
+                        <b>"prototype"</b> (նախատիպ)։
+                    </p>
+
+                    <div class="pro-tip pro-tip-blue">
+                        <h4 class="card-header-small">Գաղափարը</h4>
+                        <p class="text-dimmed">
+                            Եթե մենք փորձում ենք կարդալ մի հատկություն (property), որը չկա
+                            օբյեկտի մեջ, JS-ը ավտոմատ այն փնտրում է իր <b>prototype</b>-ի
+                            մեջ։
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 02: F.prototype -->
+            <section id="f-prototype" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title">F.prototype (Ֆունկցիայի նախատիպ)</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Երբ մենք ստեղծում ենք օբյեկտ կոնստրուկտոր ֆունկցիայի միջոցով
+                        <code>new F()</code>, նոր ստեղծված օբյեկտի
+                        <code>[[Prototype]]</code>-ը դառնում է այն օբյեկտը, որին հղվում է
+                        <code>F.prototype</code>-ը։
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Օրինակ</h4>
+                            <div class="code-block">
+                                <code class="hl-kw">function</code>
+                                <code class="hl-fn">Animal</code>(name) {<br />
+                                &nbsp;&nbsp;<code class="hl-kw">this</code>.name =
+                                name;<br />
+                                }<br /><br />
+                                <span class="hl-cm"
+                                    >// Ավելացնում ենք մեթոդ նախատիպի մեջ</span
+                                ><br />
+                                <code class="hl-var">Animal</code>.prototype.<code
+                                    class="hl-fn"
+                                    >eat</code
+                                >
+                                = <code class="hl-kw">function</code>() {<br />
+                                &nbsp;&nbsp;<code class="hl-fn">console.log</code>(<code
+                                    class="hl-kw"
+                                    >this</code
+                                >.name +
+                                <span class="hl-str">" is eating..."</span>);<br />
+                                };<br /><br />
+                                <code class="hl-kw">let</code> rabbit =
+                                <code class="hl-kw">new</code>
+                                <code class="hl-fn">Animal</code>(<span class="hl-str"
+                                    >"White Rabbit"</span
+                                >);<br />
+                                <code class="hl-var">rabbit</code>.<code class="hl-fn"
+                                    >eat</code
+                                >();
+                                <span class="hl-cm">// "White Rabbit is eating..."</span>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">Կարևոր է</h4>
+                            <p class="text-dimmed">
+                                <code>Animal.prototype</code>-ը սովորական օբյեկտ է, որն
+                                ունի մեկ նախնական հատկություն՝ <b>constructor</b>, որը
+                                հղվում է հենց ֆունկցիայի վրա։
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 03: Why Prototype -->
+            <section id="why-prototype" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">
+                        Ինչու՞ օգտագործել Prototype մեթոդների համար:
+                    </h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Պատկերացրեք՝ ունեք 1000 հատ Animal օբյեկտ։
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="feature-box">
+                            <h4 class="card-header-small">❌ Առանց Prototype</h4>
+                            <p class="text-dimmed">
+                                Եթե մեթոդը սահմանեք
+                                <code>this.eat = function...</code> կոնստրուկտորի ներսում,
+                                ամեն մի օբյեկտի հետ կստեղծվի նոր ֆունկցիա (հիշողության
+                                վատնում)։
+                            </p>
+                        </div>
+                        <div class="feature-box">
+                            <h4 class="card-header-small">✅ Prototype-ով</h4>
+                            <p class="text-dimmed">
+                                Ֆունկցիան ստեղծվում է մեկ անգամ
+                                <code>Animal.prototype</code>-ում, և բոլոր 1000 օբյեկտները
+                                հղվում են նույն ֆունկցիայի վրա։
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 04: Inheritance -->
+            <section id="inheritance" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">04</span>
+                    <h2 class="section-title">Ժառանգություն (Prototypal Inheritance)</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Ժառանգությունը JavaScript-ում հիմնված է
+                        <b>Prototypal Delegation</b>-ի (Նախատիպային պատվիրակման) վրա:
+                        Օբյեկտը «պատվիրակում» է իր հարցումները ծնողին, երբ իր մոտ չի
+                        գտնում համապատասխան հատկությունը:
+                    </p>
+
+                    <div class="grid-2">
+                        <!-- Step 1 -->
+                        <div class="feature-box">
+                            <h4 class="card-header-small">
+                                1. Կոնստրուկտորի կանչ (Constructor Stealing)
+                            </h4>
+                            <div class="code-block">
+                                <code class="hl-kw">function</code>
+                                <code class="hl-fn">Animal</code>(name) {<br />
+                                &nbsp;&nbsp;<code class="hl-kw">this</code>.name =
+                                name;<br />
+                                }<br /><br />
+                                <code class="hl-kw">function</code>
+                                <code class="hl-fn">Rabbit</code>(name, speed) {<br />
+                                &nbsp;&nbsp;<span class="hl-cm"
+                                    >// Կանչում ենք ծնողին այս (this) օբյեկտի համար</span
+                                ><br />
+                                &nbsp;&nbsp;<code class="hl-var">Animal</code>.<code
+                                    class="hl-fn"
+                                    >call</code
+                                >(<code class="hl-kw">this</code>, name); <br />
+                                &nbsp;&nbsp;<code class="hl-kw">this</code>.speed =
+                                speed;<br />
+                                }
+                            </div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="feature-box">
+                            <h4 class="card-header-small">
+                                2. Prototype Chain-ի կառուցում
+                            </h4>
+                            <div class="code-block">
+                                <span class="hl-cm"
+                                    >// Ստեղծում ենք կապ Animal.prototype-ի հետ</span
+                                ><br />
+                                <code class="hl-var">Rabbit</code>.prototype =
+                                <code class="hl-kw">Object</code>.<code class="hl-fn"
+                                    >create</code
+                                >(<code class="hl-var">Animal</code
+                                >.prototype);<br /><br />
+                                <span class="hl-cm"
+                                    >// Վերականգնում ենք constructor-ը</span
+                                ><br />
+                                <code class="hl-var">Rabbit</code>.prototype.constructor =
+                                <code class="hl-var">Rabbit</code>;
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feature-divider"></div>
+
+                    <!-- Step 3 -->
+                    <div class="feature-box">
+                        <h4 class="card-header-small">
+                            3. Մեթոդների ավելացում և Override
+                        </h4>
+                        <div class="code-block">
+                            <code class="hl-var">Animal</code>.prototype.<code
+                                class="hl-fn"
+                                >move</code
+                            >
+                            = <code class="hl-kw">function</code>() {<br />
+                            &nbsp;&nbsp;<code class="hl-fn">console.log</code>(<code
+                                class="hl-kw"
+                                >this</code
+                            >.name + <span class="hl-str">" is moving."</span>);<br />
+                            };<br /><br />
+                            <span class="hl-cm">// Override (Գերազանցում)</span><br />
+                            <code class="hl-var">Rabbit</code>.prototype.<code
+                                class="hl-fn"
+                                >move</code
+                            >
+                            = <code class="hl-kw">function</code>() {<br />
+                            &nbsp;&nbsp;<code class="hl-fn">console.log</code>(<code
+                                class="hl-kw"
+                                >this</code
+                            >.name + <span class="hl-str">" hops fast!"</span>);<br />
+                            };
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 05: Lookup Process -->
+            <section id="lookup" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">05</span>
+                    <h2 class="section-title">Ինչպե՞ս է JS-ը փնտրում հատկությունը</h2>
+                </div>
+
+                <div class="glass-card">
+                    <div class="grid-2">
+                        <div>
+                            <p class="text-dimmed">
+                                Երբ դուք կանչում եք <code>bugsy.move()</code>, տեղի է
+                                ունենում հետևյալը.
+                            </p>
+                            <ul class="list-container no-list-style">
+                                <li class="list-item">
+                                    1. <b>Search in bugsy</b>: Կա՞ արդյոք move մեթոդը հենց
+                                    օբյեկտի մեջ: (Ոչ):
+                                </li>
+                                <li class="list-item">
+                                    2. <b>Search in Rabbit.prototype</b>: JS-ը բարձրանում
+                                    է վերև: Կա՞ այստեղ move: (Այո):
+                                </li>
+                                <li class="list-item">
+                                    3. <b>Search in Animal.prototype</b>: Եթե նախորդում
+                                    չլիներ, նա կբարձրանար այստեղ:
+                                </li>
+                                <li class="list-item">
+                                    4. <b>Object.prototype</b>: Վերջին կանգառը:
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- prettier-ignore -->
+                        <div class="mermaid">
+                            graph TD 
+                                bugsy["Object: bugsy"] e1@-->
+                                RabbitProto["Rabbit.prototype"] e2@-->
+                                AnimalProto["Animal.prototype"] e3@-->
+                                ObjectProto["Object.prototype"] e4@--> Null["null"]
+                                
+                                e1@{ animate: true }
+                                e2@{ animate: true }
+                                e3@{ animate: true }
+                                e4@{ animate: true }
+                                
+                                style bugsy fill:#f7df1e,color:#000
+                                style RabbitProto fill:#61afef,color:#000
+                                style AnimalProto fill:#98c379,color:#000
+                        </div>
+                    </div>
+
+                    <div class="pro-tip pro-tip-blue">
+                        <h4 class="card-header-small">⚠️ Հաճախակի տրվող հարց</h4>
+                        <p class="text-dimmed">
+                            Ինչու՞ չօգտագործել
+                            <code>Rabbit.prototype = new Animal()</code>:<br /><br />
+                            Սա վատ պրակտիկա է, որովհետև <code>new Animal()</code>-ը
+                            ստեղծում է Animal-ի հատկություններ (օրինակ՝
+                            <code>name: undefined</code>) հենց Prototype-ի մեջ:
+                            <code>Object.create</code>-ը ստեղծում է «մաքուր» կապ առանց
+                            ծնողի կոնստրուկտորը կանչելու:
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pro Tips -->
+            <section class="section-container">
+                <div class="grid-2">
+                    <div class="pro-tip pro-tip-blue">
+                        <h4 class="card-header-small">__proto__ vs prototype</h4>
+                        <p class="text-dimmed small-text">
+                            <b>prototype</b>-ը հատկություն է, որը կա միայն ֆունկցիաների
+                            մեջ։<br /><br />
+                            <b>[[Prototype]]</b>-ը (կամ <code>__proto__</code>-ն) հղում է,
+                            որը կա բոլոր օբյեկտների մեջ։
+                        </p>
+                    </div>
+                    <div class="pro-tip">
+                        <h4 class="card-header-small">Performance & Native</h4>
+                        <p class="text-dimmed small-text">
+                            Բոլոր ներկառուցված օբյեկտները (Array, Date) ունեն իրենց
+                            նախատիպերը։ <br /><br />
+                            Օգտագործեք <code>obj.hasOwnProperty(key)</code> միայն սեփական
+                            հատկությունները ստուգելու համար։
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="module-nav">
+            <a href="array" class="nav-arrow prev">
+                <span class="arrow-icon">←</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Նախորդը</span>
+                    <span class="arrow-title">Arrays</span>
+                </div>
+            </a>
+            <a href="class" class="nav-arrow next">
+                <span class="arrow-icon">→</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Հաջորդը</span>
+                    <span class="arrow-title">ES6 Classes</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- LAYOUT_FOOTER -->
+    </body>
+</html>

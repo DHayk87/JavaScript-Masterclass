@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="hy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS.CORE | ES6 Classes</title>
+        <meta name="description" content="Իմացեք ամեն ինչ ES6 Class-ների մասին. սինտաքս, ժառանգություն և ժամանակակից OOP JavaScript-ում:" />
+        
+        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+        <link rel="stylesheet" href="../src/styles/style.css" />
+        <script type="module" src="../src/scripts/main.js"></script>
+
+        <script type="layout-slot" id="nav-links">
+            <a href="#syntax" class="nav-link">Սինտաքս</a>
+            <a href="#inheritance" class="nav-link">Ժառանգություն</a>
+            <a href="#advanced" class="nav-link">Advanced</a>
+            <a href="#hierarchy" class="nav-link">Աստիճանակարգ</a>
+            <a href="#comparison" class="nav-link">Համեմատություն</a>
+        </script>
+    </head>
+    <body>
+        <!-- LAYOUT_NAV -->
+
+        <main class="main-content">
+            <header>
+                <h1 class="title-large gradient-text">ES6 Classes</h1>
+                <p class="subtitle">
+                    "Classes-ը բերեցին ավելի մաքուր և հասկանալի սինտաքս (syntactic sugar)
+                    նախատիպային ժառանգության վրա աշխատելու համար։"
+                </p>
+            </header>
+
+            <!-- Section 01: Basic Syntax -->
+            <section id="syntax" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">Հիմնական Սինտաքսը</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        <code>class</code>-ը փոխարինում է ES5-ի կոնստրուկտոր
+                        ֆունկցիաներին։ Այն թույլ է տալիս մեկ տեղում հայտարարել և՛
+                        կոնստրուկտորը, և՛ մեթոդները։
+                    </p>
+
+                    <div class="code-block">
+                        <code class="hl-kw">class</code>
+                        <code class="hl-fn">Animal</code> {<br />
+                        &nbsp;&nbsp;<span class="hl-cm"
+                            >// Կոնստրուկտորը կանչվում է new օպերատորի ժամանակ</span
+                        ><br />
+                        &nbsp;&nbsp;<code class="hl-fn">constructor</code>(name) {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<code class="hl-kw">this</code>.name =
+                        name;<br />
+                        &nbsp;&nbsp;}<br /><br />
+                        &nbsp;&nbsp;<span class="hl-cm"
+                            >// Մեթոդները ավտոմատ ավելացվում են Animal.prototype-ի
+                            մեջ</span
+                        ><br />
+                        &nbsp;&nbsp;<code class="hl-fn">sayHi</code>() {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<code class="hl-fn">console.log</code
+                        >(Բարև, ես -ն եմ:);<br />
+                        &nbsp;&nbsp;}<br />
+                        }<br /><br />
+                        <code class="hl-kw">let</code> dog =
+                        <code class="hl-kw">new</code>
+                        <code class="hl-fn">Animal</code>(<span class="hl-str"
+                            >"Բոբիկ"</span
+                        >);<br />
+                        <code class="hl-var">dog</code>.<code class="hl-fn">sayHi</code
+                        >(); <span class="hl-cm">// Բարև, ես Բոբիկ-ն եմ:</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 02: Inheritance -->
+            <section id="inheritance" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title">Ժառանգություն (Inheritance)</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        ES6-ում ժառանգությունը իրականացվում է <code>extends</code> բանալի
+                        բառի միջոցով։
+                    </p>
+
+                    <div class="code-block">
+                        <code class="hl-kw">class</code> <code class="hl-fn">Rabbit</code>
+                        <code class="hl-kw">extends</code>
+                        <code class="hl-var">Animal</code> {<br />
+                        &nbsp;&nbsp;<code class="hl-fn">constructor</code>(name, speed)
+                        {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-cm"
+                            >// ՊԱՐՏԱԴԻՐ: Կանչում ենք ծնողի կոնստրուկտորը super()-ով</span
+                        ><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<code class="hl-kw">super</code>(name);
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<code class="hl-kw">this</code>.speed =
+                        speed;<br />
+                        &nbsp;&nbsp;}<br /><br />
+                        &nbsp;&nbsp;<span class="hl-cm"
+                            >// Մեթոդի գերազանցում (Override)</span
+                        ><br />
+                        &nbsp;&nbsp;<code class="hl-fn">sayHi</code>() {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<code class="hl-kw">super</code>.<code
+                            class="hl-fn"
+                            >sayHi</code
+                        >(); <span class="hl-cm">// Կանչում ենք ծնողի մեթոդը</span><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<code class="hl-fn">console.log</code>(Ես
+                        վազում եմ  կմ/ժ
+                        արագությամբ:);<br />
+                        &nbsp;&nbsp;}<br />
+                        }
+                    </div>
+
+                    <div class="pro-tip pro-tip-blue">
+                        <h4 class="card-header-small">super() կանչը</h4>
+                        <p class="text-dimmed">
+                            Եթե ժառանգ կլասում գրում եք <code>constructor</code>, ապա
+                            <code>super()</code>-ը կանչելը պարտադիր է, քանի դեռ չեք
+                            օգտագործել <code>this</code>-ը։
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 03: Static & Private -->
+            <section id="advanced" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">Static, Private & Getters</h2>
+                </div>
+
+                <div class="grid-2">
+                    <!-- Static -->
+                    <div class="glass-card">
+                        <h4 class="card-header-small">Static Մեթոդներ</h4>
+                        <p class="text-dimmed">
+                            Պատկանում են հենց կլասին, այլ ոչ թե նրա օբյեկտներին։
+                        </p>
+                        <div class="code-block">
+                            <code class="hl-kw">static</code>
+                            <code class="hl-fn">compare</code>(a, b) {<br />
+                            &nbsp;&nbsp;<code class="hl-kw">return</code> a.date -
+                            b.date;<br />
+                            }
+                        </div>
+                    </div>
+                    <!-- Private -->
+                    <div class="glass-card">
+                        <h4 class="card-header-small">Private Հատկություններ (#)</h4>
+                        <p class="text-dimmed">
+                            <code>#</code> սիմվոլը հատկությունը դարձնում է իսկապես փակ։
+                        </p>
+                        <div class="code-block">
+                            <code class="hl-kw">class</code> Coffee {<br />
+                            &nbsp;&nbsp;<code class="hl-var">#waterLimit</code> =
+                            <span class="hl-num">200</span>;<br />
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card margin-top-1">
+                    <h4 class="card-header-small">Getters & Setters</h4>
+                    <div class="code-block">
+                        <code class="hl-kw">get</code> <code class="hl-fn">name</code>() {
+                        <code class="hl-kw">return</code>
+                        <code class="hl-kw">this</code>._name.<code class="hl-fn"
+                            >toUpperCase</code
+                        >(); }<br />
+                        <code class="hl-kw">set</code> <code class="hl-fn">name</code>(v)
+                        { <code class="hl-kw">this</code>._name = v; }
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 04: Hierarchy -->
+            <section id="hierarchy" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">04</span>
+                    <h2 class="section-title">Multilevel & Hierarchical Inheritance</h2>
+                </div>
+
+                <div class="glass-card">
+                    <p class="text-body-large">
+                        Բազմամակարդակ և մի քանի ճյուղերով ժառանգությունը թույլ է տալիս
+                        ստեղծել բարդ համակարգեր, որտեղ ընդհանուր հատկությունները
+                        բարձրանում են վերև, իսկ մասնավորները՝ իջնում ներքև։
+                    </p>
+
+                    <h4 class="card-header-small">
+                        🧬 Ժառանգության աստիճանակարգը (Class Hierarchy)
+                    </h4>
+                    <!-- prettier-ignore -->
+                    <div class="mermaid">
+                        classDiagram
+                            Animal <|-- Dog
+                            Animal <|-- Cat
+                            Dog <|-- Shepherd
+                            Dog <|-- Bulldog
+                            Cat <|-- Siamese
+                            Cat <|-- Persian
+ 
+                            class Animal {
+                                +String name
+                                +eat()
+                                +sleep()
+                            }
+                            class Dog {
+                                +bark()
+                            }
+                            class Cat {
+                                +meow()
+                            }
+                            class Shepherd {
+                                +guard()
+                            }
+                            class Siamese {
+                                +vocalize()
+                            }
+                    </div>
+
+                    <div class="feature-divider"></div>
+
+                    <h4 class="card-header-small">💻 Կիրառման օրինակ (ES6)</h4>
+                    <div class="code-block">
+                        <span class="hl-cm">// Մակարդակ 1: Հիմնական կլաս</span><br />
+                        <code class="hl-kw">class</code>
+                        <code class="hl-fn">Animal</code> {<br />
+                        &nbsp;&nbsp;<code class="hl-fn">constructor</code>(name) {
+                        <code class="hl-kw">this</code>.name = name; }<br />
+                        &nbsp;&nbsp;<code class="hl-fn">eat</code>() {
+                        <code class="hl-fn">console.log</code>(${<code class="hl-kw"
+                            >this</code
+                        >.name}-ը սնվում է...); }<br />
+                        }<br /><br />
+                        <span class="hl-cm">// Մակարդակ 2: Ճյուղավորում</span><br />
+                        <code class="hl-kw">class</code> <code class="hl-fn">Dog</code>
+                        <code class="hl-kw">extends</code>
+                        <code class="hl-var">Animal</code> {<br />
+                        &nbsp;&nbsp;<code class="hl-fn">bark</code>() {
+                        <code class="hl-fn">console.log</code>(${<code class="hl-kw"
+                            >this</code
+                        >.name}-ը հաչում է: Վա՛ֆ-վա՛ֆ:); }<br />
+                        }<br /><br />
+                        <span class="hl-cm"
+                            >// Մակարդակ 3: Մասնագիտացված կլաս (Shepherd)</span
+                        ><br />
+                        <code class="hl-kw">class</code>
+                        <code class="hl-fn">Shepherd</code>
+                        <code class="hl-kw">extends</code>
+                        <code class="hl-var">Dog</code> {<br />
+                        &nbsp;&nbsp;<code class="hl-fn">constructor</code>(name, rank)
+                        {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<code class="hl-kw">super</code>(name);
+                        <span class="hl-cm">// Կանչում ենք Dog-ի կոնստրուկտորը</span
+                        ><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<code class="hl-kw">this</code>.rank =
+                        rank;<br />
+                        &nbsp;&nbsp;}<br />
+                        &nbsp;&nbsp;<code class="hl-fn">guard</code>() {
+                        <code class="hl-fn">console.log</code>(${<code class="hl-kw"
+                            >this</code
+                        >.name}-ը հսկում է տարածքը (Կարգավիճակ՝ ):); }<br />
+                        }
+                    </div>
+
+                    <div class="pro-tip pro-tip-blue">
+                        <h4 class="card-header-small">Prototype Chain View</h4>
+                        <p class="text-dimmed small-text">
+                            <code>myDog</code> → <code>Shepherd.prototype</code> →
+                            <code>Dog.prototype</code> → <code>Animal.prototype</code> →
+                            <code>Object.prototype</code>։
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 05: Comparison -->
+            <section id="comparison" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">05</span>
+                    <h2 class="section-title">ES6 Class vs ES5 Prototype</h2>
+                </div>
+
+                <div class="glass-card">
+                    <h4 class="card-header-small">1. ES6 Class Structure</h4>
+                    <!-- prettier-ignore -->
+                    <div class="mermaid">
+                        graph TD
+                            C[class Rabbit] e1@--> M1[constructor]
+                            C e2@--> M2[method: sayHi]
+                            C e3@--> M3[method: hide]
+                            
+                            e1@{animate : true}
+                            e2@{animate : true}
+                            e3@{animate : true}
+                            
+                            style C fill:#f7df1e,color:#000
+                    </div>
+
+                    <div class="feature-divider"></div>
+
+                    <h4 class="card-header-small">2. Internal Prototype Chain</h4>
+                    <!-- prettier-ignore -->
+                    <div class="mermaid">
+                        graph BT
+                            Instance[bunny instance] e1@-- "[[Prototype]]" --> Proto[Rabbit.prototype]
+                            Proto e2@-- "[[Prototype]]" --> ParentProto[Animal.prototype]
+                            ParentProto e3@-- "[[Prototype]]" --> ObjProto[Object.prototype]
+                            
+                            e1@{animate : true}
+                            e2@{animate : true}
+                            e3@{animate : true}
+                            
+                            style Instance fill:#f7df1e,color:#000
+                            style Proto fill:#61afef,color:#000
+                            style ParentProto fill:#98c379,color:#000
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Details -->
+            <section class="section-container">
+                <div class="grid-2">
+                    <div class="feature-box">
+                        <h4 class="card-header-small">Hoisting & Strict Mode</h4>
+                        <ul class="list-container no-list-style">
+                            <li class="list-item">
+                                <b>No Hoisting</b>: Կլասը չի կարելի օգտագործել մինչև
+                                հայտարարելը։
+                            </li>
+                            <li class="list-item">
+                                <b>Strict Mode</b>: Կլասի ներսի կոդը միշտ աշխատում է "use
+                                strict"-ով։
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="feature-box">
+                        <h4 class="card-header-small">Enumerability</h4>
+                        <p class="text-dimmed">
+                            Կլասի մեջ սահմանված մեթոդները
+                            <code>enumerable: false</code> են, ինչը նշանակում է՝ դրանք չեն
+                            երևում <code>for..in</code> ցիկլի ժամանակ։
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="module-nav">
+            <a href="prototype" class="nav-arrow prev">
+                <span class="arrow-icon">←</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Նախորդը</span>
+                    <span class="arrow-title">Prototypes (ES5)</span>
+                </div>
+            </a>
+            <a href="closure" class="nav-arrow next">
+                <div class="arrow-text" style="text-align: right;">
+                    <span class="arrow-label">Հաջորդը</span>
+                    <span class="arrow-title">Closures</span>
+                </div>
+                <span class="arrow-icon">→</span>
+            </a>
+        </div>
+
+        <!-- LAYOUT_FOOTER -->
+    </body>
+</html>

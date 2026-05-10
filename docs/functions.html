@@ -4,31 +4,21 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JS.CORE | Ֆունկցիաներ</title>
+        <meta name="description" content="JavaScript ֆունկցիաների տեսակները. Function Declaration, Expression, Arrow Functions և IIFE: Իմացեք hoisting-ի և lexical this-ի մասին:" />
+        
         <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+        <link rel="stylesheet" href="../src/styles/style.css" />
+        <script type="module" src="../src/scripts/main.js"></script>
 
-        <script type="module">
-            import mermaid from "mermaid";
-            mermaid.initialize({
-                startOnLoad: true,
-                theme: "dark",
-                securityLevel: "loose",
-                fontFamily: "Noto Sans Armenian",
-            });
+        <script type="layout-slot" id="nav-links">
+            <a href="#declaration" class="nav-link">Declaration</a>
+            <a href="#expression" class="nav-link">Expression</a>
+            <a href="#arrow" class="nav-link">Arrow</a>
+            <a href="#iife" class="nav-link">IIFE</a>
         </script>
-        <link rel="stylesheet" href="../public/styles/style.css" />
     </head>
     <body>
-        <nav class="nav-fixed">
-            <div class="nav-container">
-                <a href="index.html" class="nav-brand">JS.CORE</a>
-                <div class="nav-links">
-                    <a href="#declaration" class="nav-link">Declaration</a>
-                    <a href="#expression" class="nav-link">Expression</a>
-                    <a href="#arrow" class="nav-link">Arrow</a>
-                    <a href="#iife" class="nav-link">IIFE</a>
-                </div>
-            </div>
-        </nav>
+        <!-- LAYOUT_NAV -->
 
         <main class="main-content">
             <header>
@@ -57,7 +47,7 @@
                     <div class="grid-2">
                         <div class="feature-box">
                             <h4 class="card-header-small">Սինտաքս</h4>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 <code class="hl-kw">function</code>
                                 <code class="hl-fn">sayHi</code>() {<br />
                                 &nbsp;&nbsp;<code class="hl-fn">console.log</code>(<span class="hl-str">"Ողջույն"</span>);<br />
@@ -95,7 +85,7 @@
                     <div class="grid-2">
                         <div class="feature-box">
                             <h4 class="card-header-small">Սինտաքս</h4>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 <code class="hl-kw">let</code> sayHi =
                                 <code class="hl-kw">function</code>() {<br />
                                 &nbsp;&nbsp;<code class="hl-fn">console.log</code>(<span class="hl-str">"Ողջույն"</span>);<br />
@@ -144,26 +134,22 @@
                     <div class="grid-2">
                         <div class="feature-box">
                             <h4 class="card-header-small">Սինտաքս</h4>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 <code class="hl-kw">const</code> sum = (a, b) =>
                                 a + b;
                             </div>
                         </div>
                         <div class="feature-box">
                             <h4 class="card-header-small">Ինչու՞ են հատուկ</h4>
-                            <ul class="no-list-style">
+                            <ul class="list-container no-list-style">
                                 <li class="list-item">
-                                    <span class="dot"></span> <b>Lexical this:</b> Չունեն
-                                    սեփական <code>this</code>: Վերցնում են այն ստեղծման
-                                    միջավայրից:
+                                    <b>Lexical this:</b> Չունեն սեփական <code>this</code>: Վերցնում են այն ստեղծման միջավայրից:
                                 </li>
                                 <li class="list-item">
-                                    <span class="dot"></span> <b>Constructor:</b> Չեն
-                                    կարող օգտագործվել <code>new</code> օպերատորի հետ:
+                                    <b>Constructor:</b> Չեն կարող օգտագործվել <code>new</code> օպերատորի հետ:
                                 </li>
                                 <li class="list-item">
-                                    <span class="dot"></span> <b>Arguments:</b> Չունեն
-                                    սեփական <code>arguments</code> օբյեկտը:
+                                    <b>Arguments:</b> Չունեն սեփական <code>arguments</code> օբյեկտը:
                                 </li>
                             </ul>
                         </div>
@@ -187,7 +173,7 @@
                     <div class="grid-2">
                         <div class="feature-box">
                             <h4 class="card-header-small">Սինտաքս</h4>
-                            <div class="feature-item">
+                            <div class="code-inset">
                                 (<code class="hl-kw">function</code>() {<br />
                                 &nbsp;&nbsp;<code class="hl-kw">let</code> privateVar = <span class="hl-str">"Գաղտնի տվյալ"</span>;<br />
                                 })();
@@ -227,9 +213,23 @@
                     </div>
         </main>
 
-        <footer class="footer-simple">
-            <div class="footer-brand">JS.CORE</div>
-            <p class="footer-copy">Created By DHayk | 2026</p>
-        </footer>
+        <div class="module-nav">
+            <a href="switch-while" class="nav-arrow prev">
+                <span class="arrow-icon">←</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Նախորդը</span>
+                    <span class="arrow-title">Ցիկլեր և Switch</span>
+                </div>
+            </a>
+            <a href="code-parsing" class="nav-arrow next">
+                <span class="arrow-icon">→</span>
+                <div class="arrow-text">
+                    <span class="arrow-label">Հաջորդը</span>
+                    <span class="arrow-title">Code Parsing</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- LAYOUT_FOOTER -->
     </body>
 </html>
