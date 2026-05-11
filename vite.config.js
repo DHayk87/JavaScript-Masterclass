@@ -143,9 +143,26 @@ const htmlLayoutPlugin = () => {
     };
 };
 
+/**
+ * Vercel (and most static hosts) only serve a custom 404 from the deploy root as `/404.html`.
+ * The lesson 404 page is built as `dist/docs/404.html`; copy it to `dist/404.html` after build.
+ */
+const copyRoot404Plugin = () => ({
+    name: "copy-root-404",
+    closeBundle() {
+        const built = resolve(__dirname, "dist/docs/404.html");
+        const root404 = resolve(__dirname, "dist/404.html");
+        if (fs.existsSync(built)) {
+            fs.copyFileSync(built, root404);
+        } else {
+            console.warn("[copy-root-404] dist/docs/404.html missing; root 404 not written");
+        }
+    },
+});
+
 export default defineConfig({
     root: ".",
-    plugins: [htmlLayoutPlugin()],
+    plugins: [htmlLayoutPlugin(), copyRoot404Plugin()],
     build: {
         outDir: "dist",
         rollupOptions: {
