@@ -25,7 +25,7 @@ const initMermaid = async () => {
 // 2. Copy to Clipboard Logic
 const initCopyButtons = () => {
     const codeBlocks = document.querySelectorAll(".code-block, .code-inset");
-    
+
     codeBlocks.forEach((block) => {
         // Prevent duplicate buttons if script is re-run
         if (block.querySelector(".copy-btn")) return;
@@ -38,18 +38,21 @@ const initCopyButtons = () => {
         button.addEventListener("click", () => {
             // Get text, exclude the button text itself
             const code = block.innerText.replace("Copy", "").trim();
-            
-            navigator.clipboard.writeText(code).then(() => {
-                button.innerText = "Copied!";
-                button.classList.add("copied");
-                
-                setTimeout(() => {
-                    button.innerText = "Copy";
-                    button.classList.remove("copied");
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-            });
+
+            navigator.clipboard
+                .writeText(code)
+                .then(() => {
+                    button.innerText = "Copied!";
+                    button.classList.add("copied");
+
+                    setTimeout(() => {
+                        button.innerText = "Copy";
+                        button.classList.remove("copied");
+                    }, 2000);
+                })
+                .catch((err) => {
+                    console.error("Failed to copy: ", err);
+                });
         });
     });
 };

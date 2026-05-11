@@ -4,9 +4,16 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JS.CORE | Մասիվներ (Arrays)</title>
-        <meta name="description" content="JavaScript մասիվների խորացված ուղեցույց. push/pop, shift/unshift մեթոդներ, արտադրողականություն և շրջանցման եղանակներ:" />
-        
-        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+        <meta
+            name="description"
+            content="JavaScript մասիվների խորացված ուղեցույց. push/pop, shift/unshift մեթոդներ, արտադրողականություն և շրջանցման եղանակներ:"
+        />
+
+        <link
+            rel="shortcut icon"
+            href="../public/images/programmer.png"
+            type="image/x-icon"
+        />
         <link rel="stylesheet" href="../src/styles/style.css" />
         <script type="module" src="../src/scripts/main.js"></script>
 
@@ -41,7 +48,9 @@
                     </div>
                     <div>
                         <h4 class="js-yellow-text">Length</h4>
-                        <p class="text-dimmed small-text">Տարրերի քանակը (Max Index + 1):</p>
+                        <p class="text-dimmed small-text">
+                            Տարրերի քանակը (Max Index + 1):
+                        </p>
                     </div>
                 </div>
             </div>
@@ -62,7 +71,10 @@
                     <div class="grid-2">
                         <div class="feature-box">
                             <h4 class="card-header-small">Ստեղծում (Literal)</h4>
-                            <p class="text-dimmed" style="font-size: 0.85rem; margin-bottom: 0.8rem">
+                            <p
+                                class="text-dimmed"
+                                style="font-size: 0.85rem; margin-bottom: 0.8rem"
+                            >
                                 Ամենատարածված ձևը քառակուսի փակագծերի օգտագործումն է:
                             </p>
                             <div class="code-inset">
@@ -85,9 +97,12 @@
                             </p>
 
                             <div class="code-inset">
-                                <code class="hl-var">fruits</code>[<span class="hl-num">0</span>];
-                                <span class="hl-cm">// "🍎" (Առաջին տարր)</span><br />
-                                <code class="hl-var">fruits</code>[<span class="hl-num">1</span>];
+                                <code class="hl-var">fruits</code>[<span class="hl-num"
+                                    >0</span
+                                >]; <span class="hl-cm">// "🍎" (Առաջին տարր)</span><br />
+                                <code class="hl-var">fruits</code>[<span class="hl-num"
+                                    >1</span
+                                >];
                                 <span class="hl-cm">// "🍊" (Երկրորդ տարր)</span>
                             </div>
                         </div>
@@ -101,26 +116,42 @@
                                 number, boolean, object և նույնիսկ այլ մասիվներ:
                             </p>
                             <div class="code-inset">
-                                <code class="hl-kw">let</code> mixed =
-                                [&nbsp;<span class="hl-num">1</span>,
-                                <span class="hl-str">"🍎"</span>,
+                                <code class="hl-kw">let</code> mixed = [&nbsp;<span
+                                    class="hl-num"
+                                    >1</span
+                                >, <span class="hl-str">"🍎"</span>,
                                 <span class="hl-type">true</span>, {id:
                                 <span class="hl-num">1</span>}&nbsp;];
                             </div>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small" style="font-size: 0.85rem; opacity: 0.8">
+                            <h4
+                                class="card-header-small"
+                                style="font-size: 0.85rem; opacity: 0.8"
+                            >
                                 Տիպի ճշգրիտ ստուգում
                             </h4>
                             <div class="feature-divider">
-                                <code class="hl-fn">console.log</code>(<code class="hl-kw">typeof</code> [&nbsp;]);
+                                <code class="hl-fn">console.log</code>(<code class="hl-kw"
+                                    >typeof</code
+                                >
+                                [&nbsp;]);
                                 <span class="hl-cm">// "object" (Ոչ բավարար)</span><br />
 
-                                <code class="hl-kw">Array</code>.<span class="hl-fn">isArray</span>([&nbsp;]);
+                                <code class="hl-kw">Array</code>.<span class="hl-fn"
+                                    >isArray</span
+                                >([&nbsp;]);
                                 <span class="hl-cm">// true (Հուսալի)</span>
                             </div>
 
-                            <p class="text-dimmed" style="font-size: 0.75rem; margin-top: 0.5rem; line-height: 1.4;">
+                            <p
+                                class="text-dimmed"
+                                style="
+                                    font-size: 0.75rem;
+                                    margin-top: 0.5rem;
+                                    line-height: 1.4;
+                                "
+                            >
                                 * Քանի որ JS-ում մասիվը օբյեկտ է, <code>typeof</code>-ը
                                 միշտ կվերադարձնի "object": Ճիշտ ստուգման համար միշտ
                                 օգտագործեք <code>Array.isArray()</code>:
@@ -192,24 +223,33 @@
                         </div>
                     </div>
 
-                    <div class="code-inset" style="margin-top: 2rem">
+                    <div class="feature-box" style="margin-top: 2rem">
                         <h4 class="card-header-small" style="color: var(--js-yellow)">
                             Կոդի Օրինակ (Queue & Stack)
                         </h4>
                         <div class="code-block">
-                            <span class="hl-kw">let</span> queue = [<span class="hl-str">"Apple"</span>, <span class="hl-str">"Orange"</span>];<br />
+                            <span class="hl-kw">let</span> queue = [<span class="hl-str"
+                                >"Apple"</span
+                            >, <span class="hl-str">"Orange"</span>];<br />
                             <br />
-                            <span class="hl-cm">// FIFO (First In, First Out) - Հերթ</span><br />
-                            queue.<span class="hl-fn">push</span>(<span class="hl-str">"Pear"</span>);
-                            <span class="hl-cm">// ["Apple", "Orange", "Pear"]</span><br />
+                            <span class="hl-cm">// FIFO (First In, First Out) - Հերթ</span
+                            ><br />
+                            queue.<span class="hl-fn">push</span>(<span class="hl-str"
+                                >"Pear"</span
+                            >); <span class="hl-cm">// ["Apple", "Orange", "Pear"]</span
+                            ><br />
                             queue.<span class="hl-fn">shift</span>();
-                            <span class="hl-cm">// հեռացնում է "Apple" -> ["Orange", "Pear"]</span><br />
+                            <span class="hl-cm"
+                                >// հեռացնում է "Apple" -> ["Orange", "Pear"]</span
+                            ><br />
                             <br />
                             <span class="hl-kw">let</span> stack = [];<br />
-                            stack.<span class="hl-fn">push</span>(<span class="hl-num">1</span>);
-                            <span class="hl-cm">// [1]</span><br />
-                            stack.<span class="hl-fn">push</span>(<span class="hl-num">2</span>);
-                            <span class="hl-cm">// [1, 2]</span><br />
+                            stack.<span class="hl-fn">push</span>(<span class="hl-num"
+                                >1</span
+                            >); <span class="hl-cm">// [1]</span><br />
+                            stack.<span class="hl-fn">push</span>(<span class="hl-num"
+                                >2</span
+                            >); <span class="hl-cm">// [1, 2]</span><br />
                             stack.<span class="hl-fn">pop</span>();
                             <span class="hl-cm">// հեռացնում է 2 -> [1]</span>
                         </div>
@@ -286,7 +326,8 @@
                             <div class="code-inset">
                                 <code class="hl-kw">for</code> (let fruit
                                 <code class="hl-kw">of</code> fruits) {<br />
-                                &nbsp;&nbsp;<code class="hl-fn">console.log</code>(fruit);<br />
+                                &nbsp;&nbsp;<code class="hl-fn">console.log</code
+                                >(fruit);<br />
                                 }
                             </div>
                             <p class="text-dimmed">
@@ -309,24 +350,24 @@
                     </div>
                 </div>
             </section>
-        </main>
 
-        <div class="module-nav">
-            <a href="object" class="nav-arrow prev">
-                <span class="arrow-icon">←</span>
-                <div class="arrow-text">
-                    <span class="arrow-label">Նախորդը</span>
-                    <span class="arrow-title">Objects</span>
-                </div>
-            </a>
-            <a href="prototype" class="nav-arrow next">
-                <span class="arrow-icon">→</span>
-                <div class="arrow-text">
-                    <span class="arrow-label">Հաջորդը</span>
-                    <span class="arrow-title">Prototypes & ES5</span>
-                </div>
-            </a>
-        </div>
+            <div class="module-nav">
+                <a href="object" class="nav-arrow prev">
+                    <span class="arrow-icon">←</span>
+                    <div class="arrow-text">
+                        <span class="arrow-label">Նախորդը</span>
+                        <span class="arrow-title">Objects</span>
+                    </div>
+                </a>
+                <a href="prototype" class="nav-arrow next">
+                    <span class="arrow-icon">→</span>
+                    <div class="arrow-text">
+                        <span class="arrow-label">Հաջորդը</span>
+                        <span class="arrow-title">Prototypes & ES5</span>
+                    </div>
+                </a>
+            </div>
+        </main>
 
         <!-- LAYOUT_FOOTER -->
     </body>

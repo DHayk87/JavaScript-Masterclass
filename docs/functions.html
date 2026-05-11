@@ -4,9 +4,16 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JS.CORE | Ֆունկցիաներ</title>
-        <meta name="description" content="JavaScript ֆունկցիաների տեսակները. Function Declaration, Expression, Arrow Functions և IIFE: Իմացեք hoisting-ի և lexical this-ի մասին:" />
-        
-        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+        <meta
+            name="description"
+            content="JavaScript ֆունկցիաների տեսակները. Function Declaration, Expression, Arrow Functions և IIFE: Իմացեք hoisting-ի և lexical this-ի մասին:"
+        />
+
+        <link
+            rel="shortcut icon"
+            href="../public/images/programmer.png"
+            type="image/x-icon"
+        />
         <link rel="stylesheet" href="../src/styles/style.css" />
         <script type="module" src="../src/scripts/main.js"></script>
 
@@ -50,7 +57,10 @@
                             <div class="code-inset">
                                 <code class="hl-kw">function</code>
                                 <code class="hl-fn">sayHi</code>() {<br />
-                                &nbsp;&nbsp;<code class="hl-fn">console.log</code>(<span class="hl-str">"Ողջույն"</span>);<br />
+                                &nbsp;&nbsp;<code class="hl-fn">console.log</code>(<span
+                                    class="hl-str"
+                                    >"Ողջույն"</span
+                                >);<br />
                                 }
                             </div>
                         </div>
@@ -88,7 +98,10 @@
                             <div class="code-inset">
                                 <code class="hl-kw">let</code> sayHi =
                                 <code class="hl-kw">function</code>() {<br />
-                                &nbsp;&nbsp;<code class="hl-fn">console.log</code>(<span class="hl-str">"Ողջույն"</span>);<br />
+                                &nbsp;&nbsp;<code class="hl-fn">console.log</code>(<span
+                                    class="hl-str"
+                                    >"Ողջույն"</span
+                                >);<br />
                                 };
                             </div>
                         </div>
@@ -135,21 +148,23 @@
                         <div class="feature-box">
                             <h4 class="card-header-small">Սինտաքս</h4>
                             <div class="code-inset">
-                                <code class="hl-kw">const</code> sum = (a, b) =>
-                                a + b;
+                                <code class="hl-kw">const</code> sum = (a, b) => a + b;
                             </div>
                         </div>
                         <div class="feature-box">
                             <h4 class="card-header-small">Ինչու՞ են հատուկ</h4>
                             <ul class="list-container no-list-style">
                                 <li class="list-item">
-                                    <b>Lexical this:</b> Չունեն սեփական <code>this</code>: Վերցնում են այն ստեղծման միջավայրից:
+                                    <b>Lexical this:</b> Չունեն սեփական <code>this</code>:
+                                    Վերցնում են այն ստեղծման միջավայրից:
                                 </li>
                                 <li class="list-item">
-                                    <b>Constructor:</b> Չեն կարող օգտագործվել <code>new</code> օպերատորի հետ:
+                                    <b>Constructor:</b> Չեն կարող օգտագործվել
+                                    <code>new</code> օպերատորի հետ:
                                 </li>
                                 <li class="list-item">
-                                    <b>Arguments:</b> Չունեն սեփական <code>arguments</code> օբյեկտը:
+                                    <b>Arguments:</b> Չունեն սեփական
+                                    <code>arguments</code> օբյեկտը:
                                 </li>
                             </ul>
                         </div>
@@ -175,7 +190,8 @@
                             <h4 class="card-header-small">Սինտաքս</h4>
                             <div class="code-inset">
                                 (<code class="hl-kw">function</code>() {<br />
-                                &nbsp;&nbsp;<code class="hl-kw">let</code> privateVar = <span class="hl-str">"Գաղտնի տվյալ"</span>;<br />
+                                &nbsp;&nbsp;<code class="hl-kw">let</code> privateVar =
+                                <span class="hl-str">"Գաղտնի տվյալ"</span>;<br />
                                 })();
                             </div>
                         </div>
@@ -191,44 +207,44 @@
             </section>
 
             <!-- Masterclass Tip -->
-                    <div class="pro-tip pro-tip-blue">
-                        <h4 class="card-header-small hl-fn">
-                            Use Cases (Ե՞րբ և ո՞րն օգտագործել)
-                        </h4>
-                        <ol class="ordered-list-small">
-                            <li>
-                                <b>Function Declaration:</b> Հիմնական գործողությունների
-                                համար, որոնք պետք է հասանելի լինեն ամբողջ ֆայլում:
-                            </li>
-                            <li>
-                                <b>Arrow Functions:</b> Callback-ների (<code>map</code>,
-                                <code>filter</code>) և այնտեղ, որտեղ պետք է պահպանել
-                                <code>this</code>-ը:
-                            </li>
-                            <li>
-                                <b>Function Expression:</b> Երբ ֆունկցիան պետք է սահմանվի
-                                պայմանականորեն (օրինակ՝ <code>if</code>-ի ներսում):
-                            </li>
-                        </ol>
-                    </div>
-        </main>
+            <div class="pro-tip pro-tip-blue">
+                <h4 class="card-header-small hl-fn">
+                    Use Cases (Ե՞րբ և ո՞րն օգտագործել)
+                </h4>
+                <ol class="ordered-list-small">
+                    <li>
+                        <b>Function Declaration:</b> Հիմնական գործողությունների համար,
+                        որոնք պետք է հասանելի լինեն ամբողջ ֆայլում:
+                    </li>
+                    <li>
+                        <b>Arrow Functions:</b> Callback-ների (<code>map</code>,
+                        <code>filter</code>) և այնտեղ, որտեղ պետք է պահպանել
+                        <code>this</code>-ը:
+                    </li>
+                    <li>
+                        <b>Function Expression:</b> Երբ ֆունկցիան պետք է սահմանվի
+                        պայմանականորեն (օրինակ՝ <code>if</code>-ի ներսում):
+                    </li>
+                </ol>
+            </div>
 
-        <div class="module-nav">
-            <a href="switch-while" class="nav-arrow prev">
-                <span class="arrow-icon">←</span>
-                <div class="arrow-text">
-                    <span class="arrow-label">Նախորդը</span>
-                    <span class="arrow-title">Ցիկլեր և Switch</span>
-                </div>
-            </a>
-            <a href="code-parsing" class="nav-arrow next">
-                <span class="arrow-icon">→</span>
-                <div class="arrow-text">
-                    <span class="arrow-label">Հաջորդը</span>
-                    <span class="arrow-title">Code Parsing</span>
-                </div>
-            </a>
-        </div>
+            <div class="module-nav">
+                <a href="switch-while" class="nav-arrow prev">
+                    <span class="arrow-icon">←</span>
+                    <div class="arrow-text">
+                        <span class="arrow-label">Նախորդը</span>
+                        <span class="arrow-title">Ցիկլեր և Switch</span>
+                    </div>
+                </a>
+                <a href="code-parsing" class="nav-arrow next">
+                    <span class="arrow-icon">→</span>
+                    <div class="arrow-text">
+                        <span class="arrow-label">Հաջորդը</span>
+                        <span class="arrow-title">Code Parsing</span>
+                    </div>
+                </a>
+            </div>
+        </main>
 
         <!-- LAYOUT_FOOTER -->
     </body>

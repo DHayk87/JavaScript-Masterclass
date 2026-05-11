@@ -44,11 +44,18 @@
 
                 <div class="glass-card">
                     <p class="text-body-large">
-                        JavaScript-ի գործարկման հիմքում ընկած է <b>Event Loop</b> (Իրադարձությունների ցիկլ) գաղափարը: Այն շատ պարզ է՝ կա անվերջ ցիկլ, որտեղ JavaScript-ի շարժիչը սպասում է առաջադրանքների (tasks), կատարում է դրանք, իսկ հետո "քնում է"՝ սպասելով նոր առաջադրանքների:
+                        JavaScript-ի գործարկման հիմքում ընկած է
+                        <b>Event Loop</b> (Իրադարձությունների ցիկլ) գաղափարը: Այն շատ պարզ
+                        է՝ կա անվերջ ցիկլ, որտեղ JavaScript-ի շարժիչը սպասում է
+                        առաջադրանքների (tasks), կատարում է դրանք, իսկ հետո "քնում է"՝
+                        սպասելով նոր առաջադրանքների:
                     </p>
 
                     <div class="pro-tip pro-tip-blue margin-top-2">
-                        <b>UI Rendering:</b> Կարևոր է իմանալ, որ բրաուզերը <b>երբեք չի նկարում (render)</b> էկրանը, քանի դեռ շարժիչը կատարում է որևէ առաջադրանք: Փոփոխությունները արտացոլվում են միայն այն ժամանակ, երբ առաջադրանքն ավարտվում է:
+                        <b>UI Rendering:</b> Կարևոր է իմանալ, որ բրաուզերը
+                        <b>երբեք չի նկարում (render)</b> էկրանը, քանի դեռ շարժիչը կատարում
+                        է որևէ առաջադրանք: Փոփոխությունները արտացոլվում են միայն այն
+                        ժամանակ, երբ առաջադրանքն ավարտվում է:
                     </div>
                 </div>
             </section>
@@ -64,23 +71,54 @@
                         <div class="feature-box">
                             <h4 class="card-header-small">Macrotasks (Մակրոթասքեր)</h4>
                             <p class="text-dimmed">
-                                Սրանք հիմնական առաջադրանքներն են, որոնք գալիս են բրաուզերից կամ արտաքին միջավայրից.
+                                Սրանք հիմնական առաջադրանքներն են, որոնք գալիս են
+                                բրաուզերից կամ արտաքին միջավայրից.
                             </p>
                             <ul class="no-list-style margin-top-1">
-                                <li class="list-item"><span class="dot"></span> <code>script</code> (ամբողջական ֆայլի բեռնում և գործարկում)</li>
-                                <li class="list-item"><span class="dot"></span> Օգտատիրոջ գործողություններ (<code>mousemove</code>, <code>click</code>)</li>
-                                <li class="list-item"><span class="dot"></span> Ժամանակացույցեր (<code>setTimeout</code>, <code>setInterval</code>)</li>
+                                <li class="list-item">
+                                    <span class="dot"></span>
+                                    <code>script</code> (ամբողջական ֆայլի բեռնում և
+                                    գործարկում)
+                                </li>
+                                <li class="list-item">
+                                    <span class="dot"></span> Օգտատիրոջ գործողություններ
+                                    (<code>mousemove</code>, <code>click</code>)
+                                </li>
+                                <li class="list-item">
+                                    <span class="dot"></span> Ժամանակացույցեր
+                                    (<code>setTimeout</code>, <code>setInterval</code>)
+                                </li>
                             </ul>
                         </div>
                         <div class="feature-box">
                             <h4 class="card-header-small">Microtasks (Միկրոթասքեր)</h4>
                             <p class="text-dimmed">
-                                Միկրոթասքերը ստեղծվում են հենց մեր կոդի կողմից: Դրանք ավելի բարձր առաջնահերթություն ունեն, քան մակրոթասքերը.
+                                Միկրոթասքերը ստեղծվում են հենց մեր կոդի կողմից: Դրանք
+                                ավելի բարձր առաջնահերթություն ունեն, քան մակրոթասքերը.
                             </p>
                             <ul class="no-list-style margin-top-1">
-                                <li class="list-item"><span class="dot" style="background-color: var(--js-yellow);"></span> Promise-ներ (<code>.then</code>, <code>.catch</code>, <code>.finally</code>)</li>
-                                <li class="list-item"><span class="dot" style="background-color: var(--js-yellow);"></span> <code>await</code> գործողություններ</li>
-                                <li class="list-item"><span class="dot" style="background-color: var(--js-yellow);"></span> <code>queueMicrotask(func)</code></li>
+                                <li class="list-item">
+                                    <span
+                                        class="dot"
+                                        style="background-color: var(--js-yellow)"
+                                    ></span>
+                                    Promise-ներ (<code>.then</code>, <code>.catch</code>,
+                                    <code>.finally</code>)
+                                </li>
+                                <li class="list-item">
+                                    <span
+                                        class="dot"
+                                        style="background-color: var(--js-yellow)"
+                                    ></span>
+                                    <code>await</code> գործողություններ
+                                </li>
+                                <li class="list-item">
+                                    <span
+                                        class="dot"
+                                        style="background-color: var(--js-yellow)"
+                                    ></span>
+                                    <code>queueMicrotask(func)</code>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -96,7 +134,9 @@
                 <div class="glass-card">
                     <h4 class="card-header-small">Կատարման հերթականությունը</h4>
                     <p class="text-dimmed margin-top-1">
-                        Անմիջապես յուրաքանչյուր <b>Macrotask</b> ավարտելուց հետո, շարժիչը կատարում է <b>ԲՈԼՈՐ Microtask-երը</b>, նախքան որևէ այլ macrotask վերցնելը կամ UI-ը թարմացնելը (rendering):
+                        Անմիջապես յուրաքանչյուր <b>Macrotask</b> ավարտելուց հետո, շարժիչը
+                        կատարում է <b>ԲՈԼՈՐ Microtask-երը</b>, նախքան որևէ այլ macrotask
+                        վերցնելը կամ UI-ը թարմացնելը (rendering):
                     </p>
 
                     <div class="margin-top-4">
@@ -142,31 +182,63 @@
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">Ի՞նչ հերթականությամբ կտպվեն թվերը console-ում:</p>
-                    
+                    <p class="text-body-large">
+                        Ի՞նչ հերթականությամբ կտպվեն թվերը console-ում:
+                    </p>
+
                     <div class="code-inset margin-top-2">
-                        <span class="hl-type">console</span>.<span class="hl-fn">log</span>(<span class="hl-num">1</span>);<br /><br />
-                        
-                        <span class="hl-fn">setTimeout</span>(() => <span class="hl-type">console</span>.<span class="hl-fn">log</span>(<span class="hl-num">2</span>));<br /><br />
-                        
-                        <span class="hl-type">Promise</span>.<span class="hl-fn">resolve</span>().<span class="hl-fn">then</span>(() => <span class="hl-type">console</span>.<span class="hl-fn">log</span>(<span class="hl-num">3</span>));<br /><br />
-                        
-                        <span class="hl-type">Promise</span>.<span class="hl-fn">resolve</span>().<span class="hl-fn">then</span>(() => <span class="hl-fn">setTimeout</span>(() => <span class="hl-type">console</span>.<span class="hl-fn">log</span>(<span class="hl-num">4</span>)));<br /><br />
-                        
-                        <span class="hl-type">Promise</span>.<span class="hl-fn">resolve</span>().<span class="hl-fn">then</span>(() => <span class="hl-type">console</span>.<span class="hl-fn">log</span>(<span class="hl-num">5</span>));<br /><br />
-                        
-                        <span class="hl-fn">setTimeout</span>(() => <span class="hl-type">console</span>.<span class="hl-fn">log</span>(<span class="hl-num">6</span>));<br /><br />
-                        
-                        <span class="hl-type">console</span>.<span class="hl-fn">log</span>(<span class="hl-num">7</span>);
+                        <span class="hl-type">console</span>.<span class="hl-fn">log</span
+                        >(<span class="hl-num">1</span>);<br /><br />
+
+                        <span class="hl-fn">setTimeout</span>(() =>
+                        <span class="hl-type">console</span>.<span class="hl-fn">log</span
+                        >(<span class="hl-num">2</span>));<br /><br />
+
+                        <span class="hl-type">Promise</span>.<span class="hl-fn"
+                            >resolve</span
+                        >().<span class="hl-fn">then</span>(() =>
+                        <span class="hl-type">console</span>.<span class="hl-fn">log</span
+                        >(<span class="hl-num">3</span>));<br /><br />
+
+                        <span class="hl-type">Promise</span>.<span class="hl-fn"
+                            >resolve</span
+                        >().<span class="hl-fn">then</span>(() =>
+                        <span class="hl-fn">setTimeout</span>(() =>
+                        <span class="hl-type">console</span>.<span class="hl-fn">log</span
+                        >(<span class="hl-num">4</span>)));<br /><br />
+
+                        <span class="hl-type">Promise</span>.<span class="hl-fn"
+                            >resolve</span
+                        >().<span class="hl-fn">then</span>(() =>
+                        <span class="hl-type">console</span>.<span class="hl-fn">log</span
+                        >(<span class="hl-num">5</span>));<br /><br />
+
+                        <span class="hl-fn">setTimeout</span>(() =>
+                        <span class="hl-type">console</span>.<span class="hl-fn">log</span
+                        >(<span class="hl-num">6</span>));<br /><br />
+
+                        <span class="hl-type">console</span>.<span class="hl-fn">log</span
+                        >(<span class="hl-num">7</span>);
                     </div>
 
                     <div class="pro-tip margin-top-2">
                         <h4 class="card-header-small">Պատասխան և Բացատրություն</h4>
                         <p class="text-dimmed">Արդյունքը կլինի՝ <b>1 7 3 5 2 6 4</b></p>
                         <ul class="no-list-style margin-top-1 text-dimmed">
-                            <li><span class="dot"></span> <b>1 և 7</b> - Տպվում են անմիջապես, քանի որ սինխրոն կոդ են:</li>
-                            <li><span class="dot"></span> <b>3 և 5</b> - Տպվում են հաջորդիվ, քանի որ Microtask-եր են (Promise-ների <code>.then</code>): Ի դեպ, 4-րդ տողի Promise-ը գցում է նոր <code>setTimeout(4)</code> Macrotask հերթի մեջ:</li>
-                            <li><span class="dot"></span> <b>2, 6 և 4</b> - Տպվում են ամենավերջում, քանի որ Macrotask-եր են:</li>
+                            <li>
+                                <span class="dot"></span> <b>1 և 7</b> - Տպվում են
+                                անմիջապես, քանի որ սինխրոն կոդ են:
+                            </li>
+                            <li>
+                                <span class="dot"></span> <b>3 և 5</b> - Տպվում են
+                                հաջորդիվ, քանի որ Microtask-եր են (Promise-ների
+                                <code>.then</code>): Ի դեպ, 4-րդ տողի Promise-ը գցում է
+                                նոր <code>setTimeout(4)</code> Macrotask հերթի մեջ:
+                            </li>
+                            <li>
+                                <span class="dot"></span> <b>2, 6 և 4</b> - Տպվում են
+                                ամենավերջում, քանի որ Macrotask-եր են:
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -181,38 +253,51 @@
                 <div class="glass-card">
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">1. CPU ծանրաբեռնող խնդիրների բաժանում</h4>
+                            <h4 class="card-header-small">
+                                1. CPU ծանրաբեռնող խնդիրների բաժանում
+                            </h4>
                             <p class="text-dimmed">
-                                Եթե ունեք շատ ծանր ցիկլ (օրինակ՝ գույների փոփոխություն մեծ տեքստում կամ 1 միլիարդ հաշվարկ), բրաուզերը կկախի ("hang"), և կոճակները չեն աշխատի: Կոդը կարելի է բաժանել մասերի և յուրաքանչյուր մասը դնել <code>setTimeout(func)</code>-ի մեջ: Այդպիսով, Event Loop-ը «շունչ կքաշի» և կկարողանա այլ բաներ անել (օրինակ՝ արձագանքել click-երին) կտորների արանքում:
+                                Եթե ունեք շատ ծանր ցիկլ (օրինակ՝ գույների փոփոխություն մեծ
+                                տեքստում կամ 1 միլիարդ հաշվարկ), բրաուզերը կկախի ("hang"),
+                                և կոճակները չեն աշխատի: Կոդը կարելի է բաժանել մասերի և
+                                յուրաքանչյուր մասը դնել <code>setTimeout(func)</code>-ի
+                                մեջ: Այդպիսով, Event Loop-ը «շունչ կքաշի» և կկարողանա այլ
+                                բաներ անել (օրինակ՝ արձագանքել click-երին) կտորների
+                                արանքում:
                             </p>
                         </div>
                         <div class="feature-box">
                             <h4 class="card-header-small">2. Progress Bar Ցուցադրում</h4>
                             <p class="text-dimmed">
-                                Քանի որ DOM-ի render-ը տեղի է ունենում միայն Task-ի ավարտից հետո, եթե հսկայական հաշվարկ անեք մեկ Task-ի ընթացքում, օգտատերը միայն վերջնական արդյունքը կտեսնի: Եթե հաշվարկը բաժանեք <code>setTimeout</code>-ներով, բրաուզերը կհասցնի թարմացնել էկրանը և ցույց տալ գործընթացը (progress):
+                                Քանի որ DOM-ի render-ը տեղի է ունենում միայն Task-ի
+                                ավարտից հետո, եթե հսկայական հաշվարկ անեք մեկ Task-ի
+                                ընթացքում, օգտատերը միայն վերջնական արդյունքը կտեսնի: Եթե
+                                հաշվարկը բաժանեք <code>setTimeout</code>-ներով, բրաուզերը
+                                կհասցնի թարմացնել էկրանը և ցույց տալ գործընթացը
+                                (progress):
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
-        </main>
 
-        <div class="module-nav">
-            <a href="async" class="prev nav-arrow">
-                <span class="arrow-icon">←</span>
-                <div class="arrow-text">
-                    <span class="arrow-label">Նախորդը</span>
-                    <span class="arrow-title">Async / Await</span>
-                </div>
-            </a>
-            <a href="./" class="nav-arrow next">
-                <span class="arrow-icon">🎉</span>
-                <div class="arrow-text" style="text-align: right;">
-                    <span class="arrow-label">Ավարտել</span>
-                    <span class="arrow-title">Գլխավոր էջ</span>
-                </div>
-            </a>
-        </div>
+            <div class="module-nav">
+                <a href="async" class="prev nav-arrow">
+                    <span class="arrow-icon">←</span>
+                    <div class="arrow-text">
+                        <span class="arrow-label">Նախորդը</span>
+                        <span class="arrow-title">Async / Await</span>
+                    </div>
+                </a>
+                <a href="./" class="nav-arrow next">
+                    <span class="arrow-icon">🎉</span>
+                    <div class="arrow-text" style="text-align: right">
+                        <span class="arrow-label">Ավարտել</span>
+                        <span class="arrow-title">Գլխավոր էջ</span>
+                    </div>
+                </a>
+            </div>
+        </main>
 
         <!-- LAYOUT_FOOTER -->
     </body>

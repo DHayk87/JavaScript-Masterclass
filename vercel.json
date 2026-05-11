@@ -1,9 +1,15 @@
 {
   "cleanUrls": true,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/docs/$1" }
-  ],
   "redirects": [
-    { "source": "/", "destination": "/docs", "permanent": true }
+    {
+      "source": "/",
+      "destination": "/docs/",
+      "permanent": false
+    },
+    {
+      "source": "/docs",
+      "destination": "/docs/",
+      "permanent": false
+    }
   ]
 }

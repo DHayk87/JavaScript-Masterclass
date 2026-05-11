@@ -4,9 +4,16 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JS շարժիչի վիզուալիզատոր</title>
-        <meta name="description" content="Ինտերակտիվ ուղեցույց JavaScript շարժիչի (V8) աշխատանքի մասին. Parser, AST, Ignition և TurboFan փուլերը:" />
-        
-        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+        <meta
+            name="description"
+            content="Ինտերակտիվ ուղեցույց JavaScript շարժիչի (V8) աշխատանքի մասին. Parser, AST, Ignition և TurboFan փուլերը:"
+        />
+
+        <link
+            rel="shortcut icon"
+            href="../public/images/programmer.png"
+            type="image/x-icon"
+        />
         <link rel="stylesheet" href="../src/styles/style.css" />
         <script type="module" src="../src/scripts/main.js"></script>
 
@@ -31,58 +38,57 @@
                 </div>
 
                 <div class="workflow">
-                <div class="stage-card active" id="card-1" onclick="selectStage(1)">
-                    <span class="stage-icon">🔍</span>
-                    <span class="stage-name color-browser">Parser</span>
-                </div>
-                <div class="arrow">→</div>
-                <div class="stage-card" id="card-2" onclick="selectStage(2)">
-                    <span class="stage-icon">🌳</span>
-                    <span class="stage-name hl-str">AST</span>
-                </div>
-                <div class="arrow">→</div>
-                <div class="stage-card" id="card-3" onclick="selectStage(3)">
-                    <span class="stage-icon">🔥</span>
-                    <span class="stage-name hl-kw">Ignition</span>
-                </div>
-                <div class="arrow">→</div>
-                <div class="stage-card" id="card-4" onclick="selectStage(4)">
-                    <span class="stage-icon">🚀</span>
-                    <span class="stage-name hl-kw">TurboFan</span>
-                </div>
-            </div>
-
-            <div class="details-panel glass-card" id="panel">
-                <div id="placeholder" class="placeholder-text">
-                    Սեղմեք որևէ փուլի վրա՝ գործընթացը տեսնելու համար
-                </div>
-
-                <div id="content" class="hidden">
-                    <div class="details-header">
-                        <span id="det-icon"></span>
-                        <div>
-                            <h2 id="det-title"></h2>
-                            <p id="det-subtitle"></p>
-                        </div>
+                    <div class="stage-card active" id="card-1" onclick="selectStage(1)">
+                        <span class="stage-icon">🔍</span>
+                        <span class="stage-name color-browser">Parser</span>
                     </div>
-
-                    <div class="grid-2">
-                        <div class="feature-box">
-                            <div>
-                                <h4 class="details-label">Ի՞նչ է տեղի ունենում</h4>
-                                <p id="det-desc"></p>
-                            </div>
-                        </div>
-                        <div class="feature-box">
-                            <div>
-                                <h4 class="details-label">Վիզուալ օրինակ</h4>
-                                <div id="det-visual" class="feature-box"></div>
-                            </div>
-                        </div>
+                    <div class="arrow">→</div>
+                    <div class="stage-card" id="card-2" onclick="selectStage(2)">
+                        <span class="stage-icon">🌳</span>
+                        <span class="stage-name hl-str">AST</span>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="stage-card" id="card-3" onclick="selectStage(3)">
+                        <span class="stage-icon">🔥</span>
+                        <span class="stage-name hl-kw">Ignition</span>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="stage-card" id="card-4" onclick="selectStage(4)">
+                        <span class="stage-icon">🚀</span>
+                        <span class="stage-name hl-kw">TurboFan</span>
                     </div>
                 </div>
-            </div>
-            </div>
+
+                <div class="details-panel glass-card" id="panel">
+                    <div id="placeholder" class="placeholder-text">
+                        Սեղմեք որևէ փուլի վրա՝ գործընթացը տեսնելու համար
+                    </div>
+
+                    <div id="content" class="hidden">
+                        <div class="details-header">
+                            <span id="det-icon"></span>
+                            <div>
+                                <h2 id="det-title"></h2>
+                                <p id="det-subtitle"></p>
+                            </div>
+                        </div>
+
+                        <div class="grid-2">
+                            <div class="feature-box">
+                                <div>
+                                    <h4 class="details-label">Ի՞նչ է տեղի ունենում</h4>
+                                    <p id="det-desc"></p>
+                                </div>
+                            </div>
+                            <div class="feature-box">
+                                <div>
+                                    <h4 class="details-label">Վիզուալ օրինակ</h4>
+                                    <div id="det-visual" class="feature-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
             <!-- Section: Engine Insights -->
             <section id="details" class="section-container">
@@ -92,32 +98,35 @@
                 </div>
 
                 <div class="grid-2">
-                <div class="glass-card">
-                    <h4 class="card-header-small">JIT Optimization (V8 Pipeline)</h4>
-                    <p class="text-dimmed">
-                        Շարժիչը չի սպասում ամբողջ կոդի թարգմանությանը։ Այն օգտագործում է
-                        <span class="font-bold">Ignition (Interpreter)</span>՝ բայթ-կոդի
-                        արագ ստեղծման համար, և
-                        <span class="font-bold">TurboFan (Optimizing Compiler)</span>, որը
-                        վերլուծում է <span class="italic">"Hot"</span> ֆունկցիաները և
-                        դրանք վերածում օպտիմիզացված մեքենայական կոդի։
-                    </p>
-                </div>
+                    <div class="glass-card">
+                        <h4 class="card-header-small">JIT Optimization (V8 Pipeline)</h4>
+                        <p class="text-dimmed">
+                            Շարժիչը չի սպասում ամբողջ կոդի թարգմանությանը։ Այն օգտագործում
+                            է
+                            <span class="font-bold">Ignition (Interpreter)</span>՝
+                            բայթ-կոդի արագ ստեղծման համար, և
+                            <span class="font-bold">TurboFan (Optimizing Compiler)</span>,
+                            որը վերլուծում է
+                            <span class="italic">"Hot"</span> ֆունկցիաները և դրանք
+                            վերածում օպտիմիզացված մեքենայական կոդի։
+                        </p>
+                    </div>
 
-                <div class="glass-card">
-                    <h4 class="card-header-small">Hidden Classes (Shapes)</h4>
-                    <p class="text-dimmed">
-                        V8-ը ստեղծում է
-                        <span class="font-bold">Hidden Classes</span> (հայտնի նաև որպես
-                        <span class="italic">Shapes</span>): Սա թույլ է տալիս կիրառել
-                        <span class="font-bold">Inline Caching (IC)</span>
-                        տեխնոլոգիան, որը ապահովում է
-                        <span class="font-bold">Property Access</span>-ի արագությունը՝
-                        հիշողության մեջ տվյալների ֆիքսված տեղակայման շնորհիվ:
-                    </p>
-                </div>
+                    <div class="glass-card">
+                        <h4 class="card-header-small">Hidden Classes (Shapes)</h4>
+                        <p class="text-dimmed">
+                            V8-ը ստեղծում է
+                            <span class="font-bold">Hidden Classes</span> (հայտնի նաև
+                            որպես <span class="italic">Shapes</span>): Սա թույլ է տալիս
+                            կիրառել
+                            <span class="font-bold">Inline Caching (IC)</span>
+                            տեխնոլոգիան, որը ապահովում է
+                            <span class="font-bold">Property Access</span>-ի արագությունը՝
+                            հիշողության մեջ տվյալների ֆիքսված տեղակայման շնորհիվ:
+                        </p>
+                    </div>
 
-                <div class="glass-card">
+                    <div class="glass-card">
                         <h4 class="card-header-small">Garbage Collector (GC)</h4>
                         <p class="text-dimmed">
                             JS-ը կիրառում է
@@ -128,28 +137,27 @@
                             ազատում է հիշողությունը այն օբյեկտներից, որոնք այլևս
                             <span class="font-bold">Unreachable</span> են։
                         </p>
-                </div>
                     </div>
+                </div>
             </section>
+
+            <div class="module-nav">
+                <a href="functions" class="nav-arrow prev">
+                    <span class="arrow-icon">←</span>
+                    <div class="arrow-text">
+                        <span class="arrow-label">Նախորդը</span>
+                        <span class="arrow-title">Ֆունկցիաներ</span>
+                    </div>
+                </a>
+                <a href="object" class="nav-arrow next">
+                    <span class="arrow-icon">→</span>
+                    <div class="arrow-text">
+                        <span class="arrow-label">Հաջորդը</span>
+                        <span class="arrow-title">Objects</span>
+                    </div>
+                </a>
+            </div>
         </main>
-
-        <div class="module-nav">
-            <a href="functions" class="nav-arrow prev">
-                <span class="arrow-icon">←</span>
-                <div class="arrow-text">
-                    <span class="arrow-label">Նախորդը</span>
-                    <span class="arrow-title">Ֆունկցիաներ</span>
-                </div>
-            </a>
-            <a href="object" class="nav-arrow next">
-                <span class="arrow-icon">→</span>
-                <div class="arrow-text">
-                    <span class="arrow-label">Հաջորդը</span>
-                    <span class="arrow-title">Objects</span>
-                </div>
-            </a>
-        </div>
-
         <!-- LAYOUT_FOOTER -->
 
         <script>
