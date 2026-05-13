@@ -1,8 +1,65 @@
 <nav class="nav-fixed">
     <div class="nav-container">
         <a href="./" class="nav-brand">JS.CORE</a>
-        <div class="nav-links">
-            <!-- SLOT_NAV_LINKS -->
+        <div class="nav-end">
+            <div class="nav-links">
+                <!-- SLOT_NAV_LINKS -->
+            </div>
+            <div
+                class="lang-dropdown"
+                data-i18n-attr="aria-label|nav.langAria"
+                aria-label="Language"
+            >
+                <button
+                    type="button"
+                    class="lang-dropdown-toggle"
+                    id="lang-dropdown-toggle"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-controls="lang-dropdown-menu"
+                >
+                    <span class="lang-dropdown-label">Հայերեն</span>
+                    <span class="lang-dropdown-chevron" aria-hidden="true"></span>
+                </button>
+                <ul
+                    class="lang-dropdown-menu"
+                    id="lang-dropdown-menu"
+                    role="listbox"
+                    aria-labelledby="lang-dropdown-toggle"
+                    hidden
+                >
+                    <li role="presentation">
+                        <button
+                            type="button"
+                            role="option"
+                            class="lang-dropdown-item"
+                            data-set-lang="hy"
+                        >
+                            Հայերեն
+                        </button>
+                    </li>
+                    <li role="presentation">
+                        <button
+                            type="button"
+                            role="option"
+                            class="lang-dropdown-item"
+                            data-set-lang="en"
+                        >
+                            English
+                        </button>
+                    </li>
+                    <li role="presentation">
+                        <button
+                            type="button"
+                            role="option"
+                            class="lang-dropdown-item"
+                            data-set-lang="ru"
+                        >
+                            Русский
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>

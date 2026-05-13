@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JS.CORE | Պայմաններ և Լոգիկա</title>
+        <title data-i18n-title="pages.ifOperators.docTitle">JS.CORE | Պայմաններ և Լոգիկա</title>
         <meta
             name="description"
+            data-i18n-desc="pages.ifOperators.metaDescription"
             content="JavaScript-ի պայմանական օպերատորներ (if, else), տերնար օպերատոր և լոգիկական կապեր (OR, AND, NOT, Nullish Coalescing):"
         />
 
@@ -18,9 +19,13 @@
         <script type="module" src="../src/scripts/main.js"></script>
 
         <script type="layout-slot" id="nav-links">
-            <a href="#comparison" class="nav-link">Համեմատություն</a>
-            <a href="#conditional" class="nav-link">Պայմաններ</a>
-            <a href="#logical" class="nav-link">Լոգիկա</a>
+            <a href="#comparison" class="nav-link" data-i18n="pages.ifOperators.nav.comparison"
+                >Համեմատություն</a
+            >
+            <a href="#conditional" class="nav-link" data-i18n="pages.ifOperators.nav.conditional"
+                >Պայմաններ</a
+            >
+            <a href="#logical" class="nav-link" data-i18n="pages.ifOperators.nav.logical">Լոգիկա</a>
         </script>
     </head>
     <body>
@@ -28,8 +33,10 @@
 
         <main class="main-content">
             <header>
-                <h1 class="title-large gradient-text">Պայմաններ և Լոգիկա</h1>
-                <p class="subtitle">
+                <h1 class="title-large gradient-text" data-i18n="pages.ifOperators.h1">
+                    Պայմաններ և Լոգիկա
+                </h1>
+                <p class="subtitle" data-i18n="pages.ifOperators.subtitle">
                     "Ծրագրի ընթացքը կախված է ճիշտ ընտրությունից և լոգիկական կապերից:"
                 </p>
             </header>
@@ -38,36 +45,42 @@
             <section id="comparison" class="section-container">
                 <div class="section-label">
                     <span class="section-num">01</span>
-                    <h2 class="section-title">Համեմատության Օպերատորներ</h2>
+                    <h2 class="section-title" data-i18n="pages.ifOperators.s01Title">
+                        Համեմատության Օպերատորներ
+                    </h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.ifOperators.s01Lead">
                         Համեմատության օպերատորները վերադարձնում են բուլյան արժեք՝
                         <code>true</code> կամ <code>false</code>:
                     </p>
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">Հիմնական Օպերատորներ</h4>
+                            <h4 class="card-header-small" data-i18n="pages.ifOperators.s01Box1Title">
+                                Հիմնական Օպերատորներ
+                            </h4>
                             <ul class="no-list-style">
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.ifOperators.s01Li1">
                                     <span class="dot"></span> <code>a &gt; b</code>,
                                     <code>a &lt; b</code> (Մեծ, փոքր)
                                 </li>
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.ifOperators.s01Li2">
                                     <span class="dot"></span> <code>a &gt;= b</code>,
                                     <code>a &lt;= b</code> (Մեծ կամ հավասար)
                                 </li>
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.ifOperators.s01Li3">
                                     <span class="dot"></span> <code>a == b</code>,
                                     <code>a != b</code> (Հավասարություն)
                                 </li>
                             </ul>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">Խիստ Հավասարություն</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.ifOperators.s01Box2Title">
+                                Խիստ Հավասարություն
+                            </h4>
+                            <p class="text-dimmed" data-i18n-html="pages.ifOperators.s01Box2P">
                                 <code>===</code> օպերատորը ստուգում է թե՛ արժեքը, թե՛
                                 տիպը: Խորհուրդ է տրվում միշտ օգտագործել այն:
                             </p>
@@ -87,13 +100,13 @@
             <section id="conditional" class="section-container">
                 <div class="section-label">
                     <span class="section-num">02</span>
-                    <h2 class="section-title">
+                    <h2 class="section-title" data-i18n="pages.ifOperators.s02Title">
                         Պայմանական Ճյուղավորում (if, else if, else)
                     </h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.ifOperators.s02Lead">
                         <code>if</code> հրահանգը ստուգում է պայմանը և կատարում կոդը, եթե
                         արդյունքը <code>true</code> է: Բարդ դեպքերում օգտագործվում են
                         <code>else if</code> և <code>else</code>:
@@ -101,12 +114,14 @@
 
                     <div class="grid-2">
                         <div class="flex-col-1">
-                            <h4 class="card-header-small">if-else if-else Կառուցվածք</h4>
+                            <h4 class="card-header-small" data-i18n="pages.ifOperators.s02IfElseTitle">
+                                if-else if-else Կառուցվածք
+                            </h4>
                             <div class="code-inset">
-                                <code class="hl-kw">if</code> (time < 12) {<br />
+                                <code class="hl-kw">if</code> (time &lt; 12) {<br />
                                 &nbsp;&nbsp;<code class="hl-fn">alert</code>('Բարի
                                 լույս');<br />
-                                } <code class="hl-kw">else if</code> (time < 18) {<br />
+                                } <code class="hl-kw">else if</code> (time &lt; 18) {<br />
                                 &nbsp;&nbsp;<code class="hl-fn">alert</code>('Բարի
                                 օր');<br />
                                 } <code class="hl-kw">else</code> {<br />
@@ -116,22 +131,22 @@
                             </div>
                         </div>
                         <div class="flex-col-1">
-                            <h4 class="card-header-small">
+                            <h4 class="card-header-small" data-i18n="pages.ifOperators.s02TernaryTitle">
                                 Տերնար օպերատոր (Ternary Operator)
                             </h4>
-                            <p class="text-dimmed">
+                            <p class="text-dimmed" data-i18n="pages.ifOperators.s02TernaryP">
                                 Կարճ տարբերակ պայմանի համար (Conditional Operator):
                             </p>
                             <div class="code-inset">
                                 <code class="hl-kw">let</code>
-                                result = (age >= 18) 
+                                result = (age &gt;= 18) 
                                 <code class="hl-kw">?</code>
                                 <code class="hl-str">"Թույլատրված"</code>
                                 <code class="hl-kw">:</code>
                                 <code class="hl-str">"Մերժված"</code>
                                 ;
                             </div>
-                            <p class="text-dimmed" style="font-size: 0.8rem">
+                            <p class="text-dimmed" style="font-size: 0.8rem" data-i18n-html="pages.ifOperators.s02TernaryNote">
                                 <i
                                     >Կառուցվածք՝ &nbsp;
                                     <code
@@ -148,33 +163,43 @@
             <section id="logical" class="section-container">
                 <div class="section-label">
                     <span class="section-num">03</span>
-                    <h2 class="section-title">Լոգիկական Օպերատորներ (OR, AND, NOT)</h2>
+                    <h2 class="section-title" data-i18n="pages.ifOperators.s03Title">
+                        Լոգիկական Օպերատորներ (OR, AND, NOT)
+                    </h2>
                 </div>
 
                 <div class="glass-card">
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">|| (OR / ԿԱՄ)</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.ifOperators.s03OrTitle">
+                                || (OR / ԿԱՄ)
+                            </h4>
+                            <p class="text-dimmed" data-i18n="pages.ifOperators.s03OrP">
                                 Ճիշտ է, եթե գոնե մեկ պայմանը ճիշտ է:
                             </p>
                             <code>true || false; // true</code>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">&& (AND / ԵՎ)</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.ifOperators.s03AndTitle">
+                                && (AND / ԵՎ)
+                            </h4>
+                            <p class="text-dimmed" data-i18n="pages.ifOperators.s03AndP">
                                 Ճիշտ է միայն այն դեպքում, եթե բոլորը ճիշտ են:
                             </p>
                             <code>true && false; // false</code>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">! (NOT / ՈՉ)</h4>
-                            <p class="text-dimmed">Շրջում է արժեքը:</p>
+                            <h4 class="card-header-small" data-i18n="pages.ifOperators.s03NotTitle">
+                                ! (NOT / ՈՉ)
+                            </h4>
+                            <p class="text-dimmed" data-i18n="pages.ifOperators.s03NotP">Շրջում է արժեքը:</p>
                             <code>!true; // false</code>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">?? (Nullish Coalescing)</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.ifOperators.s03NullTitle">
+                                ?? (Nullish Coalescing)
+                            </h4>
+                            <p class="text-dimmed" data-i18n="pages.ifOperators.s03NullP">
                                 Վերադարձնում է առաջին «գոյություն ունեցող» արժեքը:
                             </p>
                             <code>result = a ?? b;</code>
@@ -202,15 +227,19 @@
                 <a href="core" class="nav-arrow prev">
                     <span class="arrow-icon">←</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Նախորդը</span>
-                        <span class="arrow-title">Core Concepts</span>
+                        <span class="arrow-label" data-i18n="lessonNav.prev">Նախորդը</span>
+                        <span class="arrow-title" data-i18n="pages.ifOperators.prevTopic"
+                            >Core Concepts</span
+                        >
                     </div>
                 </a>
                 <a href="switch-while" class="nav-arrow next">
                     <span class="arrow-icon">→</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Հաջորդը</span>
-                        <span class="arrow-title">Ցիկլեր և Switch</span>
+                        <span class="arrow-label" data-i18n="lessonNav.next">Հաջորդը</span>
+                        <span class="arrow-title" data-i18n="pages.ifOperators.nextTopic"
+                            >Ցիկլեր և Switch</span
+                        >
                     </div>
                 </a>
             </div>

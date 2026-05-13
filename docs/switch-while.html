@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JS.CORE | Switch և Loops</title>
+        <title data-i18n-title="pages.switchWhile.docTitle">JS.CORE | Switch և Loops</title>
         <meta
             name="description"
+            data-i18n-desc="pages.switchWhile.metaDescription"
             content="JavaScript-ի switch կոնստրուկցիան, ցիկլերը (while, do...while, for) և Lexical Environment-ի աշխատանքի սկզբունքները:"
         />
 
@@ -18,9 +19,11 @@
         <script type="module" src="../src/scripts/main.js"></script>
 
         <script type="layout-slot" id="nav-links">
-            <a href="#switch" class="nav-link">Switch</a>
-            <a href="#loops" class="nav-link">Ցիկլեր</a>
-            <a href="#lexical" class="nav-link">Lexical Environment</a>
+            <a href="#switch" class="nav-link" data-i18n="pages.switchWhile.nav.switch">Switch</a>
+            <a href="#loops" class="nav-link" data-i18n="pages.switchWhile.nav.loops">Ցիկլեր</a>
+            <a href="#lexical" class="nav-link" data-i18n="pages.switchWhile.nav.lexical"
+                >Lexical Environment</a
+            >
         </script>
     </head>
     <body>
@@ -28,8 +31,8 @@
 
         <main class="main-content">
             <header>
-                <h1 class="title-large gradient-text">Switch և Ցիկլեր</h1>
-                <p class="subtitle">
+                <h1 class="title-large gradient-text" data-i18n="pages.switchWhile.h1">Switch և Ցիկլեր</h1>
+                <p class="subtitle" data-i18n="pages.switchWhile.subtitle">
                     "Կրկնությունը գիտության մայրն է, իսկ ընտրությունը՝ արդյունավետության
                     գրավականը:"
                 </p>
@@ -39,18 +42,22 @@
             <section id="switch" class="section-container">
                 <div class="section-label">
                     <span class="section-num">01</span>
-                    <h2 class="section-title">Switch Կոնստրուկցիա</h2>
+                    <h2 class="section-title" data-i18n="pages.switchWhile.s01Title">
+                        Switch Կոնստրուկցիա
+                    </h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.switchWhile.s01Lead">
                         <code>switch</code>-ը փոխարինում է մի քանի <code>if</code>-երին և
                         կատարում է խիստ համեմատություն (<code>===</code>):
                     </p>
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">Կառուցվածք</h4>
+                            <h4 class="card-header-small" data-i18n="pages.switchWhile.s01StructTitle">
+                                Կառուցվածք
+                            </h4>
                             <div class="code-inset">
                                 <code class="hl-kw">switch</code>(x) {<br />
                                 &nbsp;&nbsp;<code class="hl-kw">case</code>
@@ -81,8 +88,10 @@
                             </div>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">Break-ի Կարևորությունը</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.switchWhile.s01BreakTitle">
+                                Break-ի Կարևորությունը
+                            </h4>
+                            <p class="text-dimmed" data-i18n-html="pages.switchWhile.s01BreakP">
                                 Առանց <code>break</code>-ի, կոդը կշարունակի կատարվել
                                 հաջորդ <code>case</code>-երի մեջ՝ անկախ պայմանից:
                             </p>
@@ -95,31 +104,37 @@
             <section id="loops" class="section-container">
                 <div class="section-label">
                     <span class="section-num">02</span>
-                    <h2 class="section-title">Ցիկլեր (while, do...while, for)</h2>
+                    <h2 class="section-title" data-i18n="pages.switchWhile.s02Title">
+                        Ցիկլեր (while, do...while, for)
+                    </h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n="pages.switchWhile.s02Lead">
                         Ցիկլերը թույլ են տալիս կատարել նույն կոդը բազմաթիվ անգամներ:
                     </p>
 
                     <div class="grid-2">
                         <div class="flex-col-1">
-                            <h4 class="card-header-small">for Ցիկլ</h4>
+                            <h4 class="card-header-small" data-i18n="pages.switchWhile.s02ForTitle">
+                                for Ցիկլ
+                            </h4>
                             <div class="code-inset">
-                                <code class="hl-kw">for</code> (let i = 0; i < 3; i++)
+                                <code class="hl-kw">for</code> (let i = 0; i &lt; 3; i++)
                                 {<br />
                                 &nbsp;&nbsp;<code class="hl-fn">alert</code>(i);<br />
                                 }
                             </div>
-                            <p class="text-dimmed" style="font-size: 0.8rem">
+                            <p class="text-dimmed" style="font-size: 0.8rem" data-i18n-html="pages.switchWhile.s02ForCaption">
                                 <i>սկիզբ, պայման, քայլ:</i>
                             </p>
                         </div>
                         <div class="flex-col-1">
-                            <h4 class="card-header-small">while Ցիկլ</h4>
+                            <h4 class="card-header-small" data-i18n="pages.switchWhile.s02WhileTitle">
+                                while Ցիկլ
+                            </h4>
                             <div class="code-inset">
-                                <code class="hl-kw">while</code> (i < 3) {<br />
+                                <code class="hl-kw">while</code> (i &lt; 3) {<br />
                                 &nbsp;&nbsp;<code class="hl-fn">alert</code>(i);<br />
                                 &nbsp;&nbsp;i++;<br />
                                 }
@@ -129,22 +144,25 @@
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">break & continue</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.switchWhile.s02BcTitle">
+                                break & continue
+                            </h4>
+                            <p class="text-dimmed" data-i18n-html="pages.switchWhile.s02BcP">
                                 <code>break</code>-ը դուրս է գալիս ցիկլից, իսկ
                                 <code>continue</code>-ն թռչում է դեպի հաջորդ քայլը:
                             </p>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">do...while</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.switchWhile.s02DoTitle">
+                                do...while
+                            </h4>
+                            <p class="text-dimmed" data-i18n="pages.switchWhile.s02DoP">
                                 Կոդը կատարվում է գոնե մեկ անգամ, նույնիսկ եթե պայմանը սխալ
                                 է:
                             </p>
                         </div>
                     </div>
 
-                    <!-- Mermaid Loop Visualizer -->
                     <!-- prettier-ignore -->
                     <div class="mermaid">
                         flowchart TD
@@ -172,13 +190,13 @@
             <section id="lexical" class="section-container">
                 <div class="section-label">
                     <span class="section-num">03</span>
-                    <h2 class="section-title">
+                    <h2 class="section-title" data-i18n="pages.switchWhile.s03Title">
                         Լեքսիկական Միջավայր (Lexical Environment)
                     </h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.switchWhile.s03Lead">
                         JavaScript-ում յուրաքանչյուր կատարվող ֆունկցիա, կոդի բլոկ կամ
                         սկրիպտ ունի իրեն կցված ներքին օբյեկտ, որը կոչվում է
                         <b>Lexical Environment</b>:
@@ -186,21 +204,25 @@
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">Կառուցվածք</h4>
+                            <h4 class="card-header-small" data-i18n="pages.switchWhile.s03StructTitle">
+                                Կառուցվածք
+                            </h4>
                             <ul class="list-container no-list-style">
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.switchWhile.s03StructLi1">
                                     <b>Environment Record</b>: Պահպանում է բոլոր տեղային
                                     փոփոխականները:
                                 </li>
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.switchWhile.s03StructLi2">
                                     <b>Outer Reference</b>: Հղում դեպի արտաքին (outer)
                                     միջավայր:
                                 </li>
                             </ul>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">Ինչպե՞ս է աշխատում</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.switchWhile.s03HowTitle">
+                                Ինչպե՞ս է աշխատում
+                            </h4>
+                            <p class="text-dimmed" data-i18n="pages.switchWhile.s03HowP">
                                 Երբ փնտրում ենք փոփոխական, JS-ը նախ նայում է ներքին
                                 միջավայրում, ապա՝ արտաքինում, մինչև հասնի Global
                                 միջավայրին:
@@ -212,10 +234,11 @@
                         <h3
                             class="js-yellow-text"
                             style="font-size: 1.5rem; margin-bottom: 1rem"
+                            data-i18n="pages.switchWhile.s03ChainTitle"
                         >
                             Ինչպե՞ս է աշխատում Scope Chain-ը
                         </h3>
-                        <p class="text-dimmed">
+                        <p class="text-dimmed" data-i18n="pages.switchWhile.s03ChainP">
                             Այս դիագրամը պատկերում է JavaScript-ի լեքսիկական հիերարխիան
                             կոդի կատարման պահին: Այն ցույց է տալիս, թե ինչպես են
                             փոփոխականները հասանելի դառնում տարբեր կոնտեքստներում՝ շնորհիվ
@@ -224,8 +247,10 @@
 
                         <div class="grid-2" style="margin-top: 2rem; gap: 2rem">
                             <div class="flex-col-1">
-                                <h4 class="card-header-small">1. Environment Record</h4>
-                                <p class="text-dimmed" style="font-size: 0.9rem">
+                                <h4 class="card-header-small" data-i18n="pages.switchWhile.s03ErTitle">
+                                    1. Environment Record
+                                </h4>
+                                <p class="text-dimmed" style="font-size: 0.9rem" data-i18n="pages.switchWhile.s03ErP">
                                     Յուրաքանչյուր միջավայր (Global, Outer, Inner) ունի իր
                                     Environment Record-ը: Սա այն վայրն է, որտեղ JS շարժիչը
                                     կատարման նախնական փուլում (Instantiation phase)
@@ -236,22 +261,24 @@
                                     class="list-container no-list-style"
                                     style="font-size: 0.85rem; color: var(--text-main)"
                                 >
-                                    <li>
+                                    <li data-i18n-html="pages.switchWhile.s03ErLi1">
                                         <b>Inner:</b> Ունի իր սեփական
                                         <code>innerVar</code>-ը:
                                     </li>
-                                    <li>
+                                    <li data-i18n-html="pages.switchWhile.s03ErLi2">
                                         <b>Outer:</b> Պահում է <code>outerVar</code>-ը:
                                     </li>
-                                    <li>
+                                    <li data-i18n-html="pages.switchWhile.s03ErLi3">
                                         <b>Global:</b> Հանդիսանում է ամենավերին մակարդակը:
                                     </li>
                                 </ul>
                             </div>
 
                             <div class="flex-col-1">
-                                <h4 class="card-header-small">2. Outer Reference</h4>
-                                <p class="text-dimmed" style="font-size: 0.9rem">
+                                <h4 class="card-header-small" data-i18n="pages.switchWhile.s03OrTitle">
+                                    2. Outer Reference
+                                </h4>
+                                <p class="text-dimmed" style="font-size: 0.9rem" data-i18n-html="pages.switchWhile.s03OrP">
                                     Յուրաքանչյուր Lexical Environment ունի հղում (<code
                                         >[[OuterEnv]]</code
                                     >
@@ -262,30 +289,30 @@
                                     class="list-container no-list-style"
                                     style="font-size: 0.85rem; color: var(--text-main)"
                                 >
-                                    <li>Inner-ի հղումը տանում է դեպի Outer:</li>
-                                    <li>Outer-ի հղումը տանում է դեպի Global:</li>
-                                    <li>Global-ի հղումը <code>null</code> է:</li>
+                                    <li data-i18n="pages.switchWhile.s03OrLi1">Inner-ի հղումը տանում է դեպի Outer:</li>
+                                    <li data-i18n="pages.switchWhile.s03OrLi2">Outer-ի հղումը տանում է դեպի Global:</li>
+                                    <li data-i18n-html="pages.switchWhile.s03OrLi3">Global-ի հղումը <code>null</code> է:</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="pro-tip">
-                            <h4 class="card-header-small">
+                            <h4 class="card-header-small" data-i18n="pages.switchWhile.s03ResTitle">
                                 3. Որոնման մեխանիզմը (Resolve Binding)
                             </h4>
-                            <p class="text-dimmed small-text">
+                            <p class="text-dimmed small-text" data-i18n="pages.switchWhile.s03ResLead">
                                 Երբ փորձում եք օգտագործել որևէ փոփոխական Inner տիրույթում,
                                 JavaScript-ը կատարում է հետևյալ քայլերը.
                             </p>
                             <ol class="ordered-list-small">
-                                <li>Փնտրում է այն լոկալ Environment Record-ում:</li>
-                                <li>
+                                <li data-i18n="pages.switchWhile.s03ResOl1">Փնտրում է այն լոկալ Environment Record-ում:</li>
+                                <li data-i18n="pages.switchWhile.s03ResOl2">
                                     Եթե չի գտնում, օգտվում է Outer Reference-ից և
                                     բարձրանում մեկ մակարդակ վերև:
                                 </li>
-                                <li>Այս գործընթացը կրկնվում է մինչև Global միջավայր:</li>
+                                <li data-i18n="pages.switchWhile.s03ResOl3">Այս գործընթացը կրկնվում է մինչև Global միջավայր:</li>
                             </ol>
-                            <p class="text-dimmed small-text italic margin-top-1">
+                            <p class="text-dimmed small-text italic margin-top-1" data-i18n-html="pages.switchWhile.s03ResNote">
                                 <b>Կարևոր է:</b> Այս շղթան կայուն է և որոշվում է կոդը
                                 գրելու պահին (Lexical Scoping): Սա հենց այն հիմքն է, որի
                                 վրա կառուցվում են Closures-ը:
@@ -293,7 +320,6 @@
                         </div>
                     </div>
 
-                    <!-- Mermaid Lexical Flow -->
                     <!-- prettier-ignore -->
                     <div class="mermaid">
                        flowchart BT
@@ -332,15 +358,19 @@
                 <a href="if-operators" class="nav-arrow prev">
                     <span class="arrow-icon">←</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Նախորդը</span>
-                        <span class="arrow-title">Պայմաններ և Լոգիկա</span>
+                        <span class="arrow-label" data-i18n="lessonNav.prev">Նախորդը</span>
+                        <span class="arrow-title" data-i18n="pages.switchWhile.prevTopic"
+                            >Պայմաններ և Լոգիկա</span
+                        >
                     </div>
                 </a>
                 <a href="functions" class="nav-arrow next">
                     <span class="arrow-icon">→</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Հաջորդը</span>
-                        <span class="arrow-title">Ֆունկցիաներ</span>
+                        <span class="arrow-label" data-i18n="lessonNav.next">Հաջորդը</span>
+                        <span class="arrow-title" data-i18n="pages.switchWhile.nextTopic"
+                            >Ֆունկցիաներ</span
+                        >
                     </div>
                 </a>
             </div>

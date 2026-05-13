@@ -1,28 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="hy">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="../src/styles/style.css" />
-        <title>404 | Էջը չի գտնվել</title>
+        <title data-i18n-title="error404.docTitle">404</title>
         <script type="module" src="../src/scripts/main.js"></script>
-        <script type="layout-slot" id="nav-links">
-            <span class="nav-link" style="opacity: 0.6">Modern JavaScript Masterclass 2026</span>
-        </script>
     </head>
-    <body>
+    <body data-i18n-page="error404">
         <!-- LAYOUT_NAV -->
         <main class="main-content">
             <header>
                 <div class="center-container">
                     <div class="error-card">
                         <h1>404</h1>
-                        <h2>Էջը չի գտնվել</h2>
-                        <p>
-                            Հղումը, որը դուք փորձում եք բացել, գոյություն չունի կամ
-                            տեղափոխվել է:
+                        <h2 data-i18n="error404.heading">Էջը չի գտնվել</h2>
+                        <p data-i18n="error404.body">
+                            Հղումը, որը դուք փորձում եք բացել, գոյություն չունի կամ տեղափոխվել է:
                         </p>
-                        <a href="/docs/" class="btn-primary">Վերադառնալ Դասընթաց</a>
+                        <a href="/docs/" class="btn-primary" data-i18n="error404.cta">Վերադառնալ Դասընթաց</a>
                     </div>
                 </div>
             </header>

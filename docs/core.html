@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JS.CORE | Core Concepts</title>
+        <title data-i18n-title="pages.core.docTitle">JS.CORE | Core Concepts</title>
         <meta
             name="description"
+            data-i18n-desc="pages.core.metaDescription"
             content="Ինչպես է աշխատում JavaScript-ը. JIT կոմպիլյացիա, V8 Engine, Browser vs Node.js միջավայրեր և execution flow (async/defer):"
         />
 
@@ -18,17 +19,19 @@
         <script type="module" src="../src/scripts/main.js"></script>
 
         <script type="layout-slot" id="nav-links">
-            <a href="#intro" class="nav-link">Հիմք</a>
-            <a href="#env" class="nav-link">Միջավայր</a>
-            <a href="#execution" class="nav-link">Ընթացք</a>
+            <a href="#intro" class="nav-link" data-i18n="pages.core.nav.intro">Հիմք</a>
+            <a href="#env" class="nav-link" data-i18n="pages.core.nav.env">Միջավայր</a>
+            <a href="#execution" class="nav-link" data-i18n="pages.core.nav.execution"
+                >Ընթացք</a
+            >
         </script>
     </head>
     <body>
         <!-- LAYOUT_NAV -->
 
         <header class="hero-header">
-            <h1 class="text-huge gradient-text">JavaScript</h1>
-            <p class="text-subtitle">
+            <h1 class="text-huge gradient-text" data-i18n="pages.core.heroH1">JavaScript</h1>
+            <p class="text-subtitle" data-i18n="pages.core.heroSubtitle">
                 "Write once, run everywhere... provided there's an engine."
             </p>
         </header>
@@ -38,11 +41,11 @@
             <section id="intro" class="section-container">
                 <div class="section-header">
                     <span class="section-number">01</span>
-                    <h2 class="section-title">Ինչպե՞ս է այն աշխատում</h2>
+                    <h2 class="section-title" data-i18n="pages.core.s01Title">Ինչպե՞ս է այն աշխատում</h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.core.s01Lead">
                         Ժամանակակից JS-ը օգտագործում է
                         <span class="js-yellow-text font-bold">JIT (Just-In-Time)</span>
                         կոմպիլյացիա։ Սա նշանակում է, որ կոդը թարգմանվում է մեքենայական
@@ -51,15 +54,19 @@
 
                     <div class="grid-2">
                         <div class="feature-item">
-                            <h4 class="feature-title">V8 Engine (Chrome/Node)</h4>
-                            <p class="feature-text">
+                            <h4 class="feature-title" data-i18n="pages.core.featV8Title">
+                                V8 Engine (Chrome/Node)
+                            </h4>
+                            <p class="feature-text" data-i18n="pages.core.featV8Text">
                                 Ամենաարագ շարժիչներից մեկը, որը փոխակերպում է JS կոդը
                                 օպտիմիզացված մեքենայական կոդի։
                             </p>
                         </div>
                         <div class="feature-item">
-                            <h4 class="feature-title">Single Threaded</h4>
-                            <p class="feature-text">
+                            <h4 class="feature-title" data-i18n="pages.core.featThreadTitle">
+                                Single Threaded
+                            </h4>
+                            <p class="feature-text" data-i18n="pages.core.featThreadText">
                                 JS-ը կատարում է մեկ գործողություն մեկ պահին, բայց
                                 օգտագործում է Event Loop՝ ասինխրոնության համար։
                             </p>
@@ -90,29 +97,43 @@
             <section id="env" class="section-container">
                 <div class="section-header">
                     <span class="section-number">02</span>
-                    <h2 class="section-title">Միջավայրեր</h2>
+                    <h2 class="section-title" data-i18n="pages.core.s02Title">Միջավայրեր</h2>
                 </div>
 
                 <div class="glass-card">
                     <div class="grid-2">
                         <div class="flex-col-1">
                             <h3 class="flex-center-gap-2 font-bold">
-                                <span class="color-browser">🌐</span> Browser
+                                <span class="color-browser">🌐</span>
+                                <span data-i18n="pages.core.browserTitle">Browser</span>
                             </h3>
                             <ul class="list-container no-list-style">
-                                <li class="list-item">Window & DOM manipulation</li>
-                                <li class="list-item">Fetch API / XHR</li>
-                                <li class="list-item">Cookies / SessionStorage</li>
+                                <li class="list-item" data-i18n="pages.core.browserLi1">
+                                    Window & DOM manipulation
+                                </li>
+                                <li class="list-item" data-i18n="pages.core.browserLi2">
+                                    Fetch API / XHR
+                                </li>
+                                <li class="list-item" data-i18n="pages.core.browserLi3">
+                                    Cookies / SessionStorage
+                                </li>
                             </ul>
                         </div>
                         <div class="flex-col-1">
                             <h3 class="flex-center-gap-2 font-bold">
-                                <span class="color-node">💻</span> Node.js
+                                <span class="color-node">💻</span>
+                                <span data-i18n="pages.core.nodeTitle">Node.js</span>
                             </h3>
                             <ul class="list-container no-list-style">
-                                <li class="list-item">File System (fs module)</li>
-                                <li class="list-item">Process & OS access</li>
-                                <li class="list-item">Server-side logic</li>
+                                <li class="list-item" data-i18n="pages.core.nodeLi1">
+                                    File System (fs module)
+                                </li>
+                                <li class="list-item" data-i18n="pages.core.nodeLi2">
+                                    Process & OS access
+                                </li>
+                                <li class="list-item" data-i18n="pages.core.nodeLi3">
+                                    Server-side logic
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -127,11 +148,13 @@
             >
                 <div class="section-header">
                     <span class="section-number">03</span>
-                    <h2 class="section-title">Սցենարի կատարման փուլերը</h2>
+                    <h2 class="section-title" data-i18n="pages.core.s03Title">
+                        Սցենարի կատարման փուլերը
+                    </h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n="pages.core.s03Lead">
                         Default վիճակում բրաուզերը կատարում է կոդը հերթականությամբ: Երբ
                         հանդիպում է սկրիպտին, HTML-ի պարսինգը կանգնում է (Blocking):
                     </p>
@@ -153,15 +176,19 @@
 
                     <div class="grid-2 margin-top-1">
                         <div class="box-async">
-                            <h4 class="js-yellow-text font-bold">Async</h4>
-                            <p class="feature-text">
+                            <h4 class="js-yellow-text font-bold" data-i18n="pages.core.asyncTitle">
+                                Async
+                            </h4>
+                            <p class="feature-text" data-i18n="pages.core.asyncText">
                                 Սկրիպտը բեռնվում է ֆոնային ռեժիմում և կատարվում է հենց
                                 պատրաստ լինի:
                             </p>
                         </div>
                         <div class="box-defer">
-                            <h4 class="color-browser font-bold">Defer</h4>
-                            <p class="feature-text">
+                            <h4 class="color-browser font-bold" data-i18n="pages.core.deferTitle">
+                                Defer
+                            </h4>
+                            <p class="feature-text" data-i18n="pages.core.deferText">
                                 Սկրիպտը բեռնվում է ֆոնում, բայց կատարվում է միայն այն
                                 ժամանակ, երբ HTML-ը ամբողջությամբ պատրաստ է:
                             </p>
@@ -182,6 +209,7 @@
                             font-style: italic;
                             margin: 0;
                         "
+                        data-i18n="pages.core.playTitle"
                     >
                         Փորձարկիր DOM-ը ✨
                     </h2>
@@ -193,7 +221,9 @@
                             gap: 1.5rem;
                         "
                     >
-                        <button id="magicBtn" class="btn-magic">ԳՈՐԾԱՐԿԵԼ ՍԿՐԻՊՏԸ</button>
+                        <button id="magicBtn" type="button" class="btn-magic" data-i18n="pages.core.playBtn">
+                            ԳՈՐԾԱՐԿԵԼ ՍԿՐԻՊՏԸ
+                        </button>
                         <div id="output" class="output-box">
                             // Log: DOM mutated successfully!
                         </div>
@@ -205,43 +235,22 @@
                 <a href="getting-started" class="nav-arrow prev">
                     <span class="arrow-icon">←</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Նախորդը</span>
-                        <span class="arrow-title">JS Հիմունքներ</span>
+                        <span class="arrow-label" data-i18n="lessonNav.prev">Նախորդը</span>
+                        <span class="arrow-title" data-i18n="pages.core.prevTopic">JS Հիմունքներ</span>
                     </div>
                 </a>
                 <a href="if-operators" class="nav-arrow next">
                     <span class="arrow-icon">→</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Հաջորդը</span>
-                        <span class="arrow-title">Պայմաններ և Լոգիկա</span>
+                        <span class="arrow-label" data-i18n="lessonNav.next">Հաջորդը</span>
+                        <span class="arrow-title" data-i18n="pages.core.nextTopic"
+                            >Պայմաններ և Լոգիկա</span
+                        >
                     </div>
                 </a>
             </div>
         </main>
 
         <!-- LAYOUT_FOOTER -->
-
-        <script>
-            const btn = document.getElementById("magicBtn");
-            const output = document.getElementById("output");
-
-            btn.addEventListener("click", () => {
-                output.classList.add("output-show");
-                btn.innerHTML = "ԿԱՏԱՐՎԱԾ Է ✅";
-                btn.classList.add("btn-success");
-
-                setTimeout(() => {
-                    alert(
-                        "JS-ը հենց նոր կատարեց Script-ը:\n1. Փոխվեց կոճակի տեքստը\n2. Հայտնվեց status log-ը\n3. Կանչվեց Alert API-ն",
-                    );
-
-                    setTimeout(() => {
-                        btn.innerHTML = "ԳՈՐԾԱՐԿԵԼ ՍԿՐԻՊՏԸ";
-                        btn.classList.remove("btn-success");
-                        output.classList.remove("output-show");
-                    }, 3000);
-                }, 100);
-            });
-        </script>
     </body>
 </html>

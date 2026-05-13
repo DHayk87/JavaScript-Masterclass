@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JS.CORE | Event Loop</title>
+        <title data-i18n-title="pages.eventLoop.docTitle">JS.CORE | Event Loop</title>
         <meta
             name="description"
+            data-i18n-desc="pages.eventLoop.metaDescription"
             content="Խորացված ուղեցույց JavaScript Event Loop-ի վերաբերյալ։ Macrotasks, Microtasks և կատարման հերթականությունը։"
         />
 
@@ -18,11 +19,11 @@
         <script type="module" src="../src/scripts/main.js"></script>
 
         <script type="layout-slot" id="nav-links">
-            <a href="#intro" class="nav-link">Event Loop</a>
-            <a href="#tasks" class="nav-link">Macrotasks & Microtasks</a>
-            <a href="#execution" class="nav-link">Հերթականություն</a>
-            <a href="#puzzle" class="nav-link">Օրինակ</a>
-            <a href="#use-cases" class="nav-link">Կիրառություն</a>
+            <a href="#intro" class="nav-link" data-i18n="pages.eventLoop.nav.intro">Event Loop</a>
+            <a href="#tasks" class="nav-link" data-i18n="pages.eventLoop.nav.tasks">Macrotasks & Microtasks</a>
+            <a href="#execution" class="nav-link" data-i18n="pages.eventLoop.nav.execution">Հերթականություն</a>
+            <a href="#puzzle" class="nav-link" data-i18n="pages.eventLoop.nav.puzzle">Օրինակ</a>
+            <a href="#use-cases" class="nav-link" data-i18n="pages.eventLoop.nav.useCases">Կիրառություն</a>
         </script>
     </head>
     <body>
@@ -30,8 +31,8 @@
 
         <main class="main-content">
             <header>
-                <h1 class="title-large gradient-text">Event Loop</h1>
-                <p class="subtitle">
+                <h1 class="title-large gradient-text" data-i18n="pages.eventLoop.h1">Event Loop</h1>
+                <p class="subtitle" data-i18n="pages.eventLoop.subtitle">
                     "Macrotasks և Microtasks: Ինչպե՞ս է աշխատում JavaScript-ի շարժիչը:"
                 </p>
             </header>
@@ -39,11 +40,11 @@
             <section id="intro" class="section-container">
                 <div class="section-label">
                     <span class="section-num">01</span>
-                    <h2 class="section-title">Ի՞նչ է Event Loop-ը</h2>
+                    <h2 class="section-title" data-i18n="pages.eventLoop.s01Title">Ի՞նչ է Event Loop-ը</h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.eventLoop.s01Lead">
                         JavaScript-ի գործարկման հիմքում ընկած է
                         <b>Event Loop</b> (Իրադարձությունների ցիկլ) գաղափարը: Այն շատ պարզ
                         է՝ կա անվերջ ցիկլ, որտեղ JavaScript-ի շարժիչը սպասում է
@@ -52,10 +53,11 @@
                     </p>
 
                     <div class="pro-tip pro-tip-blue margin-top-2">
-                        <b>UI Rendering:</b> Կարևոր է իմանալ, որ բրաուզերը
+                        <b data-i18n="pages.eventLoop.s01UiTitle">UI Rendering:</b>
+                        <span data-i18n-html="pages.eventLoop.s01UiP"> Կարևոր է իմանալ, որ բրաուզերը
                         <b>երբեք չի նկարում (render)</b> էկրանը, քանի դեռ շարժիչը կատարում
                         է որևէ առաջադրանք: Փոփոխությունները արտացոլվում են միայն այն
-                        ժամանակ, երբ առաջադրանքն ավարտվում է:
+                        ժամանակ, երբ առաջադրանքն ավարտվում է:</span>
                     </div>
                 </div>
             </section>
@@ -63,41 +65,41 @@
             <section id="tasks" class="section-container">
                 <div class="section-label">
                     <span class="section-num">02</span>
-                    <h2 class="section-title">Տեսակները</h2>
+                    <h2 class="section-title" data-i18n="pages.eventLoop.s02Title">Տեսակները</h2>
                 </div>
 
                 <div class="glass-card">
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">Macrotasks (Մակրոթասքեր)</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.eventLoop.s02MacroTitle">Macrotasks (Մակրոթասքեր)</h4>
+                            <p class="text-dimmed" data-i18n-html="pages.eventLoop.s02MacroP">
                                 Սրանք հիմնական առաջադրանքներն են, որոնք գալիս են
                                 բրաուզերից կամ արտաքին միջավայրից.
                             </p>
                             <ul class="no-list-style margin-top-1">
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.eventLoop.s02MacroLi1">
                                     <span class="dot"></span>
                                     <code>script</code> (ամբողջական ֆայլի բեռնում և
                                     գործարկում)
                                 </li>
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.eventLoop.s02MacroLi2">
                                     <span class="dot"></span> Օգտատիրոջ գործողություններ
                                     (<code>mousemove</code>, <code>click</code>)
                                 </li>
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.eventLoop.s02MacroLi3">
                                     <span class="dot"></span> Ժամանակացույցեր
                                     (<code>setTimeout</code>, <code>setInterval</code>)
                                 </li>
                             </ul>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">Microtasks (Միկրոթասքեր)</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.eventLoop.s02MicroTitle">Microtasks (Միկրոթասքեր)</h4>
+                            <p class="text-dimmed" data-i18n-html="pages.eventLoop.s02MicroP">
                                 Միկրոթասքերը ստեղծվում են հենց մեր կոդի կողմից: Դրանք
                                 ավելի բարձր առաջնահերթություն ունեն, քան մակրոթասքերը.
                             </p>
                             <ul class="no-list-style margin-top-1">
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.eventLoop.s02MicroLi1">
                                     <span
                                         class="dot"
                                         style="background-color: var(--js-yellow)"
@@ -105,14 +107,14 @@
                                     Promise-ներ (<code>.then</code>, <code>.catch</code>,
                                     <code>.finally</code>)
                                 </li>
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.eventLoop.s02MicroLi2">
                                     <span
                                         class="dot"
                                         style="background-color: var(--js-yellow)"
                                     ></span>
                                     <code>await</code> գործողություններ
                                 </li>
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.eventLoop.s02MicroLi3">
                                     <span
                                         class="dot"
                                         style="background-color: var(--js-yellow)"
@@ -128,12 +130,12 @@
             <section id="execution" class="section-container">
                 <div class="section-label">
                     <span class="section-num">03</span>
-                    <h2 class="section-title">Ալգորիթմը</h2>
+                    <h2 class="section-title" data-i18n="pages.eventLoop.s03Title">Ալգորիթմը</h2>
                 </div>
 
                 <div class="glass-card">
-                    <h4 class="card-header-small">Կատարման հերթականությունը</h4>
-                    <p class="text-dimmed margin-top-1">
+                    <h4 class="card-header-small" data-i18n="pages.eventLoop.s03OrderTitle">Կատարման հերթականությունը</h4>
+                    <p class="text-dimmed margin-top-1" data-i18n-html="pages.eventLoop.s03OrderP">
                         Անմիջապես յուրաքանչյուր <b>Macrotask</b> ավարտելուց հետո, շարժիչը
                         կատարում է <b>ԲՈԼՈՐ Microtask-երը</b>, նախքան որևէ այլ macrotask
                         վերցնելը կամ UI-ը թարմացնելը (rendering):
@@ -178,11 +180,11 @@
             <section id="puzzle" class="section-container">
                 <div class="section-label">
                     <span class="section-num">04</span>
-                    <h2 class="section-title">Գործնական Օրինակ</h2>
+                    <h2 class="section-title" data-i18n="pages.eventLoop.s04Title">Գործնական Օրինակ</h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n="pages.eventLoop.s04Lead">
                         Ի՞նչ հերթականությամբ կտպվեն թվերը console-ում:
                     </p>
 
@@ -222,20 +224,20 @@
                     </div>
 
                     <div class="pro-tip margin-top-2">
-                        <h4 class="card-header-small">Պատասխան և Բացատրություն</h4>
-                        <p class="text-dimmed">Արդյունքը կլինի՝ <b>1 7 3 5 2 6 4</b></p>
+                        <h4 class="card-header-small" data-i18n="pages.eventLoop.s04AnsTitle">Պատասխան և Բացատրություն</h4>
+                        <p class="text-dimmed" data-i18n-html="pages.eventLoop.s04AnsP">Արդյունքը կլինի՝ <b>1 7 3 5 2 6 4</b></p>
                         <ul class="no-list-style margin-top-1 text-dimmed">
-                            <li>
+                            <li data-i18n-html="pages.eventLoop.s04Li1">
                                 <span class="dot"></span> <b>1 և 7</b> - Տպվում են
                                 անմիջապես, քանի որ սինխրոն կոդ են:
                             </li>
-                            <li>
+                            <li data-i18n-html="pages.eventLoop.s04Li2">
                                 <span class="dot"></span> <b>3 և 5</b> - Տպվում են
                                 հաջորդիվ, քանի որ Microtask-եր են (Promise-ների
                                 <code>.then</code>): Ի դեպ, 4-րդ տողի Promise-ը գցում է
                                 նոր <code>setTimeout(4)</code> Macrotask հերթի մեջ:
                             </li>
-                            <li>
+                            <li data-i18n-html="pages.eventLoop.s04Li3">
                                 <span class="dot"></span> <b>2, 6 և 4</b> - Տպվում են
                                 ամենավերջում, քանի որ Macrotask-եր են:
                             </li>
@@ -247,16 +249,16 @@
             <section id="use-cases" class="section-container">
                 <div class="section-label">
                     <span class="section-num">05</span>
-                    <h2 class="section-title">Օգտակար Կիրառություններ</h2>
+                    <h2 class="section-title" data-i18n="pages.eventLoop.s05Title">Օգտակար Կիրառություններ</h2>
                 </div>
 
                 <div class="glass-card">
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">
+                            <h4 class="card-header-small" data-i18n="pages.eventLoop.s05CpuTitle">
                                 1. CPU ծանրաբեռնող խնդիրների բաժանում
                             </h4>
-                            <p class="text-dimmed">
+                            <p class="text-dimmed" data-i18n-html="pages.eventLoop.s05CpuP">
                                 Եթե ունեք շատ ծանր ցիկլ (օրինակ՝ գույների փոփոխություն մեծ
                                 տեքստում կամ 1 միլիարդ հաշվարկ), բրաուզերը կկախի ("hang"),
                                 և կոճակները չեն աշխատի: Կոդը կարելի է բաժանել մասերի և
@@ -267,8 +269,8 @@
                             </p>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">2. Progress Bar Ցուցադրում</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.eventLoop.s05ProgTitle">2. Progress Bar Ցուցադրում</h4>
+                            <p class="text-dimmed" data-i18n-html="pages.eventLoop.s05ProgP">
                                 Քանի որ DOM-ի render-ը տեղի է ունենում միայն Task-ի
                                 ավարտից հետո, եթե հսկայական հաշվարկ անեք մեկ Task-ի
                                 ընթացքում, օգտատերը միայն վերջնական արդյունքը կտեսնի: Եթե
@@ -285,15 +287,15 @@
                 <a href="async" class="prev nav-arrow">
                     <span class="arrow-icon">←</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Նախորդը</span>
-                        <span class="arrow-title">Async / Await</span>
+                        <span class="arrow-label" data-i18n="lessonNav.prev">Նախորդը</span>
+                        <span class="arrow-title" data-i18n="pages.eventLoop.prevTopic">Async / Await</span>
                     </div>
                 </a>
-                <a href="./" class="nav-arrow next">
+                <a href="garbage-collector" class="nav-arrow next">
                     <span class="arrow-icon">🎉</span>
                     <div class="arrow-text" style="text-align: right">
-                        <span class="arrow-label">Ավարտել</span>
-                        <span class="arrow-title">Գլխավոր էջ</span>
+                        <span class="arrow-label" data-i18n="lessonNav.finish">Ավարտել</span>
+                        <span class="arrow-title" data-i18n="pages.eventLoop.nextTopic">Գլխավոր էջ</span>
                     </div>
                 </a>
             </div>

@@ -1,7 +1,10 @@
 /**
  * JS.CORE Main Script
- * Handles global functionality: Mermaid diagrams, Copy to Clipboard, etc.
+ * Handles global functionality: i18n, Mermaid diagrams, Copy to Clipboard, etc.
  */
+
+import { initI18n, onLocaleChange, t } from "../i18n/index.js";
+import { initInteractivePages, refreshInteractivePages } from "./interactive-pages.js";
 
 // 1. Initialize Mermaid (Lazy Load)
 const initMermaid = async () => {
@@ -27,26 +30,27 @@ const initCopyButtons = () => {
     const codeBlocks = document.querySelectorAll(".code-block, .code-inset");
 
     codeBlocks.forEach((block) => {
-        // Prevent duplicate buttons if script is re-run
         if (block.querySelector(".copy-btn")) return;
 
         const button = document.createElement("button");
         button.className = "copy-btn";
-        button.innerText = "Copy";
+        button.type = "button";
+        button.textContent = t("copy.copy");
         block.appendChild(button);
 
         button.addEventListener("click", () => {
-            // Get text, exclude the button text itself
-            const code = block.innerText.replace("Copy", "").trim();
+            const clone = block.cloneNode(true);
+            clone.querySelectorAll(".copy-btn").forEach((b) => b.remove());
+            const code = clone.innerText.trim();
 
             navigator.clipboard
                 .writeText(code)
                 .then(() => {
-                    button.innerText = "Copied!";
+                    button.textContent = t("copy.copied");
                     button.classList.add("copied");
 
                     setTimeout(() => {
-                        button.innerText = "Copy";
+                        button.textContent = t("copy.copy");
                         button.classList.remove("copied");
                     }, 2000);
                 })
@@ -57,13 +61,25 @@ const initCopyButtons = () => {
     });
 };
 
-// Initialize when DOM is ready
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => {
-        initCopyButtons();
-        initMermaid();
+function refreshCopyButtonLabels() {
+    document.querySelectorAll(".copy-btn:not(.copied)").forEach((btn) => {
+        btn.textContent = t("copy.copy");
     });
-} else {
+}
+
+function boot() {
+    initI18n();
+    onLocaleChange(() => {
+        refreshCopyButtonLabels();
+        refreshInteractivePages();
+    });
+    initInteractivePages();
     initCopyButtons();
-    initMermaid();
+    void initMermaid();
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+} else {
+    boot();
 }

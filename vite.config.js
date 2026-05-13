@@ -132,10 +132,11 @@ const htmlLayoutPlugin = () => {
             if (navLinksMatch) {
                 transformedHtml = transformedHtml.replace(
                     "<!-- SLOT_NAV_LINKS -->",
-                    navLinksMatch[1],
+                    navLinksMatch[1].trim(),
                 );
-                // Remove the slot script from output
                 transformedHtml = transformedHtml.replace(navLinksMatch[0], "");
+            } else {
+                transformedHtml = transformedHtml.replace("<!-- SLOT_NAV_LINKS -->", "");
             }
 
             return transformedHtml;

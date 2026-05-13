@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JS.CORE | Async & Await</title>
+        <title data-i18n-title="pages.asyncAwait.docTitle">JS.CORE | Async & Await</title>
         <meta
             name="description"
+            data-i18n-desc="pages.asyncAwait.metaDescription"
             content="Խորացված ուղեցույց JavaScript Async/Await-ի վերաբերյալ։ Ասինխրոն կոդի էվոլյուցիան և գործնական կիրառումը։"
         />
 
@@ -18,9 +19,9 @@
         <script type="module" src="../src/scripts/main.js"></script>
 
         <script type="layout-slot" id="nav-links">
-            <a href="#intro" class="nav-link">Ներածություն</a>
-            <a href="#how-it-works" class="nav-link">Ինչպես է աշխատում</a>
-            <a href="#comparison" class="nav-link">Համեմատություն</a>
+            <a href="#intro" class="nav-link" data-i18n="pages.asyncAwait.nav.intro">Ներածություն</a>
+            <a href="#how-it-works" class="nav-link" data-i18n="pages.asyncAwait.nav.how">Ինչպես է աշխատում</a>
+            <a href="#comparison" class="nav-link" data-i18n="pages.asyncAwait.nav.comparison">Համեմատություն</a>
         </script>
     </head>
     <body>
@@ -28,18 +29,18 @@
 
         <main class="main-content">
             <header>
-                <h1 class="title-large gradient-text">Async / Await</h1>
-                <p class="subtitle">"Ասինխրոն կոդի էվոլյուցիան"</p>
+                <h1 class="title-large gradient-text" data-i18n="pages.asyncAwait.h1">Async / Await</h1>
+                <p class="subtitle" data-i18n="pages.asyncAwait.subtitle">"Ասինխրոն կոդի էվոլյուցիան"</p>
             </header>
 
             <section id="intro" class="section-container">
                 <div class="section-label">
                     <span class="section-num">01</span>
-                    <h2 class="section-title">Ներածություն</h2>
+                    <h2 class="section-title" data-i18n="pages.asyncAwait.s01Title">Ներածություն</h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.asyncAwait.s01Lead">
                         <code>async</code> և <code>await</code> բանալի բառերը ներմուծվել
                         են ES2017 (ES8) ստանդարտով և հեղաշրջում են կատարել JavaScript-ում
                         ասինխրոն գործողությունների գրելաձևի մեջ: Դրանք թույլ են տալիս գրել
@@ -49,17 +50,17 @@
 
                     <div class="grid-2 margin-top-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">1. Ի՞նչ է Async-ը</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.asyncAwait.s01AsyncTitle">1. Ի՞նչ է Async-ը</h4>
+                            <p class="text-dimmed" data-i18n-html="pages.asyncAwait.s01AsyncP">
                                 <code>async</code> բանալի բառը դրվում է ֆունկցիայից առաջ:
                                 Այն երաշխավորում է երկու բան.
                             </p>
                             <ul class="no-list-style margin-top-1">
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.asyncAwait.s01AsyncLi1">
                                     <span class="dot"></span> Ֆունկցիան միշտ վերադարձնում
                                     է Promise:
                                 </li>
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.asyncAwait.s01AsyncLi2">
                                     <span class="dot"></span> Եթե ֆունկցիան վերադարձնում է
                                     սովորական արժեք, JavaScript-ն այն ավտոմատ կերպով
                                     «փաթաթում» է <code>Promise.resolve()</code>-ի մեջ:
@@ -67,14 +68,14 @@
                             </ul>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">2. Ի՞նչ է Await-ը</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.asyncAwait.s01AwaitTitle">2. Ի՞նչ է Await-ը</h4>
+                            <p class="text-dimmed" data-i18n-html="pages.asyncAwait.s01AwaitP">
                                 <code>await</code> բանալի բառն աշխատում է միայն
                                 <code>async</code> ֆունկցիաների ներսում: Այն ստիպում է
                                 JavaScript-ին սպասել այնքան ժամանակ, մինչև Promise-ը
                                 կատարվի (resolve) կամ մերժվի (reject):
                             </p>
-                            <div class="pro-tip pro-tip-blue margin-top-1">
+                            <div class="pro-tip pro-tip-blue margin-top-1" data-i18n-html="pages.asyncAwait.s01AwaitTip">
                                 <b>Կարևոր է.</b> <code>await</code>-ը չի արգելափակում
                                 (block) ամբողջ ծրագրի աշխատանքը: Մինչ ֆունկցիան սպասում է
                                 պատասխանի, JavaScript-ի Engine-ը շարունակում է կատարել այլ
@@ -88,11 +89,11 @@
             <section id="how-it-works" class="section-container">
                 <div class="section-label">
                     <span class="section-num">02</span>
-                    <h2 class="section-title">Ինչպե՞ս է դա աշխատում</h2>
+                    <h2 class="section-title" data-i18n="pages.asyncAwait.s02Title">Ինչպե՞ս է դա աշխատում</h2>
                 </div>
 
                 <div class="glass-card">
-                    <h4 class="card-header-small">Վիզուալիզացիա և Օգտագործում</h4>
+                    <h4 class="card-header-small" data-i18n="pages.asyncAwait.s02VisTitle">Վիզուալիզացիա և Օգտագործում</h4>
 
                     <div class="code-inset margin-top-2">
                         <span class="hl-cm"
@@ -135,42 +136,42 @@
                     </div>
 
                     <div class="margin-top-4">
-                        <h4 class="card-header-small">
+                        <h4 class="card-header-small" data-i18n="pages.asyncAwait.s02WhyTitle">
                             4. Ինչո՞ւ օգտագործել Async / Await
                         </h4>
                         <table class="glossary-table margin-top-2">
                             <thead>
                                 <tr>
-                                    <th>Առավելություն</th>
-                                    <th>Նկարագրություն</th>
+                                    <th data-i18n="pages.asyncAwait.thAdv">Առավելություն</th>
+                                    <th data-i18n="pages.asyncAwait.thDesc">Նկարագրություն</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Ընթերցելիություն</td>
-                                    <td>
+                                    <td data-i18n="pages.asyncAwait.trRead">Ընթերցելիություն</td>
+                                    <td data-i18n-html="pages.asyncAwait.trReadD">
                                         Կոդը դառնում է գծային (Linear): Այլևս չկան
                                         բազմաթիվ <code>.then()</code> շղթաներ:
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Error Handling</td>
-                                    <td>
+                                    <td data-i18n="pages.asyncAwait.trErr">Error Handling</td>
+                                    <td data-i18n-html="pages.asyncAwait.trErrD">
                                         Կարելի է օգտագործել ստանդարտ
                                         <code>try...catch</code> կառուցվածքը՝ սխալները
                                         բռնելու համար:
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Debugging</td>
-                                    <td>
+                                    <td data-i18n="pages.asyncAwait.trDbg">Debugging</td>
+                                    <td data-i18n-html="pages.asyncAwait.trDbgD">
                                         Debug անելիս <code>await</code>-ը թույլ է տալիս
                                         կանգնել կոնկրետ տողի վրա, ինչպես սովորական կոդում:
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Conditional Code</td>
-                                    <td>
+                                    <td data-i18n="pages.asyncAwait.trCond">Conditional Code</td>
+                                    <td data-i18n-html="pages.asyncAwait.trCondD">
                                         Ավելի հեշտ է գրել պայմաններ (if/else), որոնք
                                         կախված են ասինխրոն պատասխանից:
                                     </td>
@@ -184,15 +185,15 @@
             <section id="comparison" class="section-container">
                 <div class="section-label">
                     <span class="section-num">03</span>
-                    <h2 class="section-title">Համեմատություն</h2>
+                    <h2 class="section-title" data-i18n="pages.asyncAwait.s03Title">Համեմատություն</h2>
                 </div>
 
                 <div class="glass-card">
-                    <h4 class="card-header-small">Promises vs Async/Await</h4>
+                    <h4 class="card-header-small" data-i18n="pages.asyncAwait.s03SubTitle">Promises vs Async/Await</h4>
 
                     <div class="grid-2 margin-top-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">Promises (.then)</h4>
+                            <h4 class="card-header-small" data-i18n="pages.asyncAwait.s03PromTitle">Promises (.then)</h4>
                             <div class="code-inset">
                                 <span class="hl-kw">function</span>
                                 <span class="hl-fn">load</span>() {<br />
@@ -211,7 +212,7 @@
                             </div>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">Async / Await</h4>
+                            <h4 class="card-header-small" data-i18n="pages.asyncAwait.s03AsyncBoxTitle">Async / Await</h4>
                             <div class="code-inset">
                                 <span class="hl-kw">async function</span>
                                 <span class="hl-fn">load</span>() {<br />
@@ -234,10 +235,10 @@
                     </div>
 
                     <div class="pro-tip margin-top-4">
-                        <h4 class="card-header-small">
+                        <h4 class="card-header-small" data-i18n="pages.asyncAwait.tipTitle">
                             🚀 Pro-Tip Զուգահեռ Հարցումների համար
                         </h4>
-                        <p class="text-dimmed">
+                        <p class="text-dimmed" data-i18n-html="pages.asyncAwait.tipP">
                             Եթե ունես մի քանի անկախ հարցումներ, մի՛ օգտագործիր
                             <code>await</code> ամեն տողում, քանի որ դա կդանդաղեցնի
                             աշխատանքը: Օգտագործիր <code>Promise.all()</code>, որպեսզի
@@ -252,14 +253,14 @@
                 <a href="promise" class="prev nav-arrow">
                     <span class="arrow-icon">←</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Նախորդը</span>
-                        <span class="arrow-title">Promises</span>
+                        <span class="arrow-label" data-i18n="lessonNav.prev">Նախորդը</span>
+                        <span class="arrow-title" data-i18n="pages.asyncAwait.prevTopic">Promises</span>
                     </div>
                 </a>
                 <a href="event-loop" class="next nav-arrow">
                     <div class="arrow-text" style="text-align: right">
-                        <span class="arrow-label">Հաջորդը</span>
-                        <span class="arrow-title">Event Loop</span>
+                        <span class="arrow-label" data-i18n="lessonNav.next">Հաջորդը</span>
+                        <span class="arrow-title" data-i18n="pages.asyncAwait.nextTopic">Event Loop</span>
                     </div>
                     <span class="arrow-icon">→</span>
                 </a>

@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JS շարժիչի վիզուալիզատոր</title>
+        <title data-i18n-title="pages.codeParsing.docTitle">JS շարժիչի վիզուալիզատոր</title>
         <meta
             name="description"
+            data-i18n-desc="pages.codeParsing.metaDescription"
             content="Ինտերակտիվ ուղեցույց JavaScript շարժիչի (V8) աշխատանքի մասին. Parser, AST, Ignition և TurboFan փուլերը:"
         />
 
@@ -18,8 +19,12 @@
         <script type="module" src="../src/scripts/main.js"></script>
 
         <script type="layout-slot" id="nav-links">
-            <a href="#workflow" class="nav-link">Գործիքակազմ</a>
-            <a href="#details" class="nav-link">Մանրամասներ</a>
+            <a href="#workflow" class="nav-link" data-i18n="pages.codeParsing.nav.workflow"
+                >Գործիքակազմ</a
+            >
+            <a href="#details" class="nav-link" data-i18n="pages.codeParsing.nav.details"
+                >Մանրամասներ</a
+            >
         </script>
     </head>
     <body>
@@ -27,14 +32,20 @@
 
         <main class="main-content">
             <header>
-                <h1 class="title-large gradient-text">JS շարժիչի վիզուալիզատոր</h1>
-                <p class="subtitle">Ինտերակտիվ ուղեցույց ուսանողների համար</p>
+                <h1 class="title-large gradient-text" data-i18n="pages.codeParsing.h1">
+                    JS շարժիչի վիզուալիզատոր
+                </h1>
+                <p class="subtitle" data-i18n="pages.codeParsing.subtitle">
+                    Ինտերակտիվ ուղեցույց ուսանողների համար
+                </p>
             </header>
 
             <section id="workflow" class="section-container">
                 <div class="section-label">
                     <span class="section-num">01</span>
-                    <h2 class="section-title">Գործիքակազմ (Pipeline)</h2>
+                    <h2 class="section-title" data-i18n="pages.codeParsing.s01Title">
+                        Գործիքակազմ (Pipeline)
+                    </h2>
                 </div>
 
                 <div class="workflow">
@@ -60,7 +71,7 @@
                 </div>
 
                 <div class="details-panel glass-card" id="panel">
-                    <div id="placeholder" class="placeholder-text">
+                    <div id="placeholder" class="placeholder-text" data-i18n="pages.codeParsing.placeholder">
                         Սեղմեք որևէ փուլի վրա՝ գործընթացը տեսնելու համար
                     </div>
 
@@ -76,13 +87,17 @@
                         <div class="grid-2">
                             <div class="feature-box">
                                 <div>
-                                    <h4 class="details-label">Ի՞նչ է տեղի ունենում</h4>
+                                    <h4 class="details-label" data-i18n="pages.codeParsing.whatLabel">
+                                        Ի՞նչ է տեղի ունենում
+                                    </h4>
                                     <p id="det-desc"></p>
                                 </div>
                             </div>
                             <div class="feature-box">
                                 <div>
-                                    <h4 class="details-label">Վիզուալ օրինակ</h4>
+                                    <h4 class="details-label" data-i18n="pages.codeParsing.visualLabel">
+                                        Վիզուալ օրինակ
+                                    </h4>
                                     <div id="det-visual" class="feature-box"></div>
                                 </div>
                             </div>
@@ -90,52 +105,39 @@
                     </div>
                 </div>
             </section>
-            <!-- Section: Engine Insights -->
             <section id="details" class="section-container">
                 <div class="section-label">
                     <span class="section-num">02</span>
-                    <h2 class="section-title">Մանրամասներ (Insights)</h2>
+                    <h2 class="section-title" data-i18n="pages.codeParsing.s02Title">
+                        Մանրամասներ (Insights)
+                    </h2>
                 </div>
 
                 <div class="grid-2">
                     <div class="glass-card">
-                        <h4 class="card-header-small">JIT Optimization (V8 Pipeline)</h4>
-                        <p class="text-dimmed">
-                            Շարժիչը չի սպասում ամբողջ կոդի թարգմանությանը։ Այն օգտագործում
-                            է
-                            <span class="font-bold">Ignition (Interpreter)</span>՝
-                            բայթ-կոդի արագ ստեղծման համար, և
-                            <span class="font-bold">TurboFan (Optimizing Compiler)</span>,
-                            որը վերլուծում է
-                            <span class="italic">"Hot"</span> ֆունկցիաները և դրանք
-                            վերածում օպտիմիզացված մեքենայական կոդի։
+                        <h4 class="card-header-small" data-i18n="pages.codeParsing.ins1Title">
+                            JIT Optimization (V8 Pipeline)
+                        </h4>
+                        <p class="text-dimmed" data-i18n-html="pages.codeParsing.ins1P">
+                            Շարժիչը չի սպասում ամբողջ կոդի թարգմանությանը։
                         </p>
                     </div>
 
                     <div class="glass-card">
-                        <h4 class="card-header-small">Hidden Classes (Shapes)</h4>
-                        <p class="text-dimmed">
-                            V8-ը ստեղծում է
-                            <span class="font-bold">Hidden Classes</span> (հայտնի նաև
-                            որպես <span class="italic">Shapes</span>): Սա թույլ է տալիս
-                            կիրառել
-                            <span class="font-bold">Inline Caching (IC)</span>
-                            տեխնոլոգիան, որը ապահովում է
-                            <span class="font-bold">Property Access</span>-ի արագությունը՝
-                            հիշողության մեջ տվյալների ֆիքսված տեղակայման շնորհիվ:
+                        <h4 class="card-header-small" data-i18n="pages.codeParsing.ins2Title">
+                            Hidden Classes (Shapes)
+                        </h4>
+                        <p class="text-dimmed" data-i18n-html="pages.codeParsing.ins2P">
+                            V8-ը ստեղծում է Hidden Classes:
                         </p>
                     </div>
 
                     <div class="glass-card">
-                        <h4 class="card-header-small">Garbage Collector (GC)</h4>
-                        <p class="text-dimmed">
-                            JS-ը կիրառում է
-                            <span class="font-bold">Automatic Memory Management</span>:
-                            Հիմնական <span class="font-bold">Garbage Collector</span>-ը
-                            աշխատում է
-                            <span class="italic">"Mark-and-Sweep"</span> ալգորիթմով։ Այն
-                            ազատում է հիշողությունը այն օբյեկտներից, որոնք այլևս
-                            <span class="font-bold">Unreachable</span> են։
+                        <h4 class="card-header-small" data-i18n="pages.codeParsing.ins3Title">
+                            Garbage Collector (GC)
+                        </h4>
+                        <p class="text-dimmed" data-i18n-html="pages.codeParsing.ins3P">
+                            JS-ը կիրառում է Automatic Memory Management:
                         </p>
                     </div>
                 </div>
@@ -145,72 +147,21 @@
                 <a href="functions" class="nav-arrow prev">
                     <span class="arrow-icon">←</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Նախորդը</span>
-                        <span class="arrow-title">Ֆունկցիաներ</span>
+                        <span class="arrow-label" data-i18n="lessonNav.prev">Նախորդը</span>
+                        <span class="arrow-title" data-i18n="pages.codeParsing.prevTopic"
+                            >Ֆունկցիաներ</span
+                        >
                     </div>
                 </a>
                 <a href="object" class="nav-arrow next">
                     <span class="arrow-icon">→</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Հաջորդը</span>
-                        <span class="arrow-title">Objects</span>
+                        <span class="arrow-label" data-i18n="lessonNav.next">Հաջորդը</span>
+                        <span class="arrow-title" data-i18n="pages.codeParsing.nextTopic">Objects</span>
                     </div>
                 </a>
             </div>
         </main>
         <!-- LAYOUT_FOOTER -->
-
-        <script>
-            const data = {
-                1: {
-                    title: "Parser (Վերլուծիչ)",
-                    subtitle: "Կոդի ընթերցում և մասնատում",
-                    icon: "🔍",
-                    desc: "Այս փուլում շարժիչը կարդում է ձեր JS ֆայլը որպես սովորական տեքստ։ Այն սկզբում կատարում է 'Tokenization' (բաժանում է բառերի), այնուհետև ստուգում է քերականական սխալները։ Եթե սխալ կա, կոդը չի գործարկվի։",
-                    visual: `<span class="hl-kw">let</span> age = <span class="hl-num">20</span>;<br><br><span class="hl-cm">// Թոքեններ:</span><br>[LET, ID:age, EQUAL, NUM:20]`,
-                },
-                2: {
-                    title: "AST (Ծառի կառուցում)",
-                    subtitle: "Աբստրակտ սինտաքսային ծառ",
-                    icon: "🌳",
-                    desc: "Թոքենները վերածվում են հիերարխիկ ծառի։ Սա թույլ է տալիս շարժիչին հասկանալ, թե որ գործողությունը որից հետո պետք է կատարվի։ Օրինակ՝ փակագծերի մեջի գործողությունը ծառի ավելի խորը ճյուղում է լինում։",
-                    visual: `Program<br>└─ VariableDeclaration<br>   └─ id: "age"<br>   └─ value: 20`,
-                },
-                3: {
-                    title: "Ignition (Բայթ-կոդ)",
-                    subtitle: "Ինտերպրետատորի մեկնարկը",
-                    icon: "🔥",
-                    desc: "Շարժիչը վերածում է AST-ն բայթ-կոդի։ Սա արդեն կիսահասկանալի է մեքենային։ Այս պահից ձեր կոդը սկսում է աշխատել։ Ignition-ը փորձում է արագ սկսել աշխատանքը՝ առանց երկար սպասելու։",
-                    visual: `LdaGlobal [0]<br>Star r1<br>LdaSmi [20]<br>Star r0<br>Return`,
-                },
-                4: {
-                    title: "TurboFan (Օպտիմալացում)",
-                    subtitle: "Մեքենայական կոդի գեներացիա",
-                    icon: "🚀",
-                    desc: "Եթե ծրագիրը տեսնում է, որ ինչ-որ ֆունկցիա շատ հաճախ է կանչվում, այն ուղարկում է TurboFan-ին։ Վերջինս ստեղծում է գերարագ մեքենայական կոդ (Binary), որն աշխատում է անմիջապես պրոցեսորի վրա։",
-                    visual: `10110010 00101011<br>11001100 11110001<br><span class="hl-cm">// Սա ամենաարագ մակարդակն է</span>`,
-                },
-            };
-
-            function selectStage(id) {
-                document
-                    .querySelectorAll(".stage-card")
-                    .forEach((c) => c.classList.remove("active"));
-                document.getElementById("card-" + id).classList.add("active");
-                document.getElementById("placeholder").classList.add("hidden");
-                document.getElementById("content").classList.remove("hidden");
-
-                const stage = data[id];
-                document.getElementById("det-icon").innerText = stage.icon;
-                document.getElementById("det-title").innerText = stage.title;
-                document.getElementById("det-subtitle").innerText = stage.subtitle;
-                document.getElementById("det-desc").innerText = stage.desc;
-                document.getElementById("det-visual").innerHTML = stage.visual;
-            }
-
-            // Initialize the first stage on load
-            window.selectStage = selectStage;
-            selectStage(1);
-        </script>
     </body>
 </html>

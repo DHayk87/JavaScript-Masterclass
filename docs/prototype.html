@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JS.CORE | Պրոտոտիպային ժառանգում</title>
+        <title data-i18n-title="pages.prototype.docTitle">JS.CORE | Պրոտոտիպային ժառանգում</title>
         <meta
             name="description"
+            data-i18n-desc="pages.prototype.metaDescription"
             content="JavaScript-ի պրոտոտիպային ժառանգման (Prototypal Inheritance) խորացված ուղեցույց. F.prototype, constructor և prototype chain:"
         />
 
@@ -18,11 +19,11 @@
         <script type="module" src="../src/scripts/main.js"></script>
 
         <script type="layout-slot" id="nav-links">
-            <a href="#prototype-def" class="nav-link">Նախատիպ</a>
-            <a href="#f-prototype" class="nav-link">F.prototype</a>
-            <a href="#why-prototype" class="nav-link">Ինչու՞</a>
-            <a href="#inheritance" class="nav-link">Ժառանգություն</a>
-            <a href="#lookup" class="nav-link">Lookup</a>
+            <a href="#prototype-def" class="nav-link" data-i18n="pages.prototype.nav.prototypeDef">Նախատիպ</a>
+            <a href="#f-prototype" class="nav-link" data-i18n="pages.prototype.nav.fPrototype">F.prototype</a>
+            <a href="#why-prototype" class="nav-link" data-i18n="pages.prototype.nav.whyPrototype">Ինչու՞</a>
+            <a href="#inheritance" class="nav-link" data-i18n="pages.prototype.nav.inheritance">Ժառանգություն</a>
+            <a href="#lookup" class="nav-link" data-i18n="pages.prototype.nav.lookup">Lookup</a>
         </script>
     </head>
     <body>
@@ -30,8 +31,8 @@
 
         <main class="main-content">
             <header>
-                <h1 class="title-large gradient-text">OOP & Prototypes (ES5)</h1>
-                <p class="subtitle">
+                <h1 class="title-large gradient-text" data-i18n="pages.prototype.h1">OOP & Prototypes (ES5)</h1>
+                <p class="subtitle" data-i18n="pages.prototype.subtitle">
                     "JavaScript-ը պրոտոտիպային լեզու է։ Հասկանալով պրոտոտիպերը՝ դուք
                     տիրապետում եք լեզվի հիմքին։"
                 </p>
@@ -41,11 +42,11 @@
             <section id="prototype-def" class="section-container">
                 <div class="section-label">
                     <span class="section-num">01</span>
-                    <h2 class="section-title">Ինչ է Prototype-ը:</h2>
+                    <h2 class="section-title" data-i18n="pages.prototype.s01Title">Ինչ է Prototype-ը:</h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.prototype.s01Lead">
                         JavaScript-ում ամեն օբյեկտ ունի հատուկ թաքնված հատկություն՝
                         <code>[[Prototype]]</code>, որը կա՛մ <b>null</b> է, կա՛մ հղում է
                         մեկ այլ օբյեկտի։ Այդ օբյեկտը կոչվում է
@@ -53,8 +54,8 @@
                     </p>
 
                     <div class="pro-tip pro-tip-blue">
-                        <h4 class="card-header-small">Գաղափարը</h4>
-                        <p class="text-dimmed">
+                        <h4 class="card-header-small" data-i18n="pages.prototype.s01IdeaTitle">Գաղափարը</h4>
+                        <p class="text-dimmed" data-i18n-html="pages.prototype.s01IdeaP">
                             Եթե մենք փորձում ենք կարդալ մի հատկություն (property), որը չկա
                             օբյեկտի մեջ, JS-ը ավտոմատ այն փնտրում է իր <b>prototype</b>-ի
                             մեջ։
@@ -67,11 +68,11 @@
             <section id="f-prototype" class="section-container">
                 <div class="section-label">
                     <span class="section-num">02</span>
-                    <h2 class="section-title">F.prototype (Ֆունկցիայի նախատիպ)</h2>
+                    <h2 class="section-title" data-i18n="pages.prototype.s02Title">F.prototype (Ֆունկցիայի նախատիպ)</h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.prototype.s02Lead">
                         Երբ մենք ստեղծում ենք օբյեկտ կոնստրուկտոր ֆունկցիայի միջոցով
                         <code>new F()</code>, նոր ստեղծված օբյեկտի
                         <code>[[Prototype]]</code>-ը դառնում է այն օբյեկտը, որին հղվում է
@@ -80,7 +81,7 @@
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">Օրինակ</h4>
+                            <h4 class="card-header-small" data-i18n="pages.prototype.s02ExTitle">Օրինակ</h4>
                             <div class="code-block">
                                 <code class="hl-kw">function</code>
                                 <code class="hl-fn">Animal</code>(name) {<br />
@@ -113,8 +114,8 @@
                             </div>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">Կարևոր է</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.prototype.s02NoteTitle">Կարևոր է</h4>
+                            <p class="text-dimmed" data-i18n-html="pages.prototype.s02NoteP">
                                 <code>Animal.prototype</code>-ը սովորական օբյեկտ է, որն
                                 ունի մեկ նախնական հատկություն՝ <b>constructor</b>, որը
                                 հղվում է հենց ֆունկցիայի վրա։
@@ -128,20 +129,20 @@
             <section id="why-prototype" class="section-container">
                 <div class="section-label">
                     <span class="section-num">03</span>
-                    <h2 class="section-title">
+                    <h2 class="section-title" data-i18n="pages.prototype.s03Title">
                         Ինչու՞ օգտագործել Prototype մեթոդների համար:
                     </h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n="pages.prototype.s03Lead">
                         Պատկերացրեք՝ ունեք 1000 հատ Animal օբյեկտ։
                     </p>
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">❌ Առանց Prototype</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.prototype.s03BadTitle">❌ Առանց Prototype</h4>
+                            <p class="text-dimmed" data-i18n-html="pages.prototype.s03BadP">
                                 Եթե մեթոդը սահմանեք
                                 <code>this.eat = function...</code> կոնստրուկտորի ներսում,
                                 ամեն մի օբյեկտի հետ կստեղծվի նոր ֆունկցիա (հիշողության
@@ -149,8 +150,8 @@
                             </p>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">✅ Prototype-ով</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.prototype.s03GoodTitle">✅ Prototype-ով</h4>
+                            <p class="text-dimmed" data-i18n-html="pages.prototype.s03GoodP">
                                 Ֆունկցիան ստեղծվում է մեկ անգամ
                                 <code>Animal.prototype</code>-ում, և բոլոր 1000 օբյեկտները
                                 հղվում են նույն ֆունկցիայի վրա։
@@ -164,11 +165,11 @@
             <section id="inheritance" class="section-container">
                 <div class="section-label">
                     <span class="section-num">04</span>
-                    <h2 class="section-title">Ժառանգություն (Prototypal Inheritance)</h2>
+                    <h2 class="section-title" data-i18n="pages.prototype.s04Title">Ժառանգություն (Prototypal Inheritance)</h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.prototype.s04Lead">
                         Ժառանգությունը JavaScript-ում հիմնված է
                         <b>Prototypal Delegation</b>-ի (Նախատիպային պատվիրակման) վրա:
                         Օբյեկտը «պատվիրակում» է իր հարցումները ծնողին, երբ իր մոտ չի
@@ -178,7 +179,7 @@
                     <div class="grid-2">
                         <!-- Step 1 -->
                         <div class="feature-box">
-                            <h4 class="card-header-small">
+                            <h4 class="card-header-small" data-i18n="pages.prototype.s04Step1Title">
                                 1. Կոնստրուկտորի կանչ (Constructor Stealing)
                             </h4>
                             <div class="code-block">
@@ -203,7 +204,7 @@
                         </div>
                         <!-- Step 2 -->
                         <div class="feature-box">
-                            <h4 class="card-header-small">
+                            <h4 class="card-header-small" data-i18n="pages.prototype.s04Step2Title">
                                 2. Prototype Chain-ի կառուցում
                             </h4>
                             <div class="code-block">
@@ -228,7 +229,7 @@
 
                     <!-- Step 3 -->
                     <div class="feature-box">
-                        <h4 class="card-header-small">
+                        <h4 class="card-header-small" data-i18n="pages.prototype.s04Step3Title">
                             3. Մեթոդների ավելացում և Override
                         </h4>
                         <div class="code-block">
@@ -262,30 +263,30 @@
             <section id="lookup" class="section-container">
                 <div class="section-label">
                     <span class="section-num">05</span>
-                    <h2 class="section-title">Ինչպե՞ս է JS-ը փնտրում հատկությունը</h2>
+                    <h2 class="section-title" data-i18n="pages.prototype.s05Title">Ինչպե՞ս է JS-ը փնտրում հատկությունը</h2>
                 </div>
 
                 <div class="glass-card">
                     <div class="grid-2">
                         <div>
-                            <p class="text-dimmed">
+                            <p class="text-dimmed" data-i18n-html="pages.prototype.s05Lead">
                                 Երբ դուք կանչում եք <code>bugsy.move()</code>, տեղի է
                                 ունենում հետևյալը.
                             </p>
                             <ul class="list-container no-list-style">
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.prototype.s05Li1">
                                     1. <b>Search in bugsy</b>: Կա՞ արդյոք move մեթոդը հենց
                                     օբյեկտի մեջ: (Ոչ):
                                 </li>
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.prototype.s05Li2">
                                     2. <b>Search in Rabbit.prototype</b>: JS-ը բարձրանում
                                     է վերև: Կա՞ այստեղ move: (Այո):
                                 </li>
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.prototype.s05Li3">
                                     3. <b>Search in Animal.prototype</b>: Եթե նախորդում
                                     չլիներ, նա կբարձրանար այստեղ:
                                 </li>
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.prototype.s05Li4">
                                     4. <b>Object.prototype</b>: Վերջին կանգառը:
                                 </li>
                             </ul>
@@ -310,8 +311,8 @@
                     </div>
 
                     <div class="pro-tip pro-tip-blue">
-                        <h4 class="card-header-small">⚠️ Հաճախակի տրվող հարց</h4>
-                        <p class="text-dimmed">
+                        <h4 class="card-header-small" data-i18n="pages.prototype.s05FaqTitle">⚠️ Հաճախակի տրվող հարց</h4>
+                        <p class="text-dimmed" data-i18n-html="pages.prototype.s05FaqP">
                             Ինչու՞ չօգտագործել
                             <code>Rabbit.prototype = new Animal()</code>:<br /><br />
                             Սա վատ պրակտիկա է, որովհետև <code>new Animal()</code>-ը
@@ -328,8 +329,8 @@
             <section class="section-container">
                 <div class="grid-2">
                     <div class="pro-tip pro-tip-blue">
-                        <h4 class="card-header-small">__proto__ vs prototype</h4>
-                        <p class="text-dimmed small-text">
+                        <h4 class="card-header-small" data-i18n="pages.prototype.tip1Title">__proto__ vs prototype</h4>
+                        <p class="text-dimmed small-text" data-i18n-html="pages.prototype.tip1P">
                             <b>prototype</b>-ը հատկություն է, որը կա միայն ֆունկցիաների
                             մեջ։<br /><br />
                             <b>[[Prototype]]</b>-ը (կամ <code>__proto__</code>-ն) հղում է,
@@ -337,8 +338,8 @@
                         </p>
                     </div>
                     <div class="pro-tip">
-                        <h4 class="card-header-small">Performance & Native</h4>
-                        <p class="text-dimmed small-text">
+                        <h4 class="card-header-small" data-i18n="pages.prototype.tip2Title">Performance & Native</h4>
+                        <p class="text-dimmed small-text" data-i18n-html="pages.prototype.tip2P">
                             Բոլոր ներկառուցված օբյեկտները (Array, Date) ունեն իրենց
                             նախատիպերը։ <br /><br />
                             Օգտագործեք <code>obj.hasOwnProperty(key)</code> միայն սեփական
@@ -352,15 +353,15 @@
                 <a href="array" class="nav-arrow prev">
                     <span class="arrow-icon">←</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Նախորդը</span>
-                        <span class="arrow-title">Arrays</span>
+                        <span class="arrow-label" data-i18n="lessonNav.prev">Նախորդը</span>
+                        <span class="arrow-title" data-i18n="pages.prototype.prevTopic">Arrays</span>
                     </div>
                 </a>
                 <a href="class" class="nav-arrow next">
                     <span class="arrow-icon">→</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Հաջորդը</span>
-                        <span class="arrow-title">ES6 Classes</span>
+                        <span class="arrow-label" data-i18n="lessonNav.next">Հաջորդը</span>
+                        <span class="arrow-title" data-i18n="pages.prototype.nextTopic">ES6 Classes</span>
                     </div>
                 </a>
             </div>

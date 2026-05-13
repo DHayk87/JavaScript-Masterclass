@@ -1,0 +1,107 @@
+{
+    "nav": {
+        "tagline": "Modern JavaScript Masterclass 2026",
+        "langAria": "Language"
+    },
+    "footer": {
+        "by": "Created By DHayk | 2026"
+    },
+    "copy": {
+        "copy": "Copy",
+        "copied": "Copied!"
+    },
+    "lessonNav": {
+        "prev": "Previous",
+        "next": "Next",
+        "back": "Back",
+        "home": "Home",
+        "finish": "Finish"
+    },
+    "dashboard": {
+        "docTitle": "JS.CORE | Masterclass Dashboard",
+        "metaDescription": "A complete modern JavaScript course for beginners and experienced developers.",
+        "headline": "JavaScript Masterclass",
+        "subtitle": "Start your journey toward professional programming",
+        "m01": {
+            "badge": "Module 01",
+            "title": "JS Fundamentals",
+            "desc": "Variables, data types, and browser interaction."
+        },
+        "m02": {
+            "badge": "Module 02",
+            "title": "Core Concepts",
+            "desc": "Advanced data types and memory foundations."
+        },
+        "m03": {
+            "badge": "Module 03",
+            "title": "Conditions & Logic",
+            "desc": "Comparison operators, if/else, and logical operators."
+        },
+        "m04": {
+            "badge": "Module 04",
+            "title": "Loops & Switch",
+            "desc": "While and for loops, plus lexical environment basics."
+        },
+        "m05": {
+            "badge": "Module 05",
+            "title": "Functions",
+            "desc": "Declarations, expressions, arrow functions, and IIFE."
+        },
+        "m06": {
+            "badge": "Module 06",
+            "title": "Code Parsing",
+            "desc": "How JavaScript reads and executes your code."
+        },
+        "m07": {
+            "badge": "Module 07",
+            "title": "Objects",
+            "desc": "Objects, references, and memory layout."
+        },
+        "m08": {
+            "badge": "Module 08",
+            "title": "Arrays",
+            "desc": "Arrays and their methods."
+        },
+        "m09": {
+            "badge": "Module 09",
+            "title": "Prototypes",
+            "desc": "Prototype inheritance and ES5 OOP basics."
+        },
+        "m10": {
+            "badge": "Module 10",
+            "title": "ES6 Classes",
+            "desc": "Modern OOP in JavaScript and class syntax."
+        },
+        "m11": {
+            "badge": "Module 11",
+            "title": "Closures",
+            "desc": "Variable scope, lexical environment, and closures."
+        },
+        "m12": {
+            "badge": "Module 12",
+            "title": "Promises",
+            "desc": "Async control flow, promise states, and chaining."
+        },
+        "m13": {
+            "badge": "Module 13",
+            "title": "Async / Await",
+            "desc": "Evolution of async code and practical usage."
+        },
+        "m14": {
+            "badge": "Module 14",
+            "title": "Event Loop",
+            "desc": "Macrotasks, microtasks, and async execution order."
+        },
+        "m15": {
+            "badge": "Module 15",
+            "title": "Garbage Collector",
+            "desc": "How JavaScript manages memory."
+        }
+    },
+    "error404": {
+        "docTitle": "404 | Page not found",
+        "heading": "Page not found",
+        "body": "The link you are trying to open does not exist or has been moved.",
+        "cta": "Back to course"
+    }
+}

@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JS.CORE | Closures</title>
+        <title data-i18n-title="pages.closure.docTitle">JS.CORE | Closures</title>
         <meta
             name="description"
+            data-i18n-desc="pages.closure.metaDescription"
             content="Խորացված ուղեցույց JavaScript Closures-ի և Lexical Environment-ի վերաբերյալ։"
         />
 
@@ -18,10 +19,10 @@
         <script type="module" src="../src/scripts/main.js"></script>
 
         <script type="layout-slot" id="nav-links">
-            <a href="#intro" class="nav-link">Տեսանելիություն</a>
-            <a href="#closure" class="nav-link">Closure</a>
-            <a href="#practical" class="nav-link">Կիրառություն</a>
-            <a href="#importance" class="nav-link">Կարևորություն</a>
+            <a href="#intro" class="nav-link" data-i18n="pages.closure.nav.intro">Տեսանելիություն</a>
+            <a href="#closure" class="nav-link" data-i18n="pages.closure.nav.closure">Closure</a>
+            <a href="#practical" class="nav-link" data-i18n="pages.closure.nav.practical">Կիրառություն</a>
+            <a href="#importance" class="nav-link" data-i18n="pages.closure.nav.importance">Կարևորություն</a>
         </script>
     </head>
     <body>
@@ -29,8 +30,8 @@
 
         <main class="main-content">
             <header>
-                <h1 class="title-large gradient-text">Closures</h1>
-                <p class="subtitle">
+                <h1 class="title-large gradient-text" data-i18n="pages.closure.h1">Closures</h1>
+                <p class="subtitle" data-i18n="pages.closure.subtitle">
                     "Փոփոխականների տեսանելիությունը (Scope) և Lexical Environment-ը"
                 </p>
             </header>
@@ -38,11 +39,11 @@
             <section id="intro" class="section-container">
                 <div class="section-label">
                     <span class="section-num">01</span>
-                    <h2 class="section-title">Code Blocks և Scope</h2>
+                    <h2 class="section-title" data-i18n="pages.closure.s01Title">Code Blocks և Scope</h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.closure.s01Lead">
                         Եթե փոփոխականը հայտարարված է կոդի բլոկի ներսում
                         <code>{...}</code>, այն տեսանելի է <b>միայն այդ բլոկի ներսում</b>:
                         Սա թույլ է տալիս մեկուսացնել կոդի հատվածներ և խուսափել
@@ -60,7 +61,7 @@
                         <span class="hl-cm">// Error: message is not defined</span>
                     </div>
 
-                    <p class="text-dimmed margin-top-2">
+                    <p class="text-dimmed margin-top-2" data-i18n-html="pages.closure.s01Foot">
                         Նույն կանոնը գործում է <code>if</code>, <code>for</code> և
                         <code>while</code> կառույցների համար:
                     </p>
@@ -70,19 +71,19 @@
             <section id="closure" class="section-container">
                 <div class="section-label">
                     <span class="section-num">02</span>
-                    <h2 class="section-title">Ի՞նչ է Closure-ը</h2>
+                    <h2 class="section-title" data-i18n="pages.closure.s02Title">Ի՞նչ է Closure-ը</h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.closure.s02Lead">
                         <b>Closure-ը</b> JavaScript-ի հիմնարար հայեցակարգերից է, որը թույլ
                         է տալիս ֆունկցիային հիշել և հասանելիություն ունենալ իր արտաքին
                         տիրույթի (lexical environment) փոփոխականներին նույնիսկ այն բանից
                         հետո, երբ արտաքին ֆունկցիան ավարտել է իր աշխատանքը:
                     </p>
 
-                    <h4 class="card-header-small margin-top-4">Ինչպե՞ս է այն աշխատում</h4>
-                    <p class="text-dimmed margin-top-1">
+                    <h4 class="card-header-small margin-top-4" data-i18n="pages.closure.s02HowTitle">Ինչպե՞ս է այն աշխատում</h4>
+                    <p class="text-dimmed margin-top-1" data-i18n-html="pages.closure.s02HowP">
                         JavaScript-ում ֆունկցիաները ստեղծվում են իրենց «լեքսիկական
                         միջավայրի» հետ միասին: Closure-ը ստեղծվում է ամեն անգամ, երբ
                         ֆունկցիան հայտարարվում է:
@@ -118,7 +119,7 @@
                         <span class="hl-cm">// Inner Variable: inside</span>
                     </div>
 
-                    <p class="text-dimmed margin-top-2">
+                    <p class="text-dimmed margin-top-2" data-i18n-html="pages.closure.s02Foot">
                         Այս օրինակում <code>innerFunction</code>-ը պահպանում է
                         հասանելիությունը <code>outerVariable</code>-ին, թեև
                         <code>outerFunction</code>-ն արդեն ավարտել է իր կատարումը:
@@ -129,14 +130,14 @@
             <section id="practical" class="section-container">
                 <div class="section-label">
                     <span class="section-num">03</span>
-                    <h2 class="section-title">Գործնական կիրառություն</h2>
+                    <h2 class="section-title" data-i18n="pages.closure.s03Title">Գործնական կիրառություն</h2>
                 </div>
 
                 <div class="glass-card">
-                    <h4 class="card-header-small">
+                    <h4 class="card-header-small" data-i18n="pages.closure.s03EncTitle">
                         1. Տվյալների գաղտնիություն (Encapsulation)
                     </h4>
-                    <p class="text-dimmed margin-top-1">
+                    <p class="text-dimmed margin-top-1" data-i18n-html="pages.closure.s03EncP">
                         Closure-ը թույլ է տալիս ստեղծել մասնավոր (private) փոփոխականներ,
                         որոնք հասանելի չեն դրսից:
                     </p>
@@ -187,10 +188,10 @@
                         >
                     </div>
 
-                    <h4 class="card-header-small margin-top-4">
+                    <h4 class="card-header-small margin-top-4" data-i18n="pages.closure.s03FactTitle">
                         2. Function Factories (Ֆունկցիաների գործարան)
                     </h4>
-                    <p class="text-dimmed margin-top-1">
+                    <p class="text-dimmed margin-top-1" data-i18n-html="pages.closure.s03FactP">
                         Կարող ենք ստեղծել ֆունկցիաներ, որոնք հանդես են գալիս որպես
                         կաղապարներ այլ մասնագիտացված ֆունկցիաների համար:
                     </p>
@@ -222,23 +223,23 @@
             <section id="importance" class="section-container">
                 <div class="section-label">
                     <span class="section-num">04</span>
-                    <h2 class="section-title">Կարևորություն և Զգուշացում</h2>
+                    <h2 class="section-title" data-i18n="pages.closure.s04Title">Կարևորություն և Զգուշացում</h2>
                 </div>
 
                 <div class="glass-card">
-                    <h4 class="card-header-small">Ինչու՞ է դա կարևոր</h4>
+                    <h4 class="card-header-small" data-i18n="pages.closure.s04WhyTitle">Ինչու՞ է դա կարևոր</h4>
                     <ul class="no-list-style margin-top-2 text-dimmed">
-                        <li class="list-item">
+                        <li class="list-item" data-i18n-html="pages.closure.s04Li1">
                             <span class="dot"></span> <b>State Persistence:</b> Թույլ է
                             տալիս պահպանել վիճակը ֆունկցիաների կանչերի միջև՝ առանց գլոբալ
                             փոփոխականներ օգտագործելու:
                         </li>
-                        <li class="list-item">
+                        <li class="list-item" data-i18n-html="pages.closure.s04Li2">
                             <span class="dot"></span> <b>Memory Management:</b> Closure-ը
                             պահում է փոփոխականը հիշողության մեջ այնքան ժամանակ, քանի դեռ
                             ներքին ֆունկցիան գոյություն ունի:
                         </li>
-                        <li class="list-item">
+                        <li class="list-item" data-i18n-html="pages.closure.s04Li3">
                             <span class="dot"></span> <b>Asynchronous Code:</b> Շատ կարևոր
                             է callback-ների և ասինխրոն գործողությունների ժամանակ տվյալների
                             համատեքստը պահպանելու համար:
@@ -246,8 +247,8 @@
                     </ul>
 
                     <div class="pro-tip margin-top-4">
-                        <h4 class="card-header-small">⚠️ Զգուշացում. Memory Leaks</h4>
-                        <p class="text-dimmed">
+                        <h4 class="card-header-small" data-i18n="pages.closure.s04WarnTitle">⚠️ Զգուշացում. Memory Leaks</h4>
+                        <p class="text-dimmed" data-i18n-html="pages.closure.s04WarnP">
                             Closure-ները կարող են հանգեցնել հիշողության ավելորդ
                             օգտագործման (Memory Leaks), եթե ներքին ֆունկցիաները պահվում են
                             այն ժամանակ, երբ դրանք այլևս պետք չեն, քանի որ դրանց հետ
@@ -261,14 +262,14 @@
                 <a href="class" class="prev nav-arrow">
                     <span class="arrow-icon">←</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Նախորդը</span>
-                        <span class="arrow-title">ES6 Classes</span>
+                        <span class="arrow-label" data-i18n="lessonNav.prev">Նախորդը</span>
+                        <span class="arrow-title" data-i18n="pages.closure.prevTopic">ES6 Classes</span>
                     </div>
                 </a>
                 <a href="promise" class="next nav-arrow">
                     <div class="arrow-text" style="text-align: right">
-                        <span class="arrow-label">Հաջորդը</span>
-                        <span class="arrow-title">Promises</span>
+                        <span class="arrow-label" data-i18n="lessonNav.next">Հաջորդը</span>
+                        <span class="arrow-title" data-i18n="pages.closure.nextTopic">Promises</span>
                     </div>
                     <span class="arrow-icon">→</span>
                 </a>

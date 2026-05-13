@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JS.CORE | ES6 Classes</title>
+        <title data-i18n-title="pages.es6Class.docTitle">JS.CORE | ES6 Classes</title>
         <meta
             name="description"
+            data-i18n-desc="pages.es6Class.metaDescription"
             content="Իմացեք ամեն ինչ ES6 Class-ների մասին. սինտաքս, ժառանգություն և ժամանակակից OOP JavaScript-ում:"
         />
 
@@ -18,11 +19,11 @@
         <script type="module" src="../src/scripts/main.js"></script>
 
         <script type="layout-slot" id="nav-links">
-            <a href="#syntax" class="nav-link">Սինտաքս</a>
-            <a href="#inheritance" class="nav-link">Ժառանգություն</a>
-            <a href="#advanced" class="nav-link">Advanced</a>
-            <a href="#hierarchy" class="nav-link">Աստիճանակարգ</a>
-            <a href="#comparison" class="nav-link">Համեմատություն</a>
+            <a href="#syntax" class="nav-link" data-i18n="pages.es6Class.nav.syntax">Սինտաքս</a>
+            <a href="#inheritance" class="nav-link" data-i18n="pages.es6Class.nav.inheritance">Ժառանգություն</a>
+            <a href="#advanced" class="nav-link" data-i18n="pages.es6Class.nav.advanced">Advanced</a>
+            <a href="#hierarchy" class="nav-link" data-i18n="pages.es6Class.nav.hierarchy">Աստիճանակարգ</a>
+            <a href="#comparison" class="nav-link" data-i18n="pages.es6Class.nav.comparison">Համեմատություն</a>
         </script>
     </head>
     <body>
@@ -30,8 +31,8 @@
 
         <main class="main-content">
             <header>
-                <h1 class="title-large gradient-text">ES6 Classes</h1>
-                <p class="subtitle">
+                <h1 class="title-large gradient-text" data-i18n="pages.es6Class.h1">ES6 Classes</h1>
+                <p class="subtitle" data-i18n="pages.es6Class.subtitle">
                     "Classes-ը բերեցին ավելի մաքուր և հասկանալի սինտաքս (syntactic sugar)
                     նախատիպային ժառանգության վրա աշխատելու համար։"
                 </p>
@@ -41,11 +42,11 @@
             <section id="syntax" class="section-container">
                 <div class="section-label">
                     <span class="section-num">01</span>
-                    <h2 class="section-title">Հիմնական Սինտաքսը</h2>
+                    <h2 class="section-title" data-i18n="pages.es6Class.s01Title">Հիմնական Սինտաքսը</h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.es6Class.s01Lead">
                         <code>class</code>-ը փոխարինում է ES5-ի կոնստրուկտոր
                         ֆունկցիաներին։ Այն թույլ է տալիս մեկ տեղում հայտարարել և՛
                         կոնստրուկտորը, և՛ մեթոդները։
@@ -85,11 +86,11 @@
             <section id="inheritance" class="section-container">
                 <div class="section-label">
                     <span class="section-num">02</span>
-                    <h2 class="section-title">Ժառանգություն (Inheritance)</h2>
+                    <h2 class="section-title" data-i18n="pages.es6Class.s02Title">Ժառանգություն (Inheritance)</h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.es6Class.s02Lead">
                         ES6-ում ժառանգությունը իրականացվում է <code>extends</code> բանալի
                         բառի միջոցով։
                     </p>
@@ -123,8 +124,8 @@
                     </div>
 
                     <div class="pro-tip pro-tip-blue">
-                        <h4 class="card-header-small">super() կանչը</h4>
-                        <p class="text-dimmed">
+                        <h4 class="card-header-small" data-i18n="pages.es6Class.s02SuperTitle">super() կանչը</h4>
+                        <p class="text-dimmed" data-i18n-html="pages.es6Class.s02SuperP">
                             Եթե ժառանգ կլասում գրում եք <code>constructor</code>, ապա
                             <code>super()</code>-ը կանչելը պարտադիր է, քանի դեռ չեք
                             օգտագործել <code>this</code>-ը։
@@ -137,14 +138,14 @@
             <section id="advanced" class="section-container">
                 <div class="section-label">
                     <span class="section-num">03</span>
-                    <h2 class="section-title">Static, Private & Getters</h2>
+                    <h2 class="section-title" data-i18n="pages.es6Class.s03Title">Static, Private & Getters</h2>
                 </div>
 
                 <div class="grid-2">
                     <!-- Static -->
                     <div class="glass-card">
-                        <h4 class="card-header-small">Static Մեթոդներ</h4>
-                        <p class="text-dimmed">
+                        <h4 class="card-header-small" data-i18n="pages.es6Class.s03StaticTitle">Static Մեթոդներ</h4>
+                        <p class="text-dimmed" data-i18n="pages.es6Class.s03StaticP">
                             Պատկանում են հենց կլասին, այլ ոչ թե նրա օբյեկտներին։
                         </p>
                         <div class="code-block">
@@ -157,8 +158,8 @@
                     </div>
                     <!-- Private -->
                     <div class="glass-card">
-                        <h4 class="card-header-small">Private Հատկություններ (#)</h4>
-                        <p class="text-dimmed">
+                        <h4 class="card-header-small" data-i18n="pages.es6Class.s03PrivateTitle">Private Հատկություններ (#)</h4>
+                        <p class="text-dimmed" data-i18n-html="pages.es6Class.s03PrivateP">
                             <code>#</code> սիմվոլը հատկությունը դարձնում է իսկապես փակ։
                         </p>
                         <div class="code-block">
@@ -171,7 +172,7 @@
                 </div>
 
                 <div class="glass-card margin-top-1">
-                    <h4 class="card-header-small">Getters & Setters</h4>
+                    <h4 class="card-header-small" data-i18n="pages.es6Class.s03GetterTitle">Getters & Setters</h4>
                     <div class="code-block">
                         <code class="hl-kw">get</code> <code class="hl-fn">name</code>() {
                         <code class="hl-kw">return</code>
@@ -188,28 +189,28 @@
             <section id="hierarchy" class="section-container">
                 <div class="section-label">
                     <span class="section-num">04</span>
-                    <h2 class="section-title">Multilevel & Hierarchical Inheritance</h2>
+                    <h2 class="section-title" data-i18n="pages.es6Class.s04Title">Multilevel & Hierarchical Inheritance</h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.es6Class.s04Lead">
                         Բազմամակարդակ և մի քանի ճյուղերով ժառանգությունը թույլ է տալիս
                         ստեղծել բարդ համակարգեր, որտեղ ընդհանուր հատկությունները
                         բարձրանում են վերև, իսկ մասնավորները՝ իջնում ներքև։
                     </p>
 
-                    <h4 class="card-header-small">
+                    <h4 class="card-header-small" data-i18n="pages.es6Class.s04TreeTitle">
                         🧬 Ժառանգության աստիճանակարգը (Class Hierarchy)
                     </h4>
                     <!-- prettier-ignore -->
                     <div class="mermaid">
                         classDiagram
-                            Animal <|-- Dog
-                            Animal <|-- Cat
-                            Dog <|-- Shepherd
-                            Dog <|-- Bulldog
-                            Cat <|-- Siamese
-                            Cat <|-- Persian
+                            Animal &lt;|-- Dog
+                            Animal &lt;|-- Cat
+                            Dog &lt;|-- Shepherd
+                            Dog &lt;|-- Bulldog
+                            Cat &lt;|-- Siamese
+                            Cat &lt;|-- Persian
  
                             class Animal {
                                 +String name
@@ -232,7 +233,7 @@
 
                     <div class="feature-divider"></div>
 
-                    <h4 class="card-header-small">💻 Կիրառման օրինակ (ES6)</h4>
+                    <h4 class="card-header-small" data-i18n="pages.es6Class.s04ExTitle">💻 Կիրառման օրինակ (ES6)</h4>
                     <div class="code-block">
                         <span class="hl-cm">// Մակարդակ 1: Հիմնական կլաս</span><br />
                         <code class="hl-kw">class</code>
@@ -276,8 +277,8 @@
                     </div>
 
                     <div class="pro-tip pro-tip-blue">
-                        <h4 class="card-header-small">Prototype Chain View</h4>
-                        <p class="text-dimmed small-text">
+                        <h4 class="card-header-small" data-i18n="pages.es6Class.s04ChainTitle">Prototype Chain View</h4>
+                        <p class="text-dimmed small-text" data-i18n-html="pages.es6Class.s04ChainP">
                             <code>myDog</code> → <code>Shepherd.prototype</code> →
                             <code>Dog.prototype</code> → <code>Animal.prototype</code> →
                             <code>Object.prototype</code>։
@@ -290,11 +291,11 @@
             <section id="comparison" class="section-container">
                 <div class="section-label">
                     <span class="section-num">05</span>
-                    <h2 class="section-title">ES6 Class vs ES5 Prototype</h2>
+                    <h2 class="section-title" data-i18n="pages.es6Class.s05Title">ES6 Class vs ES5 Prototype</h2>
                 </div>
 
                 <div class="glass-card">
-                    <h4 class="card-header-small">1. ES6 Class Structure</h4>
+                    <h4 class="card-header-small" data-i18n="pages.es6Class.s05M1Title">1. ES6 Class Structure</h4>
                     <!-- prettier-ignore -->
                     <div class="mermaid">
                         graph TD
@@ -311,7 +312,7 @@
 
                     <div class="feature-divider"></div>
 
-                    <h4 class="card-header-small">2. Internal Prototype Chain</h4>
+                    <h4 class="card-header-small" data-i18n="pages.es6Class.s05M2Title">2. Internal Prototype Chain</h4>
                     <!-- prettier-ignore -->
                     <div class="mermaid">
                         graph BT
@@ -334,21 +335,21 @@
             <section class="section-container">
                 <div class="grid-2">
                     <div class="feature-box">
-                        <h4 class="card-header-small">Hoisting & Strict Mode</h4>
+                        <h4 class="card-header-small" data-i18n="pages.es6Class.footHoistTitle">Hoisting & Strict Mode</h4>
                         <ul class="list-container no-list-style">
-                            <li class="list-item">
+                            <li class="list-item" data-i18n-html="pages.es6Class.footHoistLi1">
                                 <b>No Hoisting</b>: Կլասը չի կարելի օգտագործել մինչև
                                 հայտարարելը։
                             </li>
-                            <li class="list-item">
+                            <li class="list-item" data-i18n-html="pages.es6Class.footHoistLi2">
                                 <b>Strict Mode</b>: Կլասի ներսի կոդը միշտ աշխատում է "use
                                 strict"-ով։
                             </li>
                         </ul>
                     </div>
                     <div class="feature-box">
-                        <h4 class="card-header-small">Enumerability</h4>
-                        <p class="text-dimmed">
+                        <h4 class="card-header-small" data-i18n="pages.es6Class.footEnumTitle">Enumerability</h4>
+                        <p class="text-dimmed" data-i18n-html="pages.es6Class.footEnumP">
                             Կլասի մեջ սահմանված մեթոդները
                             <code>enumerable: false</code> են, ինչը նշանակում է՝ դրանք չեն
                             երևում <code>for..in</code> ցիկլի ժամանակ։
@@ -361,14 +362,14 @@
                 <a href="prototype" class="nav-arrow prev">
                     <span class="arrow-icon">←</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Նախորդը</span>
-                        <span class="arrow-title">Prototypes (ES5)</span>
+                        <span class="arrow-label" data-i18n="lessonNav.prev">Նախորդը</span>
+                        <span class="arrow-title" data-i18n="pages.es6Class.prevTopic">Prototypes (ES5)</span>
                     </div>
                 </a>
                 <a href="closure" class="nav-arrow next">
                     <div class="arrow-text" style="text-align: right">
-                        <span class="arrow-label">Հաջորդը</span>
-                        <span class="arrow-title">Closures</span>
+                        <span class="arrow-label" data-i18n="lessonNav.next">Հաջորդը</span>
+                        <span class="arrow-title" data-i18n="pages.es6Class.nextTopic">Closures</span>
                     </div>
                     <span class="arrow-icon">→</span>
                 </a>

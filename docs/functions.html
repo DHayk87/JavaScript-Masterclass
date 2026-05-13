@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JS.CORE | Ֆունկցիաներ</title>
+        <title data-i18n-title="pages.functions.docTitle">JS.CORE | Ֆունկցիաներ</title>
         <meta
             name="description"
+            data-i18n-desc="pages.functions.metaDescription"
             content="JavaScript ֆունկցիաների տեսակները. Function Declaration, Expression, Arrow Functions և IIFE: Իմացեք hoisting-ի և lexical this-ի մասին:"
         />
 
@@ -18,10 +19,14 @@
         <script type="module" src="../src/scripts/main.js"></script>
 
         <script type="layout-slot" id="nav-links">
-            <a href="#declaration" class="nav-link">Declaration</a>
-            <a href="#expression" class="nav-link">Expression</a>
-            <a href="#arrow" class="nav-link">Arrow</a>
-            <a href="#iife" class="nav-link">IIFE</a>
+            <a href="#declaration" class="nav-link" data-i18n="pages.functions.nav.declaration"
+                >Declaration</a
+            >
+            <a href="#expression" class="nav-link" data-i18n="pages.functions.nav.expression"
+                >Expression</a
+            >
+            <a href="#arrow" class="nav-link" data-i18n="pages.functions.nav.arrow">Arrow</a>
+            <a href="#iife" class="nav-link" data-i18n="pages.functions.nav.iife">IIFE</a>
         </script>
     </head>
     <body>
@@ -29,23 +34,24 @@
 
         <main class="main-content">
             <header>
-                <h1 class="title-large gradient-text">Ֆունկցիաներ (Functions)</h1>
-                <p class="subtitle">
+                <h1 class="title-large gradient-text" data-i18n="pages.functions.h1">
+                    Ֆունկցիաներ (Functions)
+                </h1>
+                <p class="subtitle" data-i18n="pages.functions.subtitle">
                     "Ֆունկցիաները ծրագրի հիմնական կառուցողական բլոկներն են:"
                 </p>
             </header>
 
-            <!-- Section 01: Function Declaration -->
             <section id="declaration" class="section-container">
                 <div class="section-label">
                     <span class="section-num">01</span>
-                    <h2 class="section-title">
+                    <h2 class="section-title" data-i18n="pages.functions.s01Title">
                         Function Declaration (Ֆունկցիայի հայտարարում)
                     </h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.functions.s01Lead">
                         Սա հանդիսանում է <b>HoistableDeclaration</b>: JS շարժիչը
                         Environment Record-ը ստեղծելիս այս ֆունկցիաները միանգամից
                         սկզբնավորում է (initialize):
@@ -53,7 +59,7 @@
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">Սինտաքս</h4>
+                            <h4 class="card-header-small" data-i18n="pages.functions.s01SynTitle">Սինտաքս</h4>
                             <div class="code-inset">
                                 <code class="hl-kw">function</code>
                                 <code class="hl-fn">sayHi</code>() {<br />
@@ -65,8 +71,10 @@
                             </div>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">Առավելությունը</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.functions.s01AdvTitle">
+                                Առավելությունը
+                            </h4>
+                            <p class="text-dimmed" data-i18n="pages.functions.s01AdvP">
                                 Կարելի է կանչել կոդի ցանկացած հատվածից (նույնիսկ
                                 հայտարարումից առաջ), ինչը թույլ է տալիս կառուցել կոդը
                                 «կարևորից դեպի մանրուքներ» սկզբունքով:
@@ -76,17 +84,16 @@
                 </div>
             </section>
 
-            <!-- Section 02: Function Expression -->
             <section id="expression" class="section-container">
                 <div class="section-label">
                     <span class="section-num">02</span>
-                    <h2 class="section-title">
+                    <h2 class="section-title" data-i18n="pages.functions.s02Title">
                         Function Expression (Ֆունկցիոնալ արտահայտություն)
                     </h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.functions.s02Lead">
                         Այստեղ ֆունկցիան հանդես է գալիս որպես արժեք: Այն գրանցվում է որպես
                         լեքսիկական փոփոխական և ենթարկվում է
                         <code>let/const</code> կանոններին:
@@ -94,7 +101,7 @@
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">Սինտաքս</h4>
+                            <h4 class="card-header-small" data-i18n="pages.functions.s02SynTitle">Սինտաքս</h4>
                             <div class="code-inset">
                                 <code class="hl-kw">let</code> sayHi =
                                 <code class="hl-kw">function</code>() {<br />
@@ -106,16 +113,16 @@
                             </div>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">Տարբերությունը</h4>
-                            <p class="text-dimmed">
-                                Քանի դեռ ծրագրի կատարումը (Execution Flow) չի հասել այս
-                                տողին, ֆունկցիան գտնվում է <b>Temporal Dead Zone</b>-ում և
-                                հասանելի չէ:
+                            <h4 class="card-header-small" data-i18n="pages.functions.s02DiffTitle">
+                                Տարբերությունը
+                            </h4>
+                            <p class="text-dimmed" data-i18n-html="pages.functions.s02DiffP">
+                                Քանի դեռ ծրագրի կատարումը չի հասել այս տողին, ֆունկցիան
+                                գտնվում է <b>Temporal Dead Zone</b>-ում և հասանելի չէ:
                             </p>
                         </div>
                     </div>
 
-                    <!-- Mermaid Hoisting Comparison -->
                     <!-- prettier-ignore -->
                     <div class="mermaid">
                         graph LR
@@ -131,38 +138,41 @@
                 </div>
             </section>
 
-            <!-- Section 03: Arrow Functions -->
             <section id="arrow" class="section-container">
                 <div class="section-label">
                     <span class="section-num">03</span>
-                    <h2 class="section-title">Arrow Functions (Սլաքային ֆունկցիաներ)</h2>
+                    <h2 class="section-title" data-i18n="pages.functions.s03Title">
+                        Arrow Functions (Սլաքային ֆունկցիաներ)
+                    </h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n="pages.functions.s03Lead">
                         ES6-ի ամենակարևոր լրացումներից մեկը: Սրանք պարզապես «կարճ գրելաձև»
                         չեն, այլ ունեն էական ֆունկցիոնալ տարբերություններ:
                     </p>
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">Սինտաքս</h4>
+                            <h4 class="card-header-small" data-i18n="pages.functions.s03SynTitle">Սինտաքս</h4>
                             <div class="code-inset">
                                 <code class="hl-kw">const</code> sum = (a, b) => a + b;
                             </div>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">Ինչու՞ են հատուկ</h4>
+                            <h4 class="card-header-small" data-i18n="pages.functions.s03WhyTitle">
+                                Ինչու՞ են հատուկ
+                            </h4>
                             <ul class="list-container no-list-style">
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.functions.s03Li1">
                                     <b>Lexical this:</b> Չունեն սեփական <code>this</code>:
                                     Վերցնում են այն ստեղծման միջավայրից:
                                 </li>
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.functions.s03Li2">
                                     <b>Constructor:</b> Չեն կարող օգտագործվել
                                     <code>new</code> օպերատորի հետ:
                                 </li>
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.functions.s03Li3">
                                     <b>Arguments:</b> Չունեն սեփական
                                     <code>arguments</code> օբյեկտը:
                                 </li>
@@ -172,22 +182,23 @@
                 </div>
             </section>
 
-            <!-- Section 04: IIFE -->
             <section id="iife" class="section-container">
                 <div class="section-label">
                     <span class="section-num">04</span>
-                    <h2 class="section-title">IIFE (Անմիջապես կանչվող ֆունկցիաներ)</h2>
+                    <h2 class="section-title" data-i18n="pages.functions.s04Title">
+                        IIFE (Անմիջապես կանչվող ֆունկցիաներ)
+                    </h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n="pages.functions.s04Lead">
                         Չնայած ժամանակակից JS-ում ունենք Block Scope, IIFE-ն դեռևս
                         օգտագործվում է որոշակի դեպքերում:
                     </p>
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">Սինտաքս</h4>
+                            <h4 class="card-header-small" data-i18n="pages.functions.s04SynTitle">Սինտաքս</h4>
                             <div class="code-inset">
                                 (<code class="hl-kw">function</code>() {<br />
                                 &nbsp;&nbsp;<code class="hl-kw">let</code> privateVar =
@@ -196,8 +207,8 @@
                             </div>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">Նպատակը</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.functions.s04GoalTitle">Նպատակը</h4>
+                            <p class="text-dimmed" data-i18n="pages.functions.s04GoalP">
                                 Կանխել գլոբալ տիրույթի (Global Scope) աղտոտումը և ստեղծել
                                 մեկուսացված միջավայր:
                             </p>
@@ -206,22 +217,21 @@
                 </div>
             </section>
 
-            <!-- Masterclass Tip -->
             <div class="pro-tip pro-tip-blue">
-                <h4 class="card-header-small hl-fn">
+                <h4 class="card-header-small hl-fn" data-i18n="pages.functions.tipTitle">
                     Use Cases (Ե՞րբ և ո՞րն օգտագործել)
                 </h4>
                 <ol class="ordered-list-small">
-                    <li>
+                    <li data-i18n-html="pages.functions.tipLi1">
                         <b>Function Declaration:</b> Հիմնական գործողությունների համար,
                         որոնք պետք է հասանելի լինեն ամբողջ ֆայլում:
                     </li>
-                    <li>
+                    <li data-i18n-html="pages.functions.tipLi2">
                         <b>Arrow Functions:</b> Callback-ների (<code>map</code>,
                         <code>filter</code>) և այնտեղ, որտեղ պետք է պահպանել
                         <code>this</code>-ը:
                     </li>
-                    <li>
+                    <li data-i18n-html="pages.functions.tipLi3">
                         <b>Function Expression:</b> Երբ ֆունկցիան պետք է սահմանվի
                         պայմանականորեն (օրինակ՝ <code>if</code>-ի ներսում):
                     </li>
@@ -232,15 +242,19 @@
                 <a href="switch-while" class="nav-arrow prev">
                     <span class="arrow-icon">←</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Նախորդը</span>
-                        <span class="arrow-title">Ցիկլեր և Switch</span>
+                        <span class="arrow-label" data-i18n="lessonNav.prev">Նախորդը</span>
+                        <span class="arrow-title" data-i18n="pages.functions.prevTopic"
+                            >Ցիկլեր և Switch</span
+                        >
                     </div>
                 </a>
                 <a href="code-parsing" class="nav-arrow next">
                     <span class="arrow-icon">→</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Հաջորդը</span>
-                        <span class="arrow-title">Code Parsing</span>
+                        <span class="arrow-label" data-i18n="lessonNav.next">Հաջորդը</span>
+                        <span class="arrow-title" data-i18n="pages.functions.nextTopic"
+                            >Code Parsing</span
+                        >
                     </div>
                 </a>
             </div>

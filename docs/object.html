@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JS.CORE | Օբյեկտներ</title>
+        <title data-i18n-title="pages.object.docTitle">JS.CORE | Օբյեկտներ</title>
         <meta
             name="description"
+            data-i18n-desc="pages.object.metaDescription"
             content="JavaScript օբյեկտների (Objects) խորացված ուղեցույց. հղումներ, պատճենում (cloning), Garbage Collection և const-ի պարադոքսը:"
         />
 
@@ -18,10 +19,10 @@
         <script type="module" src="../src/scripts/main.js"></script>
 
         <script type="layout-slot" id="nav-links">
-            <a href="#basics" class="nav-link">Հիմունքներ</a>
-            <a href="#access" class="nav-link">Հասանելիություն</a>
-            <a href="#loops" class="nav-link">Ցիկլեր</a>
-            <a href="#references" class="nav-link">Հղումներ</a>
+            <a href="#basics" class="nav-link" data-i18n="pages.object.nav.basics">Հիմունքներ</a>
+            <a href="#access" class="nav-link" data-i18n="pages.object.nav.access">Հասանելիություն</a>
+            <a href="#loops" class="nav-link" data-i18n="pages.object.nav.loops">Ցիկլեր</a>
+            <a href="#references" class="nav-link" data-i18n="pages.object.nav.references">Հղումներ</a>
         </script>
     </head>
     <body>
@@ -29,8 +30,8 @@
 
         <main class="main-content">
             <header>
-                <h1 class="title-large gradient-text">Օբյեկտներ (Objects)</h1>
-                <p class="subtitle">
+                <h1 class="title-large gradient-text" data-i18n="pages.object.h1">Օբյեկտներ (Objects)</h1>
+                <p class="subtitle" data-i18n="pages.object.subtitle">
                     "Օբյեկտները JavaScript-ի հիմնական կառուցվածքային միավորներն են:"
                 </p>
             </header>
@@ -39,11 +40,11 @@
             <section id="basics" class="section-container">
                 <div class="section-label">
                     <span class="section-num">01</span>
-                    <h2 class="section-title">Հիմունքներ և Սինտաքս</h2>
+                    <h2 class="section-title" data-i18n="pages.object.s01Title">Հիմունքներ և Սինտաքս</h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.object.s01Lead">
                         Ի տարբերություն պրիմիտիվների, օբյեկտները պահում են
                         <b>հավաքածուներ</b>: Դրանք կարող ենք պատկերացնել որպես պահարաններ,
                         որտեղ ամեն դարակ ունի իր անունը (key) և պարունակությունը (value):
@@ -51,7 +52,7 @@
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">Ստեղծում</h4>
+                            <h4 class="card-header-small" data-i18n="pages.object.s01CreateTitle">Ստեղծում</h4>
                             <div class="code-inset">
                                 <code class="hl-kw">let</code> user = {<br />
                                 &nbsp;&nbsp;name:
@@ -61,17 +62,17 @@
                             </div>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">Գործողություններ</h4>
+                            <h4 class="card-header-small" data-i18n="pages.object.s01OpsTitle">Գործողություններ</h4>
                             <ul class="no-list-style">
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.object.s01LiAdd">
                                     <span class="dot"></span> <b>Ավելացում:</b>
                                     <code>user.isAdmin = true;</code>
                                 </li>
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.object.s01LiDel">
                                     <span class="dot"></span> <b>Հեռացում:</b>
                                     <code>delete user.age;</code>
                                 </li>
-                                <li class="list-item">
+                                <li class="list-item" data-i18n-html="pages.object.s01LiComma">
                                     <span class="dot"></span>
                                     <b>Trailing comma:</b> Վերջին ստորակետը թույլատրելի է:
                                 </li>
@@ -80,8 +81,8 @@
                     </div>
 
                     <div class="pro-tip margin-top-1">
-                        <h4 class="card-header-small">🔒 Const-ի պարադոքսը</h4>
-                        <p class="text-dimmed">
+                        <h4 class="card-header-small" data-i18n="pages.object.s01ConstTitle">🔒 Const-ի պարադոքսը</h4>
+                        <p class="text-dimmed" data-i18n-html="pages.object.s01ConstP">
                             Շատերը կարծում են, որ եթե օբյեկտը հայտարարված է
                             <code>const</code>-ով, այն չի կարող փոփոխվել։ Իրականում
                             <code>const</code>-ը պաշտպանում է <b>հղումը</b> (հասցեն), այլ
@@ -103,22 +104,22 @@
             <section id="access" class="section-container">
                 <div class="section-label">
                     <span class="section-num">02</span>
-                    <h2 class="section-title">Հասանելիության մեթոդներ</h2>
+                    <h2 class="section-title" data-i18n="pages.object.s02Title">Հասանելիության մեթոդներ</h2>
                 </div>
 
                 <div class="glass-card">
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">Dot Notation (.)</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.object.s02DotTitle">Dot Notation (.)</h4>
+                            <p class="text-dimmed" data-i18n="pages.object.s02DotP">
                                 Ամենատարածված ձևն է: Օգտագործվում է, երբ բանալին պարզ
                                 տեքստ է:
                             </p>
                             <code class="hl-fn">console.log</code>(user.name);
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">Square Brackets ([])</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.object.s02BrTitle">Square Brackets ([])</h4>
+                            <p class="text-dimmed" data-i18n="pages.object.s02BrP">
                                 Օգտագործվում է բարդ բանալիների կամ դինամիկ փոփոխականների
                                 դեպքում:
                             </p>
@@ -129,7 +130,7 @@
                         </div>
                     </div>
 
-                    <div class="pro-tip pro-tip-blue margin-top-1">
+                    <div class="pro-tip pro-tip-blue margin-top-1" data-i18n-html="pages.object.s02InTip">
                         <b>"in" օպերատոր:</b> Ստուգում է արդյոք բանալին գոյություն ունի
                         օբյեկտում:<br />
                         <code
@@ -145,18 +146,18 @@
             <section id="loops" class="section-container">
                 <div class="section-label">
                     <span class="section-num">03</span>
-                    <h2 class="section-title">Ցիկլեր (for...in)</h2>
+                    <h2 class="section-title" data-i18n="pages.object.s03Title">Ցիկլեր (for...in)</h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.object.s03Lead">
                         <code>for..in</code> ցիկլը հատուկ նախատեսված է օբյեկտի բոլոր
                         ստեղծված բանալիների վրայով անցնելու համար։
                     </p>
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small">Հատկությունների շրջանցում</h4>
+                            <h4 class="card-header-small" data-i18n="pages.object.s03PassTitle">Հատկությունների շրջանցում</h4>
                             <div class="code-inset">
                                 <code class="hl-kw">for</code> (<code class="hl-kw"
                                     >let</code
@@ -168,10 +169,10 @@
                             </div>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">
+                            <h4 class="card-header-small" data-i18n="pages.object.s03IntTitle">
                                 🔢 Հերթականության կանոնը (The "Integer" Rule)
                             </h4>
-                            <p class="text-dimmed">
+                            <p class="text-dimmed" data-i18n="pages.object.s03IntP">
                                 Եթե բանալիները կարող են փոխակերպվել ամբողջ թվի, ապա դրանք
                                 կդասավորվեն աճման կարգով։
                             </p>
@@ -203,7 +204,7 @@
 
                     <div class="grid-2 margin-top-1">
                         <div class="feature-box">
-                            <h4 class="card-header-small">Օրինակ</h4>
+                            <h4 class="card-header-small" data-i18n="pages.object.s03ExTitle">Օրինակ</h4>
                             <div class="code-inset">
                                 <code class="hl-kw">let</code> codes = {<br />
                                 &nbsp;&nbsp;<span class="hl-str">"49"</span>:
@@ -223,26 +224,26 @@
                             </div>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">Ինչո՞ւ է սա կարևոր</h4>
-                            <p class="text-dimmed">
+                            <h4 class="card-header-small" data-i18n="pages.object.s03WhyTitle">Ինչո՞ւ է սա կարևոր</h4>
+                            <p class="text-dimmed" data-i18n="pages.object.s03WhyP">
                                 1, 41 և 49-ը ամբողջ թվեր են և տեսակավորվում են։
                             </p>
                         </div>
                     </div>
 
                     <div class="pro-tip pro-tip-blue margin-top-1">
-                        <h4 class="card-header-small">💡 Մասնագիտական հուշում</h4>
+                        <h4 class="card-header-small" data-i18n="pages.object.s03ProTitle">💡 Մասնագիտական հուշում</h4>
                         <ul class="no-list-style">
-                            <li class="list-item">
+                            <li class="list-item" data-i18n-html="pages.object.s03ProLi1">
                                 <span class="dot"></span> <b>Մասիվներ:</b> Խուսափեք
                                 <code>for..in</code>-ից մասիվների դեպքում:
                             </li>
-                            <li class="list-item">
+                            <li class="list-item" data-i18n-html="pages.object.s03ProLi2">
                                 <span class="dot"></span>
                                 <b>Հերթականության պահպանում:</b> Եթե ուզում եք, որ թվերը
                                 չտեսակավորվեն, ավելացրեք <code>+</code> նշանը:
                             </li>
-                            <li class="list-item">
+                            <li class="list-item" data-i18n-html="pages.object.s03ProLi3">
                                 <span class="dot"></span> <b>Prototype Chain:</b>
                                 <code>for..in</code>-ը տեսնում է նաև ժառանգված
                                 հատկությունները:
@@ -256,11 +257,11 @@
             <section id="references" class="section-container">
                 <div class="section-label">
                     <span class="section-num">04</span>
-                    <h2 class="section-title">References (Հղումներ)</h2>
+                    <h2 class="section-title" data-i18n="pages.object.s04Title">References (Հղումներ)</h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large">
+                    <p class="text-body-large" data-i18n-html="pages.object.s04Lead">
                         Օբյեկտի ամենակարևոր տարբերությունը պրիմիտիվներից այն է, որ դրանք
                         պահվում և պատճենվում են <b>ըստ հղման</b>:
                     </p>
@@ -286,8 +287,8 @@
                     </div>
 
                     <div class="pro-tip">
-                        <h4 class="card-header-small">Հիշեք</h4>
-                        <p class="text-dimmed">
+                        <h4 class="card-header-small" data-i18n="pages.object.s04RememberTitle">Հիշեք</h4>
+                        <p class="text-dimmed" data-i18n-html="pages.object.s04RememberP">
                             Երբ պատճենում եք օբյեկտը, դուք պատճենում եք միայն նրա
                             <b>հասցեն</b> հիշողության մեջ:
                         </p>
@@ -295,19 +296,19 @@
 
                     <div class="grid-2 margin-top-1">
                         <div class="feature-box">
-                            <h4 class="card-header-small">
+                            <h4 class="card-header-small" data-i18n="pages.object.s04CmpTitle">
                                 ⚖️ Համեմատում (Comparison Logic)
                             </h4>
-                            <p class="text-dimmed">
+                            <p class="text-dimmed" data-i18n-html="pages.object.s04CmpP">
                                 <code>{} == {}</code> միշտ <b>false</b> է: JS-ը համեմատում
                                 է հասցեները, ոչ թե պարունակությունը:
                             </p>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small">
+                            <h4 class="card-header-small" data-i18n="pages.object.s04GcTitle">
                                 ♻️ Garbage Collection (Աղբահանություն)
                             </h4>
-                            <p class="text-dimmed">
+                            <p class="text-dimmed" data-i18n-html="pages.object.s04GcP">
                                 Եթե օբյեկտին տանող բոլոր հղումները ջնջվում են, այն դառնում
                                 է
                                 <b>"Unreachable"</b>:
@@ -316,27 +317,27 @@
                     </div>
 
                     <div class="margin-top-4">
-                        <h4 class="card-header-small">
+                        <h4 class="card-header-small" data-i18n="pages.object.s04CloneTitle">
                             👯 Ինչպես իրականում պատճենել (Cloning)
                         </h4>
                         <table class="glossary-table">
                             <thead>
                                 <tr>
-                                    <th>Մեթոդ</th>
-                                    <th>Տեսակ</th>
-                                    <th>Երբ օգտագործել</th>
+                                    <th data-i18n="pages.object.thMethod">Մեթոդ</th>
+                                    <th data-i18n="pages.object.thType">Տեսակ</th>
+                                    <th data-i18n="pages.object.thWhen">Երբ օգտագործել</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><code>{...obj}</code></td>
-                                    <td>Shallow Copy</td>
-                                    <td>Երբ օբյեկտը պարզ է (չունի ներդրված օբյեկտներ)</td>
+                                    <td data-i18n="pages.object.tr1c">Shallow Copy</td>
+                                    <td data-i18n="pages.object.tr1d">Երբ օբյեկտը պարզ է (չունի ներդրված օբյեկտներ)</td>
                                 </tr>
                                 <tr>
                                     <td><code>structuredClone(obj)</code></td>
-                                    <td>Deep Copy</td>
-                                    <td>
+                                    <td data-i18n="pages.object.tr2c">Deep Copy</td>
+                                    <td data-i18n="pages.object.tr2d">
                                         Ժամանակակից ստանդարտ՝ ամբողջական պատճենի համար
                                     </td>
                                 </tr>
@@ -345,10 +346,10 @@
                     </div>
 
                     <div class="pro-tip pro-tip-blue margin-top-1">
-                        <h4 class="card-header-small">
+                        <h4 class="card-header-small" data-i18n="pages.object.s04WarnTitle">
                             ⚠️ Գործնական զգուշացում (Side Effects)
                         </h4>
-                        <p class="text-dimmed">
+                        <p class="text-dimmed" data-i18n-html="pages.object.s04WarnP">
                             «Երբ դուք օբյեկտը փոխանցում եք ֆունկցիային որպես արգումենտ,
                             դուք փոխանցում եք <b>հղումը</b>։ Սա կարող է բերել
                             <b>Side Effects</b>»։
@@ -361,15 +362,15 @@
                 <a href="code-parsing" class="prev nav-arrow">
                     <span class="arrow-icon">←</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Նախորդը</span>
-                        <span class="arrow-title">Code Parsing</span>
+                        <span class="arrow-label" data-i18n="lessonNav.prev">Նախորդը</span>
+                        <span class="arrow-title" data-i18n="pages.object.prevTopic">Code Parsing</span>
                     </div>
                 </a>
                 <a href="array" class="next nav-arrow">
                     <span class="arrow-icon">→</span>
                     <div class="arrow-text">
-                        <span class="arrow-label">Հաջորդը</span>
-                        <span class="arrow-title">Arrays</span>
+                        <span class="arrow-label" data-i18n="lessonNav.next">Հաջորդը</span>
+                        <span class="arrow-title" data-i18n="pages.object.nextTopic">Arrays</span>
                     </div>
                 </a>
             </div>
