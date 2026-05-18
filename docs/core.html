@@ -166,12 +166,12 @@
                             participant JS as JS Engine (V8)
                             participant DOM as Browser DOM
                             
-                            HTML->>HTML: Կարդում է HTML-ը...
-                            HTML->>JS: Հանդիպում է &lt;script&gt;
-                            Note over JS: Վերլուծություն և կատարում
-                            JS->>DOM: Փոխում է էլեմենտները
-                            DOM-->>HTML: Թարմացվում է էջը
-                            HTML->>HTML: Շարունակում է կարդալը
+                            HTML->>HTML: Parse HTML...
+                            HTML->>JS: Encounter &lt;script&gt;
+                            Note over JS: Parse & Execute
+                            JS->>DOM: Modify DOM Elements
+                            DOM-->>HTML: Update UI / Page
+                            HTML->>HTML: Resume HTML Parsing
                     </div>
 
                     <div class="grid-2 margin-top-1">

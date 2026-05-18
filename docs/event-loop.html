@@ -145,19 +145,19 @@
                         <!-- prettier-ignore -->
                         <div class="mermaid">
                             graph TD
-                                Start["Event Loop սկիզբ"] e1@--> GetMacro["Վերցնել հնագույն Macrotask-ը"]
-                                GetMacro e2@--> RunMacro["Կատարել Macrotask-ը"]
+                                Start["Event Loop Start"] e1@--> GetMacro["Get Oldest Macrotask"]
+                                GetMacro e2@--> RunMacro["Execute Macrotask"]
                                 
-                                RunMacro e3@--> CheckMicro{"Կա՞ն արդյոք Microtask-եր"}
-                                CheckMicro e4@-->|"Այո"| RunMicro["Կատարել Microtask-ը"]
+                                RunMacro e3@--> CheckMicro{"Are there Microtasks?"}
+                                CheckMicro e4@-->|"Yes"| RunMicro["Execute Microtask"]
                                 RunMicro e5@--> CheckMicro
                                 
-                                CheckMicro e6@-->|"Ոչ"| Render["Render UI"]
-                                Render e7@--> CheckQueue{"Կա՞ն այլ Macrotask-եր"}
+                                CheckMicro e6@-->|"No"| Render["Render UI"]
+                                Render e7@--> CheckQueue{"Are there other Macrotasks?"}
                                 
-                                CheckQueue e8@-->|"Ոչ"| Sleep["Sleep (Քնել)"]
+                                CheckQueue e8@-->|"No"| Sleep["Sleep"]
                                 Sleep e9@--> CheckQueue
-                                CheckQueue e10@-->|"Այո"| GetMacro
+                                CheckQueue e10@-->|"Yes"| GetMacro
                                 
                                 e1@{ animate: true }
                                 e2@{ animate: true }
