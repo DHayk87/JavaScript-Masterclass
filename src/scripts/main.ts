@@ -18,7 +18,7 @@ const initMermaid = async () => {
                 securityLevel: "loose",
                 fontFamily: "Noto Sans Armenian",
             });
-            await mermaid.run({ nodes: mermaidElements });
+            await mermaid.run({ nodes: Array.from(mermaidElements) as HTMLElement[] });
         } catch (error) {
             console.error("Failed to load Mermaid:", error);
         }
@@ -39,7 +39,7 @@ const initCopyButtons = () => {
         block.appendChild(button);
 
         button.addEventListener("click", () => {
-            const clone = block.cloneNode(true);
+            const clone = block.cloneNode(true) as HTMLElement;
             clone.querySelectorAll(".copy-btn").forEach((b) => b.remove());
             const code = clone.innerText.trim();
 

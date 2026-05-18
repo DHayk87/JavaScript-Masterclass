@@ -7,11 +7,11 @@ const STORAGE_KEY = "js-core-lang";
 export const SUPPORTED_LOCALES = ["hy", "en", "ru"];
 export const DEFAULT_LOCALE = "hy";
 
-function buildMessages(locale) {
+function buildMessages(locale: string) {
     const base = locale === "hy" ? hy : locale === "en" ? en : ru;
-    const pages = {};
+    const pages: Record<string, any> = {};
     for (const [pageId, bundle] of Object.entries(pageRegistry)) {
-        pages[pageId] = bundle[locale];
+        pages[pageId] = (bundle as any)[locale];
     }
     return { ...base, pages };
 }
@@ -22,7 +22,7 @@ const MESSAGES = {
     ru: buildMessages("ru"),
 };
 
-const localeListeners = [];
+const localeListeners: Array<(locale: string) => void> = [];
 
 /** @type {string} */
 let currentLocale = DEFAULT_LOCALE;
@@ -32,7 +32,7 @@ let currentLocale = DEFAULT_LOCALE;
 /**
  * Safely render translation (auto detects HTML)
  */
-function renderTranslation(el, key) {
+function renderTranslation(el: HTMLElement, key: string) {
     const text = t(key);
     if (!text) {
         el.innerHTML = "";
@@ -52,7 +52,7 @@ function renderTranslation(el, key) {
  * - <code>, <b>, <strong>, lists etc.
  * - Strong protection for Mermaid diagrams
  */
-function safeInnerHTML(element, html) {
+function safeInnerHTML(element: HTMLElement, html: string) {
     if (!html) {
         element.innerHTML = "";
         return;
@@ -61,15 +61,16 @@ function safeInnerHTML(element, html) {
     const temp = document.createElement("div");
     temp.innerHTML = html;
 
-    function sanitize(node) {
+    function sanitize(node: Node) {
         if (node.nodeType === Node.TEXT_NODE) return;
 
         if (node.nodeType === Node.ELEMENT_NODE) {
-            const tag = node.tagName.toLowerCase();
-            const isMermaid = node.classList && node.classList.contains("mermaid");
+            const elNode = node as HTMLElement;
+            const tag = elNode.tagName.toLowerCase();
+            const isMermaid = elNode.classList && elNode.classList.contains("mermaid");
 
             // === MERMAID PROTECTION ===
-            if (isMermaid || (tag === "pre" && node.classList.contains("mermaid"))) {
+            if (isMermaid || (tag === "pre" && elNode.classList.contains("mermaid"))) {
                 return; // skip sanitization inside mermaid
             }
 
@@ -81,33 +82,33 @@ function safeInnerHTML(element, html) {
 
             if (!allowedTags.includes(tag)) {
                 const fragment = document.createDocumentFragment();
-                while (node.firstChild) {
-                    fragment.appendChild(node.firstChild);
+                while (elNode.firstChild) {
+                    fragment.appendChild(elNode.firstChild);
                 }
-                node.parentNode.replaceChild(fragment, node);
+                elNode.parentNode?.replaceChild(fragment, elNode);
                 return;
             }
 
             // Safe <a> tags
             if (tag === "a") {
-                const href = node.getAttribute("href");
+                const href = elNode.getAttribute("href");
                 if (href && !href.match(/^https?:\/\//i) && !href.startsWith("/")) {
-                    node.removeAttribute("href");
+                    elNode.removeAttribute("href");
                 }
-                node.setAttribute("target", "_blank");
-                node.setAttribute("rel", "noopener noreferrer");
+                elNode.setAttribute("target", "_blank");
+                elNode.setAttribute("rel", "noopener noreferrer");
             }
 
             // Remove dangerous attributes
-            Array.from(node.attributes).forEach(attr => {
+            Array.from(elNode.attributes).forEach((attr: Attr) => {
                 if (!["class", "title", "href", "target", "rel", "id", "width", "height", "viewBox"].includes(attr.name)) {
-                    node.removeAttribute(attr.name);
+                    elNode.removeAttribute(attr.name);
                 }
             });
         }
 
         // Recurse children (skip if inside mermaid)
-        if (!(node.classList && node.classList.contains("mermaid"))) {
+        if (node instanceof HTMLElement && !(node.classList && node.classList.contains("mermaid"))) {
             for (let i = node.childNodes.length - 1; i >= 0; i--) {
                 sanitize(node.childNodes[i]);
             }
@@ -146,9 +147,9 @@ export function getLocale() {
  * Get translation by dot notation
  * @param {string} path example: "gc.s03Li1"
  */
-export function t(path) {
+export function t(path: string): string {
     const parts = path.split(".");
-    let node = MESSAGES[currentLocale];
+    let node = (MESSAGES as any)[currentLocale];
     for (const p of parts) {
         if (node == null || typeof node !== "object") return path;
         node = node[p];
@@ -156,7 +157,7 @@ export function t(path) {
     return typeof node === "string" ? node : path;
 }
 
-function syncUrlLang(locale) {
+function syncUrlLang(locale: string) {
     try {
         const u = new URL(window.location.href);
         if (locale === DEFAULT_LOCALE) {
@@ -174,13 +175,13 @@ function applyDataI18n() {
     // Main translations (auto HTML detection)
     document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
-        if (key) renderTranslation(el, key);
+        if (key) renderTranslation(el as HTMLElement, key);
     });
 
     // Force HTML mode (optional)
     document.querySelectorAll("[data-i18n-html]").forEach(el => {
         const key = el.getAttribute("data-i18n-html");
-        if (key) safeInnerHTML(el, t(key));
+        if (key) safeInnerHTML(el as HTMLElement, t(key));
     });
 
     // Attributes (title, placeholder, etc.)
@@ -196,11 +197,17 @@ function applyDataI18n() {
 
     // Document title
     const titleEl = document.querySelector("title[data-i18n-title]");
-    if (titleEl) document.title = t(titleEl.getAttribute("data-i18n-title"));
+    if (titleEl) {
+        const key = titleEl.getAttribute("data-i18n-title");
+        if (key) document.title = t(key);
+    }
 
     // Meta description
     const metaDesc = document.querySelector('meta[name="description"][data-i18n-desc]');
-    if (metaDesc) metaDesc.setAttribute("content", t(metaDesc.getAttribute("data-i18n-desc")));
+    if (metaDesc) {
+        const key = metaDesc.getAttribute("data-i18n-desc");
+        if (key) metaDesc.setAttribute("content", t(key));
+    }
 
     document.documentElement.lang = currentLocale;
     syncLangDropdown();
@@ -212,17 +219,19 @@ function notifyLocaleListeners() {
     });
 }
 
-export function onLocaleChange(fn) {
+export function onLocaleChange(fn: (locale: string) => void) {
     localeListeners.push(fn);
 }
 
-export function setLocale(locale) {
+export function setLocale(locale: string) {
     if (!SUPPORTED_LOCALES.includes(locale)) locale = DEFAULT_LOCALE;
 
     currentLocale = locale;
     try {
         localStorage.setItem(STORAGE_KEY, locale);
-    } catch {}
+    } catch {
+        // Storage access might be blocked in cross-origin frames
+    }
 
     syncUrlLang(locale);
     applyDataI18n();
@@ -231,7 +240,7 @@ export function setLocale(locale) {
 
 // ====================== LANGUAGE DROPDOWN ======================
 
-const LOCALE_LABELS = {
+const LOCALE_LABELS: Record<string, string> = {
     hy: "Հայերեն",
     en: "English",
     ru: "Русский",
@@ -283,7 +292,11 @@ function bindLangDropdown() {
 
     toggle.addEventListener("click", (e) => {
         e.stopPropagation();
-        isLangDropdownOpen() ? closeLangDropdown() : openLangDropdown();
+        if (isLangDropdownOpen()) {
+            closeLangDropdown();
+        } else {
+            openLangDropdown();
+        }
     });
 
     menu.querySelectorAll("[data-set-lang]").forEach(item => {
@@ -294,7 +307,8 @@ function bindLangDropdown() {
     });
 
     document.addEventListener("click", (e) => {
-        if (!e.target.closest(".lang-dropdown")) closeLangDropdown();
+        const target = e.target as HTMLElement | null;
+        if (target && !target.closest(".lang-dropdown")) closeLangDropdown();
     });
 
     document.addEventListener("keydown", (e) => {

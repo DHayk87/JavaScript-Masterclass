@@ -1,12 +1,13 @@
 {
   "name": "javascript-masterclass",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,11 @@
     "mermaid": "^11.14.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.9.0",
+    "eslint": "^10.4.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.3",
     "vite": "^8.0.11"
   }
 }

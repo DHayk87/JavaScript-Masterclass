@@ -31,6 +31,7 @@ The project structure is designed to separate source code (processed by Vite) fr
 ```
 
 ### Strict Rules:
+
 - **`public/` is for pure static assets ONLY.** NEVER place `.js` or `.css` files in `public/`. Vite skips the build pipeline for `public/`, meaning CSS wouldn't be minified and JS wouldn't be bundled.
 - **`src/` is for code.** All styles and scripts must reside here and be referenced relative to `src/` in HTML files.
 
@@ -41,6 +42,7 @@ The project structure is designed to separate source code (processed by Vite) fr
 When adding a new module (e.g., `async.html`), you must follow these standards.
 
 ### Required HTML Structure
+
 ```html
 <!doctype html>
 <html lang="hy">
@@ -49,11 +51,15 @@ When adding a new module (e.g., `async.html`), you must follow these standards.
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JS.CORE | [Page Title]</title>
         <meta name="description" content="[SEO description]" />
-        
+
         <!-- Correct relative paths to src/ -->
-        <link rel="shortcut icon" href="../public/images/programmer.png" type="image/x-icon" />
+        <link
+            rel="shortcut icon"
+            href="../public/images/programmer.png"
+            type="image/x-icon"
+        />
         <link rel="stylesheet" href="../src/styles/style.css" />
-        <script type="module" src="../src/scripts/main.js"></script>
+        <script type="module" src="../src/scripts/main.ts"></script>
 
         <!-- Dynamic Navigation Slot -->
         <script type="layout-slot" id="nav-links">
@@ -71,9 +77,10 @@ When adding a new module (e.g., `async.html`), you must follow these standards.
 ```
 
 ### New Page Checklist
+
 - [ ] Uses `<!doctype html>` and `<html lang="hy">`.
 - [ ] Contains `<meta name="description">` with an accurate summary.
-- [ ] Imports `../src/styles/style.css` and `../src/scripts/main.js` correctly.
+- [ ] Imports `../src/styles/style.css` and `../src/scripts/main.ts` correctly.
 - [ ] Uses `<!-- LAYOUT_NAV -->` and `<!-- LAYOUT_FOOTER -->` exactly as written.
 - [ ] Wraps all content blocks in `<div class="glass-card">`.
 - [ ] Contains a single `<h1>` tag within `<header>`.
@@ -85,13 +92,17 @@ When adding a new module (e.g., `async.html`), you must follow these standards.
 We use a single-source-of-truth CSS architecture built on Native CSS Variables, avoiding Tailwind or inline styles to maintain semantic HTML.
 
 ### Naming Conventions
+
 Use descriptive, component-based class names (BEM-inspired but relaxed):
+
 - `glass-card`: Container abstraction.
 - `text-dimmed`: Utility class for typography.
 - `card-header-small`: Specific component typography.
 
 ### Best Practices
+
 ✅ **DO: Use CSS Variables**
+
 ```css
 /* Good */
 .button {
@@ -101,6 +112,7 @@ Use descriptive, component-based class names (BEM-inspired but relaxed):
 ```
 
 ❌ **DON'T: Hardcode colors or duplicate styles**
+
 ```css
 /* Bad */
 .button {
@@ -109,6 +121,7 @@ Use descriptive, component-based class names (BEM-inspired but relaxed):
 ```
 
 ❌ **DON'T: Specificity Wars**
+
 ```css
 /* Bad */
 main.main-content div.glass-card p { ... }
@@ -118,26 +131,30 @@ main.main-content div.glass-card p { ... }
 
 ## 5. JavaScript Architecture Rules
 
-Keep JS minimal. The primary script (`src/scripts/main.js`) handles global interactions.
+Keep JS minimal. The primary script (`src/scripts/main.ts`) handles global interactions.
 
 ### Lazy-Loading Rules
+
 Never import heavy dependencies synchronously at the top of the file.
 ✅ **DO: Dynamic Import**
+
 ```javascript
 const initHeavyLibrary = async () => {
-    if (document.querySelectorAll('.trigger-element').length > 0) {
-        const { default: library } = await import('library-name');
+    if (document.querySelectorAll(".trigger-element").length > 0) {
+        const { default: library } = await import("library-name");
         library.init();
     }
 };
 ```
 
 ### DOM Querying
+
 Scope DOM queries to specific containers when possible to avoid accidental collisions.
+
 ```javascript
 // Prefer querySelectorAll on specific parents over document-wide
-const container = document.querySelector('.glass-card');
-const buttons = container.querySelectorAll('.btn');
+const container = document.querySelector(".glass-card");
+const buttons = container.querySelectorAll(".btn");
 ```
 
 ---
@@ -147,6 +164,7 @@ const buttons = container.querySelectorAll('.btn');
 Mermaid diagrams are used to visually explain complex concepts (e.g., prototype chains, memory heap).
 
 ### Implementation Rules
+
 1. Wrap the diagram in `<div class="mermaid">`.
 2. Do **NOT** add script tags for Mermaid in the HTML file. `main.js` handles lazy-loading automatically.
 3. Use the established styling format to match the dark theme:
@@ -159,6 +177,7 @@ graph LR
 ```
 
 ### When NOT to use Mermaid:
+
 - If the diagram is a simple 2-box flow, standard HTML/CSS Flexbox is lighter and faster.
 
 ---
@@ -168,6 +187,7 @@ graph LR
 Vercel provides edge caching, but the frontend must remain lean.
 
 ### Performance Review Checklist
+
 - [ ] **Lighthouse Goal:** 95+ on Performance, Accessibility, and SEO.
 - [ ] **No Render-Blocking JS:** Heavy scripts (Mermaid) are strictly lazy-loaded.
 - [ ] **Image Optimization:** All images must be compressed (WebP preferred) and served from `public/`.
@@ -180,15 +200,23 @@ Vercel provides edge caching, but the frontend must remain lean.
 To ensure maximum discoverability, all pages must meet these standards.
 
 ### Required SEO Setup
+
 ```html
 <title>JS.CORE | Arrays</title>
-<meta name="description" content="Խորացված ուղեցույց JavaScript մասիվների (Arrays) վերաբերյալ։" />
+<meta
+    name="description"
+    content="Խորացված ուղեցույց JavaScript մասիվների (Arrays) վերաբերյալ։"
+/>
 <meta property="og:title" content="JS.CORE | Arrays" />
-<meta property="og:description" content="Խորացված ուղեցույց JavaScript մասիվների վերաբերյալ։" />
+<meta
+    property="og:description"
+    content="Խորացված ուղեցույց JavaScript մասիվների վերաբերյալ։"
+/>
 <meta property="og:type" content="article" />
 ```
 
 ### Hierarchy Rules
+
 - One `<h1>` per page (Page Title).
 - Sequentially ordered `<h2>` (Section Labels), `<h3>` (Subsections), and `<h4>` (Feature Headers).
 
@@ -200,12 +228,12 @@ Vercel acts as our CDN and routing engine.
 
 - **Clean URLs:** Handled automatically by `vercel.json` (`"cleanUrls": true`). A request to `/docs/array` serves `/docs/array.html`.
 - **Redirects:** Managed server-side. Never use client-side `<meta http-equiv="refresh">`.
-  ```json
-  // vercel.json
-  "redirects": [
-    { "source": "/", "destination": "/docs", "permanent": true }
-  ]
-  ```
+    ```json
+    // vercel.json
+    "redirects": [
+      { "source": "/", "destination": "/docs", "permanent": true }
+    ]
+    ```
 - **Caching:** Vite fingerprints assets in `dist/assets/`, allowing Vercel to cache them aggressively (immutable).
 
 ---
@@ -225,19 +253,19 @@ Before merging or deploying any changes, review against this checklist:
 ## 11. Anti-Patterns To Avoid
 
 ❌ **Inline Scripts/Styles:** `<script>console.log()</script>` or `<div style="color: red">`.
-*Why:* Defeats caching, violates Content Security Policies, and creates maintenance nightmares.
+_Why:_ Defeats caching, violates Content Security Policies, and creates maintenance nightmares.
 
 ❌ **Global CSS Pollution:** Using raw element selectors (`div { padding: 10px }`) outside of reset blocks.
-*Why:* Causes unpredictable side effects across other pages.
+_Why:_ Causes unpredictable side effects across other pages.
 
 ❌ **Synchronous Heavy Imports:** `import mermaid from 'mermaid'` at the top of a file.
-*Why:* Blocks page rendering and forces users to download 500kb of JS even if they don't view a diagram.
+_Why:_ Blocks page rendering and forces users to download 500kb of JS even if they don't view a diagram.
 
 ❌ **Client-Side Redirects:** `window.location.href = '/docs'`.
-*Why:* Terrible for SEO and creates a flash of unstyled content (FOUC). Rely on Vercel (`vercel.json`).
+_Why:_ Terrible for SEO and creates a flash of unstyled content (FOUC). Rely on Vercel (`vercel.json`).
 
 ❌ **Deeply Nested Relative Paths:** `../../../public/images/`.
-*Why:* Fragile. The flat `docs/` structure ensures `../` is always sufficient.
+_Why:_ Fragile. The flat `docs/` structure ensures `../` is always sufficient.
 
 ---
 

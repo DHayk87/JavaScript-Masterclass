@@ -3,14 +3,23 @@
  */
 import { t } from "../i18n/index.js";
 
-const CP_STAGE_KEYS = {
+declare global {
+    interface Window {
+        testInteraction?: () => void;
+        __jsCorePlaygroundReset?: () => void;
+        __jsCoreStage?: number;
+        selectStage?: (id: number) => void;
+    }
+}
+
+const CP_STAGE_KEYS: Record<number, string[]> = {
     1: ["stage1Title", "stage1Sub", "stage1Desc", "stage1Visual"],
     2: ["stage2Title", "stage2Sub", "stage2Desc", "stage2Visual"],
     3: ["stage3Title", "stage3Sub", "stage3Desc", "stage3Visual"],
     4: ["stage4Title", "stage4Sub", "stage4Desc", "stage4Visual"],
 };
 
-function buildCodeParsingStage(id) {
+function buildCodeParsingStage(id: number) {
     const keys = CP_STAGE_KEYS[id];
     if (!keys) return null;
     const [titleK, subK, descK, visK] = keys;
@@ -46,7 +55,7 @@ function initCorePlayground() {
     const output = document.getElementById("output");
     if (!btn || !output) return;
 
-    let successTimer = null;
+    let successTimer: any = null;
 
     const resetUi = () => {
         const b = document.getElementById("magicBtn");
@@ -84,7 +93,7 @@ function initCodeParsingVisualizer() {
 
     window.__jsCoreStage = window.__jsCoreStage ?? 1;
 
-    window.selectStage = (id) => {
+    window.selectStage = (id: number) => {
         window.__jsCoreStage = id;
         document.querySelectorAll(".stage-card").forEach((c) => c.classList.remove("active"));
         const card = document.getElementById(`card-${id}`);
@@ -100,7 +109,7 @@ function initCodeParsingVisualizer() {
 
         const iconEl = document.getElementById("det-icon");
         if (iconEl) {
-            const icons = { 1: "🔍", 2: "🌳", 3: "🔥", 4: "🚀" };
+            const icons: Record<number, string> = { 1: "🔍", 2: "🌳", 3: "🔥", 4: "🚀" };
             iconEl.textContent = icons[id] ?? "";
         }
         const titleEl = document.getElementById("det-title");
@@ -113,7 +122,7 @@ function initCodeParsingVisualizer() {
         if (visEl) visEl.innerHTML = stage.visual;
     };
 
-    window.selectStage(window.__jsCoreStage);
+    window.selectStage(window.__jsCoreStage ?? 1);
 }
 
 export function initInteractivePages() {
