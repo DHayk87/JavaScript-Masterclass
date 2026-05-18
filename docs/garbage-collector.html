@@ -29,7 +29,7 @@
             <a href="#leaks" class="nav-link" data-i18n="pages.garbageCollector.nav.leaks">Memory Leaks</a>
         </script>
     </head>
-    <body>
+    <body data-i18n-page="garbageCollector">
         <!-- LAYOUT_NAV -->
 
         <main class="main-content">
@@ -131,7 +131,7 @@
                     Stack vs Heap
                 </h2>
                 <div class="grid-2">
-                    <div>
+                    <div class="feature-box">
                         <h3
                             class="card-header-small js-yellow-text"
                             data-i18n="pages.garbageCollector.s02StackTitle"
@@ -140,7 +140,7 @@
                         </h3>
                         <p data-i18n="pages.garbageCollector.s02StackP"></p>
                     </div>
-                    <div>
+                    <div class="feature-box">
                         <h3
                             class="card-header-small js-yellow-text"
                             data-i18n="pages.garbageCollector.s02HeapTitle"
@@ -178,7 +178,7 @@
                 </h2>
                 <p data-i18n="pages.garbageCollector.s04P"></p>
                 <div class="grid-2">
-                    <div>
+                    <div class="feature-box">
                         <h3
                             class="card-header-small js-yellow-text"
                             data-i18n="pages.garbageCollector.s04MarkTitle"
@@ -187,7 +187,7 @@
                         </h3>
                         <p data-i18n="pages.garbageCollector.s04MarkP"></p>
                     </div>
-                    <div>
+                    <div class="feature-box">
                         <h3
                             class="card-header-small js-yellow-text"
                             data-i18n="pages.garbageCollector.s04SweepTitle"
@@ -209,7 +209,7 @@
                 </h2>
                 <p data-i18n="pages.garbageCollector.s05P1"></p>
                 <div class="grid-2">
-                    <div>
+                    <div class="feature-box">
                         <h3
                             class="card-header-small js-yellow-text"
                             data-i18n="pages.garbageCollector.s05YoungTitle"
@@ -218,7 +218,7 @@
                         </h3>
                         <p data-i18n="pages.garbageCollector.s05YoungP"></p>
                     </div>
-                    <div>
+                    <div class="feature-box">
                         <h3
                             class="card-header-small js-yellow-text"
                             data-i18n="pages.garbageCollector.s05OldTitle"
@@ -276,6 +276,23 @@
                 </h3>
                 <p data-i18n-html="pages.garbageCollector.proTipP"></p>
                 <p data-i18n-html="pages.garbageCollector.proTipP2"></p>
+            </div>
+
+            <div class="module-nav">
+                <a href="event-loop" class="prev nav-arrow">
+                    <span class="arrow-icon">←</span>
+                    <div class="arrow-text">
+                        <span class="arrow-label" data-i18n="lessonNav.prev">Նախորդը</span>
+                        <span class="arrow-title" data-i18n="pages.garbageCollector.prevTopic">Event Loop</span>
+                    </div>
+                </a>
+                <a href="./" class="nav-arrow next">
+                    <span class="arrow-icon">🎉</span>
+                    <div class="arrow-text" style="text-align: right">
+                        <span class="arrow-label" data-i18n="lessonNav.finish">Ավարտել</span>
+                        <span class="arrow-title" data-i18n="pages.garbageCollector.nextTopic">Գլխավոր էջ</span>
+                    </div>
+                </a>
             </div>
         </main>
 
