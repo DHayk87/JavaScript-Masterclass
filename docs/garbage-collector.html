@@ -3,10 +3,12 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title data-i18n-title="pages.array.docTitle">JS.CORE | Garbage Collector</title>
+        <title data-i18n-title="pages.garbageCollector.docTitle">
+            JS.CORE | Garbage Collector
+        </title>
         <meta
             name="description"
-            data-i18n-desc="pages.array.metaDescription"
+            data-i18n-desc="pages.garbageCollector.metaDescription"
             content="Ինչպե՞ս է աշխատում JavaScript-ի հիշողության կառավարումը։"
         />
 
@@ -101,448 +103,179 @@
                             class="text-dimmed small-text"
                             data-i18n="pages.garbageCollector.glHeapP"
                         >
-                            Օբյեկտներ, զանգվածներ և ֆունկցիաներ: Այստեղ տվյալները դինամիկ
-                            են։
+                            Օբյեկտներ, զանգվածներ և ֆունկցիաներ: Այստեղ տվյալները դինամիկ են և
+                            զբաղեցնում են հիմնական հիշողությունը։
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Section 01: Stack and Heap -->
-            <section id="stack-heap" class="section-container">
-                <div class="section-label">
-                    <span class="section-num">01</span>
-                    <h2 class="section-title" data-i18n="pages.garbageCollector.s01Title">
-                        Memory Management in JS
-                    </h2>
-                </div>
+            <!-- Section 01 -->
+            <div class="glass-card" id="intro">
+                <h2
+                    class="card-header-medium"
+                    data-i18n="pages.garbageCollector.s01Title"
+                >
+                    Memory Management in JS
+                </h2>
+                <p data-i18n="pages.garbageCollector.s01P1"></p>
+                <p data-i18n="pages.garbageCollector.s01P2"></p>
+            </div>
 
-                <div class="glass-card">
-                    <p
-                        class="text-body-large"
-                        data-i18n-html="pages.garbageCollector.s01P1"
-                    >
-                        Ի տարբերություն ցածր մակարդակի լեզուների (ինչպիսին է C-ն), JS-ն
-                        ունի <b>ավտոմատ հիշողության կառավարում</b>։
-                    </p>
-                    <p
-                        class="text-dimmed"
-                        style="font-size: 0.85rem; margin-bottom: 0.8rem"
-                        data-i18n="pages.garbageCollector.s01P2"
-                    >
-                        Garbage Collector-ը (GC) անտեսանելի գործընթաց է, որը պարբերաբար
-                        ստուգում է հիշողությունը և հեռացնում այն ամենը, ինչն այլևս
-                        «հասանելի» չէ ծրագրին։
-                    </p>
-
-                    <div class="feature-box">
+            <!-- Section 02: Stack vs Heap -->
+            <div class="glass-card" id="stack-heap">
+                <h2
+                    class="card-header-medium"
+                    data-i18n="pages.garbageCollector.s02Title"
+                >
+                    Stack vs Heap
+                </h2>
+                <div class="grid-2">
+                    <div>
                         <h3
-                            class="card-header-small"
-                            data-i18n="pages.garbageCollector.s02Title"
+                            class="card-header-small js-yellow-text"
+                            data-i18n="pages.garbageCollector.s02StackTitle"
                         >
-                            Stack vs Heap
+                            Stack
                         </h3>
-                        <div class="grid-2">
-                            <div class="feature-box">
-                                <h4
-                                    class="card-header-small"
-                                    data-i18n="pages.garbageCollector.s02StackTitle"
-                                >
-                                    Stack (Ստեկ)
-                                </h4>
-                                <p data-i18n="pages.garbageCollector.s02StackP">
-                                    Պահպանում է Value Types (number, string, boolean) և
-                                    ֆունկցիաների կանչերը։ Աշխատում է շատ արագ, քանի որ
-                                    ունի ֆիքսված կառուցվածք (LIFO)։
-                                </p>
-                            </div>
-
-                            <div class="feature-box">
-                                <h4
-                                    class="card-header-small"
-                                    data-i18n="pages.garbageCollector.s02HeapTitle"
-                                >
-                                    Heap (Դիզակ)
-                                </h4>
-                                <p data-i18n="pages.garbageCollector.s02HeapP">
-                                    Պահպանում է Reference Types (objects, arrays)։ Այստեղ
-                                    տվյալների չափը կանխատեսելի չէ, ուստի կառավարումը
-                                    պահանջում է ավելի շատ ռեսուրսներ։
-                                </p>
-                            </div>
-                        </div>
+                        <p data-i18n="pages.garbageCollector.s02StackP"></p>
                     </div>
-
-                    <!-- Mermaid Stack and Heap Structure -->
-                    <!-- prettier-ignore -->
-                    <div class="mermaid">
-                        flowchart LR
-                            subgraph Stack ["Stack Memory"]
-                                direction TB
-                                s1["message = 'Hello'"]
-                                s2["count = 10"]
-                                s3["user -> 0x001"]
-                                s4["items -> 0x002"]
-                            end
-
-                            subgraph Heap ["Heap Memory"]
-                                direction TB
-                                h1["0x001<br>{<br>name: 'John',<br>age: 30<br>}"]
-                                h2["0x002<br>[<br>'JS',<br>'HTML',<br>'CSS'<br>]"]
-                            end
-
-                            s3 <--> h1
-                            s4 <--> h2
-
-                            %% Անիմացիան և ոճերը
-                            linkStyle 0,1 stroke:#4caf50,stroke-width:2px,stroke-dasharray: 5,animation: flow 2s linear infinite;
-
-                            style Stack fill:#1e1e1e,stroke:#4caf50,stroke-width:2px,color:#ffffff
-                            style Heap fill:#1e1e1e,stroke:#2196f3,stroke-width:2px,color:#ffffff
-
-                            style s1 fill:#2d2d2d,stroke:#777,color:#fff
-                            style s2 fill:#2d2d2d,stroke:#777,color:#fff
-                            style s3 fill:#2d2d2d,stroke:#777,color:#fff
-                            style s4 fill:#2d2d2d,stroke:#777,color:#fff
-
-                            style h1 fill:#2d2d2d,stroke:#777,color:#fff
-                            style h2 fill:#2d2d2d,stroke:#777,color:#fff
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 02: Reachability (Հասանելիություն) -->
-            <section id="roots" class="section-container">
-                <div class="section-label">
-                    <span class="section-num">02</span>
-                    <h2 class="section-title" data-i18n="pages.garbageCollector.s03Title">
-                        Reachability (Հասանելիություն)
-                    </h2>
-                </div>
-
-                <div class="glass-card">
-                    <p class="text-body-large" data-i18n="pages.garbageCollector.s03P1">
-                        GC-ի հիմնական սկզբունքը հասանելիությունն է։ Տվյալները մնում են
-                        հիշողության մեջ, եթե դրանք կարելի է գտնել՝ սկսելով Roots-ից։
-                    </p>
-                    <div class="grid-1">
-                        <div class="feature-box">
-                            <ul class="text-body-small">
-                                <li data-i18n="pages.garbageCollector.s03Li1">
-                                    Գլոբալ օբյեկտներ (<code>window</code> կամ
-                                    <code>global</code>)
-                                </li>
-                                <li data-i18n="pages.garbageCollector.s03Li2">
-                                    Կանչերի ստեկում գտնվող լոկալ փոփոխականներ
-                                </li>
-                                <li data-i18n="pages.garbageCollector.s03Li3">
-                                    Ակտիվ Closure-ների մեջ պահվող փոփոխականներ
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 03: Mark-and-Sweep Algorithm -->
-            <section id="mark-and-sweep" class="section-container">
-                <div class="section-label">
-                    <span class="section-num">03</span>
-                    <h2 class="section-title" data-i18n="pages.garbageCollector.s04Title">
-                        Mark-and-Sweep Algorithm
-                    </h2>
-                </div>
-
-                <div class="glass-card">
-                    <p class="text-body-large" data-i18n="pages.garbageCollector.s04P">
-                        Սա ժամանակակից JS շարժիչների (V8, SpiderMonkey) հիմնական ալգորիթմն
-                        է։
-                    </p>
-                    <div class="grid-2">
-                        <div class="feature-box">
-                            <h4
-                                class="card-header-small"
-                                data-i18n="pages.garbageCollector.s04MarkTitle"
-                            >
-                                1. Mark (Նշել)
-                            </h4>
-                            <p
-                                class="text-body-small"
-                                data-i18n-html="pages.garbageCollector.s04MarkP"
-                            >
-                                Գլոբալ աղբյուրներից (roots) սկսելով՝ GC-ն «ներկում» է
-                                բոլոր հասանելի օբյեկտներին: Եթե մի օբյեկտ հասանելի չէ,
-                                նշիչը չի դնի։
-                            </p>
-                        </div>
-                        <div class="feature-box">
-                            <h4
-                                class="card-header-small"
-                                data-i18n="pages.garbageCollector.s04SweepTitle"
-                            >
-                                2. Sweep (Մաքրել)
-                            </h4>
-                            <p
-                                class="text-body-small"
-                                data-i18n-html="pages.garbageCollector.s04SweepP"
-                            >
-                                Բոլոր այն օբյեկտները, որոնք մնացել են նշված, համարվում են
-                                հասանելի և չեն ջնջվի։
-                            </p>
-                        </div>
-                    </div>
-                    <!-- prettier-ignore -->
-                    <div class="mermaid">    
-                         graph TD
-                            subgraph Roots["Global Roots / Call Stack"]
-                                direction TB
-
-                                R1((window / global))
-                                R2((Call Stack))
-                            end
-
-                            subgraph Heap["Heap Memory"]
-                                direction TB
-
-                                O1["Object A"]
-                                O2["Object B"]
-                                O3["Object C"]
-
-                                O4["Object D"]
-                                O5["Object E"]
-                            end
-
-                            %% Reachable references
-                            R1 e1@--> O1
-                            O1 e2@--> O2
-                            R2 e3@--> O3
-
-                            %% Unreachable objects
-                            O4 --- O5
-
-                            e1@{"animate":true}
-                            e2@{"animate":true}
-                            e3@{"animate":true}
-
-                            %% Reachable objects (Mark)
-                            style O1 fill:#2ecc71,stroke:#000,color:#fff,stroke-width:2px
-                            style O2 fill:#2ecc71,stroke:#000,color:#fff,stroke-width:2px
-                            style O3 fill:#2ecc71,stroke:#000,color:#fff,stroke-width:2px
-
-                            %% Garbage objects (Sweep)
-                            style O4 fill:#e74c3c,stroke:#c0392b,color:#fff,stroke-width:2px,stroke-dasharray: 5 5
-                            style O5 fill:#e74c3c,stroke:#c0392b,color:#fff,stroke-width:2px,stroke-dasharray: 5 5
-
-                            %% Root styling
-                            style R1 fill:#3498db,stroke:#000,color:#fff
-                            style R2 fill:#3498db,stroke:#000,color:#fff
-
-                            %% Containers
-                            style Roots fill:#1e1e1e,stroke:#3498db,color:#fff
-                            style Heap fill:#1e1e1e,stroke:#2ecc71,color:#fff
-                     </div>
-
-                    <div class="code-block">
-                        <div class="code-content">
-                            <code class="hl-var">let</code> A = { name:
-                            <code class="hl-str">"A"</code> };
-                            <br />
-                            <code class="hl-var">let</code> B = { name:
-                            <code class="hl-str">"B"</code> };
-                            <br />
-                            <code class="hl-var">let</code> C = { name:
-                            <code class="hl-str">"C"</code> };
-                            <br />
-                            <br />
-                            <code class="hl-var">let</code> D = { name:
-                            <code class="hl-str">"D"</code> };
-                            <br />
-                            <code class="hl-var">let</code> E = { name:
-                            <code class="hl-str">"E"</code> };
-
-                            <br /><br />
-                            <code class="hl-cm">// references</code>
-                            <br />
-                            A.<code class="hl-type">next</code> = B;
-                            <code class="hl-cm">// A → B (reachable chain)</code>
-                            <br />
-                            window.<code class="hl-type">rootA</code> = A;
-                            <code class="hl-cm">// Root → A </code>
-                            <br />
-                            <code class="hl-var">let</code> stackRef = C;
-                            <code class="hl-cm">// Call Stack reference → C</code>
-                            <br /><br />
-                            <code class="hl-cm"
-                                >// D and E are not connected to Roots</code
-                            >
-                            <br />
-                            D.<code class="hl-type">link</code> = E;
-                            <code class="hl-cm">
-                                // only between each other, but not from Roots
-                            </code>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 04- Generational Garbage Collection -->
-            <section id="generational" class="section-container">
-                <div class="section-label">
-                    <span class="section-num">04</span>
-                    <h2 class="section-title" data-i18n="pages.garbageCollector.s05Title">
-                        Generational Garbage Collection
-                    </h2>
-                </div>
-                <div class="glass-card">
-                    <p
-                        class="text-body-small"
-                        data-i18n-html="pages.garbageCollector.s05P1"
-                    >
-                        Ժամանակակից GC-ները (հատկապես V8) օգտագործում են սերունդային
-                        մոտեցում, քանի որ օբյեկտների մեծ մասը «մահանում է երիտասարդ»։
-                    </p>
-                    <div class="grid-2">
-                        <div class="feature-box">
-                            <h3
-                                class="card-header-small"
-                                data-i18n-html="pages.garbageCollector.s05YoungTitle"
-                            >
-                                Young Generation
-                            </h3>
-                            <p
-                                class="text-body-small"
-                                data-i18n-html="pages.garbageCollector.s05YoungP"
-                            >
-                                Այստեղ են ստեղծվում նոր օբյեկտների մեծ մասը։ GC-ն աշխատում
-                                է շատ հաճախ և արագ (Minor GC / Scavenger)։
-                            </p>
-                        </div>
-                        <div class="feature-box">
-                            <h3
-                                class="card-header-small"
-                                data-i18n-html="pages.garbageCollector.s05OldTitle"
-                            >
-                                Old Generation
-                            </h3>
-                            <p
-                                class="text-body-small"
-                                data-i18n-html="pages.garbageCollector.s05OldP"
-                            >
-                                Օբյեկտները, որոնք գոյատևել են մի քանի Minor GC,
-                                տեղափոխվում են այստեղ։ Մաքրումը տեղի է ունենում ավելի
-                                հազվադեպ (Major GC)։
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 05- Common Memory Leaks -->
-            <section id="leaks" class="section-container">
-                <div class="section-label">
-                    <span class="section-num">05</span>
-                    <h2 class="section-title" data-i18n="pages.garbageCollector.s06Title">
-                        Common Memory Leaks
-                    </h2>
-                </div>
-                <div class="glass-card">
-                    <p
-                        class="text-body-small"
-                        data-i18n-html="pages.garbageCollector.s06P1"
-                    >
-                        Չնայած ավտոմատ հիշողության կառավարմանը, JS-ում հնարավոր է
-                        «հիշողության արտահոսք» (memory leak)։
-                    </p>
-                    <p data-i18n-html="pages.garbageCollector.s06P2">
-                        Հիշողության արտահոսք տեղի է ունենում, երբ մենք պատահաբար պահում
-                        ենք հղումներ այն օբյեկտների վրա, որոնք մեզ այլևս պետք չեն։
-                    </p>
-                    <ul class="text-list">
-                        <li data-i18n-html="pages.garbageCollector.s06Li1">
-                            <b>Global Variables:</b> Պատահական ստեղծված գլոբալ
-                            փոփոխականները երբեք չեն ջնջվում։
-                        </li>
-                        <li data-i18n-html="pages.garbageCollector.s06Li2">
-                            <b>Forgotten Timers:</b> Չդադարեցված
-                            <code>setInterval</code>-ները շարունակում են պահել հղումներ։
-                        </li>
-                        <li data-i18n-html="pages.garbageCollector.s06Li3">
-                            <b>Detached DOM nodes:</b> HTML-ից հեռացված էլեմենտները մնում
-                            են հիշողության մեջ, եթե JS-ում հղում կա։
-                        </li>
-                        <li data-i18n-html="pages.garbageCollector.s06Li4">
-                            <b>Uncleared Event Listeners:</b>
-                            <code>addEventListener</code> առանց
-                            <code>removeEventListener</code>-ի։
-                        </li>
-                        <li data-i18n-html="pages.garbageCollector.s06Li5">
-                            <b>Closure-based Leaks:</b> Ներքին ֆունկցիաները կարող են պահել
-                            արտաքին ֆունկցիաների փոփոխականների հղումները, նույնիսկ այն
-                            բանից հետո, երբ արտաքին ֆունկցիան ավարտվել է։
-                        </li>
-                    </ul>
-                    <div class="feature-box">
-                        <h2
-                            class="card-header-small"
-                            data-i18n="pages.garbageCollector.s07Title"
+                    <div>
+                        <h3
+                            class="card-header-small js-yellow-text"
+                            data-i18n="pages.garbageCollector.s02HeapTitle"
                         >
-                            Ինչպե՞ս գտնել Memory Leaks
-                        </h2>
-
-                        <p data-i18n="pages.garbageCollector.s07P">
-                            Chrome DevTools-ը լավագույն գործիքն է այս խնդիրը լուծելու
-                            համար։
-                        </p>
-                        <p data-i18n="pages.garbageCollector.s07Tools"></p>
+                            Heap
+                        </h3>
+                        <p data-i18n="pages.garbageCollector.s02HeapP"></p>
                     </div>
                 </div>
+            </div>
 
-                <div class="pro-tip pro-tip-blue">
-                    <h2
-                        data-i18n="pages.garbageCollector.proTipTitle"
-                        class="text-body-small"
-                    >
-                        💡Pro Tip Masterclass-ի համար
-                    </h2>
-                    <p data-i18n="pages.garbageCollector.proTipP" class="text-body-small">
-                        Օգտագործեք <code>WeakMap</code> և <code>WeakSet</code>, որպեսզի
-                        պահեք օբյեկտներ առանց խանգարելու GC-ին։
-                    </p>
-                    <p data-i18n="pages.garbageCollector.proTipP2">
-                        Պրոֆեսիոնալ մակարդակում կարող եք օգտագործել նաև
-                        <code>WeakRef</code> և <code>FinalizationRegistry</code> (բայց
-                        զգույշ)։
-                    </p>
+            <!-- Section 03: Reachability -->
+            <div class="glass-card" id="roots">
+                <h2
+                    class="card-header-medium"
+                    data-i18n="pages.garbageCollector.s03Title"
+                >
+                    Reachability
+                </h2>
+                <p data-i18n="pages.garbageCollector.s03P1"></p>
+                <ul>
+                    <li data-i18n="pages.garbageCollector.s03Li1"></li>
+                    <li data-i18n="pages.garbageCollector.s03Li2"></li>
+                    <li data-i18n="pages.garbageCollector.s03Li3"></li>
+                </ul>
+            </div>
+
+            <!-- Section 04: Mark-and-Sweep -->
+            <div class="glass-card" id="mark-and-sweep">
+                <h2
+                    class="card-header-medium"
+                    data-i18n="pages.garbageCollector.s04Title"
+                >
+                    Mark-and-Sweep Algorithm
+                </h2>
+                <p data-i18n="pages.garbageCollector.s04P"></p>
+                <div class="grid-2">
+                    <div>
+                        <h3
+                            class="card-header-small js-yellow-text"
+                            data-i18n="pages.garbageCollector.s04MarkTitle"
+                        >
+                            1. Mark
+                        </h3>
+                        <p data-i18n="pages.garbageCollector.s04MarkP"></p>
+                    </div>
+                    <div>
+                        <h3
+                            class="card-header-small js-yellow-text"
+                            data-i18n="pages.garbageCollector.s04SweepTitle"
+                        >
+                            2. Sweep
+                        </h3>
+                        <p data-i18n="pages.garbageCollector.s04SweepP"></p>
+                    </div>
                 </div>
-            </section>
+            </div>
 
-            <div class="module-nav">
-                <a href="event-loop" class="nav-arrow prev">
-                    <span class="arrow-icon">←</span>
-                    <div class="arrow-text">
-                        <span class="arrow-label" data-i18n="lessonNav.prev"
-                            >Նախորդը</span
+            <!-- Section 05: Generational GC -->
+            <div class="glass-card" id="generational">
+                <h2
+                    class="card-header-medium"
+                    data-i18n="pages.garbageCollector.s05Title"
+                >
+                    Generational Garbage Collection
+                </h2>
+                <p data-i18n="pages.garbageCollector.s05P1"></p>
+                <div class="grid-2">
+                    <div>
+                        <h3
+                            class="card-header-small js-yellow-text"
+                            data-i18n="pages.garbageCollector.s05YoungTitle"
                         >
-                        <span
-                            class="arrow-title"
-                            data-i18n="pages.garbageCollector.prevTopic"
-                            >Event Loop</span
-                        >
+                            Young Generation
+                        </h3>
+                        <p data-i18n="pages.garbageCollector.s05YoungP"></p>
                     </div>
-                </a>
-                <a href="./" class="nav-arrow next">
-                    <span class="arrow-icon">→</span>
-                    <div class="arrow-text">
-                        <span class="arrow-label" data-i18n="lessonNav.next"
-                            >Հաջորդը</span
+                    <div>
+                        <h3
+                            class="card-header-small js-yellow-text"
+                            data-i18n="pages.garbageCollector.s05OldTitle"
                         >
-                        <span
-                            class="arrow-title"
-                            data-i18n="pages.garbageCollector.nextTopic"
-                            >Home</span
-                        >
+                            Old Generation
+                        </h3>
+                        <p data-i18n="pages.garbageCollector.s05OldP"></p>
                     </div>
-                </a>
+                </div>
+            </div>
+
+            <!-- Section 06: Memory Leaks -->
+            <div class="glass-card" id="leaks">
+                <h2
+                    class="card-header-medium"
+                    data-i18n="pages.garbageCollector.s06Title"
+                >
+                    Common Memory Leaks
+                </h2>
+                <p data-i18n="pages.garbageCollector.s06P1"></p>
+                <p data-i18n="pages.garbageCollector.s06P2"></p>
+                <ul>
+                    <li data-i18n-html="pages.garbageCollector.s06Li1"></li>
+                    <li data-i18n-html="pages.garbageCollector.s06Li2"></li>
+                    <li data-i18n-html="pages.garbageCollector.s06Li3"></li>
+                    <li data-i18n-html="pages.garbageCollector.s06Li4"></li>
+                    <li data-i18n-html="pages.garbageCollector.s06Li5"></li>
+                </ul>
+            </div>
+
+            <!-- Section 07: Finding Leaks -->
+            <div class="glass-card" id="finding-leaks">
+                <h2
+                    class="card-header-medium"
+                    data-i18n="pages.garbageCollector.s07Title"
+                >
+                    How to Find Memory Leaks
+                </h2>
+                <p data-i18n="pages.garbageCollector.s07P"></p>
+                <ul>
+                    <li data-i18n-html="pages.garbageCollector.s07Tools.0"></li>
+                    <li data-i18n-html="pages.garbageCollector.s07Tools.1"></li>
+                    <li data-i18n-html="pages.garbageCollector.s07Tools.2"></li>
+                    <li data-i18n-html="pages.garbageCollector.s07Tools.3"></li>
+                </ul>
+            </div>
+
+            <!-- Pro Tip -->
+            <div class="glass-card pro-tip-card">
+                <h3
+                    class="card-header-small js-yellow-text"
+                    data-i18n="pages.garbageCollector.proTipTitle"
+                >
+                    Pro Tip
+                </h3>
+                <p data-i18n-html="pages.garbageCollector.proTipP"></p>
+                <p data-i18n-html="pages.garbageCollector.proTipP2"></p>
             </div>
         </main>
 
