@@ -53,7 +53,7 @@ export default {
         s03LenTip:
             "💡 <b>Pro Tip:</b> Եթե ձեռքով փոքրացնեք <code>length</code>-ը, մասիվը կկրճատվի (տվյալները կջնջվեն անվերադարձ):",
         prevTopic: "Objects",
-        nextTopic: "Prototypes & ES5",
+        nextTopic: "Մասիվների մեթոդներ",
     },
     en: {
         docTitle: "JS.CORE | Arrays",
@@ -108,7 +108,7 @@ export default {
         s03LenTip:
             "💡 <b>Tip:</b> shrinking <code>length</code> truncates elements irreversibly.",
         prevTopic: "Objects",
-        nextTopic: "Prototypes (ES5)",
+        nextTopic: "Array Methods",
     },
     ru: {
         docTitle: "JS.CORE | Массивы",
@@ -163,6 +163,6 @@ export default {
         s03LenTip:
             "💡 <b>Совет:</b> уменьшение <code>length</code> безвозвратно обрезает элементы.",
         prevTopic: "Объекты",
-        nextTopic: "Прототипы (ES5)",
+        nextTopic: "Методы массивов",
     },
 };

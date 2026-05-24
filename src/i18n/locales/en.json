@@ -64,36 +64,41 @@
         },
         "m09": {
             "badge": "Module 09",
-            "title": "Prototypes",
-            "desc": "Prototype inheritance and ES5 OOP basics."
+            "title": "Array Methods",
+            "desc": "Mutating and non-mutating array methods (visualizer)."
         },
         "m10": {
             "badge": "Module 10",
-            "title": "ES6 Classes",
-            "desc": "Modern OOP in JavaScript and class syntax."
+            "title": "Prototypes",
+            "desc": "Prototype inheritance and ES5 OOP basics."
         },
         "m11": {
             "badge": "Module 11",
-            "title": "Closures",
-            "desc": "Variable scope, lexical environment, and closures."
+            "title": "ES6 Classes",
+            "desc": "Modern OOP in JavaScript and class syntax."
         },
         "m12": {
             "badge": "Module 12",
-            "title": "Promises",
-            "desc": "Async control flow, promise states, and chaining."
+            "title": "Closures",
+            "desc": "Variable scope, lexical environment, and closures."
         },
         "m13": {
             "badge": "Module 13",
-            "title": "Async / Await",
-            "desc": "Evolution of async code and practical usage."
+            "title": "Promises",
+            "desc": "Async control flow, promise states, and chaining."
         },
         "m14": {
             "badge": "Module 14",
-            "title": "Event Loop",
-            "desc": "Macrotasks, microtasks, and async execution order."
+            "title": "Async / Await",
+            "desc": "Evolution of async code and practical usage."
         },
         "m15": {
             "badge": "Module 15",
+            "title": "Event Loop",
+            "desc": "Macrotasks, microtasks, and async execution order."
+        },
+        "m16": {
+            "badge": "Module 16",
             "title": "Garbage Collector",
             "desc": "How JavaScript manages memory."
         }

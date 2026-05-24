@@ -56,7 +56,7 @@ export default {
         tip2Title: "Performance & Native",
         tip2P:
             "Բոլոր ներկառուցված օբյեկտները ունեն իրենց նախատիպերը։ Օգտագործեք <code>obj.hasOwnProperty(key)</code> միայն սեփական հատկությունների համար։",
-        prevTopic: "Arrays",
+        prevTopic: "Մասիվների մեթոդներ",
         nextTopic: "ES6 Classes",
     },
     en: {
@@ -113,7 +113,7 @@ export default {
         tip2Title: "Performance & built-ins",
         tip2P:
             "Built-ins like Array and Date have their own prototypes. Use <code>Object.hasOwn(obj, key)</code> (modern) or <code>obj.hasOwnProperty</code> carefully for own keys.",
-        prevTopic: "Arrays",
+        prevTopic: "Array Methods",
         nextTopic: "ES6 classes",
     },
     ru: {
@@ -170,7 +170,7 @@ export default {
         tip2Title: "Производительность и встроенные типы",
         tip2P:
             "У Array, Date и др. свои прототипы. Для «своих» ключей используйте <code>Object.hasOwn</code> (современно) или аккуратно <code>hasOwnProperty</code>.",
-        prevTopic: "Массивы",
+        prevTopic: "Методы массивов",
         nextTopic: "Классы ES6",
     },
 };

@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="hy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title data-i18n-title="pages.arrayMethods.docTitle">
+            JS.CORE | Մասիվների մեթոդներ
+        </title>
+        <meta
+            name="description"
+            data-i18n-desc="pages.arrayMethods.metaDescription"
+            content="JavaScript մասիվների մեթոդների ինտերակտիվ վիզուալիզատոր (push, pop, shift, unshift, slice, splice):"
+        />
+
+        <link
+            rel="shortcut icon"
+            href="../public/images/programmer.png"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="../src/styles/style.css" />
+        <script type="module" src="../src/scripts/main.ts"></script>
+
+        <script type="layout-slot" id="nav-links">
+            <a href="#visualizer" class="nav-link" data-i18n="pages.arrayMethods.nav.visualizer">Վիզուալիզատոր</a>
+            <a href="#complexity" class="nav-link" data-i18n="pages.arrayMethods.nav.complexity">Բարդություն</a>
+        </script>
+    </head>
+    <body data-i18n-page="arrayMethods">
+        <!-- LAYOUT_NAV -->
+
+        <main class="main-content">
+            <header>
+                <h1 class="title-large gradient-text" data-i18n="pages.arrayMethods.h1">
+                    Մասիվների մեթոդներ
+                </h1>
+                <p class="subtitle" data-i18n="pages.arrayMethods.subtitle">
+                    "Մասիվների մանիպուլյացիան JavaScript-ի հիմնաքարերից է:"
+                </p>
+            </header>
+
+            <!-- Glossary -->
+            <div class="glass-card glossary-card">
+                <table class="glossary-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="pages.arrayMethods.glMethod">Method</th>
+                            <th data-i18n="pages.arrayMethods.glDesc">Description</th>
+                            <th data-i18n="pages.arrayMethods.glReturn">Return Value</th>
+                            <th data-i18n="pages.arrayMethods.glMutates">Mutates?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>push()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descPush">
+                                Ավելացնում է տարր վերջից
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retPush">Նոր length-ը</td>
+                            <td
+                                style="color: #ffc500"
+                                data-i18n="pages.arrayMethods.mutYes"
+                            >
+                                Yes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>pop()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descPop">
+                                Հեռացնում է վերջին տարրը
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retPop">Հեռացված տարրը</td>
+                            <td
+                                style="color: #ffc500"
+                                data-i18n="pages.arrayMethods.mutYes"
+                            >
+                                Yes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>shift()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descShift">
+                                Հեռացնում է առաջին տարրը
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retShift">
+                                Հեռացված տարրը
+                            </td>
+                            <td
+                                style="color: #ffc500"
+                                data-i18n="pages.arrayMethods.mutYes"
+                            >
+                                Yes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>unshift()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descUnshift">
+                                Ավելացնում է տարր սկզբից
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retUnshift">
+                                Նոր length-ը
+                            </td>
+                            <td
+                                style="color: #ffc500"
+                                data-i18n="pages.arrayMethods.mutYes"
+                            >
+                                Yes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>slice()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descSlice">
+                                Կտրում է մասիվի մի մասը
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retSlice">
+                                Նոր պատճենված մասիվը
+                            </td>
+                            <td
+                                style="color: #98c379"
+                                data-i18n="pages.arrayMethods.mutNo"
+                            >
+                                No
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>splice()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descSplice">
+                                Ավելացնում/հեռացնում է տարրեր ցանկացած դիրքից
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retSplice">
+                                Հեռացված տարրերի մասիվը
+                            </td>
+                            <td
+                                style="color: #ffc500"
+                                data-i18n="pages.arrayMethods.mutYes"
+                            >
+                                Yes
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section 01: Visualizer Playground -->
+            <section id="visualizer" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">01</span>
+                    <h2
+                        class="section-title"
+                        data-i18n="pages.arrayMethods.visualizerTitle"
+                    >
+                        Մեթոդների Վիզուալիզատոր
+                    </h2>
+                </div>
+
+                <div class="glass-card">
+                    <h3
+                        class="card-header-small"
+                        data-i18n="pages.arrayMethods.arrayHeading"
+                    >
+                        Մասիվի վիճակը
+                    </h3>
+                    <!-- Visualizer Array Row -->
+                    <div class="array-line" id="arrayVisualContainer">
+                        <span class="bracket">[</span>
+                        <!-- element-wrappers go here dynamically -->
+                        <span class="bracket">]</span>
+                    </div>
+
+                    <!-- Slice subarray line container (hidden by default unless slice was just called) -->
+                    <div
+                        class="array-line hidden"
+                        id="sliceVisualContainer"
+                        style="
+                            margin-top: -10px;
+                            min-height: 140px;
+                            border: 1px dashed rgba(97, 175, 239, 0.3);
+                        "
+                    >
+                        <span class="bracket" style="color: #61afef; font-size: 56px"
+                            >[</span
+                        >
+                        <!-- slice elements go here dynamically -->
+                        <span class="bracket" style="color: #61afef; font-size: 56px"
+                            >]</span
+                        >
+                    </div>
+
+                    <h3
+                        class="card-header-small"
+                        data-i18n="pages.arrayMethods.controlsHeading"
+                    >
+                        Գործողություններ
+                    </h3>
+                    <div class="visualizer-controls">
+                        <!-- Push/Pop -->
+                        <div class="control-group">
+                            <h4>push / pop</h4>
+                            <div class="control-input-row">
+                                <input
+                                    type="text"
+                                    class="input-val text-input"
+                                    id="pushInput"
+                                    value="🥑"
+                                    placeholder="🥑"
+                                />
+                                <button type="button" class="btn-ctrl" id="btnPush">
+                                    .push()
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn-ctrl btn-danger-light"
+                                    id="btnPop"
+                                >
+                                    .pop()
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Unshift/Shift -->
+                        <div class="control-group">
+                            <h4>unshift / shift</h4>
+                            <div class="control-input-row">
+                                <input
+                                    type="text"
+                                    class="input-val text-input"
+                                    id="unshiftInput"
+                                    value="🥥"
+                                    placeholder="🥥"
+                                />
+                                <button type="button" class="btn-ctrl" id="btnUnshift">
+                                    .unshift()
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn-ctrl btn-danger-light"
+                                    id="btnShift"
+                                >
+                                    .shift()
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Slice -->
+                        <div class="control-group">
+                            <h4>slice(start, end)</h4>
+                            <div class="control-input-row">
+                                <input
+                                    type="number"
+                                    class="input-val"
+                                    id="sliceStart"
+                                    value="1"
+                                    min="-10"
+                                    max="10"
+                                />
+                                <input
+                                    type="number"
+                                    class="input-val"
+                                    id="sliceEnd"
+                                    value="3"
+                                    min="-10"
+                                    max="10"
+                                />
+                                <button
+                                    type="button"
+                                    class="btn-ctrl btn-info-light"
+                                    id="btnSlice"
+                                >
+                                    .slice()
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Splice -->
+                        <div class="control-group">
+                            <h4>splice(start, deleteCount, ...insert)</h4>
+                            <div class="control-input-row" style="flex-wrap: wrap">
+                                <input
+                                    type="number"
+                                    class="input-val"
+                                    id="spliceStart"
+                                    value="1"
+                                    min="-10"
+                                    max="10"
+                                    style="width: 45px"
+                                />
+                                <input
+                                    type="number"
+                                    class="input-val"
+                                    id="spliceDelete"
+                                    value="1"
+                                    min="0"
+                                    max="10"
+                                    style="width: 45px"
+                                />
+                                <input
+                                    type="text"
+                                    class="input-val text-input"
+                                    id="spliceInsert"
+                                    value="🍇"
+                                    placeholder="Insert"
+                                    style="flex-grow: 1; min-width: 60px"
+                                />
+                                <button
+                                    type="button"
+                                    class="btn-ctrl btn-danger-light"
+                                    id="btnSplice"
+                                    style="width: 100%"
+                                >
+                                    .splice()
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        style="display: flex; justify-content: flex-end; margin-top: 1rem"
+                    >
+                        <button
+                            type="button"
+                            class="btn-ctrl"
+                            id="btnResetArray"
+                            style="
+                                max-width: 150px;
+                                background: rgba(247, 223, 30, 0.1);
+                                border-color: var(--js-yellow);
+                                color: var(--js-yellow);
+                            "
+                            data-i18n="pages.arrayMethods.btnReset"
+                        >
+                            Վերականգնել
+                        </button>
+                    </div>
+
+                    <!-- Interactive Console output -->
+                    <div class="feature-box" style="margin-top: 2rem">
+                        <h4
+                            class="card-header-small"
+                            style="color: var(--js-yellow)"
+                            data-i18n="pages.arrayMethods.consoleHeading"
+                        >
+                            Ինտերակտիվ Կոնսոլ
+                        </h4>
+                        <div
+                            class="code-preview"
+                            id="consoleCodePreview"
+                            style="margin-bottom: 1rem"
+                        >
+                            let arr = ['🍎', '🍊', '🍋', '🍒'];
+                        </div>
+                        <div
+                            class="text-dimmed"
+                            style="font-family: monospace; font-size: 0.9rem"
+                        >
+                            <span data-i18n="pages.arrayMethods.returnedValLabel"
+                                >Returned Value: </span
+                            ><span
+                                id="consoleReturnValue"
+                                class="hl-num"
+                                style="font-weight: bold"
+                                >undefined</span
+                            >
+                            <br />
+                            <span data-i18n="pages.arrayMethods.currentArrLabel"
+                                >Final Array State: </span
+                            ><span
+                                id="consoleArrayState"
+                                class="hl-str"
+                                style="font-weight: bold"
+                                >['🍎', '🍊', '🍋', '🍒']</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 02: Performance / Complexity -->
+            <section id="complexity" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title" data-i18n="pages.arrayMethods.s02Title">
+                        Արտադրողականության աղյուսակ
+                    </h2>
+                </div>
+
+                <div class="glass-card">
+                    <table class="glossary-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="pages.arrayMethods.glMethod">Method</th>
+                                <th data-i18n="pages.arrayMethods.compLabel">
+                                    Time Complexity (Big O)
+                                </th>
+                                <th data-i18n="pages.arrayMethods.glMutates">Mutates?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>push()</strong></td>
+                                <td>
+                                    <code class="hl-fn">O(1)</code> (Amortized constant
+                                    time)
+                                </td>
+                                <td
+                                    style="color: #ffc500"
+                                    data-i18n="pages.arrayMethods.mutYes"
+                                >
+                                    Yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>pop()</strong></td>
+                                <td><code class="hl-fn">O(1)</code> (Constant time)</td>
+                                <td
+                                    style="color: #ffc500"
+                                    data-i18n="pages.arrayMethods.mutYes"
+                                >
+                                    Yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>shift()</strong></td>
+                                <td>
+                                    <code class="hl-var">O(n)</code> (Must re-index all
+                                    remaining elements)
+                                </td>
+                                <td
+                                    style="color: #ffc500"
+                                    data-i18n="pages.arrayMethods.mutYes"
+                                >
+                                    Yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>unshift()</strong></td>
+                                <td>
+                                    <code class="hl-var">O(n)</code> (Must re-index all
+                                    elements)
+                                </td>
+                                <td
+                                    style="color: #ffc500"
+                                    data-i18n="pages.arrayMethods.mutYes"
+                                >
+                                    Yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>slice()</strong></td>
+                                <td>
+                                    <code class="hl-fn">O(k)</code> (Copies `k` extracted
+                                    elements)
+                                </td>
+                                <td
+                                    style="color: #98c379"
+                                    data-i18n="pages.arrayMethods.mutNo"
+                                >
+                                    No
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>splice()</strong></td>
+                                <td>
+                                    <code class="hl-var">O(n)</code> (Must shift trailing
+                                    elements and copy new items)
+                                </td>
+                                <td
+                                    style="color: #ffc500"
+                                    data-i18n="pages.arrayMethods.mutYes"
+                                >
+                                    Yes
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Navigation between modules -->
+            <div class="module-nav">
+                <a href="array" class="nav-arrow prev">
+                    <span class="arrow-icon">←</span>
+                    <div class="arrow-text">
+                        <span class="arrow-label" data-i18n="lessonNav.prev"
+                            >Նախորդը</span
+                        >
+                        <span class="arrow-title" data-i18n="pages.arrayMethods.prevTopic"
+                            >Arrays</span
+                        >
+                    </div>
+                </a>
+                <a href="prototype" class="nav-arrow next">
+                    <span class="arrow-icon">→</span>
+                    <div class="arrow-text">
+                        <span class="arrow-label" data-i18n="lessonNav.next"
+                            >Հաջորդը</span
+                        >
+                        <span class="arrow-title" data-i18n="pages.arrayMethods.nextTopic"
+                            >Prototypes</span
+                        >
+                    </div>
+                </a>
+            </div>
+        </main>
+
+        <!-- LAYOUT_FOOTER -->
+    </body>
+</html>
