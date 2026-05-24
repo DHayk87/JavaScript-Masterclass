@@ -56,7 +56,7 @@ export default {
         tip2Title: "Performance & Native",
         tip2P:
             "Բոլոր ներկառուցված օբյեկտները ունեն իրենց նախատիպերը։ Օգտագործեք <code>obj.hasOwnProperty(key)</code> միայն սեփական հատկությունների համար։",
-        prevTopic: "Մասիվների մեթոդներ",
+        prevTopic: "զանգվածների մեթոդներ",
         nextTopic: "ES6 Classes",
     },
     en: {

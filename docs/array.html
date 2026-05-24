@@ -3,11 +3,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title data-i18n-title="pages.array.docTitle">JS.CORE | Մասիվներ (Arrays)</title>
+        <title data-i18n-title="pages.array.docTitle">JS.CORE | զանգվածներ (Arrays)</title>
         <meta
             name="description"
             data-i18n-desc="pages.array.metaDescription"
-            content="JavaScript մասիվների խորացված ուղեցույց. push/pop, shift/unshift մեթոդներ, արտադրողականություն և շրջանցման եղանակներ:"
+            content="JavaScript զանգվածների խորացված ուղեցույց. push/pop, shift/unshift մեթոդներ, արտադրողականություն և շրջանցման եղանակներ:"
         />
 
         <link
@@ -29,9 +29,9 @@
 
         <main class="main-content">
             <header>
-                <h1 class="title-large gradient-text" data-i18n="pages.array.h1">Մասիվներ (Arrays)</h1>
+                <h1 class="title-large gradient-text" data-i18n="pages.array.h1">զանգվածներ (Arrays)</h1>
                 <p class="subtitle" data-i18n="pages.array.subtitle">
-                    "Մասիվը հզոր գործիք է տվյալները կարգավորված պահելու և արդյունավետ
+                    "զանգվածը հզոր գործիք է տվյալները կարգավորված պահելու և արդյունավետ
                     մշակելու համար:"
                 </p>
             </header>
@@ -41,7 +41,7 @@
                 <div class="grid-3">
                     <div>
                         <h4 class="js-yellow-text" data-i18n="pages.array.glElement">Element</h4>
-                        <p class="text-dimmed small-text" data-i18n="pages.array.glElementP">Մասիվում պահվող արժեքը:</p>
+                        <p class="text-dimmed small-text" data-i18n="pages.array.glElementP">զանգվածում պահվող արժեքը:</p>
                     </div>
                     <div>
                         <h4 class="js-yellow-text" data-i18n="pages.array.glIndex">Index</h4>
@@ -65,7 +65,7 @@
 
                 <div class="glass-card">
                     <p class="text-body-large" data-i18n-html="pages.array.s01Lead">
-                        Մասիվները օբյեկտների հատուկ տեսակ են, որոնք նախատեսված են
+                        զանգվածները օբյեկտների հատուկ տեսակ են, որոնք նախատեսված են
                         <b>կարգավորված</b> տվյալներ պահելու համար:
                     </p>
 
@@ -84,10 +84,10 @@
                                 <span class="hl-str">"🍎"</span>,
                                 <span class="hl-str">"🍊"</span>,
                                 <span class="hl-str">"🍐"</span>
-                                ]; <span class="hl-cm">// Հագեցած մասիվ</span>
+                                ]; <span class="hl-cm">// Հագեցած զանգված</span>
                                 <br />
                                 <code class="hl-kw">let</code> empty = [ ];
-                                <span class="hl-cm">// Դատարկ մասիվ</span>
+                                <span class="hl-cm">// Դատարկ զանգված</span>
                             </div>
                         </div>
                         <div class="feature-box">
@@ -114,8 +114,8 @@
                         <div class="feature-box">
                             <h4 class="card-header-small" data-i18n="pages.array.s01FreeTitle">Տեսակների ազատություն</h4>
                             <p class="text-dimmed" data-i18n-html="pages.array.s01FreeP">
-                                Մասիվը կարող է պահել <b>ցանկացած</b> տեսակի տվյալ՝ string,
-                                number, boolean, object և նույնիսկ այլ մասիվներ:
+                                զանգվածը կարող է պահել <b>ցանկացած</b> տեսակի տվյալ՝ string,
+                                number, boolean, object և նույնիսկ այլ զանգվածներ:
                             </p>
                             <div class="code-inset">
                                 <code class="hl-kw">let</code> mixed = [&nbsp;<span
@@ -156,7 +156,7 @@
                                 "
                                 data-i18n-html="pages.array.s01TypeFoot"
                             >
-                                * Քանի որ JS-ում մասիվը օբյեկտ է, <code>typeof</code>-ը
+                                * Քանի որ JS-ում զանգվածը օբյեկտ է, <code>typeof</code>-ը
                                 միշտ կվերադարձնի "object": Ճիշտ ստուգման համար միշտ
                                 օգտագործեք <code>Array.isArray()</code>:
                             </p>
@@ -165,7 +165,7 @@
 
                     <div class="diagram-explanation">
                         <p data-i18n="pages.array.s01DiagP">
-                            Մասիվը հիշողության մեջ (Heap) պահվում է որպես օբյեկտ՝ հատուկ
+                            զանգվածը հիշողության մեջ (Heap) պահվում է որպես օբյեկտ՝ հատուկ
                             ներքին կառուցվածքով, որտեղ length-ը ավտոմատ թարմացվող
                             հատկություն է:
                         </p>
@@ -320,7 +320,7 @@
             <section id="loops" class="section-container">
                 <div class="section-label">
                     <span class="section-num">03</span>
-                    <h2 class="section-title" data-i18n="pages.array.s03Title">Մասիվների Շրջանցում</h2>
+                    <h2 class="section-title" data-i18n="pages.array.s03Title">զանգվածների Շրջանցում</h2>
                 </div>
 
                 <div class="glass-card">
@@ -342,12 +342,12 @@
                             <h4 class="card-header-small" data-i18n="pages.array.s03LenTitle">length հատկությունը</h4>
                             <p class="text-dimmed" data-i18n-html="pages.array.s03LenP">
                                 <code>arr.length</code>-ը միշտ վերադարձնում է վերջին
-                                ինդեքսը + 1: Այն կարելի է օգտագործել նաև մասիվը մաքրելու
+                                ինդեքսը + 1: Այն կարելի է օգտագործել նաև զանգվածը մաքրելու
                                 համար՝ <code>arr.length = 0</code>:
                             </p>
                             <div class="pro-tip pro-tip-blue" data-i18n-html="pages.array.s03LenTip">
                                 💡 <b>Pro Tip:</b> Եթե ձեռքով փոքրացնեք
-                                <code>length</code>-ը, մասիվը կկրճատվի (տվյալները կջնջվեն
+                                <code>length</code>-ը, զանգվածը կկրճատվի (տվյալները կջնջվեն
                                 անվերադարձ):
                             </div>
                         </div>

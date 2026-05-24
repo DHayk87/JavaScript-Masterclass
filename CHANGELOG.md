@@ -5,6 +5,15 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
+## [1.3.0] - 2026-05-24
+### Added
+- **Husky Pre-commit Hook**: Integrated **Husky v9** (`husky init`) with a `pre-commit` hook that automatically runs `npm run lint` before every commit, preventing linting errors from reaching the repository.
+
+### Changed
+- **Armenian Terminology Rename**: Replaced the Russian-borrowed word `մasiv` (and all its grammatical forms: `մasivner`, `մasivneri`, `մasivum`, `մasivi`, `մasivа`, etc.) with the native Armenian word `zankvazd` (zankvadzner, zankvadzneri…) across all 13 project files — `src/i18n/pages/*.ts`, `src/i18n/locales/hy.json`, `docs/*.html`, and `dist/docs/*.html`.
+
+---
+
 ## [1.2.0] - 2026-05-18
 ### Added
 - **TypeScript Migration**: Fully converted the core engine, UI handlers, and localization loaders from JavaScript (`.js`) to TypeScript (`.ts`).
