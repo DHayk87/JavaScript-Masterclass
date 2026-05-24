@@ -30,7 +30,10 @@
 
         <main class="main-content">
             <header>
-                <h1 class="title-large gradient-text" data-i18n="pages.arrayMethods.h1">
+                <h1
+                    class="title-large gradient-text"
+                    data-i18n="pages.arrayMethods.h1"
+                >
                     զանգվածների մեթոդներ
                 </h1>
                 <p class="subtitle" data-i18n="pages.arrayMethods.subtitle">
@@ -40,13 +43,30 @@
 
             <!-- Glossary -->
             <div class="glass-card glossary-card">
-                <table class="glossary-table">
+                <table class="glossary-table" id="glossaryTable">
                     <thead>
                         <tr>
-                            <th data-i18n="pages.arrayMethods.glMethod">Method</th>
-                            <th data-i18n="pages.arrayMethods.glDesc">Description</th>
-                            <th data-i18n="pages.arrayMethods.glReturn">Return Value</th>
-                            <th data-i18n="pages.arrayMethods.glMutates">Mutates?</th>
+                            <th data-i18n="pages.arrayMethods.glMethod">
+                                Method
+                            </th>
+                            <th data-i18n="pages.arrayMethods.glDesc">
+                                Description
+                            </th>
+                            <th data-i18n="pages.arrayMethods.glReturn">
+                                Return Value
+                            </th>
+                            <th
+                                data-i18n="pages.arrayMethods.glMutates"
+                                id="sortMutation"
+                                style="cursor: pointer; user-select: none"
+                            >
+                                Mutates?
+                                <span
+                                    id="sortIcon"
+                                    style="margin-left: 5px; opacity: 0.5"
+                                    >↕</span
+                                >
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,7 +75,9 @@
                             <td data-i18n="pages.arrayMethods.descPush">
                                 Ավելացնում է տարր վերջից
                             </td>
-                            <td data-i18n="pages.arrayMethods.retPush">Նոր length-ը</td>
+                            <td data-i18n="pages.arrayMethods.retPush">
+                                Նոր length-ը
+                            </td>
                             <td
                                 style="color: #ffc500"
                                 data-i18n="pages.arrayMethods.mutYes"
@@ -68,7 +90,9 @@
                             <td data-i18n="pages.arrayMethods.descPop">
                                 Հեռացնում է վերջին տարրը
                             </td>
-                            <td data-i18n="pages.arrayMethods.retPop">Հեռացված տարրը</td>
+                            <td data-i18n="pages.arrayMethods.retPop">
+                                Հեռացված տարրը
+                            </td>
                             <td
                                 style="color: #ffc500"
                                 data-i18n="pages.arrayMethods.mutYes"
@@ -139,10 +163,236 @@
                         <tr>
                             <td><strong>sort()</strong></td>
                             <td data-i18n="pages.arrayMethods.descSort">
-                                Տեղում է դասավորում զանգվածը
+                                Դասավորում է զանգվածը
                             </td>
                             <td data-i18n="pages.arrayMethods.retSort">
-                                Տեղում տեղավորված զանգվածը
+                                Դասավորված զանգվածը
+                            </td>
+                            <td
+                                style="color: #ffc500"
+                                data-i18n="pages.arrayMethods.mutYes"
+                            >
+                                Yes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>includes()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descIncludes">
+                                Ստուգում է տարրի առկայությունը
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retIncludes">
+                                true / false
+                            </td>
+                            <td
+                                style="color: #98c379"
+                                data-i18n="pages.arrayMethods.mutNo"
+                            >
+                                No
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>map()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descMap">
+                                Ձևափոխում է յուրաքանչյուր տարր
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retMap">
+                                Նոր ձևափոխված զանգված
+                            </td>
+                            <td
+                                style="color: #98c379"
+                                data-i18n="pages.arrayMethods.mutNo"
+                            >
+                                No
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>filter()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descFilter">
+                                Ֆիլտրում է տարրերը
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retFilter">
+                                Նոր ֆիլտրված զանգված
+                            </td>
+                            <td
+                                style="color: #98c379"
+                                data-i18n="pages.arrayMethods.mutNo"
+                            >
+                                No
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>reduce() / reduceRight()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descReduce">
+                                Կրճատում է զանգվածը մինչև մեկ արժեք
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retReduce">
+                                Վերջնական արժեքը
+                            </td>
+                            <td
+                                style="color: #98c379"
+                                data-i18n="pages.arrayMethods.mutNo"
+                            >
+                                No
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>indexOf()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descIndexOf">
+                                Փնտրում է տարրի ինդեքսը
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retIndexOf">
+                                Ինդեքս կամ -1
+                            </td>
+                            <td
+                                style="color: #98c379"
+                                data-i18n="pages.arrayMethods.mutNo"
+                            >
+                                No
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>find()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descFind">
+                                Գտնում է առաջին համապատասխան տարրը
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retFind">
+                                Տարր կամ undefined
+                            </td>
+                            <td
+                                style="color: #98c379"
+                                data-i18n="pages.arrayMethods.mutNo"
+                            >
+                                No
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>some() / every()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descSome">
+                                Ստուգում է պայմանի բավարարումը
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retSome">
+                                true / false
+                            </td>
+                            <td
+                                style="color: #98c379"
+                                data-i18n="pages.arrayMethods.mutNo"
+                            >
+                                No
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>reverse()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descReverse">
+                                Շրջում է զանգվածը
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retReverse">
+                                Շրջված զանգվածը
+                            </td>
+                            <td
+                                style="color: #ffc500"
+                                data-i18n="pages.arrayMethods.mutYes"
+                            >
+                                Yes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>join()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descJoin">
+                                Միավորում է տարրերը տողի մեջ
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retJoin">
+                                Տող (string)
+                            </td>
+                            <td
+                                style="color: #98c379"
+                                data-i18n="pages.arrayMethods.mutNo"
+                            >
+                                No
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>flat() / flatMap()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descFlat">
+                                Հարթեցնում է ներդրված զանգվածները
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retFlat">
+                                Նոր հարթեցված զանգված
+                            </td>
+                            <td
+                                style="color: #98c379"
+                                data-i18n="pages.arrayMethods.mutNo"
+                            >
+                                No
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>forEach()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descForEach">
+                                Իտերացիա յուրաքանչյուր տարրի վրա
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retForEach">
+                                undefined
+                            </td>
+                            <td
+                                style="color: #98c379"
+                                data-i18n="pages.arrayMethods.mutNo"
+                            >
+                                No
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong
+                                    >toReversed() / toSorted() /
+                                    toSpliced()</strong
+                                >
+                            </td>
+                            <td data-i18n="pages.arrayMethods.descToReversed">
+                                Ոչ-մուտացիոն (իմուտաբլ) տարբերակներ
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retToReversed">
+                                Նոր զանգված
+                            </td>
+                            <td
+                                style="color: #98c379"
+                                data-i18n="pages.arrayMethods.mutNo"
+                            >
+                                No
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>with()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descWith">
+                                Փոխարինում է տարրը (իմուտաբլ)
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retWith">
+                                Նոր զանգված
+                            </td>
+                            <td
+                                style="color: #98c379"
+                                data-i18n="pages.arrayMethods.mutNo"
+                            >
+                                No
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>fill() / copyWithin()</strong></td>
+                            <td
+                                style="
+                                    color: var(--text-dim);
+                                    font-size: 0.85rem;
+                                "
+                            >
+                                Լրացնում կամ պատճենում է տարրերը զանգվածի
+                                ներսում
+                            </td>
+                            <td
+                                style="
+                                    color: var(--text-dim);
+                                    font-size: 0.85rem;
+                                "
+                            >
+                                Փոփոխված զանգվածը
                             </td>
                             <td
                                 style="color: #ffc500"
@@ -266,7 +516,9 @@
 
                                 <!-- Splice -->
                                 <div class="control-group">
-                                    <h4>splice(start, deleteCount, ...insert)</h4>
+                                    <h4>
+                                        splice(start, deleteCount, ...insert)
+                                    </h4>
                                     <div
                                         class="control-input-row"
                                         style="flex-wrap: wrap"
@@ -314,8 +566,12 @@
                                             id="sortOrder"
                                             style="flex: 1"
                                         >
-                                            <option value="asc">Ascending</option>
-                                            <option value="desc">Descending</option>
+                                            <option value="asc">
+                                                Ascending
+                                            </option>
+                                            <option value="desc">
+                                                Descending
+                                            </option>
                                         </select>
                                         <button
                                             type="button"
@@ -324,6 +580,308 @@
                                             style="width: 100%"
                                         >
                                             .sort()
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Search -->
+                                <div class="control-group">
+                                    <h4>indexOf / includes</h4>
+                                    <div class="control-input-row">
+                                        <input
+                                            type="text"
+                                            class="input-val text-input"
+                                            id="searchInput"
+                                            value="🍊"
+                                            placeholder="🍊"
+                                        />
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl btn-info-light"
+                                            id="btnIndexOf"
+                                        >
+                                            .indexOf()
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl btn-info-light"
+                                            id="btnIncludes"
+                                        >
+                                            .includes()
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Condition -->
+                                <div class="control-group">
+                                    <h4>find / some / every</h4>
+                                    <div class="control-input-row">
+                                        <input
+                                            type="text"
+                                            class="input-val text-input"
+                                            id="conditionInput"
+                                            value="🍋"
+                                            placeholder="🍋"
+                                        />
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl btn-info-light"
+                                            id="btnFind"
+                                        >
+                                            .find()
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl btn-info-light"
+                                            id="btnSome"
+                                        >
+                                            .some()
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl btn-info-light"
+                                            id="btnEvery"
+                                        >
+                                            .every()
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Transform -->
+                                <div class="control-group">
+                                    <h4>filter / map</h4>
+                                    <div
+                                        class="control-input-row"
+                                        style="gap: 5px"
+                                    >
+                                        <input
+                                            type="text"
+                                            class="input-val text-input"
+                                            id="transformInput"
+                                            value="🍎"
+                                            placeholder="🍎"
+                                        />
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl btn-info-light"
+                                            id="btnFilter"
+                                            style="flex: 1"
+                                        >
+                                            .filter()
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl btn-info-light"
+                                            id="btnMap"
+                                            style="flex: 1"
+                                        >
+                                            .map()
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Utility -->
+                                <div class="control-group">
+                                    <h4>reverse / join / flat</h4>
+                                    <div class="control-input-row">
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl"
+                                            id="btnReverse"
+                                            style="flex: 1"
+                                        >
+                                            .reverse()
+                                        </button>
+                                        <input
+                                            type="text"
+                                            class="input-val text-input"
+                                            id="joinInput"
+                                            value="-"
+                                            placeholder="-"
+                                            style="max-width: 50px"
+                                        />
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl"
+                                            id="btnJoin"
+                                            style="flex: 1"
+                                        >
+                                            .join()
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl"
+                                            id="btnFlat"
+                                            style="flex: 1"
+                                        >
+                                            .flat()
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Fill / Reduce -->
+                                <div class="control-group">
+                                    <h4>fill / reduce</h4>
+                                    <div class="control-input-row">
+                                        <input
+                                            type="text"
+                                            class="input-val text-input"
+                                            id="fillInput"
+                                            value="🫐"
+                                            placeholder="🫐"
+                                        />
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl"
+                                            id="btnFill"
+                                        >
+                                            .fill()
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl btn-info-light"
+                                            id="btnReduce"
+                                            style="flex: 1"
+                                        >
+                                            .reduce()
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Specialized -->
+                                <div class="control-group">
+                                    <h4>flatMap / reduceRight / copyWithin</h4>
+                                    <div
+                                        class="control-input-row"
+                                        style="flex-wrap: wrap"
+                                    >
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl"
+                                            id="btnFlatMap"
+                                            style="flex: 1"
+                                        >
+                                            .flatMap()
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl"
+                                            id="btnReduceRight"
+                                            style="flex: 1"
+                                        >
+                                            .reduceRight()
+                                        </button>
+                                        <div
+                                            class="control-input-row"
+                                            style="width: 100%; margin-top: 5px"
+                                        >
+                                            <input
+                                                type="number"
+                                                class="input-val"
+                                                id="copyTarget"
+                                                value="0"
+                                                min="0"
+                                                max="10"
+                                                title="Target"
+                                            />
+                                            <input
+                                                type="number"
+                                                class="input-val"
+                                                id="copyStart"
+                                                value="2"
+                                                min="0"
+                                                max="10"
+                                                title="Start"
+                                            />
+                                            <button
+                                                type="button"
+                                                class="btn-ctrl"
+                                                id="btnCopyWithin"
+                                                style="flex: 1"
+                                            >
+                                                .copyWithin()
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Immutable (ES2023) -->
+                                <div class="control-group">
+                                    <h4>
+                                        Immutable (toReversed / toSorted /
+                                        toSpliced / with)
+                                    </h4>
+                                    <div
+                                        class="control-input-row"
+                                        style="flex-wrap: wrap; gap: 5px"
+                                    >
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl btn-info-light"
+                                            id="btnToReversed"
+                                            style="flex: 1"
+                                        >
+                                            .toReversed()
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl btn-info-light"
+                                            id="btnToSorted"
+                                            style="flex: 1"
+                                        >
+                                            .toSorted()
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl btn-info-light"
+                                            id="btnToSpliced"
+                                            style="width: 100%"
+                                        >
+                                            .toSpliced()
+                                        </button>
+                                        <div
+                                            class="control-input-row"
+                                            style="width: 100%; margin-top: 5px"
+                                        >
+                                            <input
+                                                type="number"
+                                                class="input-val"
+                                                id="withIndex"
+                                                value="1"
+                                                min="0"
+                                                max="10"
+                                                title="Index"
+                                            />
+                                            <input
+                                                type="text"
+                                                class="input-val text-input"
+                                                id="withValue"
+                                                value="💎"
+                                                placeholder="💎"
+                                            />
+                                            <button
+                                                type="button"
+                                                class="btn-ctrl btn-info-light"
+                                                id="btnWith"
+                                                style="flex: 1"
+                                            >
+                                                .with()
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Iteration -->
+                                <div class="control-group">
+                                    <h4>forEach</h4>
+                                    <div class="control-input-row">
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl btn-info-light"
+                                            id="btnForEach"
+                                            style="width: 100%"
+                                        >
+                                            .forEach()
                                         </button>
                                     </div>
                                 </div>
@@ -398,9 +956,13 @@
                                 </div>
                                 <div
                                     class="text-dimmed"
-                                    style="font-family: monospace; font-size: 0.9rem"
+                                    style="
+                                        font-family: monospace;
+                                        font-size: 0.9rem;
+                                    "
                                 >
-                                    <span data-i18n="pages.arrayMethods.returnedValLabel"
+                                    <span
+                                        data-i18n="pages.arrayMethods.returnedValLabel"
                                         >Returned Value: </span
                                     ><span
                                         id="consoleReturnValue"
@@ -409,7 +971,8 @@
                                         >undefined</span
                                     >
                                     <br />
-                                    <span data-i18n="pages.arrayMethods.currentArrLabel"
+                                    <span
+                                        data-i18n="pages.arrayMethods.currentArrLabel"
                                         >Final Array State: </span
                                     ><span
                                         id="consoleArrayState"
@@ -450,28 +1013,44 @@
             <section id="complexity" class="section-container">
                 <div class="section-label">
                     <span class="section-num">02</span>
-                    <h2 class="section-title" data-i18n="pages.arrayMethods.s02Title">
+                    <h2
+                        class="section-title"
+                        data-i18n="pages.arrayMethods.s02Title"
+                    >
                         Արտադրողականության աղյուսակ
                     </h2>
                 </div>
 
                 <div class="glass-card">
-                    <table class="glossary-table">
+                    <table class="glossary-table" id="performanceTable">
                         <thead>
                             <tr>
-                                <th data-i18n="pages.arrayMethods.glMethod">Method</th>
+                                <th data-i18n="pages.arrayMethods.glMethod">
+                                    Method
+                                </th>
                                 <th data-i18n="pages.arrayMethods.compLabel">
                                     Time Complexity (Big O)
                                 </th>
-                                <th data-i18n="pages.arrayMethods.glMutates">Mutates?</th>
+                                <th
+                                    data-i18n="pages.arrayMethods.glMutates"
+                                    id="sortPerformanceMutation"
+                                    style="cursor: pointer; user-select: none"
+                                >
+                                    Mutates?
+                                    <span
+                                        id="sortPerfIcon"
+                                        style="margin-left: 5px; opacity: 0.5"
+                                        >↕</span
+                                    >
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong>push()</strong></td>
                                 <td>
-                                    <code class="hl-fn">O(1)</code> (Amortized constant
-                                    time)
+                                    <code class="hl-fn">O(1)</code> (Amortized
+                                    constant time)
                                 </td>
                                 <td
                                     style="color: #ffc500"
@@ -482,7 +1061,10 @@
                             </tr>
                             <tr>
                                 <td><strong>pop()</strong></td>
-                                <td><code class="hl-fn">O(1)</code> (Constant time)</td>
+                                <td>
+                                    <code class="hl-fn">O(1)</code> (Constant
+                                    time)
+                                </td>
                                 <td
                                     style="color: #ffc500"
                                     data-i18n="pages.arrayMethods.mutYes"
@@ -493,8 +1075,8 @@
                             <tr>
                                 <td><strong>shift()</strong></td>
                                 <td>
-                                    <code class="hl-var">O(n)</code> (Must re-index all
-                                    remaining elements)
+                                    <code class="hl-var">O(n)</code> (Must
+                                    re-index all remaining elements)
                                 </td>
                                 <td
                                     style="color: #ffc500"
@@ -506,8 +1088,8 @@
                             <tr>
                                 <td><strong>unshift()</strong></td>
                                 <td>
-                                    <code class="hl-var">O(n)</code> (Must re-index all
-                                    elements)
+                                    <code class="hl-var">O(n)</code> (Must
+                                    re-index all elements)
                                 </td>
                                 <td
                                     style="color: #ffc500"
@@ -519,8 +1101,8 @@
                             <tr>
                                 <td><strong>slice()</strong></td>
                                 <td>
-                                    <code class="hl-fn">O(k)</code> (Copies `k` extracted
-                                    elements)
+                                    <code class="hl-fn">O(k)</code> (Copies `k`
+                                    extracted elements)
                                 </td>
                                 <td
                                     style="color: #98c379"
@@ -532,8 +1114,127 @@
                             <tr>
                                 <td><strong>splice()</strong></td>
                                 <td>
-                                    <code class="hl-var">O(n)</code> (Must shift trailing
-                                    elements and copy new items)
+                                    <code class="hl-var">O(n)</code> (Must shift
+                                    trailing elements)
+                                </td>
+                                <td
+                                    style="color: #ffc500"
+                                    data-i18n="pages.arrayMethods.mutYes"
+                                >
+                                    Yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>sort()</strong></td>
+                                <td>
+                                    <code class="hl-var">O(n log n)</code>
+                                    (Standard sorting complexity)
+                                </td>
+                                <td
+                                    style="color: #ffc500"
+                                    data-i18n="pages.arrayMethods.mutYes"
+                                >
+                                    Yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>indexOf() / includes()</strong></td>
+                                <td>
+                                    <code class="hl-var">O(n)</code> (Linear
+                                    search)
+                                </td>
+                                <td
+                                    style="color: #98c379"
+                                    data-i18n="pages.arrayMethods.mutNo"
+                                >
+                                    No
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>find() / some() / every()</strong>
+                                </td>
+                                <td>
+                                    <code class="hl-var">O(n)</code> (Linear
+                                    scan with early exit)
+                                </td>
+                                <td
+                                    style="color: #98c379"
+                                    data-i18n="pages.arrayMethods.mutNo"
+                                >
+                                    No
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong
+                                        >map() / filter() / forEach()</strong
+                                    >
+                                </td>
+                                <td>
+                                    <code class="hl-var">O(n)</code> (Must visit
+                                    every element)
+                                </td>
+                                <td
+                                    style="color: #98c379"
+                                    data-i18n="pages.arrayMethods.mutNo"
+                                >
+                                    No
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>reduce() / reduceRight()</strong>
+                                </td>
+                                <td>
+                                    <code class="hl-var">O(n)</code> (Linear
+                                    accumulation)
+                                </td>
+                                <td
+                                    style="color: #98c379"
+                                    data-i18n="pages.arrayMethods.mutNo"
+                                >
+                                    No
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>flat() / flatMap()</strong></td>
+                                <td>
+                                    <code class="hl-var">O(n + k)</code> (Linear
+                                    plus depth overhead)
+                                </td>
+                                <td
+                                    style="color: #98c379"
+                                    data-i18n="pages.arrayMethods.mutNo"
+                                >
+                                    No
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong
+                                        >toReversed() / toSorted() /
+                                        toSpliced()</strong
+                                    >
+                                </td>
+                                <td>
+                                    <code class="hl-var"
+                                        >O(n) / O(n log n)</code
+                                    >
+                                    (Immutable versions)
+                                </td>
+                                <td
+                                    style="color: #98c379"
+                                    data-i18n="pages.arrayMethods.mutNo"
+                                >
+                                    No
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>copyWithin() / fill()</strong></td>
+                                <td>
+                                    <code class="hl-var">O(n)</code> (Linear
+                                    modification)
                                 </td>
                                 <td
                                     style="color: #ffc500"
@@ -555,7 +1256,9 @@
                         <span class="arrow-label" data-i18n="lessonNav.prev"
                             >Նախորդը</span
                         >
-                        <span class="arrow-title" data-i18n="pages.arrayMethods.prevTopic"
+                        <span
+                            class="arrow-title"
+                            data-i18n="pages.arrayMethods.prevTopic"
                             >Arrays</span
                         >
                     </div>
@@ -566,7 +1269,9 @@
                         <span class="arrow-label" data-i18n="lessonNav.next"
                             >Հաջորդը</span
                         >
-                        <span class="arrow-title" data-i18n="pages.arrayMethods.nextTopic"
+                        <span
+                            class="arrow-title"
+                            data-i18n="pages.arrayMethods.nextTopic"
                             >Prototypes</span
                         >
                     </div>
