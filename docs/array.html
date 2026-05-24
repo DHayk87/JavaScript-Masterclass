@@ -3,11 +3,13 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title data-i18n-title="pages.array.docTitle">JS.CORE | Մասիվներ (Arrays)</title>
+        <title data-i18n-title="pages.array.docTitle">
+            JS.CORE | Զանգվածներ (Arrays)
+        </title>
         <meta
             name="description"
             data-i18n-desc="pages.array.metaDescription"
-            content="JavaScript մասիվների խորացված ուղեցույց. push/pop, shift/unshift մեթոդներ, արտադրողականություն և շրջանցման եղանակներ:"
+            content="JavaScript զանգվածների խորացված ուղեցույց. push/pop, shift/unshift մեթոդներ, արտադրողականություն և շրջանցման եղանակներ:"
         />
 
         <link
@@ -29,9 +31,11 @@
 
         <main class="main-content">
             <header>
-                <h1 class="title-large gradient-text" data-i18n="pages.array.h1">Մասիվներ (Arrays)</h1>
+                <h1 class="title-large gradient-text" data-i18n="pages.array.h1">
+                    Զանգվածներ (Arrays)
+                </h1>
                 <p class="subtitle" data-i18n="pages.array.subtitle">
-                    "Մասիվը հզոր գործիք է տվյալները կարգավորված պահելու և արդյունավետ
+                    "Զանգվածը հզոր գործիք է տվյալները կարգավորված պահելու և արդյունավետ
                     մշակելու համար:"
                 </p>
             </header>
@@ -40,16 +44,35 @@
             <div class="glass-card glossary-card">
                 <div class="grid-3">
                     <div>
-                        <h4 class="js-yellow-text" data-i18n="pages.array.glElement">Element</h4>
-                        <p class="text-dimmed small-text" data-i18n="pages.array.glElementP">Մասիվում պահվող արժեքը:</p>
+                        <h4 class="js-yellow-text" data-i18n="pages.array.glElement">
+                            Element
+                        </h4>
+                        <p
+                            class="text-dimmed small-text"
+                            data-i18n="pages.array.glElementP"
+                        >
+                            Զանգվածում պահվող արժեքը:
+                        </p>
                     </div>
                     <div>
-                        <h4 class="js-yellow-text" data-i18n="pages.array.glIndex">Index</h4>
-                        <p class="text-dimmed small-text" data-i18n="pages.array.glIndexP">Տարրի դիրքը (սկսած 0-ից):</p>
+                        <h4 class="js-yellow-text" data-i18n="pages.array.glIndex">
+                            Index
+                        </h4>
+                        <p
+                            class="text-dimmed small-text"
+                            data-i18n="pages.array.glIndexP"
+                        >
+                            Տարրի դիրքը (սկսած 0-ից):
+                        </p>
                     </div>
                     <div>
-                        <h4 class="js-yellow-text" data-i18n="pages.array.glLength">Length</h4>
-                        <p class="text-dimmed small-text" data-i18n="pages.array.glLengthP">
+                        <h4 class="js-yellow-text" data-i18n="pages.array.glLength">
+                            Length
+                        </h4>
+                        <p
+                            class="text-dimmed small-text"
+                            data-i18n="pages.array.glLengthP"
+                        >
                             Տարրերի քանակը (Max Index + 1):
                         </p>
                     </div>
@@ -60,18 +83,25 @@
             <section id="basics" class="section-container">
                 <div class="section-label">
                     <span class="section-num">01</span>
-                    <h2 class="section-title" data-i18n="pages.array.s01Title">Հայտարարում և Մուտք</h2>
+                    <h2 class="section-title" data-i18n="pages.array.s01Title">
+                        Հայտարարում և Մուտք
+                    </h2>
                 </div>
 
                 <div class="glass-card">
                     <p class="text-body-large" data-i18n-html="pages.array.s01Lead">
-                        Մասիվները օբյեկտների հատուկ տեսակ են, որոնք նախատեսված են
+                        Զանգվածները օբյեկտների հատուկ տեսակ են, որոնք նախատեսված են
                         <b>կարգավորված</b> տվյալներ պահելու համար:
                     </p>
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small" data-i18n="pages.array.s01LitTitle">Ստեղծում (Literal)</h4>
+                            <h4
+                                class="card-header-small"
+                                data-i18n="pages.array.s01LitTitle"
+                            >
+                                Ստեղծում (Literal)
+                            </h4>
                             <p
                                 class="text-dimmed"
                                 style="font-size: 0.85rem; margin-bottom: 0.8rem"
@@ -84,14 +114,19 @@
                                 <span class="hl-str">"🍎"</span>,
                                 <span class="hl-str">"🍊"</span>,
                                 <span class="hl-str">"🍐"</span>
-                                ]; <span class="hl-cm">// Հագեցած մասիվ</span>
+                                ]; <span class="hl-cm">// Հագեցած զանգված</span>
                                 <br />
                                 <code class="hl-kw">let</code> empty = [ ];
-                                <span class="hl-cm">// Դատարկ մասիվ</span>
+                                <span class="hl-cm">// Դատարկ զանգված</span>
                             </div>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small" data-i18n="pages.array.s01AccTitle">Տարրերի հասանելիություն</h4>
+                            <h4
+                                class="card-header-small"
+                                data-i18n="pages.array.s01AccTitle"
+                            >
+                                Տարրերի հասանելիություն
+                            </h4>
                             <p class="text-dimmed" data-i18n-html="pages.array.s01AccP">
                                 Զանգվածի տարրերը համարակալվում են <b>0-ից</b>: Ցանկացած
                                 տարրի կարելի է <b>դիմել</b> իր համապատասխան ինդեքսի
@@ -112,10 +147,15 @@
 
                     <div class="grid-2" style="margin-top: 2rem">
                         <div class="feature-box">
-                            <h4 class="card-header-small" data-i18n="pages.array.s01FreeTitle">Տեսակների ազատություն</h4>
+                            <h4
+                                class="card-header-small"
+                                data-i18n="pages.array.s01FreeTitle"
+                            >
+                                Տեսակների ազատություն
+                            </h4>
                             <p class="text-dimmed" data-i18n-html="pages.array.s01FreeP">
-                                Մասիվը կարող է պահել <b>ցանկացած</b> տեսակի տվյալ՝ string,
-                                number, boolean, object և նույնիսկ այլ մասիվներ:
+                                Զանգվածը կարող է պահել <b>ցանկացած</b> տեսակի տվյալ՝ string,
+                                number, boolean, object և նույնիսկ այլ զանգվածներ:
                             </p>
                             <div class="code-inset">
                                 <code class="hl-kw">let</code> mixed = [&nbsp;<span
@@ -156,7 +196,7 @@
                                 "
                                 data-i18n-html="pages.array.s01TypeFoot"
                             >
-                                * Քանի որ JS-ում մասիվը օբյեկտ է, <code>typeof</code>-ը
+                                * Քանի որ JS-ում զանգվածը օբյեկտ է, <code>typeof</code>-ը
                                 միշտ կվերադարձնի "object": Ճիշտ ստուգման համար միշտ
                                 օգտագործեք <code>Array.isArray()</code>:
                             </p>
@@ -165,7 +205,7 @@
 
                     <div class="diagram-explanation">
                         <p data-i18n="pages.array.s01DiagP">
-                            Մասիվը հիշողության մեջ (Heap) պահվում է որպես օբյեկտ՝ հատուկ
+                            Զանգվածը հիշողության մեջ (Heap) պահվում է որպես օբյեկտ՝ հատուկ
                             ներքին կառուցվածքով, որտեղ length-ը ավտոմատ թարմացվող
                             հատկություն է:
                         </p>
@@ -198,29 +238,53 @@
             <section id="methods" class="section-container">
                 <div class="section-label">
                     <span class="section-num">02</span>
-                    <h2 class="section-title" data-i18n="pages.array.s02Title">Հիմնական Մեթոդներ (LIFO/FIFO)</h2>
+                    <h2 class="section-title" data-i18n="pages.array.s02Title">
+                        Հիմնական Մեթոդներ (LIFO/FIFO)
+                    </h2>
                 </div>
 
                 <div class="glass-card">
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small" data-i18n="pages.array.s02EndTitle">Վերջից (Արագ)</h4>
+                            <h4
+                                class="card-header-small"
+                                data-i18n="pages.array.s02EndTitle"
+                            >
+                                Վերջից (Արագ)
+                            </h4>
                             <ul class="list-container no-list-style">
-                                <li class="list-item" data-i18n-html="pages.array.s02EndLi1">
+                                <li
+                                    class="list-item"
+                                    data-i18n-html="pages.array.s02EndLi1"
+                                >
                                     <b>push</b>: Ավելացնում է տարր վերջից.
                                 </li>
-                                <li class="list-item" data-i18n-html="pages.array.s02EndLi2">
+                                <li
+                                    class="list-item"
+                                    data-i18n-html="pages.array.s02EndLi2"
+                                >
                                     <b>pop</b>: Հեռացնում է վերջին տարրը.
                                 </li>
                             </ul>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small" data-i18n="pages.array.s02StartTitle">Սկզբից (Դանդաղ)</h4>
+                            <h4
+                                class="card-header-small"
+                                data-i18n="pages.array.s02StartTitle"
+                            >
+                                Սկզբից (Դանդաղ)
+                            </h4>
                             <ul class="list-container no-list-style">
-                                <li class="list-item" data-i18n-html="pages.array.s02StartLi1">
+                                <li
+                                    class="list-item"
+                                    data-i18n-html="pages.array.s02StartLi1"
+                                >
                                     <b>unshift</b>: Ավելացնում է տարր սկզբից.
                                 </li>
-                                <li class="list-item" data-i18n-html="pages.array.s02StartLi2">
+                                <li
+                                    class="list-item"
+                                    data-i18n-html="pages.array.s02StartLi2"
+                                >
                                     <b>shift</b>: Հեռացնում է առաջին տարրը.
                                 </li>
                             </ul>
@@ -228,7 +292,11 @@
                     </div>
 
                     <div class="feature-box" style="margin-top: 2rem">
-                        <h4 class="card-header-small" style="color: var(--js-yellow)" data-i18n="pages.array.s02ExTitle">
+                        <h4
+                            class="card-header-small"
+                            style="color: var(--js-yellow)"
+                            data-i18n="pages.array.s02ExTitle"
+                        >
                             Կոդի Օրինակ (Queue & Stack)
                         </h4>
                         <div class="code-block">
@@ -292,21 +360,34 @@
                     </div>
 
                     <div class="pro-tip pro-tip-blue">
-                        <h4 class="card-header-small hl-fn" data-i18n="pages.array.s02PerfTitle">
+                        <h4
+                            class="card-header-small hl-fn"
+                            data-i18n="pages.array.s02PerfTitle"
+                        >
                             Ինչո՞ւ է սա կարևոր (Performance Insight)
                         </h4>
                         <div class="grid-2">
                             <div>
-                                <h5 class="hl-str" data-i18n="pages.array.s02FastTitle">Արագ (O(1))</h5>
-                                <p class="text-dimmed small-text" data-i18n-html="pages.array.s02FastP">
+                                <h5 class="hl-str" data-i18n="pages.array.s02FastTitle">
+                                    Արագ (O(1))
+                                </h5>
+                                <p
+                                    class="text-dimmed small-text"
+                                    data-i18n-html="pages.array.s02FastP"
+                                >
                                     <b>push</b> և <b>pop</b> մեթոդները միայն
                                     ավելացնում/հեռացնում են տարրը զանգվածի վերջից և
                                     թարմացնում length-ը:
                                 </p>
                             </div>
                             <div>
-                                <h5 class="hl-var" data-i18n="pages.array.s02SlowTitle">Դանդաղ (O(n))</h5>
-                                <p class="text-dimmed small-text" data-i18n-html="pages.array.s02SlowP">
+                                <h5 class="hl-var" data-i18n="pages.array.s02SlowTitle">
+                                    Դանդաղ (O(n))
+                                </h5>
+                                <p
+                                    class="text-dimmed small-text"
+                                    data-i18n-html="pages.array.s02SlowP"
+                                >
                                     <b>shift</b> և <b>unshift</b> մեթոդների դեպքում JS-ը
                                     ստիպված է վերահասցեավորել բոլոր տարրերի ինդեքսները:
                                 </p>
@@ -320,13 +401,20 @@
             <section id="loops" class="section-container">
                 <div class="section-label">
                     <span class="section-num">03</span>
-                    <h2 class="section-title" data-i18n="pages.array.s03Title">Մասիվների Շրջանցում</h2>
+                    <h2 class="section-title" data-i18n="pages.array.s03Title">
+                        Զանգվածների Շրջանցում
+                    </h2>
                 </div>
 
                 <div class="glass-card">
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small" data-i18n="pages.array.s03ForTitle">for...of ցիկլ</h4>
+                            <h4
+                                class="card-header-small"
+                                data-i18n="pages.array.s03ForTitle"
+                            >
+                                for...of ցիկլ
+                            </h4>
                             <div class="code-inset">
                                 <code class="hl-kw">for</code> (let fruit
                                 <code class="hl-kw">of</code> fruits) {<br />
@@ -339,15 +427,23 @@
                             </p>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small" data-i18n="pages.array.s03LenTitle">length հատկությունը</h4>
+                            <h4
+                                class="card-header-small"
+                                data-i18n="pages.array.s03LenTitle"
+                            >
+                                length հատկությունը
+                            </h4>
                             <p class="text-dimmed" data-i18n-html="pages.array.s03LenP">
                                 <code>arr.length</code>-ը միշտ վերադարձնում է վերջին
-                                ինդեքսը + 1: Այն կարելի է օգտագործել նաև մասիվը մաքրելու
+                                ինդեքսը + 1: Այն można օգտագոչել նաև զանգվածը մաքրելու
                                 համար՝ <code>arr.length = 0</code>:
                             </p>
-                            <div class="pro-tip pro-tip-blue" data-i18n-html="pages.array.s03LenTip">
+                            <div
+                                class="pro-tip pro-tip-blue"
+                                data-i18n-html="pages.array.s03LenTip"
+                            >
                                 💡 <b>Pro Tip:</b> Եթե ձեռքով փոքրացնեք
-                                <code>length</code>-ը, մասիվը կկրճատվի (տվյալները կջնջվեն
+                                <code>length</code>-ը, զանգվածը կկրճատվի (տվյալները կջնջվեն
                                 անվերադարձ):
                             </div>
                         </div>
@@ -359,15 +455,23 @@
                 <a href="object" class="nav-arrow prev">
                     <span class="arrow-icon">←</span>
                     <div class="arrow-text">
-                        <span class="arrow-label" data-i18n="lessonNav.prev">Նախորդը</span>
-                        <span class="arrow-title" data-i18n="pages.array.prevTopic">Objects</span>
+                        <span class="arrow-label" data-i18n="lessonNav.prev"
+                            >Նախորդը</span
+                        >
+                        <span class="arrow-title" data-i18n="pages.array.prevTopic"
+                            >Objects</span
+                        >
                     </div>
                 </a>
-                <a href="prototype" class="nav-arrow next">
+                <a href="array-methods" class="nav-arrow next">
                     <span class="arrow-icon">→</span>
                     <div class="arrow-text">
-                        <span class="arrow-label" data-i18n="lessonNav.next">Հաջորդը</span>
-                        <span class="arrow-title" data-i18n="pages.array.nextTopic">Prototypes & ES5</span>
+                        <span class="arrow-label" data-i18n="lessonNav.next"
+                            >Հաջորդը</span
+                        >
+                        <span class="arrow-title" data-i18n="pages.array.nextTopic"
+                            >Array Methods</span
+                        >
                     </div>
                 </a>
             </div>

@@ -60,40 +60,45 @@
         "m08": {
             "badge": "Module 08",
             "title": "Arrays",
-            "desc": "Մասիվներ և դրանց մեթոդները:"
+            "desc": "Զանգվածներ և դրանց մեթոդները:"
         },
         "m09": {
             "badge": "Module 09",
-            "title": "Prototypes",
-            "desc": "Պրոտոտիպային ժառանգում և ES5 OOP հիմունքներ:"
+            "title": "Զանգվածների մեթոդներ",
+            "desc": "Զանգվածների մուտացնող և չմուտացնող մեթոդներ (վիզուալիզատոր):"
         },
         "m10": {
             "badge": "Module 10",
-            "title": "ES6 Classes",
-            "desc": "Ժամանակակից OOP JavaScript-ում և class սինտաքս:"
+            "title": "Prototypes",
+            "desc": "Պրոտոտիպային ժառանգում և ES5 OOP հիմունքներ:"
         },
         "m11": {
             "badge": "Module 11",
-            "title": "Closures",
-            "desc": "Variable Scope, Lexical Environment և Փակագծեր:"
+            "title": "ES6 Classes",
+            "desc": "Ժամանակակից OOP JavaScript-ում և class սինտաքս:"
         },
         "m12": {
             "badge": "Module 12",
-            "title": "Promises",
-            "desc": "Ասինխրոն գործողությունների կառավարում, Promise վիճակներ և շղթաներ:"
+            "title": "Closures",
+            "desc": "Variable Scope, Lexical Environment և Փակագծեր:"
         },
         "m13": {
             "badge": "Module 13",
-            "title": "Async / Await",
-            "desc": "Ասինխրոն կոդի էվոլյուցիան և գործնական կիրառումը:"
+            "title": "Promises",
+            "desc": "Ասինխրոն գործողությունների կառավարում, Promise վիճակներ և շղթաներ:"
         },
         "m14": {
             "badge": "Module 14",
-            "title": "Event Loop",
-            "desc": "Macrotasks, Microtasks և ասինխրոն կոդի կատարման հերթականությունը:"
+            "title": "Async / Await",
+            "desc": "Ասինխրոն կոդի էվոլյուցիան և գործնական կիրառումը:"
         },
         "m15": {
             "badge": "Module 15",
+            "title": "Event Loop",
+            "desc": "Macrotasks, Microtasks և ասինխրոն կոդի կատարման հերթականությունը:"
+        },
+        "m16": {
+            "badge": "Module 16",
             "title": "Garbage Collector",
             "desc": "Ինչպես է JavaScript-ը կառավարում հիշողությունը:"
         }

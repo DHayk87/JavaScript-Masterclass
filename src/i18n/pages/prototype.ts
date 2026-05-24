@@ -15,7 +15,7 @@ export default {
             '"JavaScript-ը պրոտոտիպային լեզու է։ Հասկանալով պրոտոտիպերը՝ դուք տիրապետում եք լեզվի հիմքին։"',
         s01Title: "Ինչ է Prototype-ը:",
         s01Lead:
-            'JavaScript-ում ամեն օբյեկտ ունի հատուկ թաքնված հատկություն՝ <code>[[Prototype]]</code>, որը կա՛մ <b>null</b> է, կա՛մ հղում է մեկ այլ օբյեկտի։',
+            "JavaScript-ում ամեն օբյեկտ ունի հատուկ թաքնված հատկություն՝ <code>[[Prototype]]</code>, որը կա՛մ <b>null</b> է, կա՛մ հղում է մեկ այլ օբյեկտի։",
         s01IdeaTitle: "Գաղափարը",
         s01IdeaP:
             "Եթե մենք փորձում ենք կարդալ մի հատկություն, որը չկա օբյեկտի մեջ, JS-ը ավտոմատ այն փնտրում է իր <b>prototype</b>-ի մեջ։",
@@ -51,12 +51,10 @@ export default {
         s05FaqP:
             "Ինչու՞ չօգտագործել <code>Rabbit.prototype = new Animal()</code>: Սա վատ պրակտիկա է, որովհետև ստեղծում է ավելորդ դաշտեր prototype-ում: <code>Object.create</code>-ը ստեղծում է մաքուր կապ:",
         tip1Title: "__proto__ vs prototype",
-        tip1P:
-            "<b>prototype</b>-ը հատկություն է ֆունկցիաների համար։<br /><br /><b>[[Prototype]]</b> (կամ <code>__proto__</code>) կա բոլոր օբյեկտներում։",
+        tip1P: "<b>prototype</b>-ը հատկություն է ֆունկցիաների համար։<br /><br /><b>[[Prototype]]</b> (կամ <code>__proto__</code>) կա բոլոր օբյեկտներում։",
         tip2Title: "Performance & Native",
-        tip2P:
-            "Բոլոր ներկառուցված օբյեկտները ունեն իրենց նախատիպերը։ Օգտագործեք <code>obj.hasOwnProperty(key)</code> միայն սեփական հատկությունների համար։",
-        prevTopic: "Arrays",
+        tip2P: "Բոլոր ներկառուցված օբյեկտները ունեն իրենց նախատիպերը։ Օգտագործեք <code>obj.hasOwnProperty(key)</code> միայն սեփական հատկությունների համար։",
+        prevTopic: "Զանգվածների մեթոդներ",
         nextTopic: "ES6 Classes",
     },
     en: {
@@ -75,7 +73,7 @@ export default {
             '"JavaScript is prototype-based—master prototypes and you master the core of the language."',
         s01Title: "What is a prototype?",
         s01Lead:
-            'Every object has a hidden <code>[[Prototype]]</code> link—either <b>null</b> or another object.',
+            "Every object has a hidden <code>[[Prototype]]</code> link—either <b>null</b> or another object.",
         s01IdeaTitle: "The idea",
         s01IdeaP:
             "If a property is missing on the object, JS looks it up along the prototype chain.",
@@ -91,7 +89,8 @@ export default {
         s03BadTitle: "❌ Without prototype methods",
         s03BadP: "Defining methods in the constructor duplicates functions per instance.",
         s03GoodTitle: "✅ With prototype methods",
-        s03GoodP: "One shared function on <code>Animal.prototype</code> for every instance.",
+        s03GoodP:
+            "One shared function on <code>Animal.prototype</code> for every instance.",
         s04Title: "Prototypal inheritance",
         s04Lead:
             "Inheritance is delegation: an object forwards lookups to its prototype parent.",
@@ -108,12 +107,10 @@ export default {
         s05FaqP:
             "Prefer <code>Object.create(Parent.prototype)</code> over <code>Child.prototype = new Parent()</code> to avoid accidental instance fields on the prototype object.",
         tip1Title: "__proto__ vs prototype",
-        tip1P:
-            "<b>prototype</b> exists on functions.<br /><br /><b>[[Prototype]]</b> / <code>__proto__</code> is the link every object follows for lookups.",
+        tip1P: "<b>prototype</b> exists on functions.<br /><br /><b>[[Prototype]]</b> / <code>__proto__</code> is the link every object follows for lookups.",
         tip2Title: "Performance & built-ins",
-        tip2P:
-            "Built-ins like Array and Date have their own prototypes. Use <code>Object.hasOwn(obj, key)</code> (modern) or <code>obj.hasOwnProperty</code> carefully for own keys.",
-        prevTopic: "Arrays",
+        tip2P: "Built-ins like Array and Date have their own prototypes. Use <code>Object.hasOwn(obj, key)</code> (modern) or <code>obj.hasOwnProperty</code> carefully for own keys.",
+        prevTopic: "Array Methods",
         nextTopic: "ES6 classes",
     },
     ru: {
@@ -132,10 +129,9 @@ export default {
             '"JavaScript — прототипный язык; поняв прототипы, вы понимаете основу языка."',
         s01Title: "Что такое прототип?",
         s01Lead:
-            'У каждого объекта есть скрытая ссылка <code>[[Prototype]]</code> — <b>null</b> или другой объект.',
+            "У каждого объекта есть скрытая ссылка <code>[[Prototype]]</code> — <b>null</b> или другой объект.",
         s01IdeaTitle: "Идея",
-        s01IdeaP:
-            "Если свойства нет на объекте, движок ищет его в цепочке прототипов.",
+        s01IdeaP: "Если свойства нет на объекте, движок ищет его в цепочке прототипов.",
         s02Title: "F.prototype",
         s02Lead:
             "При <code>new F()</code> внутренний прототип нового объекта указывает на <code>F.prototype</code>.",
@@ -150,8 +146,7 @@ export default {
         s03GoodTitle: "✅ С прототипными методами",
         s03GoodP: "Одна общая функция на <code>Animal.prototype</code>.",
         s04Title: "Прототипное наследование",
-        s04Lead:
-            "Наследование — делегирование: объект перенаправляет поиск родителю.",
+        s04Lead: "Наследование — делегирование: объект перенаправляет поиск родителю.",
         s04Step1Title: "1. Вызов родительского конструктора",
         s04Step2Title: "2. Построение цепочки прототипов",
         s04Step3Title: "3. Добавление / переопределение методов",
@@ -165,12 +160,10 @@ export default {
         s05FaqP:
             "Лучше <code>Object.create(Parent.prototype)</code>, чем <code>Child.prototype = new Parent()</code>, чтобы не тащить лишние поля на прототип.",
         tip1Title: "__proto__ vs prototype",
-        tip1P:
-            "<b>prototype</b> — у функций.<br /><br /><b>[[Prototype]]</b> / <code>__proto__</code> — ссылка, по которой идёт поиск у объектов.",
+        tip1P: "<b>prototype</b> — у функций.<br /><br /><b>[[Prototype]]</b> / <code>__proto__</code> — ссылка, по которой идёт поиск у объектов.",
         tip2Title: "Производительность и встроенные типы",
-        tip2P:
-            "У Array, Date и др. свои прототипы. Для «своих» ключей используйте <code>Object.hasOwn</code> (современно) или аккуратно <code>hasOwnProperty</code>.",
-        prevTopic: "Массивы",
+        tip2P: "У Array, Date и др. свои прототипы. Для «своих» ключей используйте <code>Object.hasOwn</code> (современно) или аккуратно <code>hasOwnProperty</code>.",
+        prevTopic: "Методы массивов",
         nextTopic: "Классы ES6",
     },
 };

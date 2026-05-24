@@ -1,7 +1,5 @@
-/**
- * Page-specific interactive behavior that must track the active UI locale.
- */
 import { t } from "../i18n/index.js";
+import { initArrayMethodsVisualizer, refreshArrayMethodsVisualizer } from "./pages/array-methods.js";
 
 declare global {
     interface Window {
@@ -129,6 +127,7 @@ export function initInteractivePages() {
     initGettingStartedDemo();
     initCorePlayground();
     initCodeParsingVisualizer();
+    initArrayMethodsVisualizer();
 }
 
 export function refreshInteractivePages() {
@@ -140,4 +139,5 @@ export function refreshInteractivePages() {
     }
     const ph = document.getElementById("placeholder");
     if (ph) ph.textContent = t("pages.codeParsing.placeholder");
+    refreshArrayMethodsVisualizer();
 }

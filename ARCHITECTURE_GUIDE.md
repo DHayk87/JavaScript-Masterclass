@@ -205,12 +205,12 @@ To ensure maximum discoverability, all pages must meet these standards.
 <title>JS.CORE | Arrays</title>
 <meta
     name="description"
-    content="Խորացված ուղեցույց JavaScript մասիվների (Arrays) վերաբերյալ։"
+    content="Խորացված ուղեցույց JavaScript զանգվածների (Arrays) վերաբերյալ։"
 />
 <meta property="og:title" content="JS.CORE | Arrays" />
 <meta
     property="og:description"
-    content="Խորացված ուղեցույց JavaScript մասիվների վերաբերյալ։"
+    content="Խորացված ուղեցույց JavaScript զանգվածների վերաբերյալ։"
 />
 <meta property="og:type" content="article" />
 ```
