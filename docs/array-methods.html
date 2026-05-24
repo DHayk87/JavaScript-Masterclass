@@ -136,6 +136,21 @@
                                 Yes
                             </td>
                         </tr>
+                        <tr>
+                            <td><strong>sort()</strong></td>
+                            <td data-i18n="pages.arrayMethods.descSort">
+                                Տեղում է դասավորում զանգվածը
+                            </td>
+                            <td data-i18n="pages.arrayMethods.retSort">
+                                Տեղում տեղավորված զանգվածը
+                            </td>
+                            <td
+                                style="color: #ffc500"
+                                data-i18n="pages.arrayMethods.mutYes"
+                            >
+                                Yes
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -153,221 +168,279 @@
                 </div>
 
                 <div class="glass-card">
-                    <h3
-                        class="card-header-small"
-                        data-i18n="pages.arrayMethods.arrayHeading"
-                    >
-                        զանգվածի վիճակը
-                    </h3>
-                    <!-- Visualizer Array Row -->
-                    <div class="array-line" id="arrayVisualContainer">
-                        <span class="bracket">[</span>
-                        <!-- element-wrappers go here dynamically -->
-                        <span class="bracket">]</span>
-                    </div>
-
-                    <!-- Slice subarray line container (hidden by default unless slice was just called) -->
-                    <div
-                        class="array-line hidden"
-                        id="sliceVisualContainer"
-                        style="
-                            margin-top: -10px;
-                            min-height: 140px;
-                            border: 1px dashed rgba(97, 175, 239, 0.3);
-                        "
-                    >
-                        <span class="bracket" style="color: #61afef; font-size: 56px"
-                            >[</span
-                        >
-                        <!-- slice elements go here dynamically -->
-                        <span class="bracket" style="color: #61afef; font-size: 56px"
-                            >]</span
-                        >
-                    </div>
-
-                    <h3
-                        class="card-header-small"
-                        data-i18n="pages.arrayMethods.controlsHeading"
-                    >
-                        Գործողություններ
-                    </h3>
-                    <div class="visualizer-controls">
-                        <!-- Push/Pop -->
-                        <div class="control-group">
-                            <h4>push / pop</h4>
-                            <div class="control-input-row">
-                                <input
-                                    type="text"
-                                    class="input-val text-input"
-                                    id="pushInput"
-                                    value="🥑"
-                                    placeholder="🥑"
-                                />
-                                <button type="button" class="btn-ctrl" id="btnPush">
-                                    .push()
-                                </button>
-                                <button
-                                    type="button"
-                                    class="btn-ctrl btn-danger-light"
-                                    id="btnPop"
-                                >
-                                    .pop()
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Unshift/Shift -->
-                        <div class="control-group">
-                            <h4>unshift / shift</h4>
-                            <div class="control-input-row">
-                                <input
-                                    type="text"
-                                    class="input-val text-input"
-                                    id="unshiftInput"
-                                    value="🥥"
-                                    placeholder="🥥"
-                                />
-                                <button type="button" class="btn-ctrl" id="btnUnshift">
-                                    .unshift()
-                                </button>
-                                <button
-                                    type="button"
-                                    class="btn-ctrl btn-danger-light"
-                                    id="btnShift"
-                                >
-                                    .shift()
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Slice -->
-                        <div class="control-group">
-                            <h4>slice(start, end)</h4>
-                            <div class="control-input-row">
-                                <input
-                                    type="number"
-                                    class="input-val"
-                                    id="sliceStart"
-                                    value="1"
-                                    min="-10"
-                                    max="10"
-                                />
-                                <input
-                                    type="number"
-                                    class="input-val"
-                                    id="sliceEnd"
-                                    value="3"
-                                    min="-10"
-                                    max="10"
-                                />
-                                <button
-                                    type="button"
-                                    class="btn-ctrl btn-info-light"
-                                    id="btnSlice"
-                                >
-                                    .slice()
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Splice -->
-                        <div class="control-group">
-                            <h4>splice(start, deleteCount, ...insert)</h4>
-                            <div class="control-input-row" style="flex-wrap: wrap">
-                                <input
-                                    type="number"
-                                    class="input-val"
-                                    id="spliceStart"
-                                    value="1"
-                                    min="-10"
-                                    max="10"
-                                    style="width: 45px"
-                                />
-                                <input
-                                    type="number"
-                                    class="input-val"
-                                    id="spliceDelete"
-                                    value="1"
-                                    min="0"
-                                    max="10"
-                                    style="width: 45px"
-                                />
-                                <input
-                                    type="text"
-                                    class="input-val text-input"
-                                    id="spliceInsert"
-                                    value="🍇"
-                                    placeholder="Insert"
-                                    style="flex-grow: 1; min-width: 60px"
-                                />
-                                <button
-                                    type="button"
-                                    class="btn-ctrl btn-danger-light"
-                                    id="btnSplice"
-                                    style="width: 100%"
-                                >
-                                    .splice()
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        style="display: flex; justify-content: flex-end; margin-top: 1rem"
-                    >
-                        <button
-                            type="button"
-                            class="btn-ctrl"
-                            id="btnResetArray"
-                            style="
-                                max-width: 150px;
-                                background: rgba(247, 223, 30, 0.1);
-                                border-color: var(--js-yellow);
-                                color: var(--js-yellow);
-                            "
-                            data-i18n="pages.arrayMethods.btnReset"
-                        >
-                            Վերականգնել
-                        </button>
-                    </div>
-
-                    <!-- Interactive Console output -->
-                    <div class="feature-box" style="margin-top: 2rem">
-                        <h4
-                            class="card-header-small"
-                            style="color: var(--js-yellow)"
-                            data-i18n="pages.arrayMethods.consoleHeading"
-                        >
-                            Ինտերակտիվ Կոնսոլ
-                        </h4>
-                        <div
-                            class="code-preview"
-                            id="consoleCodePreview"
-                            style="margin-bottom: 1rem"
-                        >
-                            let arr = ['🍎', '🍊', '🍋', '🍒'];
-                        </div>
-                        <div
-                            class="text-dimmed"
-                            style="font-family: monospace; font-size: 0.9rem"
-                        >
-                            <span data-i18n="pages.arrayMethods.returnedValLabel"
-                                >Returned Value: </span
-                            ><span
-                                id="consoleReturnValue"
-                                class="hl-num"
-                                style="font-weight: bold"
-                                >undefined</span
+                    <div class="visualizer-container">
+                        <nav class="visualizer-nav">
+                            <h3
+                                class="card-header-small"
+                                data-i18n="pages.arrayMethods.controlsHeading"
                             >
-                            <br />
-                            <span data-i18n="pages.arrayMethods.currentArrLabel"
-                                >Final Array State: </span
-                            ><span
-                                id="consoleArrayState"
-                                class="hl-str"
-                                style="font-weight: bold"
-                                >['🍎', '🍊', '🍋', '🍒']</span
+                                Գործողություններ
+                            </h3>
+                            <div class="visualizer-controls">
+                                <!-- Push/Pop -->
+                                <div class="control-group">
+                                    <h4>push / pop</h4>
+
+                                    <div class="control-input-row">
+                                        <input
+                                            type="text"
+                                            class="input-val text-input"
+                                            id="pushInput"
+                                            value="🥑"
+                                            placeholder="🥑"
+                                        />
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl"
+                                            id="btnPush"
+                                        >
+                                            .push()
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl btn-danger-light"
+                                            id="btnPop"
+                                        >
+                                            .pop()
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Unshift/Shift -->
+                                <div class="control-group">
+                                    <h4>unshift / shift</h4>
+                                    <div class="control-input-row">
+                                        <input
+                                            type="text"
+                                            class="input-val text-input"
+                                            id="unshiftInput"
+                                            value="🥥"
+                                            placeholder="🥥"
+                                        />
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl"
+                                            id="btnUnshift"
+                                        >
+                                            .unshift()
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl btn-danger-light"
+                                            id="btnShift"
+                                        >
+                                            .shift()
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Slice -->
+                                <div class="control-group">
+                                    <h4>slice(start, end)</h4>
+                                    <div class="control-input-row">
+                                        <input
+                                            type="number"
+                                            class="input-val"
+                                            id="sliceStart"
+                                            value="1"
+                                            min="-10"
+                                            max="10"
+                                        />
+                                        <input
+                                            type="number"
+                                            class="input-val"
+                                            id="sliceEnd"
+                                            value="3"
+                                            min="-10"
+                                            max="10"
+                                        />
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl btn-info-light"
+                                            id="btnSlice"
+                                        >
+                                            .slice()
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Splice -->
+                                <div class="control-group">
+                                    <h4>splice(start, deleteCount, ...insert)</h4>
+                                    <div
+                                        class="control-input-row"
+                                        style="flex-wrap: wrap"
+                                    >
+                                        <input
+                                            type="number"
+                                            class="input-val"
+                                            id="spliceStart"
+                                            value="1"
+                                            min="-10"
+                                            max="10"
+                                        />
+                                        <input
+                                            type="number"
+                                            class="input-val"
+                                            id="spliceDelete"
+                                            value="1"
+                                            min="0"
+                                            max="10"
+                                        />
+                                        <input
+                                            type="text"
+                                            class="input-val"
+                                            id="spliceInsert"
+                                            value="🍇"
+                                            placeholder="Insert"
+                                        />
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl btn-danger-light"
+                                            id="btnSplice"
+                                            style="width: 100%"
+                                        >
+                                            .splice()
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Sort -->
+                                <div class="control-group">
+                                    <h4>sort(compareFn?)</h4>
+                                    <div class="control-input-row">
+                                        <select
+                                            class="input-val sort-order"
+                                            id="sortOrder"
+                                            style="flex: 1"
+                                        >
+                                            <option value="asc">Ascending</option>
+                                            <option value="desc">Descending</option>
+                                        </select>
+                                        <button
+                                            type="button"
+                                            class="btn-ctrl"
+                                            id="btnSort"
+                                            style="width: 100%"
+                                        >
+                                            .sort()
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                        <div class="feature-box">
+                            <h3
+                                class="card-header-small"
+                                data-i18n="pages.arrayMethods.arrayHeading"
                             >
+                                զանգվածի վիճակը
+                            </h3>
+                            <!-- Visualizer Array Row -->
+                            <div class="array-line" id="arrayVisualContainer">
+                                <span class="bracket">[</span>
+                                <!-- element-wrappers go here dynamically -->
+                                <span class="bracket">]</span>
+                            </div>
+
+                            <!-- Slice subarray line container (hidden by default unless slice was just called) -->
+                            <div
+                                id="returnValueLabel"
+                                style="margin-top: 2rem; margin-bottom: 0.5rem"
+                            >
+                                <span
+                                    style="
+                                        font-size: 0.85rem;
+                                        color: var(--text-dim);
+                                        text-transform: uppercase;
+                                        letter-spacing: 0.05em;
+                                    "
+                                    >Return Value:</span
+                                >
+                            </div>
+                            <div
+                                class="array-line"
+                                id="returnVisualContainer"
+                                style="
+                                    margin-top: -10px;
+                                    min-height: 140px;
+                                    border: 1px dashed rgba(97, 175, 239, 0.3);
+                                    padding: 1rem;
+                                "
+                            >
+                                <span
+                                    class="bracket"
+                                    style="color: #61afef; font-size: 56px"
+                                    >[</span
+                                >
+                                <!-- return values go here dynamically -->
+                                <span
+                                    class="bracket"
+                                    style="color: #61afef; font-size: 56px"
+                                    >]</span
+                                >
+                            </div>
+                            <!-- Interactive Console output -->
+                            <div class="feature-box" style="margin-top: 2rem">
+                                <h4
+                                    class="card-header-small"
+                                    style="color: var(--js-yellow)"
+                                    data-i18n="pages.arrayMethods.consoleHeading"
+                                >
+                                    Ինտերակտիվ Կոնսոլ
+                                </h4>
+                                <div
+                                    class="code-preview"
+                                    id="consoleCodePreview"
+                                    style="margin-bottom: 1rem"
+                                >
+                                    let arr = ['🍎', '🍊', '🍋', '🍒'];
+                                </div>
+                                <div
+                                    class="text-dimmed"
+                                    style="font-family: monospace; font-size: 0.9rem"
+                                >
+                                    <span data-i18n="pages.arrayMethods.returnedValLabel"
+                                        >Returned Value: </span
+                                    ><span
+                                        id="consoleReturnValue"
+                                        class="hl-num"
+                                        style="font-weight: bold"
+                                        >undefined</span
+                                    >
+                                    <br />
+                                    <span data-i18n="pages.arrayMethods.currentArrLabel"
+                                        >Final Array State: </span
+                                    ><span
+                                        id="consoleArrayState"
+                                        class="hl-str"
+                                        style="font-weight: bold"
+                                        >['🍎', '🍊', '🍋', '🍒']</span
+                                    >
+                                </div>
+                            </div>
+                            <div
+                                style="
+                                    display: flex;
+                                    justify-content: flex-end;
+                                    margin-top: 1rem;
+                                "
+                            >
+                                <button
+                                    type="button"
+                                    class="btn-ctrl"
+                                    id="btnResetArray"
+                                    style="
+                                        max-width: 150px;
+                                        background: rgba(247, 223, 30, 0.1);
+                                        border-color: var(--js-yellow);
+                                        color: var(--js-yellow);
+                                    "
+                                    data-i18n="pages.arrayMethods.btnReset"
+                                >
+                                    Վերականգնել
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

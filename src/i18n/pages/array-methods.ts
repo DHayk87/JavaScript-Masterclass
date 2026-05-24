@@ -1,7 +1,8 @@
 export default {
     hy: {
         docTitle: "JS.CORE | զանգվածների մեթոդներ",
-        metaDescription: "JavaScript զանգվածների մեթոդների ինտերակտիվ վիզուալիզատոր (push, pop, shift, unshift, slice, splice):",
+        metaDescription:
+            "JavaScript զանգվածների մեթոդների ինտերակտիվ վիզուալիզատոր (push, pop, shift, unshift, slice, splice):",
         nav: { visualizer: "Վիզուալիզատոր", complexity: "Բարդություն" },
         h1: "զանգվածների մեթոդներ",
         subtitle: '"զանգվածների մանիպուլյացիան JavaScript-ի հիմնաքարերից է:"',
@@ -21,10 +22,13 @@ export default {
         retShift: "Հեռացված տարրը",
         descUnshift: "Ավելացնում է մեկ կամ մի քանի տարր զանգվածի սկզբում:",
         retUnshift: "զանգվածի նոր երկարությունը (`length`)",
-        descSlice: "Պատճենում է զանգվածի մի մասը նոր զանգվածի մեջ (չի փոփոխում բնօրինակը):",
+        descSlice:
+            "Պատճենում է զանգվածի մի մասը նոր զանգվածի մեջ (չի փոփոխում բնօրինակը):",
         retSlice: "Նոր զանգված՝ պատճենված տարրերով",
         descSplice: "Ավելացնում կամ հեռացնում է տարրեր զանգվածի ցանկացած դիրքից:",
         retSplice: "Հեռացված տարրերի զանգվածը",
+        descSort: "Տեղում է դասավորում զանգվածը (լեքսիկոգրաֆիկ կարգով):",
+        retSort: "Տեղում դասավորված զանգվածը",
         visualizerTitle: "Մեթոդների Վիզուալիզատոր",
         arrayHeading: "զանգվածի վիճակը",
         controlsHeading: "Գործողություններ",
@@ -42,7 +46,8 @@ export default {
     },
     en: {
         docTitle: "JS.CORE | Array Methods",
-        metaDescription: "Interactive visualizer for JavaScript array methods (push, pop, shift, unshift, slice, splice).",
+        metaDescription:
+            "Interactive visualizer for JavaScript array methods (push, pop, shift, unshift, slice, splice).",
         nav: { visualizer: "Visualizer", complexity: "Complexity" },
         h1: "Array Methods",
         subtitle: '"Array manipulation is one of the cornerstones of JavaScript."',
@@ -66,6 +71,8 @@ export default {
         retSlice: "New array containing extracted elements",
         descSplice: "Adds and/or removes elements from any index.",
         retSplice: "Array of deleted elements",
+        descSort: "Sorts the array in place (lexicographically by default).",
+        retSort: "The sorted array (same reference)",
         visualizerTitle: "Methods Visualizer",
         arrayHeading: "Array State",
         controlsHeading: "Operations",
@@ -83,7 +90,8 @@ export default {
     },
     ru: {
         docTitle: "JS.CORE | Методы массивов",
-        metaDescription: "Интерактивный визуализатор методов массивов в JavaScript (push, pop, shift, unshift, slice, splice).",
+        metaDescription:
+            "Интерактивный визуализатор методов массивов в JavaScript (push, pop, shift, unshift, slice, splice).",
         nav: { visualizer: "Визуализатор", complexity: "Сложность" },
         h1: "Методы массивов",
         subtitle: '"Манипуляции с массивами — один из краеугольных камней JavaScript."',
@@ -107,6 +115,8 @@ export default {
         retSlice: "Новый массив со скопированными элементами",
         descSplice: "Добавляет и/или удаляет элементы в любом месте массива.",
         retSplice: "Массив удаленных элементов",
+        descSort: "Сортирует массив на месте (лексикографически по умолчанию).",
+        retSort: "Отсортированный массив (тот же объект)",
         visualizerTitle: "Визуализатор методов",
         arrayHeading: "Состояние массива",
         controlsHeading: "Операции",
