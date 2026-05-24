@@ -1199,17 +1199,21 @@ function setupTableSorting() {
       const tbody = table.tBodies[0];
       const rows = Array.from(tbody.rows);
 
+      const isMutating = (row: HTMLTableRowElement) => {
+        const cell = row.cells[colIndex];
+        const i18n = cell.getAttribute("data-i18n") || "";
+        return i18n.toLowerCase().includes("mutyes");
+      };
+
       if (state === "none") {
         state = "yes";
         icon.textContent = "↑";
         icon.style.opacity = "1";
         rows.sort((a, b) => {
-          const aVal =
-            a.cells[colIndex].textContent?.trim().toLowerCase() || "";
-          const bVal =
-            b.cells[colIndex].textContent?.trim().toLowerCase() || "";
-          if (aVal === "yes" && bVal !== "yes") return -1;
-          if (aVal !== "yes" && bVal === "yes") return 1;
+          const aMut = isMutating(a);
+          const bMut = isMutating(b);
+          if (aMut && !bMut) return -1;
+          if (!aMut && bMut) return 1;
           return 0;
         });
       } else if (state === "yes") {
@@ -1217,12 +1221,10 @@ function setupTableSorting() {
         icon.textContent = "↓";
         icon.style.opacity = "1";
         rows.sort((a, b) => {
-          const aVal =
-            a.cells[colIndex].textContent?.trim().toLowerCase() || "";
-          const bVal =
-            b.cells[colIndex].textContent?.trim().toLowerCase() || "";
-          if (aVal === "no" && bVal !== "no") return -1;
-          if (aVal !== "no" && bVal === "no") return 1;
+          const aMut = isMutating(a);
+          const bMut = isMutating(b);
+          if (!aMut && bMut) return -1;
+          if (aMut && !bMut) return 1;
           return 0;
         });
       } else {
