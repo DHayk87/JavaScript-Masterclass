@@ -1193,16 +1193,18 @@ function setupTableSorting() {
     if (!header || !table || !icon) return;
 
     let state: "none" | "yes" | "no" = "none";
-    const originalRows = Array.from(table.tBodies[0].rows);
+    // Clone original rows to ensure we can always reset correctly
+    const originalRows = Array.from(table.tBodies[0].rows).map((r) =>
+      r.cloneNode(true),
+    ) as HTMLTableRowElement[];
 
     header.addEventListener("click", () => {
       const tbody = table.tBodies[0];
       const rows = Array.from(tbody.rows);
 
-      const isMutating = (row: HTMLTableRowElement) => {
+      const getMutationValue = (row: HTMLTableRowElement) => {
         const cell = row.cells[colIndex];
-        const i18n = cell.getAttribute("data-i18n") || "";
-        return i18n.toLowerCase().includes("mutyes");
+        return cell?.getAttribute("data-mutation") === "true";
       };
 
       if (state === "none") {
@@ -1210,29 +1212,27 @@ function setupTableSorting() {
         icon.textContent = "↑";
         icon.style.opacity = "1";
         rows.sort((a, b) => {
-          const aMut = isMutating(a);
-          const bMut = isMutating(b);
-          if (aMut && !bMut) return -1;
-          if (!aMut && bMut) return 1;
-          return 0;
+          const aMut = getMutationValue(a);
+          const bMut = getMutationValue(b);
+          return aMut === bMut ? 0 : aMut ? -1 : 1;
         });
       } else if (state === "yes") {
         state = "no";
         icon.textContent = "↓";
         icon.style.opacity = "1";
         rows.sort((a, b) => {
-          const aMut = isMutating(a);
-          const bMut = isMutating(b);
-          if (!aMut && bMut) return -1;
-          if (aMut && !bMut) return 1;
-          return 0;
+          const aMut = getMutationValue(a);
+          const bMut = getMutationValue(b);
+          return aMut === bMut ? 0 : aMut ? 1 : -1;
         });
       } else {
         state = "none";
         icon.textContent = "↕";
         icon.style.opacity = "0.5";
         tbody.innerHTML = "";
-        originalRows.forEach((row) => tbody.appendChild(row));
+        originalRows.forEach((row) =>
+          tbody.appendChild(row.cloneNode(true) as HTMLTableRowElement),
+        );
         return;
       }
 
