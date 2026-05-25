@@ -1192,26 +1192,26 @@ function setupTableSorting() {
     const icon = document.getElementById(iconId);
     if (!header || !table || !icon) return;
 
+    const tbody = table.tBodies[0];
+    if (!tbody) return;
+    const originalRows = Array.from(tbody.rows);
     let state: "none" | "yes" | "no" = "none";
-    // Clone original rows to ensure we can always reset correctly
-    const originalRows = Array.from(table.tBodies[0].rows).map((r) =>
-      r.cloneNode(true),
-    ) as HTMLTableRowElement[];
 
     header.addEventListener("click", () => {
-      const tbody = table.tBodies[0];
-      const rows = Array.from(tbody.rows);
+      const currentRows = Array.from(tbody.rows);
 
       const getMutationValue = (row: HTMLTableRowElement) => {
         const cell = row.cells[colIndex];
         return cell?.getAttribute("data-mutation") === "true";
       };
 
+      let sortedRows: HTMLTableRowElement[];
+
       if (state === "none") {
         state = "yes";
         icon.textContent = "↑";
         icon.style.opacity = "1";
-        rows.sort((a, b) => {
+        sortedRows = currentRows.sort((a, b) => {
           const aMut = getMutationValue(a);
           const bMut = getMutationValue(b);
           return aMut === bMut ? 0 : aMut ? -1 : 1;
@@ -1220,7 +1220,7 @@ function setupTableSorting() {
         state = "no";
         icon.textContent = "↓";
         icon.style.opacity = "1";
-        rows.sort((a, b) => {
+        sortedRows = currentRows.sort((a, b) => {
           const aMut = getMutationValue(a);
           const bMut = getMutationValue(b);
           return aMut === bMut ? 0 : aMut ? 1 : -1;
@@ -1229,15 +1229,14 @@ function setupTableSorting() {
         state = "none";
         icon.textContent = "↕";
         icon.style.opacity = "0.5";
-        tbody.innerHTML = "";
-        originalRows.forEach((row) =>
-          tbody.appendChild(row.cloneNode(true) as HTMLTableRowElement),
-        );
-        return;
+        sortedRows = originalRows;
       }
 
-      tbody.innerHTML = "";
-      rows.forEach((row) => tbody.appendChild(row));
+      // Re-append the sorted nodes.
+      // appendChild moves the existing node to the end of the list.
+      const fragment = document.createDocumentFragment();
+      sortedRows.forEach((row) => fragment.appendChild(row));
+      tbody.appendChild(fragment);
     });
   });
 }
