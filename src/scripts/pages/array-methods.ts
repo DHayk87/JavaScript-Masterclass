@@ -1245,7 +1245,7 @@ function setupTableSorting() {
 export function initArrayMethodsVisualizer() {
   const container = document.getElementById("arrayVisualContainer");
   if (!container) {
-    console.log(
+    console.warn(
       "[Array Visualizer] Container not found, but initializing table sorting anyway",
     );
   } else {
