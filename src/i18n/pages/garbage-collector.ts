@@ -99,7 +99,7 @@ export default {
         proTipP2:
             "Պրոֆեսիոնալ մակարդակում կարող եք օգտագործել նաև <code>WeakRef</code> և <code>FinalizationRegistry</code> (բայց զգույշ)։",
 
-        nextTopic: "Գլխավոր էջ",
+        nextTopic: "ES6 Classes",
         prevTopic: "Event Loop",
     },
 
@@ -204,8 +204,8 @@ export default {
         proTipP2:
             "На продвинутом уровне можно использовать <code>WeakRef</code> и <code>FinalizationRegistry</code>.",
 
-        prevTopic: "Event Loop",
-        nextTopic: "На главную",
+        prevTopic: "ES6 Classes",
+        nextTopic: "Event Loop",
     },
 
     // =========================================================================
@@ -308,7 +308,7 @@ export default {
         proTipP2:
             "At an advanced level you can also use <code>WeakRef</code> and <code>FinalizationRegistry</code> (with caution).",
 
-        prevTopic: "Event Loop",
-        nextTopic: "Home",
+        prevTopic: "ES6 Classes",
+        nextTopic: "Event Loop",
     },
 };

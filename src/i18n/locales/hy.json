@@ -19,94 +19,100 @@
     },
     "dashboard": {
         "docTitle": "JS.CORE | Masterclass Dashboard",
-        "metaDescription": "Ժամանակակից JavaScript-ի ամբողջական դասընթաց սկսնակների և փորձառուների համար:",
+        "metaDescription": "Ժամանակակից JavaScript-ի ամբողջական դասընթաց սկսնակների և փորձառուների համար։",
         "headline": "JavaScript Masterclass",
         "subtitle": "Սկսեք ձեր ճանապարհորդությունը դեպի պրոֆեսիոնալ ծրագրավորում",
+
         "m01": {
             "badge": "Module 01",
-            "title": "JS Հիմունքներ",
-            "desc": "Փոփոխականներ, տվյալների տիպեր և բրաուզերային ինտերակցիա:"
+            "title": "Core Concepts",
+            "desc": "Տվյալների խորացված տիպեր և հիշողության կառավարման հիմքեր։"
         },
         "m02": {
             "badge": "Module 02",
-            "title": "Core Concepts",
-            "desc": "Տվյալների խորացված տիպեր և հիշողության կառավարման հիմքեր:"
+            "title": "JS Հիմունքներ",
+            "desc": "Փոփոխականներ, տվյալների տիպեր, օպերատորներ և բրաուզերային ինտերակցիա։"
         },
         "m03": {
             "badge": "Module 03",
             "title": "Պայմաններ և Լոգիկա",
-            "desc": "Համեմատության օպերատորներ, if/else և լոգիկական կապեր:"
+            "desc": "Համեմատության օպերատորներ, if/else, switch և լոգիկական կապեր։"
         },
         "m04": {
             "badge": "Module 04",
             "title": "Ցիկլեր և Switch",
-            "desc": "While, For ցիկլեր և Lexical Environment-ի հիմունքներ:"
+            "desc": "While, For, do-while ցիկլեր և Lexical Environment-ի հիմունքներ։"
         },
         "m05": {
             "badge": "Module 05",
             "title": "Ֆունկցիաներ",
-            "desc": "Declarations, Expressions, Arrow functions և IIFE:"
+            "desc": "Function Declaration, Expression, Arrow Functions, IIFE և Scope։"
         },
         "m06": {
             "badge": "Module 06",
-            "title": "Code Parsing",
-            "desc": "Ինչպե՞ս է JavaScript-ը կարդում և կատարում ձեր կոդը:"
+            "title": "Strings",
+            "desc": "Պրիմիտիվներ, անփոփոխելիություն, String Pool և հիշողության օպտիմալացում։"
         },
         "m07": {
             "badge": "Module 07",
             "title": "Objects",
-            "desc": "Օբյեկտներ, հղումներ և հիշողության կառուցվածքը:"
+            "desc": "Օբյեկտներ, հղումներ, մեթոդներ և հիշողության կառուցվածք։"
         },
         "m08": {
             "badge": "Module 08",
             "title": "Arrays",
-            "desc": "զանգվածներ և դրանց մեթոդները:"
+            "desc": "Զանգվածներ և դրանց հիմնական աշխատանքը։"
         },
         "m09": {
             "badge": "Module 09",
-            "title": "զանգվածների մեթոդներ",
-            "desc": "զանգվածների մուտացնող և չմուտացնող մեթոդներ (վիզուալիզատոր):"
+            "title": "Array Methods",
+            "desc": "Զանգվածների մուտացնող և չմուտացնող մեթոդներ (վիզուալիզատորով)։"
         },
         "m10": {
             "badge": "Module 10",
-            "title": "Prototypes",
-            "desc": "Պրոտոտիպային ժառանգում և ES5 OOP հիմունքներ:"
+            "title": "Code Parsing",
+            "desc": "Ինչպե՞ս է JavaScript-ը կարդում և կատարում ձեր կոդը (Parsing, Hoisting)։"
         },
         "m11": {
             "badge": "Module 11",
-            "title": "ES6 Classes",
-            "desc": "Ժամանակակից OOP JavaScript-ում և class սինտաքս:"
+            "title": "Closures",
+            "desc": "Variable Scope, Lexical Environment և փակագծերի գործնական կիրառում։"
         },
         "m12": {
             "badge": "Module 12",
-            "title": "Closures",
-            "desc": "Variable Scope, Lexical Environment և Փակագծեր:"
+            "title": "Prototypes",
+            "desc": "Պրոտոտիպային ժառանգում և ES5 OOP հիմունքներ։"
         },
         "m13": {
             "badge": "Module 13",
-            "title": "Promises",
-            "desc": "Ասինխրոն գործողությունների կառավարում, Promise վիճակներ և շղթաներ:"
+            "title": "ES6 Classes",
+            "desc": "Ժամանակակից OOP JavaScript-ում և class սինտաքս։"
         },
         "m14": {
             "badge": "Module 14",
-            "title": "Async / Await",
-            "desc": "Ասինխրոն կոդի էվոլյուցիան և գործնական կիրառումը:"
+            "title": "Garbage Collector",
+            "desc": "Ինչպես է JavaScript-ը կառավարում հիշողությունը և ջնջում անպետք տվյալները։"
         },
         "m15": {
             "badge": "Module 15",
             "title": "Event Loop",
-            "desc": "Macrotasks, Microtasks և ասինխրոն կոդի կատարման հերթականությունը:"
+            "desc": "Macrotasks, Microtasks և ասինխրոն կոդի կատարման հերթականություն։"
         },
         "m16": {
             "badge": "Module 16",
-            "title": "Garbage Collector",
-            "desc": "Ինչպես է JavaScript-ը կառավարում հիշողությունը:"
+            "title": "Promises",
+            "desc": "Ասինխրոն գործողությունների կառավարում, Promise վիճակներ և շղթաներ։"
+        },
+        "m17": {
+            "badge": "Module 17",
+            "title": "Async / Await",
+            "desc": "Ասինխրոն կոդի ժամանակակից գրելաձև և գործնական կիրառում։"
         }
     },
     "error404": {
         "docTitle": "404 | Էջը չի գտնվել",
         "heading": "Էջը չի գտնվել",
-        "body": "Հղումը, որը դուք փորձում եք բացել, գոյություն չունի կամ տեղափոխվել է:",
+        "body": "Հղումը, որը դուք փորձում եք բացել, գոյություն չունի կամ տեղափոխվել է։",
         "cta": "Վերադառնալ Դասընթաց"
     }
 }

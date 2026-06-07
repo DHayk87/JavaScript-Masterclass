@@ -3,7 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title data-i18n-title="pages.functions.docTitle">JS.CORE | Ֆունկցիաներ</title>
+        <title data-i18n-title="pages.functions.docTitle">
+            JS.CORE | Ֆունկցիաներ
+        </title>
         <meta
             name="description"
             data-i18n-desc="pages.functions.metaDescription"
@@ -34,7 +36,10 @@
 
         <main class="main-content">
             <header>
-                <h1 class="title-large gradient-text" data-i18n="pages.functions.h1">
+                <h1
+                    class="title-large gradient-text"
+                    data-i18n="pages.functions.h1"
+                >
                     Ֆունկցիաներ (Functions)
                 </h1>
                 <p class="subtitle" data-i18n="pages.functions.subtitle">
@@ -45,39 +50,51 @@
             <section id="declaration" class="section-container">
                 <div class="section-label">
                     <span class="section-num">01</span>
-                    <h2 class="section-title" data-i18n="pages.functions.s01Title">
+                    <h2
+                        class="section-title"
+                        data-i18n="pages.functions.s01Title"
+                    >
                         Function Declaration (Ֆունկցիայի հայտարարում)
                     </h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large" data-i18n-html="pages.functions.s01Lead">
+                    <p
+                        class="text-body-large"
+                        data-i18n-html="pages.functions.s01Lead"
+                    >
                         Սա հանդիսանում է <b>HoistableDeclaration</b>: JS շարժիչը
-                        Environment Record-ը ստեղծելիս այս ֆունկցիաները միանգամից
-                        սկզբնավորում է (initialize):
+                        Environment Record-ը ստեղծելիս այս ֆունկցիաները
+                        միանգամից սկզբնավորում է (initialize):
                     </p>
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small" data-i18n="pages.functions.s01SynTitle">Սինտաքս</h4>
-                            <div class="code-inset">
-                                <code class="hl-kw">function</code>
-                                <code class="hl-fn">sayHi</code>() {<br />
-                                &nbsp;&nbsp;<code class="hl-fn">console.log</code>(<span
-                                    class="hl-str"
-                                    >"Ողջույն"</span
-                                >);<br />
-                                }
-                            </div>
+                            <h4
+                                class="card-header-small"
+                                data-i18n="pages.functions.s01SynTitle"
+                            >
+                                Սինտաքս
+                            </h4>
+                            <div
+                                class="code-inset"
+                                data-i18n="pages.functions.s01Code"
+                            ></div>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small" data-i18n="pages.functions.s01AdvTitle">
+                            <h4
+                                class="card-header-small"
+                                data-i18n="pages.functions.s01AdvTitle"
+                            >
                                 Առավելությունը
                             </h4>
-                            <p class="text-dimmed" data-i18n="pages.functions.s01AdvP">
+                            <p
+                                class="text-dimmed"
+                                data-i18n="pages.functions.s01AdvP"
+                            >
                                 Կարելի է կանչել կոդի ցանկացած հատվածից (նույնիսկ
-                                հայտարարումից առաջ), ինչը թույլ է տալիս կառուցել կոդը
-                                «կարևորից դեպի մանրուքներ» սկզբունքով:
+                                հայտարարումից առաջ), ինչը թույլ է տալիս կառուցել
+                                կոդը «կարևորից դեպի մանրուքներ» սկզբունքով:
                             </p>
                         </div>
                     </div>
@@ -87,38 +104,51 @@
             <section id="expression" class="section-container">
                 <div class="section-label">
                     <span class="section-num">02</span>
-                    <h2 class="section-title" data-i18n="pages.functions.s02Title">
+                    <h2
+                        class="section-title"
+                        data-i18n="pages.functions.s02Title"
+                    >
                         Function Expression (Ֆունկցիոնալ արտահայտություն)
                     </h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large" data-i18n-html="pages.functions.s02Lead">
-                        Այստեղ ֆունկցիան հանդես է գալիս որպես արժեք: Այն գրանցվում է որպես
-                        լեքսիկական փոփոխական և ենթարկվում է
+                    <p
+                        class="text-body-large"
+                        data-i18n-html="pages.functions.s02Lead"
+                    >
+                        Այստեղ ֆունկցիան հանդես է գալիս որպես արժեք: Այն
+                        գրանցվում է որպես լեքսիկական փոփոխական և ենթարկվում է
                         <code>let/const</code> կանոններին:
                     </p>
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small" data-i18n="pages.functions.s02SynTitle">Սինտաքս</h4>
-                            <div class="code-inset">
-                                <code class="hl-kw">let</code> sayHi =
-                                <code class="hl-kw">function</code>() {<br />
-                                &nbsp;&nbsp;<code class="hl-fn">console.log</code>(<span
-                                    class="hl-str"
-                                    >"Ողջույն"</span
-                                >);<br />
-                                };
-                            </div>
+                            <h4
+                                class="card-header-small"
+                                data-i18n="pages.functions.s02SynTitle"
+                            >
+                                Սինտաքս
+                            </h4>
+                            <div
+                                class="code-inset"
+                                data-i18n="pages.functions.s02Code"
+                            ></div>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small" data-i18n="pages.functions.s02DiffTitle">
+                            <h4
+                                class="card-header-small"
+                                data-i18n="pages.functions.s02DiffTitle"
+                            >
                                 Տարբերությունը
                             </h4>
-                            <p class="text-dimmed" data-i18n-html="pages.functions.s02DiffP">
-                                Քանի դեռ ծրագրի կատարումը չի հասել այս տողին, ֆունկցիան
-                                գտնվում է <b>Temporal Dead Zone</b>-ում և հասանելի չէ:
+                            <p
+                                class="text-dimmed"
+                                data-i18n-html="pages.functions.s02DiffP"
+                            >
+                                Քանի դեռ ծրագրի կատարումը չի հասել այս տողին,
+                                ֆունկցիան գտնվում է
+                                <b>Temporal Dead Zone</b>-ում և հասանելի չէ:
                             </p>
                         </div>
                     </div>
@@ -130,7 +160,7 @@
                             FD -->|"Hoisted"| Call1["Can be called here"]
                             Code --> FE["Function Expression"]
                             FE -->|"Not Hoisted"| Call2["Can only be called after declaration"]
-                            
+
                             style FD fill:#10b981,stroke:#10b981,color:#fff
                             style FE fill:#ef4444,stroke:#ef4444,color:#fff
                             style Code fill:none,stroke:#fff
@@ -141,38 +171,64 @@
             <section id="arrow" class="section-container">
                 <div class="section-label">
                     <span class="section-num">03</span>
-                    <h2 class="section-title" data-i18n="pages.functions.s03Title">
+                    <h2
+                        class="section-title"
+                        data-i18n="pages.functions.s03Title"
+                    >
                         Arrow Functions (Սլաքային ֆունկցիաներ)
                     </h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large" data-i18n="pages.functions.s03Lead">
-                        ES6-ի ամենակարևոր լրացումներից մեկը: Սրանք պարզապես «կարճ գրելաձև»
-                        չեն, այլ ունեն էական ֆունկցիոնալ տարբերություններ:
+                    <p
+                        class="text-body-large"
+                        data-i18n="pages.functions.s03Lead"
+                    >
+                        ES6-ի ամենակարևոր լրացումներից մեկը: Սրանք պարզապես
+                        «կարճ գրելաձև» չեն, այլ ունեն էական ֆունկցիոնալ
+                        տարբերություններ:
                     </p>
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small" data-i18n="pages.functions.s03SynTitle">Սինտաքս</h4>
-                            <div class="code-inset">
-                                <code class="hl-kw">const</code> sum = (a, b) => a + b;
-                            </div>
+                            <h4
+                                class="card-header-small"
+                                data-i18n="pages.functions.s03SynTitle"
+                            >
+                                Սինտաքս
+                            </h4>
+                            <div
+                                class="code-inset"
+                                data-i18n="pages.functions.s03Code"
+                            ></div>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small" data-i18n="pages.functions.s03WhyTitle">
+                            <h4
+                                class="card-header-small"
+                                data-i18n="pages.functions.s03WhyTitle"
+                            >
                                 Ինչու՞ են հատուկ
                             </h4>
                             <ul class="list-container no-list-style">
-                                <li class="list-item" data-i18n-html="pages.functions.s03Li1">
-                                    <b>Lexical this:</b> Չունեն սեփական <code>this</code>:
-                                    Վերցնում են այն ստեղծման միջավայրից:
+                                <li
+                                    class="list-item"
+                                    data-i18n-html="pages.functions.s03Li1"
+                                >
+                                    <b>Lexical this:</b> Չունեն սեփական
+                                    <code>this</code>: Վերցնում են այն ստեղծման
+                                    միջավայրից:
                                 </li>
-                                <li class="list-item" data-i18n-html="pages.functions.s03Li2">
+                                <li
+                                    class="list-item"
+                                    data-i18n-html="pages.functions.s03Li2"
+                                >
                                     <b>Constructor:</b> Չեն կարող օգտագործվել
                                     <code>new</code> օպերատորի հետ:
                                 </li>
-                                <li class="list-item" data-i18n-html="pages.functions.s03Li3">
+                                <li
+                                    class="list-item"
+                                    data-i18n-html="pages.functions.s03Li3"
+                                >
                                     <b>Arguments:</b> Չունեն սեփական
                                     <code>arguments</code> օբյեկտը:
                                 </li>
@@ -185,32 +241,49 @@
             <section id="iife" class="section-container">
                 <div class="section-label">
                     <span class="section-num">04</span>
-                    <h2 class="section-title" data-i18n="pages.functions.s04Title">
+                    <h2
+                        class="section-title"
+                        data-i18n="pages.functions.s04Title"
+                    >
                         IIFE (Անմիջապես կանչվող ֆունկցիաներ)
                     </h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large" data-i18n="pages.functions.s04Lead">
-                        Չնայած ժամանակակից JS-ում ունենք Block Scope, IIFE-ն դեռևս
-                        օգտագործվում է որոշակի դեպքերում:
+                    <p
+                        class="text-body-large"
+                        data-i18n="pages.functions.s04Lead"
+                    >
+                        Չնայած ժամանակակից JS-ում ունենք Block Scope, IIFE-ն
+                        դեռևս օգտագործվում է որոշակի դեպքերում:
                     </p>
 
                     <div class="grid-2">
                         <div class="feature-box">
-                            <h4 class="card-header-small" data-i18n="pages.functions.s04SynTitle">Սինտաքս</h4>
-                            <div class="code-inset">
-                                (<code class="hl-kw">function</code>() {<br />
-                                &nbsp;&nbsp;<code class="hl-kw">let</code> privateVar =
-                                <span class="hl-str">"Գաղտնի տվյալ"</span>;<br />
-                                })();
-                            </div>
+                            <h4
+                                class="card-header-small"
+                                data-i18n="pages.functions.s04SynTitle"
+                            >
+                                Սինտաքս
+                            </h4>
+                            <div
+                                class="code-inset"
+                                data-i18n="pages.functions.s04Code"
+                            ></div>
                         </div>
                         <div class="feature-box">
-                            <h4 class="card-header-small" data-i18n="pages.functions.s04GoalTitle">Նպատակը</h4>
-                            <p class="text-dimmed" data-i18n="pages.functions.s04GoalP">
-                                Կանխել գլոբալ տիրույթի (Global Scope) աղտոտումը և ստեղծել
-                                մեկուսացված միջավայր:
+                            <h4
+                                class="card-header-small"
+                                data-i18n="pages.functions.s04GoalTitle"
+                            >
+                                Նպատակը
+                            </h4>
+                            <p
+                                class="text-dimmed"
+                                data-i18n="pages.functions.s04GoalP"
+                            >
+                                Կանխել գլոբալ տիրույթի (Global Scope) աղտոտումը
+                                և ստեղծել մեկուսացված միջավայր:
                             </p>
                         </div>
                     </div>
@@ -218,13 +291,16 @@
             </section>
 
             <div class="pro-tip pro-tip-blue">
-                <h4 class="card-header-small hl-fn" data-i18n="pages.functions.tipTitle">
+                <h4
+                    class="card-header-small hl-fn"
+                    data-i18n="pages.functions.tipTitle"
+                >
                     Use Cases (Ե՞րբ և ո՞րն օգտագործել)
                 </h4>
                 <ol class="ordered-list-small">
                     <li data-i18n-html="pages.functions.tipLi1">
-                        <b>Function Declaration:</b> Հիմնական գործողությունների համար,
-                        որոնք պետք է հասանելի լինեն ամբողջ ֆայլում:
+                        <b>Function Declaration:</b> Հիմնական գործողությունների
+                        համար, որոնք պետք է հասանելի լինեն ամբողջ ֆայլում:
                     </li>
                     <li data-i18n-html="pages.functions.tipLi2">
                         <b>Arrow Functions:</b> Callback-ների (<code>map</code>,
@@ -232,8 +308,9 @@
                         <code>this</code>-ը:
                     </li>
                     <li data-i18n-html="pages.functions.tipLi3">
-                        <b>Function Expression:</b> Երբ ֆունկցիան պետք է սահմանվի
-                        պայմանականորեն (օրինակ՝ <code>if</code>-ի ներսում):
+                        <b>Function Expression:</b> Երբ ֆունկցիան պետք է
+                        սահմանվի պայմանականորեն (օրինակ՝ <code>if</code>-ի
+                        ներսում):
                     </li>
                 </ol>
             </div>
@@ -242,18 +319,26 @@
                 <a href="switch-while" class="nav-arrow prev">
                     <span class="arrow-icon">←</span>
                     <div class="arrow-text">
-                        <span class="arrow-label" data-i18n="lessonNav.prev">Նախորդը</span>
-                        <span class="arrow-title" data-i18n="pages.functions.prevTopic"
+                        <span class="arrow-label" data-i18n="lessonNav.prev"
+                            >Նախորդը</span
+                        >
+                        <span
+                            class="arrow-title"
+                            data-i18n="pages.functions.prevTopic"
                             >Ցիկլեր և Switch</span
                         >
                     </div>
                 </a>
-                <a href="code-parsing" class="nav-arrow next">
+                <a href="string" class="nav-arrow next">
                     <span class="arrow-icon">→</span>
                     <div class="arrow-text">
-                        <span class="arrow-label" data-i18n="lessonNav.next">Հաջորդը</span>
-                        <span class="arrow-title" data-i18n="pages.functions.nextTopic"
-                            >Code Parsing</span
+                        <span class="arrow-label" data-i18n="lessonNav.next"
+                            >Հաջորդը</span
+                        >
+                        <span
+                            class="arrow-title"
+                            data-i18n="pages.functions.nextTopic"
+                            >Strings Deep Dive</span
                         >
                     </div>
                 </a>

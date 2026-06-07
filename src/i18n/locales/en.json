@@ -22,85 +22,92 @@
         "metaDescription": "A complete modern JavaScript course for beginners and experienced developers.",
         "headline": "JavaScript Masterclass",
         "subtitle": "Start your journey toward professional programming",
+
+
         "m01": {
             "badge": "Module 01",
-            "title": "JS Fundamentals",
-            "desc": "Variables, data types, and browser interaction."
+            "title": "Core Concepts",
+            "desc": "Advanced data types and memory management foundations."
         },
         "m02": {
             "badge": "Module 02",
-            "title": "Core Concepts",
-            "desc": "Advanced data types and memory foundations."
+            "title": "JS Fundamentals",
+            "desc": "Variables, data types, operators, and browser interaction."
         },
         "m03": {
             "badge": "Module 03",
             "title": "Conditions & Logic",
-            "desc": "Comparison operators, if/else, and logical operators."
+            "desc": "Comparison operators, if/else, switch, and logical expressions."
         },
         "m04": {
             "badge": "Module 04",
             "title": "Loops & Switch",
-            "desc": "While and for loops, plus lexical environment basics."
+            "desc": "While, for, do-while loops and basics of lexical environment."
         },
         "m05": {
             "badge": "Module 05",
             "title": "Functions",
-            "desc": "Declarations, expressions, arrow functions, and IIFE."
+            "desc": "Function declarations, expressions, arrow functions, IIFE, and scope."
         },
         "m06": {
             "badge": "Module 06",
-            "title": "Code Parsing",
-            "desc": "How JavaScript reads and executes your code."
+            "title": "Strings",
+            "desc": "Primitives, immutability, String Pool, and memory optimization."
         },
         "m07": {
             "badge": "Module 07",
             "title": "Objects",
-            "desc": "Objects, references, and memory layout."
+            "desc": "Objects, references, methods, and memory structure."
         },
         "m08": {
             "badge": "Module 08",
             "title": "Arrays",
-            "desc": "Arrays and their methods."
+            "desc": "Arrays and fundamental operations."
         },
         "m09": {
             "badge": "Module 09",
             "title": "Array Methods",
-            "desc": "Mutating and non-mutating array methods (visualizer)."
+            "desc": "Mutating and non-mutating methods with visualizer."
         },
         "m10": {
             "badge": "Module 10",
-            "title": "Prototypes",
-            "desc": "Prototype inheritance and ES5 OOP basics."
+            "title": "Code Parsing",
+            "desc": "How JavaScript parses and executes your code (Parsing & Hoisting)."
         },
         "m11": {
             "badge": "Module 11",
-            "title": "ES6 Classes",
-            "desc": "Modern OOP in JavaScript and class syntax."
+            "title": "Closures",
+            "desc": "Variable scope, lexical environment, and practical closures."
         },
         "m12": {
-            "badge": "Module 12",
-            "title": "Closures",
-            "desc": "Variable scope, lexical environment, and closures."
+          "badge": "Module 12",
+          "title": "Prototypes",
+          "desc": "Prototype inheritance and ES5 OOP fundamentals."
         },
         "m13": {
-            "badge": "Module 13",
-            "title": "Promises",
-            "desc": "Async control flow, promise states, and chaining."
+          "badge": "Module 13",
+          "title": "ES6 Classes",
+          "desc": "Modern OOP in JavaScript and class syntax."
         },
         "m14": {
             "badge": "Module 14",
-            "title": "Async / Await",
-            "desc": "Evolution of async code and practical usage."
+            "title": "Garbage Collector",
+            "desc": "How JavaScript manages and cleans up memory."
         },
         "m15": {
             "badge": "Module 15",
             "title": "Event Loop",
-            "desc": "Macrotasks, microtasks, and async execution order."
+            "desc": "Macrotasks, microtasks, and asynchronous execution order."
         },
         "m16": {
             "badge": "Module 16",
-            "title": "Garbage Collector",
-            "desc": "How JavaScript manages memory."
+            "title": "Promises",
+            "desc": "Asynchronous control flow, promise states, and chaining."
+        },
+        "m17": {
+            "badge": "Module 17",
+            "title": "Async / Await",
+            "desc": "Modern approach to asynchronous code and real-world usage."
         }
     },
     "error404": {

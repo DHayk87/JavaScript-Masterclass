@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="hy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title data-i18n-title="pages.stringDeepDive.docTitle">
+            JS.CORE | Strings Deep Dive
+        </title>
+        <meta
+            name="description"
+            data-i18n-desc="pages.stringDeepDive.metaDescription"
+            content="Ինչպե՞ս են աշխատում String-ները JavaScript-ում։ Պրիմիտիվներ, անփոփոխելիություն և հիշողության կառավարում։"
+        />
+
+        <link
+            rel="shortcut icon"
+            href="../public/images/programmer.png"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="../src/styles/style.css" />
+        <script type="module" src="../src/scripts/main.ts"></script>
+
+        <script type="layout-slot" id="nav-links">
+            <a href="#overview" class="nav-link" data-i18n="pages.stringDeepDive.nav.overview">Overview</a>
+            <a href="#autoboxing" class="nav-link" data-i18n="pages.stringDeepDive.nav.autoboxing">Autoboxing</a>
+            <a href="#immutability" class="nav-link" data-i18n="pages.stringDeepDive.nav.immutability">Immutability</a>
+            <a href="#methods" class="nav-link" data-i18n="pages.stringDeepDive.nav.methods">Methods</a>
+            <a href="#templates" class="nav-link" data-i18n="pages.stringDeepDive.nav.templates">Templates</a>
+            <a href="#performance" class="nav-link" data-i18n="pages.stringDeepDive.nav.performance">Performance</a>
+        </script>
+    </head>
+    <body data-i18n-page="stringDeepDive">
+        <!-- LAYOUT_NAV -->
+
+        <main class="main-content">
+            <header>
+                <h1
+                    class="title-large gradient-text"
+                    data-i18n="pages.stringDeepDive.h1"
+                >
+                    Strings in JavaScript
+                </h1>
+                <p class="subtitle" data-i18n="pages.stringDeepDive.subtitle">
+                    "Պրիմիտիվներ, որոնք օժտված են օբյեկտների
+                    գերունակություններով։"
+                </p>
+            </header>
+
+            <!-- Glossary -->
+            <div class="grid-3">
+                <div class="feature-box">
+                    <h4
+                        style="color: var(--js-yellow)"
+                        data-i18n="pages.stringDeepDive.glString"
+                    >
+                        Primitive String
+                    </h4>
+                    <p
+                        style="font-size: 0.9rem; color: var(--text-dim)"
+                        data-i18n="pages.stringDeepDive.glStringP"
+                    >
+                        Տեքստային պրիմիտիվ տվյալ, որը պահվում է Stack
+                        հիշողության մեջ։
+                    </p>
+                </div>
+                <div class="feature-box">
+                    <h4
+                        style="color: var(--js-yellow)"
+                        data-i18n="pages.stringDeepDive.glAutoboxing"
+                    >
+                        Autoboxing
+                    </h4>
+                    <p
+                        style="font-size: 0.9rem; color: var(--text-dim)"
+                        data-i18n="pages.stringDeepDive.glAutoboxingP"
+                    >
+                        Ժամանակավոր Wrapper Օբյեկտի ստեղծում։
+                    </p>
+                </div>
+                <div class="feature-box">
+                    <h4
+                        style="color: var(--js-yellow)"
+                        data-i18n="pages.stringDeepDive.glImmutability"
+                    >
+                        Immutability
+                    </h4>
+                    <p
+                        style="font-size: 0.9rem; color: var(--text-dim)"
+                        data-i18n="pages.stringDeepDive.glImmutabilityP"
+                    >
+                        Անփոփոխելիություն. տեքստը չի կարող փոփոխվել։
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 01: Primitive vs Object -->
+            <section id="overview" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">01</span>
+                    <h2
+                        class="section-title"
+                        data-i18n="pages.stringDeepDive.s01Title"
+                    >
+                        Primitive vs String Object
+                    </h2>
+                </div>
+
+                <div class="glass-card">
+                    <p data-i18n="pages.stringDeepDive.s01P1">
+                        JavaScript-ում տեքստ ստեղծելու երկու ձև կա։
+                    </p>
+                    <div
+                        class="code-block"
+                        data-i18n="pages.stringDeepDive.s01Code"
+                    >
+                        let strPrimitive = "Hello";<br />let strObject = new
+                        String("Hello");
+                    </div>
+                    <p
+                        class="pro-tip"
+                        data-i18n="pages.stringDeepDive.s01P2"
+                        style="margin-top: 1rem"
+                    >
+                        <b>Կարևոր կանոն.</b> Մի՛ օգտագործեք new String():
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 02: Autoboxing -->
+            <section id="autoboxing" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">02</span>
+                    <h2
+                        class="section-title"
+                        data-i18n="pages.stringDeepDive.s02Title"
+                    >
+                        How Autoboxing Works
+                    </h2>
+                </div>
+
+                <div class="glass-card">
+                    <p data-i18n="pages.stringDeepDive.s02P1">
+                        Ինչպե՞ս ենք կանչում մեթոդներ պրիմիտիվների վրա։
+                    </p>
+                    <!-- prettier-ignore -->
+                    <div class="mermaid">
+graph LR
+    A[Primitive String] -- ".toUpperCase()" --> B[Wrapper Object]
+    B -- "Execute" --> C[Result String]
+    C --> D[GC Delete Wrapper]
+    style B fill:transparent,stroke:#f7df1e
+    style C fill:#f7df1e,color:#000
+</div>
+                    <p
+                        style="margin-top: 1.5rem"
+                        data-i18n="pages.stringDeepDive.s02P2"
+                    >
+                        Այդ պահին JavaScript-ը կատարում է Autoboxing:
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 03: Immutability -->
+            <section id="immutability" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">03</span>
+                    <h2
+                        class="section-title"
+                        data-i18n="pages.stringDeepDive.s03Title"
+                    >
+                        Immutability
+                    </h2>
+                </div>
+
+                <div class="glass-card">
+                    <p data-i18n="pages.stringDeepDive.s03P1">
+                        JavaScript-ում String-ները ամբողջությամբ անփոփոխելի են։
+                    </p>
+                    <div
+                        class="code-block"
+                        data-i18n="pages.stringDeepDive.s03Code"
+                    >
+                        let text = "JavaScript";<br />text[0] = "Y"; // does
+                        nothing
+                    </div>
+                    <p
+                        style="margin-top: 1rem"
+                        data-i18n="pages.stringDeepDive.s03P2"
+                    >
+                        Ցանկացած մեթոդ ստեղծում է նոր տեքստ։
+                    </p>
+
+                    <div class="feature-divider"></div>
+
+                    <h4
+                        class="js-yellow-text"
+                        style="margin-bottom: 1rem"
+                        data-i18n="pages.stringDeepDive.s04Title"
+                    >
+                        String Interning (String Pool)
+                    </h4>
+                    <p data-i18n="pages.stringDeepDive.s04P1">
+                        V8 շարժիչի օպտիմալացումները։
+                    </p>
+                    <!-- prettier-ignore -->
+                    <div class="mermaid">
+                        graph TD
+                            subgraph Stack [Stack Memory]
+                                S1[str1 = 'JS']
+                                S2[str2 = 'JS']
+                                S3[str3 = 'JS']
+                            end
+
+                            subgraph Heap [Heap Memory]
+                                Pool[String Pool: 'JS']
+                            end
+
+                            S1 --> Pool
+                            S2 --> Pool
+                            S3 --> Pool
+
+                            style Pool fill:#1e1e1e,stroke:#f7df1e,stroke-width:2px,color:#fff
+                            style Stack fill:#1e1e1e,stroke:#777,color:#fff
+                            style Heap fill:#1e1e1e,stroke:#2196f3,color:#fff
+                            style S1 fill:#2d2d2d,stroke:#555,color:#fff
+                            style S2 fill:#2d2d2d,stroke:#555,color:#fff
+                            style S3 fill:#2d2d2d,stroke:#555,color:#fff
+</div>
+                    <p
+                        style="margin-top: 1.5rem"
+                        data-i18n="pages.stringDeepDive.s04P2"
+                    >
+                        Իդենտիկ տեքստերը կիսում են միևնույն հասցեն։
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 05: Methods -->
+            <section id="methods" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">04</span>
+                    <h2
+                        class="section-title"
+                        data-i18n="pages.stringDeepDive.s05Title"
+                    >
+                        Essential Methods
+                    </h2>
+                </div>
+
+                <div class="glass-card">
+                    <p data-i18n="pages.stringDeepDive.s05P1">
+                        Ամենակարևոր մեթոդները։
+                    </p>
+                    <div
+                        class="text-dimmed"
+                        style="
+                            white-space: pre-line;
+                            font-family: monospace;
+                            background: rgba(0, 0, 0, 0.2);
+                            padding: 1rem;
+                            border-radius: 8px;
+                        "
+                        data-i18n="pages.stringDeepDive.s05P2"
+                    >
+                        slice(), includes(), trim(), etc.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 06: Performance -->
+            <section id="performance" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">05</span>
+                    <h2
+                        class="section-title"
+                        data-i18n="pages.stringDeepDive.s06Title"
+                    >
+                        Performance Pitfalls
+                    </h2>
+                </div>
+
+                <div class="glass-card box-defer">
+                    <p data-i18n="pages.stringDeepDive.s06P1">
+                        Կոնկատենացիան ցիկլերի մեջ։
+                    </p>
+                    <div
+                        class="code-block"
+                        data-i18n="pages.stringDeepDive.s06Code"
+                    >
+                        // Concatenation performance example
+                    </div>
+                    <p
+                        class="pro-tip-blue"
+                        style="margin-top: 1rem"
+                        data-i18n="pages.stringDeepDive.s06P2"
+                    >
+                        Լուծումը՝ օգտագործել Array.join()։
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 07: Template Literals -->
+            <section id="templates" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">06</span>
+                    <h2
+                        class="section-title"
+                        data-i18n="pages.stringDeepDive.s07Title"
+                    >
+                        Template Literals & Tagged Templates
+                    </h2>
+                </div>
+
+                <div class="glass-card">
+                    <p data-i18n="pages.stringDeepDive.s07P1"></p>
+                    <div
+                        class="code-block"
+                        data-i18n="pages.stringDeepDive.s07Code"
+                    ></div>
+                    <p
+                        style="margin-top: 1rem"
+                        data-i18n="pages.stringDeepDive.s07P2"
+                    ></p>
+                </div>
+            </section>
+
+            <div class="module-nav">
+                <a href="functions" class="nav-arrow prev">
+                    <span class="arrow-icon">←</span>
+                    <div class="arrow-text">
+                        <span class="arrow-label" data-i18n="lessonNav.prev"
+                            >Նախորդը</span
+                        >
+                        <span
+                            class="arrow-title"
+                            data-i18n="pages.string.prevTopic"
+                            >Ֆունկցիաներ</span
+                        >
+                    </div>
+                </a>
+                <a href="objects" class="nav-arrow next">
+                    <span class="arrow-icon">→</span>
+                    <div class="arrow-text" style="text-align: right">
+                        <span class="arrow-label" data-i18n="lessonNav.next"
+                            >Հաջորդը</span
+                        >
+                        <span
+                            class="arrow-title"
+                            data-i18n="pages.string.nextTopic"
+                            >Օբյեկտներ</span
+                        >
+                    </div>
+                </a>
+            </div>
+        </main>
+
+        <!-- LAYOUT_FOOTER -->
+    </body>
+</html>

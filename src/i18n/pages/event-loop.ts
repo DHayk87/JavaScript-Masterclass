@@ -59,8 +59,8 @@ export default {
         s05ProgTitle: "2. Progress Bar Ցուցադրում",
         s05ProgP:
             "DOM render-ը տեղի է ունենում task-ից հետո: Մասնավոր <code>setTimeout</code>-ներով կարելի է ցույց տալ առաջընթաց:",
-        prevTopic: "Async / Await",
-        nextTopic: "Garbage Collector",
+        prevTopic: "Garbage Collector",
+        nextTopic: "Promises",
     },
     en: {
         docTitle: "JS.CORE | Event loop",
@@ -118,8 +118,8 @@ export default {
         s05ProgTitle: "2. Show progress",
         s05ProgP:
             "Breaking work across tasks lets the browser paint intermediate UI states.",
-        prevTopic: "Async/await",
-        nextTopic: "Garbage Collector",
+        prevTopic: "Garbage Collector",
+        nextTopic: "Promises",
     },
     ru: {
         docTitle: "JS.CORE | Event loop",
@@ -176,7 +176,7 @@ export default {
         s05ProgTitle: "2. Прогресс на экране",
         s05ProgP:
             "Между задачами браузер успевает перерисовать промежуточное состояние.",
-        prevTopic: "Async/await",
-        nextTopic: "Garbage Collector",
+        prevTopic: "Garbage Collector",
+        nextTopic: "Promises",
     },
 };

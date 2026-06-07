@@ -3,7 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title data-i18n-title="pages.core.docTitle">JS.CORE | Core Concepts</title>
+        <title data-i18n-title="pages.core.docTitle">
+            JS.CORE | Core Concepts
+        </title>
         <meta
             name="description"
             data-i18n-desc="pages.core.metaDescription"
@@ -30,7 +32,9 @@
         <!-- LAYOUT_NAV -->
 
         <header class="hero-header">
-            <h1 class="text-huge gradient-text" data-i18n="pages.core.heroH1">JavaScript</h1>
+            <h1 class="text-huge gradient-text" data-i18n="pages.core.heroH1">
+                JavaScript
+            </h1>
             <p class="text-subtitle" data-i18n="pages.core.heroSubtitle">
                 "Write once, run everywhere... provided there's an engine."
             </p>
@@ -41,55 +45,70 @@
             <section id="intro" class="section-container">
                 <div class="section-header">
                     <span class="section-number">01</span>
-                    <h2 class="section-title" data-i18n="pages.core.s01Title">Ինչպե՞ս է այն աշխատում</h2>
+                    <h2 class="section-title" data-i18n="pages.core.s01Title">
+                        Ինչպե՞ս է այն աշխատում
+                    </h2>
                 </div>
 
                 <div class="glass-card">
-                    <p class="text-body-large" data-i18n-html="pages.core.s01Lead">
+                    <p
+                        class="text-body-large"
+                        data-i18n-html="pages.core.s01Lead"
+                    >
                         Ժամանակակից JS-ը օգտագործում է
-                        <span class="js-yellow-text font-bold">JIT (Just-In-Time)</span>
-                        կոմպիլյացիա։ Սա նշանակում է, որ կոդը թարգմանվում է մեքենայական
-                        լեզվի հենց կատարման պախին՝ ապահովելով բարձր արագություն։
+                        <span class="js-yellow-text font-bold"
+                            >JIT (Just-In-Time)</span
+                        >
+                        կոմպիլյացիա։ Սա նշանակում է, որ կոդը թարգմանվում է
+                        մեքենայական լեզվի հենց կատարման պախին՝ ապահովելով բարձր
+                        արագություն։
                     </p>
 
                     <div class="grid-2">
                         <div class="feature-item">
-                            <h4 class="feature-title" data-i18n="pages.core.featV8Title">
+                            <h4
+                                class="feature-title"
+                                data-i18n="pages.core.featV8Title"
+                            >
                                 V8 Engine (Chrome/Node)
                             </h4>
-                            <p class="feature-text" data-i18n="pages.core.featV8Text">
-                                Ամենաարագ շարժիչներից մեկը, որը փոխակերպում է JS կոդը
-                                օպտիմիզացված մեքենայական կոդի։
+                            <p
+                                class="feature-text"
+                                data-i18n="pages.core.featV8Text"
+                            >
+                                Ամենաարագ շարժիչներից մեկը, որը փոխակերպում է JS
+                                կոդը օպտիմիզացված մեքենայական կոդի։
                             </p>
                         </div>
                         <div class="feature-item">
-                            <h4 class="feature-title" data-i18n="pages.core.featThreadTitle">
+                            <h4
+                                class="feature-title"
+                                data-i18n="pages.core.featThreadTitle"
+                            >
                                 Single Threaded
                             </h4>
-                            <p class="feature-text" data-i18n="pages.core.featThreadText">
-                                JS-ը կատարում է մեկ գործողություն մեկ պահին, բայց
-                                օգտագործում է Event Loop՝ ասինխրոնության համար։
+                            <p
+                                class="feature-text"
+                                data-i18n="pages.core.featThreadText"
+                            >
+                                JS-ը կատարում է մեկ գործողություն մեկ պահին,
+                                բայց օգտագործում է Event Loop՝ ասինխրոնության
+                                համար։
                             </p>
                         </div>
                     </div>
 
                     <!-- prettier-ignore -->
                     <div class="mermaid">
-                        graph LR
-                            A[JS Code] e1@--> B(Parser)
-                            B e2@--> C{AST Tree}
-                            C e3@--> D[Interpreter/JIT]
-                            D e4@--> E[Binary Code]
-                            E e5@--> F((Output))
-                            
-                            e1@{ animate : true}
-                            e2@{ animate : true}
-                            e3@{ animate : true}
-                            e4@{ animate : true}
-                            e5@{ animate : true} 
-                            style A fill:transparent,stroke:#f7df1e
-                            style F fill:#f7df1e,color:#000
-                    </div>
+graph LR
+    A[JS Code] --> B(Parser)
+    B --> C{AST Tree}
+    C --> D[Interpreter/JIT]
+    D --> E[Binary Code]
+    E --> F((Output))
+    style A fill:transparent,stroke:#f7df1e
+    style F fill:#f7df1e,color:#000
+</div>
                 </div>
             </section>
 
@@ -97,7 +116,9 @@
             <section id="env" class="section-container">
                 <div class="section-header">
                     <span class="section-number">02</span>
-                    <h2 class="section-title" data-i18n="pages.core.s02Title">Միջավայրեր</h2>
+                    <h2 class="section-title" data-i18n="pages.core.s02Title">
+                        Միջավայրեր
+                    </h2>
                 </div>
 
                 <div class="glass-card">
@@ -105,16 +126,27 @@
                         <div class="flex-col-1">
                             <h3 class="flex-center-gap-2 font-bold">
                                 <span class="color-browser">🌐</span>
-                                <span data-i18n="pages.core.browserTitle">Browser</span>
+                                <span data-i18n="pages.core.browserTitle"
+                                    >Browser</span
+                                >
                             </h3>
                             <ul class="list-container no-list-style">
-                                <li class="list-item" data-i18n="pages.core.browserLi1">
+                                <li
+                                    class="list-item"
+                                    data-i18n="pages.core.browserLi1"
+                                >
                                     Window & DOM manipulation
                                 </li>
-                                <li class="list-item" data-i18n="pages.core.browserLi2">
+                                <li
+                                    class="list-item"
+                                    data-i18n="pages.core.browserLi2"
+                                >
                                     Fetch API / XHR
                                 </li>
-                                <li class="list-item" data-i18n="pages.core.browserLi3">
+                                <li
+                                    class="list-item"
+                                    data-i18n="pages.core.browserLi3"
+                                >
                                     Cookies / SessionStorage
                                 </li>
                             </ul>
@@ -122,16 +154,27 @@
                         <div class="flex-col-1">
                             <h3 class="flex-center-gap-2 font-bold">
                                 <span class="color-node">💻</span>
-                                <span data-i18n="pages.core.nodeTitle">Node.js</span>
+                                <span data-i18n="pages.core.nodeTitle"
+                                    >Node.js</span
+                                >
                             </h3>
                             <ul class="list-container no-list-style">
-                                <li class="list-item" data-i18n="pages.core.nodeLi1">
+                                <li
+                                    class="list-item"
+                                    data-i18n="pages.core.nodeLi1"
+                                >
                                     File System (fs module)
                                 </li>
-                                <li class="list-item" data-i18n="pages.core.nodeLi2">
+                                <li
+                                    class="list-item"
+                                    data-i18n="pages.core.nodeLi2"
+                                >
                                     Process & OS access
                                 </li>
-                                <li class="list-item" data-i18n="pages.core.nodeLi3">
+                                <li
+                                    class="list-item"
+                                    data-i18n="pages.core.nodeLi3"
+                                >
                                     Server-side logic
                                 </li>
                             </ul>
@@ -155,8 +198,9 @@
 
                 <div class="glass-card">
                     <p class="text-body-large" data-i18n="pages.core.s03Lead">
-                        Default վիճակում բրաուզերը կատարում է կոդը հերթականությամբ: Երբ
-                        հանդիպում է սկրիպտին, HTML-ի պարսինգը կանգնում է (Blocking):
+                        Default վիճակում բրաուզերը կատարում է կոդը
+                        հերթականությամբ: Երբ հանդիպում է սկրիպտին, HTML-ի
+                        պարսինգը կանգնում է (Blocking):
                     </p>
 
                     <!-- prettier-ignore -->
@@ -165,7 +209,7 @@
                             participant HTML as HTML Parsing
                             participant JS as JS Engine (V8)
                             participant DOM as Browser DOM
-                            
+
                             HTML->>HTML: Parse HTML...
                             HTML->>JS: Encounter &lt;script&gt;
                             Note over JS: Parse & Execute
@@ -176,21 +220,34 @@
 
                     <div class="grid-2 margin-top-1">
                         <div class="box-async">
-                            <h4 class="js-yellow-text font-bold" data-i18n="pages.core.asyncTitle">
+                            <h4
+                                class="js-yellow-text font-bold"
+                                data-i18n="pages.core.asyncTitle"
+                            >
                                 Async
                             </h4>
-                            <p class="feature-text" data-i18n="pages.core.asyncText">
-                                Սկրիպտը բեռնվում է ֆոնային ռեժիմում և կատարվում է հենց
-                                պատրաստ լինի:
+                            <p
+                                class="feature-text"
+                                data-i18n="pages.core.asyncText"
+                            >
+                                Սկրիպտը բեռնվում է ֆոնային ռեժիմում և կատարվում
+                                է հենց պատրաստ լինի:
                             </p>
                         </div>
                         <div class="box-defer">
-                            <h4 class="color-browser font-bold" data-i18n="pages.core.deferTitle">
+                            <h4
+                                class="color-browser font-bold"
+                                data-i18n="pages.core.deferTitle"
+                            >
                                 Defer
                             </h4>
-                            <p class="feature-text" data-i18n="pages.core.deferText">
-                                Սկրիպտը բեռնվում է ֆոնում, բայց կատարվում է միայն այն
-                                ժամանակ, երբ HTML-ը ամբողջությամբ պատրաստ է:
+                            <p
+                                class="feature-text"
+                                data-i18n="pages.core.deferText"
+                            >
+                                Սկրիպտը բեռնվում է ֆոնում, բայց կատարվում է
+                                միայն այն ժամանակ, երբ HTML-ը ամբողջությամբ
+                                պատրաստ է:
                             </p>
                         </div>
                     </div>
@@ -221,7 +278,12 @@
                             gap: 1.5rem;
                         "
                     >
-                        <button id="magicBtn" type="button" class="btn-magic" data-i18n="pages.core.playBtn">
+                        <button
+                            id="magicBtn"
+                            type="button"
+                            class="btn-magic"
+                            data-i18n="pages.core.playBtn"
+                        >
                             ԳՈՐԾԱՐԿԵԼ ՍԿՐԻՊՏԸ
                         </button>
                         <div id="output" class="output-box">
@@ -232,19 +294,29 @@
             </section>
 
             <div class="module-nav">
-                <a href="getting-started" class="nav-arrow prev">
-                    <span class="arrow-icon">←</span>
+                <a href="index" class="nav-arrow prev">
+                    <span class="arrow-icon">🏠</span>
                     <div class="arrow-text">
-                        <span class="arrow-label" data-i18n="lessonNav.prev">Նախորդը</span>
-                        <span class="arrow-title" data-i18n="pages.core.prevTopic">JS Հիմունքներ</span>
+                        <span class="arrow-label" data-i18n="lessonNav.prev"
+                            >Նախորդը</span
+                        >
+                        <span
+                            class="arrow-title"
+                            data-i18n="pages.core.prevTopic"
+                            >! Սկսենք:</span
+                        >
                     </div>
                 </a>
-                <a href="if-operators" class="nav-arrow next">
+                <a href="getting-started" class="nav-arrow next">
                     <span class="arrow-icon">→</span>
                     <div class="arrow-text">
-                        <span class="arrow-label" data-i18n="lessonNav.next">Հաջորդը</span>
-                        <span class="arrow-title" data-i18n="pages.core.nextTopic"
-                            >Պայմաններ և Լոգիկա</span
+                        <span class="arrow-label" data-i18n="lessonNav.next"
+                            >Հաջորդը</span
+                        >
+                        <span
+                            class="arrow-title"
+                            data-i18n="pages.core.nextTopic"
+                            >Ֆունդամենտալ տվյալների տեսակներ</span
                         >
                     </div>
                 </a>

@@ -37,8 +37,8 @@ export default {
         s04WarnTitle: "⚠️ Զգուշացում. Memory Leaks",
         s04WarnP:
             "Closure-ները կարող են հանգեցնել հիշողության ավելորդ օգտագործման, եթե ներքին ֆունկցիաները պահվում են երկար, քանի որ կապված փոփոխականները չեն ազատվում GC-ով:",
-        prevTopic: "ES6 Classes",
-        nextTopic: "Promises",
+        prevTopic: "Code Parsing",
+        nextTopic: "Prototypes (ES5)",
     },
     en: {
         docTitle: "JS.CORE | Closures",
@@ -74,8 +74,8 @@ export default {
         s04WarnTitle: "⚠️ Memory leaks",
         s04WarnP:
             "Holding onto inner functions can keep large outer scopes alive longer than intended.",
-        prevTopic: "ES6 classes",
-        nextTopic: "Promises",
+        prevTopic: "Code Parsing",
+        nextTopic: "Prototypes (ES5)",
     },
     ru: {
         docTitle: "JS.CORE | Замыкания",
@@ -111,7 +111,7 @@ export default {
         s04WarnTitle: "⚠️ Утечки памяти",
         s04WarnP:
             "Долгое удержание внутренних функций может удерживать большие внешние области в памяти.",
-        prevTopic: "Классы ES6",
-        nextTopic: "Промисы",
+        prevTopic: "Парсинг кода",
+        nextTopic: "Прототипы (ES5)",
     },
 };

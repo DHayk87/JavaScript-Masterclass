@@ -133,6 +133,12 @@ function renderArrayState(arr: string[], container: HTMLElement | null) {
 
     container.insertBefore(wrapper, rightBracket);
   });
+
+  // Add line break after closing bracket (for flex containers, use flex-basis)
+  const lineBreak = document.createElement("div");
+  lineBreak.style.flexBasis = "100%";
+  lineBreak.style.height = "0";
+  container.appendChild(lineBreak);
 }
 
 function updateConsole(code: string, returnValue: any, finalArray: string[]) {
@@ -163,17 +169,32 @@ function visualizeReturn(
   const container = el.returnContainer;
   container.innerHTML = "";
 
+  let labelText: string;
+  switch (type) {
+    case "length":
+      labelText = "// Returns: New Array Length";
+      break;
+    case "index":
+      labelText = "// Returns: Index of found element";
+      break;
+    case "boolean":
+      labelText = "// Returns: Boolean result";
+      break;
+    case "array":
+      labelText = "// Returns: New Array";
+      break;
+    case "element":
+      labelText = "// Returns: Element";
+      break;
+    case "reference":
+      labelText = "// Returns: Reference to original array";
+      break;
+    default:
+      labelText = "// Returns: Value";
+  }
+
   if (type === "array" || type === "reference") {
     renderArrayState(value as string[], container);
-    if (type === "reference") {
-      const label = document.createElement("div");
-      label.style.color = "var(--js-yellow)";
-      label.style.fontSize = "0.8rem";
-      label.style.marginTop = "10px";
-      label.style.fontFamily = "monospace";
-      label.textContent = "// Returns: Reference to original array";
-      container.appendChild(label);
-    }
   } else {
     const wrapper = document.createElement("div");
     wrapper.style.display = "flex";
@@ -200,32 +221,17 @@ function visualizeReturn(
     }
 
     wrapper.appendChild(node);
-
-    const label = document.createElement("div");
-    label.style.color = "var(--text-dim)";
-    label.style.fontSize = "0.8rem";
-    label.style.marginTop = "10px";
-
-    let labelText: string;
-    switch (type) {
-      case "length":
-        labelText = "// Returns: New Array Length";
-        break;
-      case "index":
-        labelText = "// Returns: Index of found element";
-        break;
-      case "boolean":
-        labelText = "// Returns: Boolean result";
-        break;
-      default:
-        labelText = "// Returns: Value";
-    }
-    label.textContent = labelText;
-    wrapper.appendChild(label);
-
     container.appendChild(wrapper);
     setTimeout(() => node.classList.remove("incoming"), 50);
   }
+
+  const label = document.createElement("div");
+  label.style.color = type === "reference" ? "var(--js-yellow)" : "var(--text-dim)";
+  label.style.fontSize = "0.8rem";
+  label.style.marginTop = "10px";
+  label.style.fontFamily = "monospace";
+  label.textContent = labelText;
+  container.appendChild(label);
 }
 
 async function visualizeScan(
@@ -1245,11 +1251,10 @@ function setupTableSorting() {
 export function initArrayMethodsVisualizer() {
   const container = document.getElementById("arrayVisualContainer");
   if (!container) {
-    console.warn(
-      "[Array Visualizer] Container not found, but initializing table sorting anyway",
-    );
-  } else {
-    renderArrayState(currentArray, container);
+    return;
+  }
+
+  renderArrayState(currentArray, container);
 
     const el = getElements();
     el.btnPush?.addEventListener("click", handlePush);
@@ -1280,7 +1285,6 @@ export function initArrayMethodsVisualizer() {
     el.btnWith?.addEventListener("click", handleWith);
     el.btnForEach?.addEventListener("click", handleForEach);
     el.btnReset?.addEventListener("click", handleReset);
-  }
 
   setupTableSorting();
 }

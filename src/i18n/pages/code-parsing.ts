@@ -43,8 +43,8 @@ export default {
             "Եթե ֆունկցիան հաճախ է կանչվում, այն ուղարկվում է TurboFan-ին, որը գեներացնում է արագ մեքենայական կոդ։",
         stage4Visual:
             '10110010 00101011<br>11001100 11110001<br><span class="hl-cm">// Ամենաարագ մակարդակը</span>',
-        prevTopic: "Ֆունկցիաներ",
-        nextTopic: "Objects",
+        prevTopic: "Array Methods",
+        nextTopic: "Closures",
     },
     en: {
         docTitle: "JS.CORE | JS engine visualizer",
@@ -90,8 +90,8 @@ export default {
             "Hot functions are sent to TurboFan, which emits highly optimized machine code.",
         stage4Visual:
             '10110010 00101011<br>11001100 11110001<br><span class="hl-cm">// Fastest tier</span>',
-        prevTopic: "Functions",
-        nextTopic: "Objects",
+        prevTopic: "Array Methods",
+        nextTopic: "Closures",
     },
     ru: {
         docTitle: "JS.CORE | Визуализатор движка JS",
@@ -137,7 +137,7 @@ export default {
             "Часто вызываемые функции попадают в TurboFan, который генерирует быстрый машинный код.",
         stage4Visual:
             '10110010 00101011<br>11001100 11110001<br><span class="hl-cm">// Самый быстрый уровень</span>',
-        prevTopic: "Функции",
-        nextTopic: "Объекты",
+        prevTopic: "Методы массивов",
+        nextTopic: "Замыкания",
     },
 };

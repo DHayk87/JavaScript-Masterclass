@@ -44,7 +44,7 @@ export default {
         tipTitle: "💡 Pro-Tip Masterclass-ի համար",
         tipP:
             "Promise-ը չի վերացնում ասինխրոնությունը, այլ այն դարձնում է կառավարելի։ Սա կամուրջ է դեպի <b>Async/Await</b>:",
-        prevTopic: "Closures",
+        prevTopic: "Event Loop",
         nextTopic: "Async/Await",
     },
     en: {
@@ -90,7 +90,7 @@ export default {
         tipTitle: "💡 Masterclass tip",
         tipP:
             "Promises don’t remove asynchrony—they structure it. Async/await is syntax on top of promises.",
-        prevTopic: "Closures",
+        prevTopic: "Event Loop",
         nextTopic: "Async/await",
     },
     ru: {
@@ -136,7 +136,7 @@ export default {
         tipTitle: "💡 Совет",
         tipP:
             "Промисы структурируют асинхронность; async/await — синтаксис поверх промисов.",
-        prevTopic: "Замыкания",
+        prevTopic: "Цикл событий",
         nextTopic: "Async/await",
     },
 };

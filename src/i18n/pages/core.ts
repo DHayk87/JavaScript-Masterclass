@@ -38,8 +38,8 @@ export default {
         playBtnDone: "ԿԱՏԱՐՎԱԾ Է ✅",
         playAlert:
             "JS-ը հենց նոր կատարեց Script-ը:\n1. Փոխվեց կոճակի տեքստը\n2. Հայտնվեց status log-ը\n3. Կանչվեց Alert API-ն",
-        prevTopic: "JS Հիմունքներ",
-        nextTopic: "Պայմաններ և Լոգիկա",
+        prevTopic: "! Սկսենք:",
+        nextTopic: "Ֆունդամենտալ տվյալների տեսակներ",
     },
     en: {
         docTitle: "JS.CORE | Core Concepts",
@@ -79,8 +79,8 @@ export default {
         playBtnDone: "DONE ✅",
         playAlert:
             "JS just ran the script:\n1. Button text changed\n2. Status log appeared\n3. The alert API was called",
-        prevTopic: "JS Fundamentals",
-        nextTopic: "Conditions & Logic",
+        prevTopic: "! Let’s begin:",
+        nextTopic: "Fundamental data types",
     },
     ru: {
         docTitle: "JS.CORE | Базовые концепции",
@@ -120,7 +120,7 @@ export default {
         playBtnDone: "ГОТОВО ✅",
         playAlert:
             "JS только что выполнил скрипт:\n1. Изменился текст кнопки\n2. Появился лог статуса\n3. Вызван alert API",
-        prevTopic: "Основы JS",
-        nextTopic: "Условия и логика",
+        prevTopic: "! Начнём:",
+        nextTopic: "Фундаментальные типы данных",
     },
 };

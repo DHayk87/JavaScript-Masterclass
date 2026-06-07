@@ -11,7 +11,8 @@ export default {
         },
         h1: "JavaScript Հիմունքներ",
         subtitle: '"Ծրագիրը սկսվում է տվյալներից և դրանց կառավարման հրահանգներից:"',
-        nextTopic: "Core Concepts",
+        nextTopic: "Պայմաններ և Լոգիկա",
+        prevTopic: "Core Concepts",
         s01Title: "Փոփոխականներ (Variables)",
         s01Lead:
             "Փոփոխականը «արկղ» է տվյալների պահպանման համար: JS-ում օգտագործվում են <code>let</code>, <code>const</code> և <code>var</code> հիմնաբառերը:",
@@ -59,7 +60,8 @@ export default {
         },
         h1: "JavaScript Fundamentals",
         subtitle: '"Programs start with data and the instructions that manage it."',
-        nextTopic: "Core Concepts",
+        nextTopic: "Conditionals & Logic",
+        prevTopic: "Core Concepts",
         s01Title: "Variables",
         s01Lead:
             'A variable is a “box” for storing data. In JS you use the <code>let</code>, <code>const</code>, and <code>var</code> keywords.',
@@ -106,7 +108,8 @@ export default {
         },
         h1: "Основы JavaScript",
         subtitle: '"Программа начинается с данных и инструкций, ими управляющих."',
-        nextTopic: "Базовые концепции",
+        nextTopic: "Условия и Логика",
+        prevTopic: "Основы",
         s01Title: "Переменные",
         s01Lead:
             "Переменная — это «ящик» для данных. В JS используются ключевые слова <code>let</code>, <code>const</code> и <code>var</code>.",

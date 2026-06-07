@@ -36,7 +36,7 @@ export default {
         s03NotP: "Շրջում է արժեքը:",
         s03NullTitle: "?? (Nullish Coalescing)",
         s03NullP: "Վերադարձնում է առաջին «գոյություն ունեցող» արժեքը:",
-        prevTopic: "Core Concepts",
+        prevTopic: "JS Հիմունքներ",
         nextTopic: "Ցիկլեր և Switch",
     },
     en: {
@@ -76,7 +76,7 @@ export default {
         s03NotP: "Negates the value.",
         s03NullTitle: "?? (nullish coalescing)",
         s03NullP: "Returns the first defined value (not null/undefined).",
-        prevTopic: "Core Concepts",
+        prevTopic: "JS Fundamentals",
         nextTopic: "Loops & Switch",
     },
     ru: {
@@ -116,7 +116,7 @@ export default {
         s03NotP: "Инвертирует значение.",
         s03NullTitle: "?? (nullish coalescing)",
         s03NullP: "Возвращает первое определённое значение (не null/undefined).",
-        prevTopic: "Базовые концепции",
+        prevTopic: "Основы JavaScript",
         nextTopic: "Циклы и switch",
     },
 };

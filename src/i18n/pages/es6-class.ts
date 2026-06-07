@@ -48,7 +48,7 @@ export default {
         footEnumP:
             "Կլասի մեթոդները <code>enumerable: false</code> են և չեն երևում <code>for..in</code>-ով։",
         prevTopic: "Prototypes (ES5)",
-        nextTopic: "Closures",
+        nextTopic: "Garbage Collector",
     },
     en: {
         docTitle: "JS.CORE | ES6 classes",
@@ -96,7 +96,7 @@ export default {
         footEnumP:
             "Class methods are non-enumerable, so they won’t show up in a naive <code>for...in</code> over instances.",
         prevTopic: "Prototypes (ES5)",
-        nextTopic: "Closures",
+        nextTopic: "Garbage Collector",
     },
     ru: {
         docTitle: "JS.CORE | Классы ES6",
@@ -144,6 +144,6 @@ export default {
         footEnumP:
             "Методы класса не перечислимы и не попадут в простой <code>for...in</code> по экземпляру.",
         prevTopic: "Прототипы (ES5)",
-        nextTopic: "Замыкания",
+        nextTopic: "Сборка мусора",
     },
 };
