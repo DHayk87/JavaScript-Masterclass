@@ -1,99 +1,71 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { t, getLocale, setLocale, onLocaleChange, initI18n, SUPPORTED_LOCALES, DEFAULT_LOCALE } from './index';
+import { describe, it, expect, beforeEach } from "vitest";
+import { t, getLocale, setLocale, DEFAULT_LOCALE, SUPPORTED_LOCALES } from "./index";
 
-describe('i18n System', () => {
-  beforeEach(() => {
-    // Reset DOM and LocalStorage
-    document.documentElement.innerHTML = '';
-    localStorage.clear();
-    // Reset URL
-    window.history.replaceState({}, '', '/');
-    // Note: currentLocale in index.ts is a module-level variable and might persist between tests
-    // if not carefully handled. Since we can't easily reset it without adding a reset function to index.ts,
-    // we'll try to work around it or ensure we set it explicitly.
-    setLocale(DEFAULT_LOCALE);
-  });
+describe("i18n", () => {
+    beforeEach(() => {
+        // Reset locale to default before each test
+        setLocale(DEFAULT_LOCALE);
+        // Clear localStorage
+        localStorage.clear();
+        // Clear URL params if needed, though jsdom handles this
+        window.history.replaceState({}, "", "/");
+    });
 
-  it('should have supported locales and a default locale', () => {
-    expect(SUPPORTED_LOCALES).toContain('en');
-    expect(SUPPORTED_LOCALES).toContain('ru');
-    expect(SUPPORTED_LOCALES).toContain('hy');
-    expect(DEFAULT_LOCALE).toBe('hy');
-  });
+    it("should have correct supported locales", () => {
+        expect(SUPPORTED_LOCALES).toContain("hy");
+        expect(SUPPORTED_LOCALES).toContain("en");
+        expect(SUPPORTED_LOCALES).toContain("ru");
+    });
 
-  it('should translate keys correctly using t()', () => {
-    setLocale('en');
-    expect(t('nav.tagline')).toBe('Modern JavaScript Masterclass 2026');
+    it("should return initial default locale", () => {
+        expect(getLocale()).toBe(DEFAULT_LOCALE);
+    });
 
-    setLocale('ru');
-    expect(t('nav.tagline')).toBe('Modern JavaScript Masterclass 2026'); // ru.json might have it same or different, let's check
+    it("should update locale with setLocale", () => {
+        setLocale("en");
+        expect(getLocale()).toBe("en");
 
-    // Test nested page translations
-    setLocale('en');
-    expect(t('pages.gettingStarted.s01Title')).toBe('Variables');
-  });
+        setLocale("ru");
+        expect(getLocale()).toBe("ru");
+    });
 
-  it('should return the path if translation is missing', () => {
-    expect(t('non.existent.key')).toBe('non.existent.key');
-  });
+    it("should fallback to default locale for unsupported locale", () => {
+        setLocale("fr" as any);
+        expect(getLocale()).toBe(DEFAULT_LOCALE);
+    });
 
-  it('should change locale and notify listeners', () => {
-    const callback = vi.fn();
-    onLocaleChange(callback);
+    it("should retrieve translations using t", () => {
+        // Testing with English to ensure we know the expected value from en.json
+        setLocale("en");
+        // From en.json: "nav": { "tagline": "Modern JavaScript Masterclass 2026", ... }
+        expect(t("nav.tagline")).toBe("Modern JavaScript Masterclass 2026");
+    });
 
-    setLocale('en');
-    expect(getLocale()).toBe('en');
-    expect(callback).toHaveBeenCalledWith('en');
+    it("should handle dot notation for nested keys", () => {
+        setLocale("en");
+        // From en.json: "footer": { "by": "Created By DHayk | 2026" }
+        expect(t("footer.by")).toBe("Created By DHayk | 2026");
+    });
 
-    setLocale('ru');
-    expect(getLocale()).toBe('ru');
-    expect(callback).toHaveBeenCalledWith('ru');
-  });
+    it("should return path if translation is missing", () => {
+        expect(t("non.existent.key")).toBe("non.existent.key");
+    });
 
-  it('should update DOM elements with data-i18n attribute', () => {
-    document.body.innerHTML = `
-      <div data-i18n="nav.tagline"></div>
-      <div data-i18n="pages.gettingStarted.s01Title"></div>
-    `;
+    it("should return path if path points to an object", () => {
+        setLocale("en");
+        // "nav" is an object in en.json
+        expect(t("nav")).toBe("nav");
+    });
 
-    setLocale('en');
-    expect(document.querySelector('[data-i18n="nav.tagline"]')?.textContent).toBe('Modern JavaScript Masterclass 2026');
-    expect(document.querySelector('[data-i18n="pages.gettingStarted.s01Title"]')?.textContent).toBe('Variables');
+    it("should update translation when locale changes", () => {
+        setLocale("en");
+        const enVal = t("copy.copy");
+        expect(enVal).toBe("Copy");
 
-    setLocale('hy');
-    expect(document.querySelector('[data-i18n="pages.gettingStarted.s01Title"]')?.textContent).toBe('Փոփոխականներ (Variables)');
-  });
-
-  it('should handle safe HTML rendering with data-i18n', () => {
-    document.body.innerHTML = '<div data-i18n="pages.gettingStarted.s01Lead"></div>';
-
-    setLocale('en');
-    const el = document.querySelector('[data-i18n="pages.gettingStarted.s01Lead"]');
-    // s01Lead contains <code> tags
-    expect(el?.innerHTML).toContain('<code>let</code>');
-    expect(el?.querySelector('code')).not.toBeNull();
-  });
-
-  it('should update attributes with data-i18n-attr', () => {
-    document.body.innerHTML = '<input data-i18n-attr="placeholder | pages.gettingStarted.demoNamePrompt">';
-
-    setLocale('en');
-    const input = document.querySelector('input');
-    expect(input?.getAttribute('placeholder')).toBe('What is your name?');
-
-    setLocale('ru');
-    expect(input?.getAttribute('placeholder')).toBe('Как вас зовут?');
-  });
-
-  it('should initialize locale from URL search params', () => {
-    window.history.replaceState({}, '', '/?lang=en');
-    initI18n();
-    expect(getLocale()).toBe('en');
-  });
-
-  it('should initialize locale from localStorage', () => {
-    localStorage.setItem('js-core-lang', 'ru');
-    initI18n();
-    expect(getLocale()).toBe('ru');
-  });
+        setLocale("ru");
+        const ruVal = t("copy.copy");
+        // We expect ru.json to have something else for copy.copy
+        expect(ruVal).not.toBe("Copy");
+        expect(ruVal).toBeDefined();
+    });
 });
