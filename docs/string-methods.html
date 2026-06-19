@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="hy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title data-i18n-title="pages.stringMethods.docTitle">
+            JS.CORE | տողային մեթոդներ
+        </title>
+        <meta
+            name="description"
+            data-i18n-desc="pages.stringMethods.metaDescription"
+            content="JavaScript տողերի մեթոդների ինտերակտիվ վիզուալիզատոր:"
+        />
+
+        <link
+            rel="shortcut icon"
+            href="../public/images/programmer.png"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="../src/styles/style.css" />
+        <script type="module" src="../src/scripts/main.ts"></script>
+
+        <script type="layout-slot" id="nav-links">
+            <a href="#visualizer" class="nav-link" data-i18n="pages.stringMethods.nav.visualizer">Վիզուալիզատոր</a>
+        </script>
+    </head>
+    <body data-i18n-page="stringMethods">
+        <!-- LAYOUT_NAV -->
+
+        <main class="main-content">
+            <header>
+                <h1 class="title-large gradient-text" data-i18n="pages.stringMethods.h1">
+                    տողային մեթոդներ
+                </h1>
+                <p class="subtitle" data-i18n="pages.stringMethods.subtitle">
+                    "տողերի մանիպուլյացիան JavaScript-ի հիմնաքարերից է:"
+                </p>
+            </header>
+
+            <!-- Glossary -->
+            <div class="glass-card glossary-card">
+                <table class="glossary-table" id="glossaryTable">
+                    <thead>
+                        <tr>
+                            <th data-i18n="pages.stringMethods.glMethod">Method</th>
+                            <th data-i18n="pages.stringMethods.glDesc">Description</th>
+                            <th data-i18n="pages.stringMethods.glReturn">Return Value</th>
+                            <th data-i18n="pages.stringMethods.glMutates">Mutates?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>toUpperCase()</strong></td>
+                            <td data-i18n="pages.stringMethods.descToUpperCase">Վերածում է մեծատառերի</td>
+                            <td data-i18n="pages.stringMethods.retToUpperCase">Նոր տող</td>
+                            <td style="color: #98c379" data-i18n="pages.stringMethods.mutNo">No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>toLowerCase()</strong></td>
+                            <td data-i18n="pages.stringMethods.descToLowerCase">Վերածում է փոքրատառերի</td>
+                            <td data-i18n="pages.stringMethods.retToLowerCase">Նոր տող</td>
+                            <td style="color: #98c379" data-i18n="pages.stringMethods.mutNo">No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>slice()</strong></td>
+                            <td data-i18n="pages.stringMethods.descSlice">Կտրում է տողի մի մասը</td>
+                            <td data-i18n="pages.stringMethods.retSlice">Նոր տող</td>
+                            <td style="color: #98c379" data-i18n="pages.stringMethods.mutNo">No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>substring()</strong></td>
+                            <td data-i18n="pages.stringMethods.descSubstring">Վերադարձնում է տողի մի մասը</td>
+                            <td data-i18n="pages.stringMethods.retSubstring">Նոր տող</td>
+                            <td style="color: #98c379" data-i18n="pages.stringMethods.mutNo">No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>replace()</strong></td>
+                            <td data-i18n="pages.stringMethods.descReplace">Փոխարինում է առաջին համապատասխանությունը</td>
+                            <td data-i18n="pages.stringMethods.retReplace">Նոր տող</td>
+                            <td style="color: #98c379" data-i18n="pages.stringMethods.mutNo">No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>replaceAll()</strong></td>
+                            <td data-i18n="pages.stringMethods.descReplaceAll">Փոխարինում է բոլոր համապատասխանությունները</td>
+                            <td data-i18n="pages.stringMethods.retReplaceAll">Նոր տող</td>
+                            <td style="color: #98c379" data-i18n="pages.stringMethods.mutNo">No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>concat()</strong></td>
+                            <td data-i18n="pages.stringMethods.descConcat">Միացնում է տողերը</td>
+                            <td data-i18n="pages.stringMethods.retConcat">Նոր տող</td>
+                            <td style="color: #98c379" data-i18n="pages.stringMethods.mutNo">No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>trim()</strong></td>
+                            <td data-i18n="pages.stringMethods.descTrim">Հեռացնում է բացատները երկու կողմից</td>
+                            <td data-i18n="pages.stringMethods.retTrim">Նոր տող</td>
+                            <td style="color: #98c379" data-i18n="pages.stringMethods.mutNo">No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>split()</strong></td>
+                            <td data-i18n="pages.stringMethods.descSplit">Տողը բաժանում է զանգվածի</td>
+                            <td data-i18n="pages.stringMethods.retSplit">Զանգված</td>
+                            <td style="color: #98c379" data-i18n="pages.stringMethods.mutNo">No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>indexOf()</strong></td>
+                            <td data-i18n="pages.stringMethods.descIndexOf">Փնտրում է ենթատողի առաջին ինդեքսը</td>
+                            <td data-i18n="pages.stringMethods.retIndexOf">Ինդեքս կամ -1</td>
+                            <td style="color: #98c379" data-i18n="pages.stringMethods.mutNo">No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>includes()</strong></td>
+                            <td data-i18n="pages.stringMethods.descIncludes">Ստուգում է ենթատողի առկայությունը</td>
+                            <td data-i18n="pages.stringMethods.retIncludes">true / false</td>
+                            <td style="color: #98c379" data-i18n="pages.stringMethods.mutNo">No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>startsWith()</strong></td>
+                            <td data-i18n="pages.stringMethods.descStartsWith">Ստուգում է արդյոք տողը սկսվում է նշվածով</td>
+                            <td data-i18n="pages.stringMethods.retStartsWith">true / false</td>
+                            <td style="color: #98c379" data-i18n="pages.stringMethods.mutNo">No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>endsWith()</strong></td>
+                            <td data-i18n="pages.stringMethods.descEndsWith">Ստուգում է արդյոք տողը ավարտվում է նշվածով</td>
+                            <td data-i18n="pages.stringMethods.retEndsWith">true / false</td>
+                            <td style="color: #98c379" data-i18n="pages.stringMethods.mutNo">No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>repeat()</strong></td>
+                            <td data-i18n="pages.stringMethods.descRepeat">Կրկնում է տողը նշված քանակով</td>
+                            <td data-i18n="pages.stringMethods.retRepeat">Նոր տող</td>
+                            <td style="color: #98c379" data-i18n="pages.stringMethods.mutNo">No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section 01: Visualizer Playground -->
+            <section id="visualizer" class="section-container">
+                <div class="section-label">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title" data-i18n="pages.stringMethods.visualizerTitle">
+                        Մեթոդների Վիզուալիզատոր
+                    </h2>
+                </div>
+
+                <div class="glass-card">
+                    <div class="visualizer-container">
+                        <nav class="visualizer-nav">
+                            <h3 class="card-header-small" data-i18n="pages.stringMethods.controlsHeading">
+                                Գործողություններ
+                            </h3>
+                            <div class="visualizer-controls">
+                                
+                                <div class="control-group">
+                                    <h4>Case Conversion</h4>
+                                    <div class="control-input-row">
+                                        <button type="button" class="btn-ctrl btn-info-light" id="btnToUpperCase">.toUpperCase()</button>
+                                        <button type="button" class="btn-ctrl btn-info-light" id="btnToLowerCase">.toLowerCase()</button>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <h4>slice / substring</h4>
+                                    <div class="control-input-row">
+                                        <input type="number" class="input-val" id="sliceStart" value="0" min="-15" max="15" />
+                                        <input type="number" class="input-val" id="sliceEnd" value="5" min="-15" max="15" />
+                                        <button type="button" class="btn-ctrl btn-info-light" id="btnSlice">.slice()</button>
+                                        <button type="button" class="btn-ctrl btn-info-light" id="btnSubstring">.substring()</button>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <h4>replace</h4>
+                                    <div class="control-input-row">
+                                        <input type="text" class="input-val text-input" id="replaceTarget" value="World" placeholder="Target" />
+                                        <input type="text" class="input-val text-input" id="replaceValue" value="Universe" placeholder="Value" />
+                                        <button type="button" class="btn-ctrl btn-warning-light" id="btnReplace" style="width:100%">.replace()</button>
+                                    </div>
+                                    <div class="control-input-row" style="margin-top: 10px;">
+                                        <button type="button" class="btn-ctrl btn-warning-light" id="btnReplaceAll" style="width:100%">.replaceAll()</button>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <h4>concat</h4>
+                                    <div class="control-input-row">
+                                        <input type="text" class="input-val text-input" id="concatInput" value="!!!" placeholder="String" />
+                                        <button type="button" class="btn-ctrl btn-success-light" id="btnConcat" style="width:100%">.concat()</button>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <h4>trim</h4>
+                                    <div class="control-input-row">
+                                        <button type="button" class="btn-ctrl" id="btnTrim">.trim()</button>
+                                        <button type="button" class="btn-ctrl" id="btnTrimStart">.trimStart()</button>
+                                        <button type="button" class="btn-ctrl" id="btnTrimEnd">.trimEnd()</button>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <h4>split</h4>
+                                    <div class="control-input-row">
+                                        <input type="text" class="input-val text-input" id="splitInput" value="," placeholder="Separator" />
+                                        <button type="button" class="btn-ctrl btn-info-light" id="btnSplit" style="width:100%">.split()</button>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <h4>Search</h4>
+                                    <div class="control-input-row">
+                                        <input type="text" class="input-val text-input" id="searchInput" value="o" placeholder="Search string" />
+                                        <button type="button" class="btn-ctrl" id="btnIndexOf">.indexOf()</button>
+                                        <button type="button" class="btn-ctrl" id="btnIncludes">.includes()</button>
+                                    </div>
+                                    <div class="control-input-row" style="margin-top: 10px;">
+                                        <button type="button" class="btn-ctrl" id="btnStartsWith">.startsWith()</button>
+                                        <button type="button" class="btn-ctrl" id="btnEndsWith">.endsWith()</button>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <h4>repeat</h4>
+                                    <div class="control-input-row">
+                                        <input type="number" class="input-val" id="repeatCount" value="2" min="0" max="5" />
+                                        <button type="button" class="btn-ctrl" id="btnRepeat" style="width:100%">.repeat()</button>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <button type="button" class="btn-ctrl btn-danger-light" id="btnResetString" style="width:100%">
+                                        Reset String
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
+
+                        <div class="visualizer-display">
+                            <div class="array-view">
+                                <div class="array-line" id="stringVisualContainer">
+                                    <!-- String characters will be rendered here -->
+                                </div>
+                            </div>
+
+                            <div class="array-line" id="returnVisualContainer" style="margin-top: -10px; min-height: 140px; border: 1px dashed rgba(97, 175, 239, 0.3); padding: 1rem;">
+                                <!-- Returned values show up here -->
+                            </div>
+
+                            <!-- Interactive Console output -->
+                            <div class="feature-box" style="margin-top: 2rem">
+                                <h4 class="card-header-small" style="color: var(--js-yellow)" data-i18n="pages.arrayMethods.consoleHeading">
+                                    Ինտերակտիվ Կոնսոլ
+                                </h4>
+                                <div class="code-preview" id="consoleCodePreview" style="margin-bottom: 1rem">
+                                    let str = "Hello, World!";
+                                </div>
+                                <div class="text-dimmed" style="font-family: monospace; font-size: 0.9rem">
+                                    <span data-i18n="pages.arrayMethods.returnedValLabel">Returned Value: </span>
+                                    <span id="consoleReturnValue" style="color: var(--js-yellow); font-weight: bold">undefined</span>
+                                </div>
+                                <div class="text-dimmed" style="font-family: monospace; font-size: 0.9rem">
+                                    <span data-i18n="pages.arrayMethods.stateLabel">String State: </span>
+                                    <span id="consoleStringState" style="color: #61afef">"Hello, World!"</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="module-nav">
+                <a href="string" class="nav-arrow prev">
+                    <span class="arrow-icon">←</span>
+                    <div class="arrow-text">
+                        <span class="arrow-label" data-i18n="lessonNav.prev">Նախորդը</span>
+                        <span class="arrow-title" data-i18n="dashboard.m06.title">Strings</span>
+                    </div>
+                </a>
+                <a href="object" class="nav-arrow next">
+                    <span class="arrow-icon">→</span>
+                    <div class="arrow-text" style="text-align: right">
+                        <span class="arrow-label" data-i18n="lessonNav.next">Հաջորդը</span>
+                        <span class="arrow-title" data-i18n="dashboard.m07.title">Objects</span>
+                    </div>
+                </a>
+            </div>
+        </main>
+
+        <!-- LAYOUT_FOOTER -->
+    </body>
+</html>

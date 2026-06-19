@@ -16,6 +16,7 @@ import asyncAwait from "./async-await.js";
 import eventLoop from "./event-loop.js";
 import garbageCollector from "./garbage-collector.js";
 import string from "./string.js";
+import stringMethods from "./string-methods.js";
 
 export default {
   gettingStarted,
@@ -35,5 +36,6 @@ export default {
   asyncAwait,
   eventLoop,
   garbageCollector,
-  string
+  string,
+  stringMethods
 };

@@ -53,6 +53,11 @@
             "title": "Strings",
             "desc": "Պրիմիտիվներ, անփոփոխելիություն, String Pool և հիշողության օպտիմալացում։"
         },
+        "m06_1": {
+            "badge": "Module 06.1",
+            "title": "String Methods",
+            "desc": "Տողերի մանիպուլյացիայի և որոնման մեթոդներ (վիզուալիզատորով)։"
+        },
         "m07": {
             "badge": "Module 07",
             "title": "Objects",

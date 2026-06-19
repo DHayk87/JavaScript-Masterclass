@@ -54,6 +54,11 @@
             "title": "Strings",
             "desc": "Primitives, immutability, String Pool, and memory optimization."
         },
+        "m06_1": {
+            "badge": "Module 06.1",
+            "title": "String Methods",
+            "desc": "String manipulation and search methods with visualizer."
+        },
         "m07": {
             "badge": "Module 07",
             "title": "Objects",

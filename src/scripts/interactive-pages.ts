@@ -1,5 +1,6 @@
 import { t } from "../i18n/index.js";
 import { initArrayMethodsVisualizer, refreshArrayMethodsVisualizer } from "./pages/array-methods.js";
+import { initStringMethodsVisualizer, refreshStringMethodsVisualizer } from "./pages/string-methods.js";
 
 declare global {
     interface Window {
@@ -128,6 +129,7 @@ export function initInteractivePages() {
     initCorePlayground();
     initCodeParsingVisualizer();
     initArrayMethodsVisualizer();
+    initStringMethodsVisualizer();
 }
 
 export function refreshInteractivePages() {
@@ -140,4 +142,5 @@ export function refreshInteractivePages() {
     const ph = document.getElementById("placeholder");
     if (ph) ph.textContent = t("pages.codeParsing.placeholder");
     refreshArrayMethodsVisualizer();
+    refreshStringMethodsVisualizer();
 }

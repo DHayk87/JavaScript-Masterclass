@@ -61,6 +61,13 @@ const htmlLayoutPlugin = () => {
                     return;
                 }
 
+                // redirect .html to extensionless
+                if (cleanUrl.endsWith(".html") && cleanUrl !== "/index.html") {
+                    res.writeHead(302, { Location: cleanUrl.slice(0, -5) + querySuffix });
+                    res.end();
+                    return;
+                }
+
                 // skip static assets
                 if (
                     cleanUrl.includes(".") ||
