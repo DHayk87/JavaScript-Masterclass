@@ -426,9 +426,8 @@ async function handleConcat() {
 }
 
 async function handleTrim() {
-  if (isAnimating) return;
-  const el = getElements();
-  isAnimating = true;
+    if (isAnimating) return;
+    isAnimating = true;
   setButtonsDisabled(true);
 
   const res = currentString.trim();
@@ -442,7 +441,6 @@ async function handleTrim() {
 
 async function handleTrimStart() {
     if (isAnimating) return;
-    const el = getElements();
     isAnimating = true;
     setButtonsDisabled(true);
   
@@ -457,7 +455,6 @@ async function handleTrimStart() {
 
 async function handleTrimEnd() {
     if (isAnimating) return;
-    const el = getElements();
     isAnimating = true;
     setButtonsDisabled(true);
   
