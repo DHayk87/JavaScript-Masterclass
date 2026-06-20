@@ -1,6 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { initInteractivePages, refreshInteractivePages } from './interactive-pages';
-import * as i18n from '../i18n/index';
 
 // Mock i18n t function
 vi.mock('../i18n/index', async () => {
