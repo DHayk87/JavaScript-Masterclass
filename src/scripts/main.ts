@@ -3,11 +3,15 @@
  * Handles global functionality: i18n, Mermaid diagrams, Copy to Clipboard, etc.
  */
 
+import { inject } from "@vercel/analytics";
 import { initI18n, onLocaleChange, t } from "../i18n/index.js";
 import {
   initInteractivePages,
   refreshInteractivePages,
 } from "./interactive-pages.js";
+
+// Initialize Vercel Analytics
+inject();
 
 // 1. Initialize Mermaid
 let mermaidInstance: any = null;
